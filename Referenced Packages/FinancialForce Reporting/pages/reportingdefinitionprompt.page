@@ -1,0 +1,55 @@
+<apex:page standardController="ffr__ReportingDefinition__c" extensions="ffr.ReportingDefinitionController">
+
+    <!-- Demand fields to be loaded -->
+    <apex:outputText value="{!ffr__ReportingDefinition__c.ffr__ReportingTemplate__c}" rendered="false"/>
+    <apex:outputText value="{!ffr__ReportingDefinition__c.ffr__ExcelTemplate__c}" rendered="false"/>
+    <apex:outputText value="{!ffr__ReportingDefinition__c.ffr__DisplayPrompts__c}" rendered="false"/>
+    <apex:outputText value="{!ffr__ReportingDefinition__c.ffr__CompanyLogo__c}" rendered="false"/>
+    
+    <apex:form > 
+        <apex:pageBlock title="{!ffr__ReportingDefinition__c.Name}" mode="edit">
+            <apex:PageMessages />
+            <apex:pageBlockSection title="{!$Label.ReportingDefinitionPromptPageReportOptions}" collapsible="false">
+                <apex:outputText value="{!messagePromptsPage}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:outputPanel > 
+                    <table>
+                        <apex:repeat value="{!reportingPromptList}" var="prompt" rendered="{!displayPrompts}">
+                            <tr>
+                                <td align="left" class="labelCol" style="vertical-align:middle; width:450px">
+                                    <div align="left">
+                                        <apex:outputLabel value="{!prompt.dto.Name}"/>
+                                    </div>
+                                </td>
+                                <td align="right" style="vertical-align:middle">
+                                    <apex:outputPanel rendered="{!prompt.dto.ffr__Required__c}">
+                                        <div class="requiredInput" style="width:0px">
+                                        <div class="requiredBlock"></div>
+                                            <input type="checkbox" value="1" style="visibility:hidden" />
+                                        </div>
+                                    </apex:outputPanel>
+                                </td>
+                                <td align="right" style="vertical-align:middle">
+                                    <apex:outputPanel > 
+                                        <div class="requiredBlock"></div>           
+                                        <apex:inputText label="{!prompt.dto.Name}" style="width:150px" id="showText" value="{!prompt.value}" rendered="{!prompt.dto.ffr__Type__c!='Picklist'}" required="{!prompt.dto.ffr__Required__c}" disabled="{!!prompt.isNew && (isLog || prompt.isCompany)}"/>
+                                        <apex:selectList style="width:150px" id="showPicklist" value="{!prompt.value}" rendered="{!prompt.dto.ffr__Type__c=='Picklist'}"  multiselect="false" size="1" required="{!prompt.dto.ffr__Required__c}" disabled="{!!prompt.isNew && isLog}">
+                                            <apex:selectOptions value="{!prompt.selectOptionValues}"/>
+                                        </apex:selectList>
+                                    </apex:outputPanel>
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </table>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >  
+                <apex:commandButton action="{!runReport}" value="{!$Label.ReportingDefinitionPromptPageButtonRunReport}" disabled="{!hasError}"/>
+                <apex:commandButton action="{!printPDF}" value="{!$Label.ReportingDefinitionPromptPageButtonPrintPDF}" disabled="{!hasError}"/>
+                <apex:commandButton action="{!saveFile}" value="{!$Label.ReportingDefinitionPromptPageButtonSave}" disabled="{!hasError}"/>
+                <apex:commandButton action="{!cancel}" value="{!$Label.ReportingDefinitionPromptPageButtonCancel}"/>
+            </apex:pageBlockButtons> 
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

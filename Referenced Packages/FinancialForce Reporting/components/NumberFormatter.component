@@ -1,0 +1,5 @@
+<apex:component access="global" controller="ffr.NumberFormatterComponentController"> 
+    <apex:attribute name="value" type="object" description="Number value to be formatted" access="global" assignTo="{!objectValue}"/>
+    <apex:attribute name="pattern" type="string" description="Decimal format pattern" access="global" assignTo="{!stringPattern}"/>
+    <apex:outputText value="{!outputFormat}"><apex:param value="{!absoluteDecimalValue}"/></apex:outputText>
+</apex:component>

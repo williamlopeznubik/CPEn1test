@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Visit Report --></value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value><!-- Visit Report --></value>
+    </caseValues>
+    <fields>
+        <label>Compte</label>
+        <name>Account__c</name>
+        <relationshipLabel>Rapports de visites</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Commentaires</label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label>Infos sur la compétition</label>
+        <name>Competitive_information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Competitor --></label>
+        <name>Competitor__c</name>
+        <relationshipLabel><!-- Visit Reports --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Visit Reports --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Date</label>
+        <name>Date__c</name>
+    </fields>
+    <fields>
+        <label>But de la prochaine visite</label>
+        <name>Goal_of_next_visit__c</name>
+    </fields>
+    <fields>
+        <label>But de la visite</label>
+        <name>Goal_of_the_visit__c</name>
+    </fields>
+    <fields>
+        <label>Compétiteur principal</label>
+        <name>Main_competitor__c</name>
+        <picklistValues>
+            <masterLabel>Arcon</masterLabel>
+            <translation><!-- Arcon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daley Ferraro</masterLabel>
+            <translation><!-- Daley Ferraro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Giffen Koerth</masterLabel>
+            <translation><!-- Giffen Koerth --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incendies.com</masterLabel>
+            <translation><!-- Incendies.com --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MEC</masterLabel>
+            <translation><!-- MEC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Origin and Cause</masterLabel>
+            <translation><!-- Origin and Cause --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pyrotech</masterLabel>
+            <translation><!-- Pyrotech --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technorm</masterLabel>
+            <translation><!-- Technorm --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Type</label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Courtesy</masterLabel>
+            <translation>Courtoisie</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>Autre</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospecting</masterLabel>
+            <translation>Prospection</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Présentation CEPXpress</masterLabel>
+            <translation>Présentation CEPXPress</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Présentation Scoping</masterLabel>
+            <translation>Présentation Scoping</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Présentation Transport</masterLabel>
+            <translation>Présentation Transport</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Présentation Véhicules</masterLabel>
+            <translation>Présentation véhicules</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training</masterLabel>
+            <translation>Formation</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upselling</masterLabel>
+            <translation>Ventes et maintiens</translation>
+        </picklistValues>
+    </fields>
+    <gender><!-- Masculine --></gender>
+    <layouts>
+        <layout>Visit report Layout</layout>
+        <sections>
+            <label>Commentaires</label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label>Concurrence</label>
+            <section>Competition</section>
+        </sections>
+        <sections>
+            <label>Liens spéciaux</label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Visit Report Name --></nameFieldLabel>
+    <startsWith><!-- Consonant --></startsWith>
+</CustomObjectTranslation>

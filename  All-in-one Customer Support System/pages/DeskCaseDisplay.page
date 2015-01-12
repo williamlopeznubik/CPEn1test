@@ -1,0 +1,578 @@
+<apex:page standardController="Deskcom__Case__c" extensions="Deskcom.DeskCaseDisplayController" action="{!deskCaseDisplay}" showHeader="true" showChat="false" tabStyle="contact">
+  <apex:stylesheet value="{!URLFOR($Resource.Deskcom__desk_static,'css/desk.css')}"/>
+  <apex:pageBlock title="Desk.com Case {!deskCase.name}">
+    <apex:includeScript value="{!URLFOR($Resource.Deskcom__desk_static,'js/jquery-1.9.0.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Deskcom__desk_static,'js/jquery.timeago.js')}"/>
+
+    <apex:pageMessages />
+    <div id="custom_not_implemented_msg" class="hide">
+      <a class="open_case_external" href="{!HTMLENCODE(deskCase.case_url__c)}">Click here to view this case in the desk.com agent</a>
+    </div>
+    <div id="desk_case_outer" class="hide">
+      <div class="case_contents" id="case_detail_container">
+        <div class="case_contents_titlebar">
+          <span>Case Description</span>
+        </div>
+      </div>
+   
+      <div class="case_contents" id="custom_fields_container">
+        <div class="case_contents_titlebar">
+          <span>Case Custom Fields</span>
+        </div>
+        <div class="case_row clear">
+          <ul id="custom_fields_list"></ul>
+         </div>
+      </div>
+      <div class="case_contents">
+      <div class="case_contents_titlebar">
+        <span>Case Interactions</span>
+      </div>
+      <div class="interaction_view" id="case_wrapper">
+      <div id="case_contents_container">
+        
+        <div class="ticket_box ticket_box_{!HTMLENCODE(remoteCase.channelType)}">
+          <div class="ticket_toolbar_{!HTMLENCODE(remoteCase.channelType)}">
+          <!--shared - agent/interactions/ticket_toolbar-->
+            <div class="a-tabnav">  
+              <ul class="tab">
+                <li class="tab active" data-view="interaction">
+                  <span class="contents">
+                    <span class="agent_icon_button A-{!HTMLENCODE(remoteCase.channelType)}"></span>
+                    <a class="agent_icon_button_text" data-remote="true" target="_blank">{!HTMLENCODE(remoteCase.channelType)}</a>
+                  </span>
+                </li>
+              </ul>
+              <span class="open_case_in_desk"><a href="{!HTMLENCODE(deskCase.case_url__c)}" title="open case in your Desk.com account" id="open_case" class="open_case_external">Open at Desk.com</a></span>
+            </div>
+          </div><!-- .ticket-toolbar-->
+             
+  
+        <!-- customer_ticket_note_container --> 
+        </div>
+      </div>
+      <div class="a-yellow-button">
+          <a class="HK_add_note_link" id="toggle_note_button">Add Note</a>
+        </div>
+      </div> 
+      </div>
+      <div id="a-flash">
+        <div class="agent_notifier_msg flash_notice" id="a-flash-message"></div>
+      </div>
+      
+      <!-- Add note modal -->
+      <div class="agent_new_note_ticket_div HK_modal_window_escape a-modal-overlay" id="desk_note_block" >
+        <div class="a-modal-wrapper">
+          <div class="agent_new_note_ticket_div_inside a-modal-content a-modal-small ui-draggable">
+            <div id="responseErrors"></div>
+            <div class="agent_new_note_ticket_div_inside_header a-modal-top">
+              <div class="agent_new_note_ticket_details_title a-modal-title">Add Note</div>
+            </div>
+            <div class="agent_new_note_details_data a-modal-body">
+              <form>
+                <div class="a-textarea">
+                  <textarea autocomplete="off" class="default xl" cols="40" id="desk_note_textarea" rows="20"></textarea>
+                </div>
+                <div class="a-modal-actions">
+                  <span class="modal_input">
+                    <button class="a-button accept disabled" id="add_new_note_submit_button" disabled="disabled" type="button">
+                      <span class="icon"></span>
+                      <span class="text ">Add Note</span>
+                    </button>
+                  </span>
+                  <span class="modal_input">
+                    <!-- <a href="#" class="a-cancel
+                    close_modal">Cancel</a> -->
+                    <apex:outputLink value="#" styleClass="a-cancel close_modal">Cancel</apex:outputLink>
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </apex:pageBlock>
+<script>
+  //Lets wrap everything in a nice desk.com namespace
+  (function($){
+    //Globals and variables and stuff
+    var url = location.href;
+    var match = url.match(/inline=1/);
+    if (match != null) {
+        var newUrl = url.replace(/inline=1/, '');
+        window.top.location=newUrl;
+    }
+    
+    //global helper functions
+    function htmlEscape(str) {
+      var s =  String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')     /* " */
+      .replace(/'/g, '&#39;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+      return s;
+    }
+     
+    $(document).ready(function() {
+      $(".open_case_external").click(function(e){
+        e.preventDefault();
+        var new_window = window.open($(this).attr("href"),"_blank","toolbar=yes, location=yes, directories=yes, status=yes, menubar=yes, scrollbars=yes, resizable=yes, copyhistory=yes, width=1100, height=800");
+        new_window.focus();
+      });
+      $(".case_contents .case_contents_titlebar").click(function() {
+        if($(this).hasClass("arrow_right")) {
+          $(this).removeClass("arrow_right").siblings("div").show();
+        } else {
+          $(this).addClass("arrow_right").siblings("div").hide();
+        }
+      });
+    });
+    if("{!JSENCODE(deskCase.channel__c)}" === "Chat") {
+      $("#custom_not_implemented_msg").removeClass('hide');
+    } else {
+        Desk = window.Desk || {};
+        Desk.Salesforce = Desk.Salesforce || {};
+        Desk.Salesforce.Case = {    
+          caseType: (function() {
+            return (function() {
+              switch("{!JSENCODE(remoteCase.channelType)}") {
+                            case "email":
+                              return "email";
+                            case "phone":
+                              return "phone";
+                            case "twitter":
+                  return "tweet";
+                case "qna":
+                  return "qna";
+                case "facebook":
+                  return "facebook";
+                case "chat":
+                  return "chat"
+                        }
+            })()
+          })(),     
+          init: function() {
+              
+            var rawRemoteCase = JSON.parse('{!JSENCODE(rawRemoteCase)}'); 
+            var customer      = JSON.parse('{!JSENCODE(rawCustomerWithFacebook)}'); 
+            var twitter_user  = JSON.parse('{!JSENCODE(rawTwitterUser)}'); 
+            var repliesV      = JSON.parse('{!JSENCODE(rawRepliesV)}');
+            var notes         = JSON.parse('{!JSENCODE(notes)}'); 
+            var customFields  = JSON.parse('{!JSENCODE(customFields)}');
+            var assigned_user = rawRemoteCase._embedded.assigned_user; 
+            var message       = rawRemoteCase._embedded.message; 
+
+            var firstReply = {
+
+              subject: (function() {
+                return (function() {
+                  switch(Desk.Salesforce.Case.caseType) {
+                    case "facebook":
+                      return "Facebook Message";
+                    case "phone":
+                     if(message.direction === "in") {
+                       return "Inbound Phone Call";
+                     } else {
+                       return "Outbound Phone Call";
+                     }
+                    case "tweet":
+                      if(typeof message.subject != "undefined") {
+                          return message.subject;
+                      } else {
+                          return "@" + message.from;
+                      }
+                    default:
+                      if(typeof message.subject != "undefined") {
+                          return message.subject;
+                      } else {
+                          return message.from;
+                      }
+                  }
+                })()
+              })(),
+
+              body: (function() {
+                return (function() {
+                      switch(Desk.Salesforce.Case.caseType) {  
+                        case "tweet":
+                          var tweet_type = message.type;
+                          if(tweet_type === "mention") {
+                            return "Public message (mention)";
+                          } else if (tweet_type === "search"){
+                            return "Public message (search)";
+                          } else {
+                            return "Private message (direct message)"  + ': ' + message.body;
+                          }
+                        default:         
+                            if(typeof message.body !== "undefined") {
+                              return message.body;
+                            } 
+                      }
+                    })()
+              })(),
+
+              from: (function() {
+                return (function() {
+                  switch(Desk.Salesforce.Case.caseType) {  
+                    case "tweet": 
+                      if(message.direction === "out") {
+                        return customer.first_name + ' ' + customer.last_name;
+                       } else {
+                        return "@" + twitter_user.handle;
+                       }
+                    case "facebook":
+                      return cleanString(message.from_facebook_name);
+                    case "phone":
+                      return "";
+                    default:         
+                      return cleanString(message.from);
+                  }
+                })()
+              })(),
+
+              created_at: message.created_at, 
+
+              class: Desk.Salesforce.Case.caseType
+
+            };
+              
+            if(repliesV.total_entries > 0) {      
+                var cleanReplies = $.map(repliesV._embedded.entries, function(r, i) {
+                    if(r.status !== "draft"){
+                        replyingUser = initReplyingUser(r);						  
+                        return {
+                            subject: (function() {
+                                return (function() {
+                                    switch(Desk.Salesforce.Case.caseType) {  
+                                    case "phone":  
+                                        var direction = "";       
+                                        if(r.direction === "in") {
+                                            direction = "(Inbound Call)";
+                                        } else {
+                                            direction = "(Outbound Call)";
+                                        }
+                                        return direction;
+                                    default:         
+                                        return r.subject;
+                                    }
+                                })()
+                            })(),
+                      body: r.body,
+                        to: (function() {
+                            return (function() {
+                              var to = "To: ";
+                              switch(Desk.Salesforce.Case.caseType) {  
+                                case "tweet":
+                                  if(r.direction === "in") {
+                                    if(assigned_user == null) {
+                                      return "";
+                                    } else {
+                                      return to + assigned_user.public_name;
+                                    }
+                                  } else {
+                                      return to + "@" + twitter_user.handle;
+                                  }
+                                case "qna":
+                                  return "";
+                                case "facebook":
+                                  return "";
+                                case "phone":
+                                  return "";
+                                case "email":
+                                  return to + r.to;
+                                default:         
+                                  return to + r.to;
+                              }
+                            })()
+                          })(),
+                      from: (function() {
+                          return (function() {
+                              var from = "From: ";
+                              switch(Desk.Salesforce.Case.caseType) {  
+                              case "tweet":
+                                  if(r.direction === "out") {
+                                      if (assigned_user == null) {
+                                        return "";
+                                      } else {
+                                        return from + assigned_user.public_name;
+                                      }
+                                  } else {
+                                      return from + "@" + twitter_user.handle;
+                                  }
+                              case "qna":
+                                  return "";
+                              case "facebook":
+                                  return "";
+                              case "phone":
+                                  return "";
+                              case "email":
+                                  if(replyingUser.email == null) {
+                                      return from + replyingUser.public_name;
+                                  } else {
+                                      return from + replyingUser.email;
+                                  }
+                              default:         
+                                  return from + (assigned_user.public_name == null ? '' : assigned_user.public_name);
+                              }
+                          })()
+                      })(),
+                      created_at: r.created_at,
+                      updated_at: r.updated_at,
+                      class: Desk.Salesforce.Case.caseType,
+                      user: (function() {
+                      return (function() {
+                        switch(Desk.Salesforce.Case.caseType) {  
+                          case "tweet":
+                            return "@" + twitter_user.handle;
+                          case "facebook":
+                            if(replyingUser == null) {
+                            return "facebook comment";
+                          } else {
+                            return replyingUser.public_name;
+                          }
+                          default: 
+                            if (replyingUser == null) {
+                             return "";
+                            }
+                            if (replyingUser.public_name !== "undefined") {
+                             return replyingUser.public_name;
+                          } else {
+                             return replyingUser.email;
+                          }
+                        }
+                      })()
+                    })(),
+                    gravatar: (function() {
+                        if(replyingUser.avatar == null) {
+                          return "";
+                        } else {
+                          return replyingUser.avatar;
+                        }
+                    })(),
+                    showGravatar: (function() {
+                        if (replyingUser.avatar == null)  {
+                            return "hide-gravatar";
+                        } else {
+                            return "";
+                        }
+                    })()
+                  }
+                  }
+                });
+              }
+            
+            if(notes.totalEntries !== 0) {
+                var cleanNotes = $.map(notes._embedded.entries, function(n, i) {
+                  return {
+                    body: n.body,
+                    created_at: n.created_at,
+                    updated_at: n.updated_at,
+                    class: "note",
+                    user: n._embedded.user.public_name,
+                    gravatar: n._embedded.user.avatar
+                  }
+                });
+            }
+            //merge notes and interactions
+            var combined;
+            if((typeof cleanReplies !== "undefined") && (typeof cleanNotes !== "undefined")) {
+              combined = cleanReplies.concat(cleanNotes).sort(date_sort);
+            } else if(typeof cleanReplies !== "undefined") {
+              combined = cleanReplies;
+            } else if(typeof cleanNotes !== "undefined") {
+              combined = cleanNotes;
+            }
+              
+            var ticketHTML = function() {
+              var resp = "";
+              resp += firstReplyContainer(firstReply);
+              if(typeof combined !== "undefined") {
+                  for(var i=0; i<combined.length; i++) {
+                    if(combined[i].class == "note") {
+                      resp += Desk.Salesforce.Case.notesContainer(combined[i]);
+                    } else {
+                      //else the object represents an interaction
+                      resp += repliesContainer(combined[i]);
+                    }
+                  } 
+                }        
+              return resp;
+            };
+            
+            $("#case_detail_container").append(caseInfoContainer(rawRemoteCase, rawRemoteCase));
+            $("#custom_fields_list").html(customFieldsContainer(rawRemoteCase.custom_fields));
+            $("#case_contents_container").append(ticketHTML);
+            
+            $(".time-ago").timeago();
+            $("#add_new_note_submit_button").click(function(){ 
+              Desk.Salesforce.Case.showReplyClicked()
+               $(this).addClass("disabled").prop("disabled", true); 
+            });
+            $(".close_modal").click(function() {Desk.Salesforce.Case.toggleNote()});
+            $("#toggle_note_button").click(function() {Desk.Salesforce.Case.toggleNote()});
+            $("#desk_note_textarea").on("keyup cut paste", function(e){Desk.Salesforce.Case.toggleSubmit(e)})
+            
+            function date_sort(a, b) {
+              return new Date(a.updated_at) - new Date(b.updated_at);
+            }
+    
+            function initReplyingUser(r) {
+                if (r._embedded != null) {
+                    if (r._embedded.sent_by != null) {
+                        return r._embedded.sent_by;
+                    } 
+                    if (r._embedded.entered_by != null) {
+                        return r._embedded.entered_by;
+                    } 
+                }
+            }												  
+
+            function cleanString(s) {
+              if (typeof s !== "undefined") return s;
+              return "";
+			}												  
+
+            function firstReplyContainer(data){
+              if(typeof data == "undefined") return;
+              return '<div class="customer_history_ticket_container customer_history_ticket_outside_'+Desk.Salesforce.Case.caseType+'_agent_response_first"><div class="customer_history_ticket first"><div class="customer_history_ticket_inside customer_history_ticket_inside_item"><div class="a-ticket-center"><div class="customer_history_ticket_center customer_history_ticket_center_'+Desk.Salesforce.Case.caseType+'"><div class="customer_history_ticket_main_line"><div class="a-ticket-header"><span class="customer_history_ticket_main_line_'+Desk.Salesforce.Case.caseType+'_details a-ticket-date"><div class="date">'+new Date(data.created_at)+'</div><div class="time-ago" title="'+htmlEscape(data.created_at)+'"></div></span></div><div class="customer_history_ticket_'+Desk.Salesforce.Case.caseType+'_subject a-ticket-subject">'+htmlEscape(data.subject)+'</div><span class="username"></span><div class="customer_history_ticket_status_line"><strong class="from_field">From:</strong> '+htmlEscape(data.from)+'</div></div><div class="customer_history_ticket_'+Desk.Salesforce.Case.caseType+'_body a-ticket-meat">'+htmlEscape(data.body)+'</div></div></div></div></div></div>';}        
+     
+            function repliesContainer(data){
+              if(typeof data == "undefined") return;
+              return '<div class="customer_history_ticket_container"><div class="customer_history_ticket not-first '+htmlEscape(data.showGravatar)+'"><div class="customer_history_ticket_inside customer_history_ticket_inside_item"><div class="customer_history_ticket_left a-ticket-left a-icon-w-mini"><div class="agent_thumb_50 a-user-icon med"><img class="gravatar" alt="" width="50" height="50" src="'+htmlEscape(data.gravatar)+'"></img></div></div><div class="a-ticket-center"><img alt="A-pick-left" class="a-pick" height="19" src="{!URLFOR($Resource.desk_static,'inline-images/a-pick-left.png')}" width="10"></img><div class="customer_history_ticket_center customer_history_ticket_center_email"><div class="customer_history_ticket_main_line"><div class="a-ticket-header"><span class="customer_history_ticket_main_line_email_details a-ticket-date"><div class="date">'+new Date(data.updated_at)+'</div><div class="time-ago" title="'+htmlEscape(data.updated_at)+'"></div></span><span class="a-more-details a-list-buttons"></span></div><span class="username">'+htmlEscape(data.user)+'</span><div class="customer_history_ticket_status_line">'+htmlEscape(data.to)+' </div><div class="customer_history_ticket_status_line">'+htmlEscape(data.from)+'</div></div><div class="customer_history_ticket_email_body a-ticket-meat">'+htmlEscape(data.body)+'</div></div></div></div></div></div>';        }
+            
+            function caseInfoContainer(data) {
+              if(typeof data == "undefined") return;
+              return '<div class="case_row clear"><span class="case_sub sml_width ">Subject</span><span>'+htmlEscape(data.subject)+'</span></div><div class="case_row clear"><div class="third_width"><div class="clear"><span class="case_sub sml_width">Status</span><span class="mid_width">'+htmlEscape(data.status)+'</span></div><div class="clear"><span class="case_sub sml_width">Priority</span><span class="mid_width">'+htmlEscape(data.priority)+'</span></div></div><div class="third_width"><div class="clear"><span class="case_sub sml_width">Group</span><span class="mid_width">'+printGroup(data._embedded)+'</span></div><div class="clear"><span class="case_sub sml_width">Agent</span><span class="mid_width">'+printAgent(data._embedded)+'</span></div></div><div class="third_width labels_container_outer"><span class="case_sub sml_width">Labels</span><div class="labels_container"><ul class="ticket_labels">'+printLabels(data.labels)+'</ul></div></div></div>'
+            }
+            
+            function customFieldsContainer(data) {
+              if(typeof data == "undefined") return;
+              var custom_labels = "";
+              $.each(data, function(k, v) {
+                  if(v == null) v = "";
+                  if(v.length > 0) {
+                    switch(customFields.results[k].type) {
+                                    case "date":
+	                                  v = new Date(v).toUTCString();
+                                      break;
+                                    case "boolean":
+                                      v = (v === "1") ? "True" : "False";
+                                      break;
+                                }
+                            }
+                custom_labels += '<li><span class="case_sub">'+htmlEscape(customFields.results[k].label)+'</span><span>'+htmlEscape(v)+'</span></li>';
+              });
+              return custom_labels;
+            }  
+            
+            function printLabels(labels) {
+              if(typeof labels === "undefined") return;
+              var labels_html = ""
+              $.each(labels, function(k, v) {
+                labels_html += "<li><p>"+ htmlEscape(v) +"</p></li>";
+              });
+              return labels_html;
+            }
+            
+            function printAgent(agent) {
+              if((typeof agent === "undefined") || (!agent.assigned_user)) return "";
+              return htmlEscape(agent.assigned_user.public_name);
+            }
+            
+            function printGroup(group) {
+              if((typeof group === "undefined") || (!group.assigned_group)) return "";
+              return htmlEscape(group.assigned_group.name);
+            }
+          },
+          
+          notesContainer: function(data) {
+          if(typeof data == "undefined") return;
+          return '<div class="customer_history_ticket_container customer_history_ticket_outside_note"><div class="customer_history_ticket note not-first '+htmlEscape(data.showGravatar)+'"><div class="customer_history_ticket_inside customer_history_ticket_inside_item "><div class="customer_history_ticket_left a-ticket-left a-icon-w-mini"><div class="agent_thumb_50 a-user-icon med"><img class="gravatar" alt="" width="50" height="50" src="'+htmlEscape(data.gravatar)+'"></img></div><div class="agent_image_type_icon a-icon-mini"><img alt="" class="agent_icon_button" height="16" src="{!URLFOR($Resource.desk_static,'inline-images/note.png')}" width="16"></img></div></div><div class="a-ticket-center"><div class="customer_history_ticket_center customer_history_ticket_center_note"><div class="customer_history_ticket_main_line a-ticket-header"><span class="customer_history_ticket_main_line_email_details a-ticket-date"><span class="date">'+new Date(data.updated_at)+'</span><span class="time-ago" title="'+htmlEscape(data.updated_at)+'"></span></span></div><div class="username">'+htmlEscape(data.user)+'</div><div class="customer_history_ticket_note_text a-ticket-meat"> '+htmlEscape(data.body)+' </div></div></div></div></div></div>';
+        },
+          
+          toggleNote: function() {
+            var e = $('#desk_note_block');
+            var b = $('#toggle_note_button');
+            if(e.is(":visible")) {
+              e.hide();
+              b.show();    
+            } else {
+              e.show();
+              b.hide();  
+            }
+          },
+          
+          flashMessage: function() {
+            var elem = $('#a-flash');
+            elem.show();
+            setTimeout(function() {
+              elem.hide();
+              $('#a-flash-message').empty();
+            }, 8000);
+          },
+          
+          showReplyClicked: function() {
+            var p_elem = $("#desk_note_textarea");
+            var param = p_elem.val() + '~~~~' + {!deskCase.display_id__c};
+            Visualforce.remoting.Manager.invokeAction(
+              '{!$RemoteAction.DeskCaseDisplayController.showReply}',
+              param,  
+              function(result, event) {
+                result = result.replace(/\&quot\;/g,'"');
+                result = JSON.parse(result);
+                if (event.status) {
+                  p_elem.val("");
+                  Desk.Salesforce.Case.toggleNote();
+                  if((typeof result.body !== "undefined") && (typeof result.created_at !== "undefined") && (typeof result.error === "undefined")) {
+                    $('#a-flash-message').html("The note was successfully created.");
+                    var cleanNotes = {
+                            body: result.body,
+                            created_at: result.created_at,
+                            updated_at: result.updated_at,
+                            class: "note",
+                            user: result._embedded.user.public_name,
+                            gravatar: (function() {
+                            if(result._embedded.user.gravatar == null)  {
+                              return "";
+                            } else {
+                              return result._embedded.user.gravatar;
+                            }
+                          })(),
+                          showGravatar: (function() {
+                            if(result._embedded.user.gravatar == null)  {
+                              return "hide-gravatar";
+                            } else {
+                              return "";
+                            }
+                          })()
+                          }
+                    $("#case_contents_container").append(Desk.Salesforce.Case.notesContainer(cleanNotes)).find(".time-ago").timeago();
+                  } else {
+                    $('#a-flash-message').html(result.error);
+                  }
+                  Desk.Salesforce.Case.flashMessage();
+                } else {
+                  $("#responseErrors").html(event.message);
+                }
+              }, 
+              {escape: true}
+            );
+          },
+          toggleSubmit: function(e) {
+            if($(e.target).val() === "") {
+              $("#add_new_note_submit_button").addClass("disabled").prop("disabled", true);
+            } else {
+              $("#add_new_note_submit_button").removeClass("disabled").prop("disabled", false);
+            }
+          }
+        };
+        $(document).ready(function() {
+          $("#custom_not_implemented_msg").remove();
+        Desk.Salesforce.Case.init();
+        $("#desk_case_outer").removeClass('hide');
+        });
+        }
+    })(jQuery);
+</script>
+</apex:page>

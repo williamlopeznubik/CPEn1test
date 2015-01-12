@@ -1,0 +1,14 @@
+{!Case.Account}
+{!Contact.Salutation} {!Contact.FirstName}  {!Contact.LastName}
+Votre dossier:{!Case.Dossier_Client__c}
+Requête:{!Case.Reference_dossier__c}
+Notre référence: {!Case.CaseNumber} Dossier {!Case.Dossier_CEP__c}
+La présente est pour vous indiquer que le paiement de notre facture {!Case.Facture_CEP__c} datée du {!Case.Date_de_la_facture__c} en relation avec l'affaire citée en rubrique est maintenant due depuis plus de {!Case.Delais_de_paiement__c}  jours. Malgré plusieurs avis préalables, nous constatons que le solde impayé est de {!Case.Solde__c}
+
+Notre relation d'affaires avec vous est basée sur sur des principes justes et raisonnables. Si quelques choses n'a pas fonctionné selon votre satisfaction nous apprécierions en être informé.
+
+Cet important retard nous cause de sérieux ennuis. Nous vous prions  de communiquer immédiatement avec {!Case.OwnerFullName} au {!Case.OwnerPhone} ou par courriel {!Case.OwnerEmail}  dans les plus brefs délais pour  prendre  arrangements  et régulariser cette situation.
+
+Nous vous remercions de l'attention immédiate que vous portez à la présente affaire.
+
+{!Case.OwnerFullName}

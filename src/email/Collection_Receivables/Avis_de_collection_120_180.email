@@ -1,0 +1,11 @@
+{!Case.Account}
+{!Contact.Salutation} {!Contact.FirstName}  {!Contact.LastName}
+Votre dossier:{!Case.Dossier_Client__c}
+Requête:{!Case.Reference_dossier__c}
+Notre référence: {!Case.CaseNumber} Dossier {!Case.Dossier_CEP__c}
+La présente est pour vous signaler que le paiement de notre facture {!Case.Facture_CEP__c} datée du {!Case.Date_de_la_facture__c} en relation avec l'affaire citée en rubrique est maintenant due depuis plus de {!Case.Delais_de_paiement__c}  jours. Malgré des avis préalables à 60 et 90 jours, le solde impayé est toujours de {!Case.Solde__c}
+
+Nous soupçonnons  que ce retard est attribuable à un oublie ou un malencontreux retard qui devrait se régler rapidement. Nous vous prions donc  de communiquer avec {!Case.OwnerFullName} au {!Case.OwnerPhone} dans les plus brefs délais pour régulariser la situation ou nous faire parvenir le montant réclamé  avant la fin du mois.
+
+Nous vous remercions de l'attention immédiate que vous portez à la présente affaire.
+{!Case.OwnerFullName}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>Receivables 120-180 english</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Lead_information</letterhead>
+    <name>Receivables 120-180</name>
+    <style>formalLetter</style>
+    <subject>reference: {!Case.CaseNumber} / {!Case.Reference_dossier__c} / Your file {!Case.Dossier_Client__c}</subject>
+    <textOnly>{!Case.Account}
+{!Contact.Salutation} {!Contact.FirstName}  {!Contact.LastName}
+Your File:{!Case.Dossier_Client__c}:
+Case:{!Case.Reference_dossier__c}
+Our reference: {!Case.CaseNumber}
+Our file {!Case.Dossier_CEP__c}
+Our invoice {!Case.Facture_CEP__c} with balance of {!Case.Solde__c}
+Case Owner {!Case.OwnerFullName} {!Case.OwnerTitle} {!Case.OwnerPhone}
+This notice is to inform you that the payment of  the captioned invoice is overdue. Notwithstanding previous notices at 60 and 90 days, an outstanding amount remains.
+
+We assume this delay is the result of some unfortunate turn of events that can be easily resolved.  We would therefore appreciate if you would communicate immediately with us  in order to remediate this abnormal situation or provide us with payment within the next 30 days.
+
+We are grateful for the attention you bring to this urgent matter.
+
+Regards</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,119 @@
+<apex:page controller="cirrusadv.ConfigureController" showHeader="true" sidebar="true" title="Cirrus Insight Analytics - Package Setup">
+	<c:importvisualstrap theme="default" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<!-- <script src="{!URLFOR($Resource.assets, 'jquery.ba-postmessage.min.js')}"></script> -->
+
+	<apex:sectionHeader title="Cirrus Insight Analytics" subtitle="Package Setup" />
+	<apex:pageMessages id="pageMessages" />
+
+	<style type="text/css">
+		.glyphicon-ok-sign {
+			color: #090;	
+			font-size: 75pt;
+		}
+
+		#confirm-auth div {
+			color: #090;	
+			font-size: 24pt;
+			font-weight: bold;
+		}
+
+		.btn-warning {
+			font-weight: bold;
+		}
+
+		.ci-signin:hover {
+			cursor: pointer;
+		}
+
+		.reset-auth, #sign-in, #confirm-auth {
+			display: none;
+		}
+
+		td.pbTitle h2 {
+			font-weight: bold;
+		}
+
+		p {
+			margin-bottom: 20px !important;
+		}
+	</style>
+
+	<script type="text/javascript">
+		var is_authorized = {!(IF(isAuthorized, "true","false"))};
+
+		$(document).ready(function() {
+			$("#sign-in-btn").click(function(e) {
+				e.preventDefault();
+				window.open('{!endpoint}/sfdcLogin.php','sfdcLogin', 'WIDTH=655,HEIGHT=490');			
+			});
+
+			$("#reset-auth-btn").click(function(e) {
+				e.preventDefault();
+				$(".reset-auth").fadeOut(function() {
+					$("#sign-in").fadeIn();
+				});
+			});
+
+			$(window).on("message", function(e) {
+				e = e.originalEvent;
+				if (e.data != undefined) {
+					var msg = JSON.parse(e.data);
+					console.log("Token = " + msg.responseData.token);
+
+					Visualforce.remoting.Manager.invokeAction(
+						'{!$RemoteAction.ConfigureController.saveToken}', msg.responseData.token, 
+						function(o) {
+							$("#sign-in").fadeOut(function() {
+								$("#confirm-auth").fadeIn();
+							});
+						}
+					);
+				}
+			});
+
+			if (is_authorized) {
+				$(".reset-auth").fadeIn();
+			} else {
+				$("#sign-in").fadeIn();
+			}
+
+		});
+
+	</script>
+
+	<apex:form >
+		<c:visualstrapblock >
+			<apex:pageBlock title="Cirrus Analytics Live Reporting">
+
+
+				<apex:outputPanel layout="block" styleClass="reset-auth alert alert-success">
+					<c:glyph icon="ok"/>
+				    Cirrus Analytics Live Reporting is Running.
+				</apex:outputPanel>
+
+				<apex:outputPanel layout="block" styleClass="reset-auth">
+					<p><b>Running User</b>: {!runningUserUsername}</p>
+					<p>To change the user that Live Reporting runs as, click Reset Authorization and log back in to Cirrus Insight as the new user.</p>
+					<button id="reset-auth-btn" class="btn btn-warning btn-xs">Reset Authorization</button>
+				</apex:outputPanel>
+
+				<div id="sign-in">
+					<p>To enable Cirrus Analytics Live Reporting in your Salesforce org, Sign In to Cirrus Insight below. 
+					You must be an active Cirrus Insight user, or in your trial period.</p>
+					<br/>
+
+					<div style="text-align: center">
+						<a tabindex="0"><img src="{!URLFOR($Resource.assets, 'ci-signin.png')}" class="ci-signin" id="sign-in-btn" /></a>
+					</div>
+				</div>
+	
+				<div style="text-align: center" id="confirm-auth">
+					<apex:outputPanel styleClass="glyphicon glyphicon-ok-sign"></apex:outputPanel>
+					<div>Success!</div>
+				</div>
+
+			</apex:pageBlock>
+		</c:visualstrapblock>
+	</apex:form>
+</apex:page>

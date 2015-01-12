@@ -1,0 +1,11 @@
+{!Case.OwnerFullName},
+La requête {!Case.CaseNumber} vous a été attribuée.
+Dans le dossier {!Case.Dossier_CEP__c} dont le responsable du dossier est {!Case.responsable_du_dossier__c}, la facture {!Case.Facture_CEP__c} dont le solde est de {!Case.Solde__c} est maintenant due depuis {!Case.Delais_de_paiement__c} jours.
+Il conviendrait d'approcher le client pour amorçer le processus:
+{!Case.Account}
+{!Case.Contact} {!Contact.Email} ou {!Contact.Phone}
+sojn dossier: {!Case.Dossier_Client__c} 
+La référence: {!Case.Reference_dossier__c}
+POlice #: {!Case.Police__c}
+
+Un processus de collection débuté à cette étape est généralement plus efficace et bénéfique pour CEP.

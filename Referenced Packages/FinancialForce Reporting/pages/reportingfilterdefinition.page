@@ -1,0 +1,39 @@
+<apex:page standardController="ffr__ReportingFilter__c" extensions="ffr.ReportingFilterDefinitionController" id="thePage">
+	<script src="{!URLFOR($Resource.filterUI,'FilterUI/base/frameworks/jquery-1.4.2.min.js')}" type="text/javascript"></script>
+	<style>
+	.messageWrapper textarea{
+		height:75px;
+		width:395px;
+	}
+	</style>
+	<apex:form >
+		<apex:sectionHeader title="{!pageTitle}" help="{!IF(isNew, URLFOR('/apex/helploader?topicid=1003'), URLFOR('/apex/helploader?topicid=1002'))}"/>
+		<apex:pageBlock mode="edit">
+			<apex:PageMessages />
+			<apex:PageBlockSection columns="1">
+			
+				<apex:inputField value="{!ffr__ReportingFilter__c.Name}" id="name" required="true" style="width:300px;"/>
+				<apex:inputField value="{!ffr__ReportingFilter__c.ffr__UniqueName__c}" id="uniquename" required="true" style="width:300px;"/>
+				<apex:inputField value="{!ffr__ReportingFilter__c.ffr__Description__c}" id="description" style="width:300px;"/>
+
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.FiltersUIFilterBuilder}"/>
+					<apex:outputPanel layout="block">
+						<div class="formulaBuilder JSONWrapper" id="{!$Component.JSON}Wrapper" style="display:none;">
+							<div class="header">
+								<span class="button buttonNoHover">JSON</span>
+							</div>
+							<apex:inputTextarea value="{!ffr__ReportingFilter__c.ffr__Value__c}" id="JSON" cols="60" rows="6" />
+						</div>
+						
+						<c:FormulaBuilder formulaBuilderId="myformulaBuilder" formulaBuilderJSONId="{!$Component.JSON}"/>
+					</apex:outputPanel>
+				</apex:pageBlockSectionItem>
+			</apex:PageBlockSection>
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!save}" value="Save" />
+				<apex:commandButton action="{!cancel}" value="Cancel" />
+			</apex:pageBlockButtons>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

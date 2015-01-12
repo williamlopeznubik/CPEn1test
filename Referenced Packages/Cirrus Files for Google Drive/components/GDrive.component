@@ -1,0 +1,372 @@
+<apex:component allowDML="true" selfClosing="true" controller="IGD.GDrive_Component_Controller" access="global" id="page">
+
+    <apex:attribute name="recordType" assignTo="{!rType}" description="type of the record that needs to be displayed" type="String" required="true" access="global"/>
+    <apex:attribute name="recordId" assignTo="{!rId}" description="id of the record that needs to be displayed" type="String" required="true" access="global"/>
+
+	<!-- jQuery data + action status data -->
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+	<apex:includeScript value="{!URLFOR($Resource.IGD__jQuery, '/js/jquery-1.7.2.min.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.IGD__jQuery, '/js/jquery-ui-1.8.20.custom.min.js')}"/>
+	<apex:stylesheet value="{!URLFOR($Resource.IGD__jQuery, '/css/ui-lightness/jquery-ui-1.8.20.custom.css')}"/>
+	<apex:includeScript value="{!$Resource.IGD__multiSelectButton_js}"/>
+
+	<style>
+		.placeholder{color:#999;font-style:italic;}
+	   	.changecss {background-color:#00ff00;}
+	   	.headerRow .headerStyle{text-align:center}
+	   	.totalRow .footerStyle{background-color:#638658;color:#FFFFFF;text-align:center}
+
+        .ui-widget-overlay {
+            background:gray;
+            background-color: #222;
+        }
+
+	    /*-----------Spalsh Panel -------*/
+	    .button { background: url('{!$Resource.GDriveBG}') no-repeat center; width:260px; height:180px;}
+	    
+	    .circle {
+	        width:70px;
+	        height:70px;
+	        margin-top:20px;
+	        margin-left:auto;
+	        margin-right:auto;
+	    }
+	            
+	    .txt {
+	        font-family:Georgia,"Times New Roman", serif;
+	        font-size:19px;
+	        color:#506eb2;
+	        text-align:center;
+	        line-height:20px;
+	        width: 260px;
+	        font-style:italic;
+	        margin-top:20px;
+	        font-weight:normal; 
+	    }
+	    
+	    #blurybackground {
+	        z-index:1000;
+	        //bottom:0;
+	        position:absolute;
+	        left:0px;
+	        top:0px;
+	        width:100%;
+	        height:100%;
+	        text-align:center;
+	        vertical-align: middle;
+	        background-color: #222;
+	        //background-color: white;
+	        opacity:0.6;
+	        filter:alpha(opacity=60);
+	        //display:table;
+	    }
+	    
+	    #statusBox {
+	        // for Modzilla
+	        -moz-background-clip:border;
+	        -moz-background-inline-policy:continuous;
+	        -moz-background-origin:padding;
+	        -moz-border-radius-bottomleft:5px;
+	        -moz-border-radius-bottomright:5px;
+	        -moz-border-radius-topleft:5px;
+	        -moz-border-radius-topright:5px;
+	        -moz-box-shadow:1px 6px 5px #888888;
+	        
+	        -webkit-border-bottom-left-radius:5px;
+	        -webkit-border-bottom-right-radius:5px;
+	        -webkit-border-top-left-radius:5px;
+	        -webkit-border-top-right-radius:5px;
+	        -webkit-box-shadow:1px 6px 5px #888888;
+	        
+	        box-shadow: 1px 6px 5px #888888;
+	        
+	        z-index:1000;
+	        
+	        background:#FFFFFF none repeat scroll 0 0;
+	        height:42px;
+	        width:150px;
+	        left:45%;
+	        top:45%;
+	        padding-left:15px;
+	        padding-top:11px;
+	        position:absolute;
+	        vertical-align:middle;
+	    }
+	    
+	    #textBox {
+	        margin-left:40px;
+	        margin-top:-20px;
+	        font-weight:bold;
+	        font-size:14px;     
+	    }
+	
+	    div.bPageBlock.brandSecondaryBrd.apexDefaultPageBlock.secondaryPalette div.pbHeader td.pbTitle {
+	        background: url('{!$Resource.Drive16}') no-repeat 13px 10px;
+	    }
+	
+	    div.bPageBlock.brandSecondaryBrd.apexDefaultPageBlock.secondaryPalette div.pbHeader td.pbTitle h2 {
+	        margin-left: 20px;
+	    }
+
+	    a.folderContents:visitied, a.folderContents:link {
+	    	text-decoration:none;
+	    }
+        a.folderContents:active, a.folderContents:hover {
+        	text-decoration:underline;
+        }
+        
+        .imageDropdown {
+            width:30;
+            height:30;
+            vertical-align:middle;
+        }
+        .spanDropdown {
+            vertical-align:middle;
+        }
+        .mainDiv {
+            height: 40;
+        }
+        .divBgColor {
+            background-color:#E0E0E0;
+        }
+
+	</style>
+
+	<script language="JavaScript">
+	    function submitOnEnter(e) {
+	        var key;
+
+	        if (window.event)
+	            key = window.event.keyCode; //IE
+	        else
+	            key = e.which; //Firefox & others
+	    
+	        if (key == 13) {
+	            //createDocumentJS();
+	            //j$('.createDocument').removeClass('placeholder');
+	            j$('.createDocument').click(); 
+	            return false;
+	        }
+	        else
+	            return true;
+	    }
+	</script>
+  
+    <div id="div" style="display:none;">
+        <apex:form id="uploadForm">
+            <apex:inputFile styleClass="testInput" fileName="{!fileResource.fileName}" fileSize="{!fileResource.fileSize}" contentType="{!fileResource.fileType}" value="{!fileResource.fileContent}" />
+            &nbsp;<apex:commandButton value="Upload" action="{!upload}" styleClass="uploadButton" disabled="false" onclick="$('#div').dialog('close');" />
+        </apex:form>
+    </div>
+
+	<script>
+		var j$ = jQuery.noConflict();
+	</script>
+	
+	
+    <apex:form id="componentForm">
+        <apex:actionFunction action="{!createDocument}" name="createDocumentaf" status="splashStatus" reRender="opid,msgId" >
+        	<apex:param name="param1" assignTo="{!selectedType}" value=""/>
+        	<apex:param name="param2" assignTo="{!documentName}" value=""/>
+        </apex:actionFunction>
+        <apex:actionFunction action="{!processJob}" name="processJob" reRender="msgId"/>
+
+        <apex:actionPoller id="pollerId" enabled="{!enablePoller}" interval="12" action="{!methodForActionPoller}" reRender="opid,msgId" oncomplete="endSplash();processJob();"/><!-- componentForm, -->
+        <apex:actionStatus id="splashStatus" onstart="startSplash();" onstop="endSplash(); "/>
+
+        <div id="blurybackground" style="display:none;"></div>
+        <div id="statusBox" style="display:none;">
+            <img src="/img/loading32.gif" />
+            <div id="textBox">Processing...</div>
+        </div>
+
+		<script language="javascript">
+			startSplash();
+	        endSplash();
+
+		    function startSplash() {
+		    	//debugger;
+		        document.getElementById('blurybackground').style.display = '';
+		        document.getElementById('statusBox').style.display = '';
+		    }
+		    
+		    function endSplash() {
+		        document.getElementById('blurybackground').style.display = 'none';
+		        document.getElementById('statusBox').style.display = 'none';
+		    }
+		    
+	        function createDocumentJS(docType, docName) {
+	        	//debugger;
+	        	//console.log('docName ' + docName);
+	        	if (docName == null || docName == '' || docName == 'Enter name here') {
+	        		alert(docType + ' Name must be entered.');
+	        		j$('.docName').focus();
+	        		return false;
+	        	}
+	        	createDocumentaf(docType, docName);
+	        	j$('.docName').val('');
+	        	j$('#divFileName').dialog('close');
+	        	return false;
+	        }
+		</script>
+
+		<apex:outputPanel id="opid">
+		
+		<script>
+			var docType = '';
+	        j$(function() {
+	            j$(".mainDiv").hover(
+	            function() {
+	                j$(this).addClass("divBgColor");
+	            },function() {
+	                j$(this).removeClass("divBgColor");
+	            });
+	        });
+	        
+		</script>
+
+        <apex:pageBlock id="GDocs" title="Cirrus Files"> <!-- tabStyle="IGD__IGD_Setup__tab" -->
+            <apex:pageMessages escape="false" id="msgId" />
+            <apex:pageMessage summary="Sync is in Progress." severity="Info" strength="2" rendered="{!enablePoller}" id="progressMsg"/>
+            <apex:pageBlockButtons location="top">
+
+				<!--
+                <apex:inputText value="{!documentName}" style="border-left:3px solid red" maxlength="255" styleclass="{!IF(documentName=='Enter name here','placeholder','')}" onKeyPress="return submitOnEnter(event);"
+                			onfocus="if (this.value == 'Enter name here') {this.value = '';j$(this).removeClass('placeholder');}" onblur="if (this.value == '') {this.value ='Enter name here';j$(this).addClass('placeholder');}" rendered="{!NOT(enablePoller) && recordConnectionStatus}"/>
+				-->
+
+		        <c:multiSelectButton uniqueId="driveFileType" buttonText="CREATE" rendered="{!NOT(enablePoller) && recordConnectionStatus}" >
+		            <br/>
+		            <apex:repeat value="{!docTypes}" var="docType">
+		                <!-- <div onclick="createDocumentJS('{!docType}')" class="mainDiv"> -->
+		                <!-- <div onclick="docType='{!docType}'; j$('#divFileName').dialog({show: 'drop', hide: 'drop', modal: true, title: 'Enter File Name', resizable: false, height: 75, width:320});return false;" class="mainDiv"> -->
+		                <div onclick="docType='{!docType}'; j$('#divFileName').dialog({modal: true, title: 'Enter {!docType} Name', resizable: false, height: 75, width:320}).parent().appendTo(j$('page\\:componentForm'));return false;" class="mainDiv">
+		                    <img src="{!URLFOR($Resource.driveImages, '/images/'+docType+'.png')}" class="imageDropdown"/>
+		                    <span class="spanDropdown">&nbsp;{!docType}&nbsp;</span>
+		                </div>
+		            </apex:repeat>
+		            <br/>
+		        </c:multiSelectButton>
+
+				<apex:outputPanel rendered="{!NOT(enablePoller) && recordConnectionStatus}">
+	               <div name="multiButton" id="upload" class="menuButton" onclick="j$('#div').dialog({show: 'drop', hide: 'drop', modal: true, title: 'Upload file to Google Drive', resizable: false, height: 75, width:330});return false;">
+	               		<div id="uploadButton" class="menuButtonButton" onmouseover="divHover = 'uploadButton';" onmouseout="divHover = '';" style="padding-right: 5px;background-image: url('/s.gif');" ><i class="fa fa-upload fa-lg"></i></div>
+	               </div>
+	            </apex:outputPanel>
+	            
+                <apex:commandButton value="Refresh" action="{!resetGdriveListFiles}" status="splashStatus" reRender="opid" rendered="{!enablePoller}"/>	<!-- rendered="{!enablePoller && recordConnectionStatus}" -->
+                
+                <apex:commandButton value="Manual Connect" title="Manual Connect" action="{!connectandSyncFiles}" status="splashStatus" reRender="pollerId,opid,connectionStatusId,msgId" rendered="{!(NOT(ISBLANK(objectToView)) && !autoConnect && !enablePoller && !recordConnectionStatus)}"/>
+            </apex:pageBlockButtons>
+
+			<apex:outputPanel id="connectionStatusId">
+	            <apex:pageBlockSection collapsible="false" columns="1" id="connectionDetails">
+	                <apex:pageBlockSectionItem >
+	                    <apex:outputLabel value="Connection Status: " />
+	                    <apex:outputPanel >
+	                    	<!-- recordConnectionStatus: {!recordConnectionStatus} &nbsp; enablePoller 
+	                        <apex:image value="{!$Resource.IGD__Red}" rendered="{!NOT(recordConnectionStatus)}" width="15px"/>
+	                        <apex:image value="{!$Resource.IGD__Green}" rendered="{!recordConnectionStatus}" width="15px"/>
+	                        -->
+	                        <apex:image value="{!$Resource.IGD__Red}" rendered="{!(NOT(recordConnectionStatus) && NOT(enablePoller))}" width="15px"/>
+	                        <apex:image value="{!$Resource.IGD__Green}" rendered="{!(recordConnectionStatus || enablePoller)}" width="15px"/>
+	                    </apex:outputPanel>
+	                </apex:pageBlockSectionItem>
+	            </apex:pageBlockSection>
+	        </apex:outputPanel>    
+
+			<!-- folder navigation -->
+            <apex:outputPanel style="padding-left:10px;line-height:150%;">
+            	<apex:variable var="counter" value="{!1}"/>
+				<apex:repeat value="{!drivePaths}" var="path">
+                   	<apex:outputPanel rendered="{!counter!=1}">&nbsp;&nbsp;<i style="color:gray;" class="fa fa-caret-right fa-lg"></i>&nbsp;&nbsp;</apex:outputPanel>
+					<apex:commandLink value="{!path.FolderName}" action="{!resetGdriveListFiles}" title="{!path.FolderName}" reRender="opid,msgId" styleClass="folderContents" style="color:gray;font-size:0.9em;{!if(counter==drivePaths.size, 'font-weight:bold;', '')}" status="splashStatus">
+						<apex:param name="gdocsId" value="{!path.FolderId}" />
+						<apex:param name="gdocsName" value="{!path.folderName}" />
+					</apex:commandLink>
+					<apex:variable var="counter" value="{!counter+1}"/>
+				</apex:repeat>
+
+				<apex:commandLink value="Home" title="Home" reRender="opid,msgId" styleClass="folderContents" style="color:gray;font-size:0.9em;font-weight:bold;" status="splashStatus" rendered="{!(NOT(ISBLANK(recordCollectionId)) && (ISBLANK(drivePaths) || drivePaths.size==0))}">
+				</apex:commandLink>				
+            </apex:outputPanel>
+			<br/>
+
+            <apex:pageBlockSection id="recordDetails" collapsible="false" columns="1" >
+                <apex:pageBlockTable value="{!Items}" var="item" rendered="{!NOT(ISBLANK(recordCollectionId))}">	<!--rendered="{!NOT ISBLANK(recordCollectionId)}" rendered="{!NOT(ISBLANK(Items)) && Items.size > 0}" -->
+                    <apex:column styleclass="actionColumn" rendered="{!recordConnectionStatus}">
+                        <apex:facet name="header">Action</apex:facet>
+
+                        <apex:commandLink value="Del" title="Delete" action="{!trashFile}" status="splashStatus" reRender="opid,msgId">
+                        	<apex:param name="fileId" value="{!item.Id}"/>
+						</apex:commandLink>
+
+                        <apex:outputPanel rendered="{!!item.isFolder}">
+                        	|&nbsp;
+                            <apex:outputLink title="Edit" onclick="javascript:window.open('{!item.alternateLink}'); return false;">
+                                Edit
+                            </apex:outputLink>
+                            |&nbsp;
+                            <apex:outputLink title="Preview" onclick="javascript:window.open('{!if(ISBLANK(item.embedLink), if(item.mimeType=='application/vnd.google-apps.form', item.alternateLink, SUBSTITUTE(item.alternateLink, '/edit', '/preview')), item.embedLink)}');return false;">	<!-- selfLink webContentLink webViewLink-->
+                                View
+                            </apex:outputLink>                            
+                        </apex:outputPanel>
+
+						<!-- 
+                        <apex:outputPanel rendered="{!(NOT(item.isFolder) && NOT(ISBLANK(item.alternateLink)))}">
+                        	|&nbsp;
+	                        <apex:outputLink onclick="javascript:window.open('{!item.alternateLink}');return false;" > 
+	                            <i class="fa fa-download fa-lg"></i>
+	                        </apex:outputLink>
+						</apex:outputPanel>
+						-->
+                    </apex:column>
+
+                    <apex:column styleclass="actionColumn" >
+                        <apex:facet name="header">Type</apex:facet>
+                        <apex:image url="{!item.iconLink}"/>
+                    </apex:column>
+
+                    <apex:column width="30%">
+                        <apex:facet name="header">Title</apex:facet>
+                        <apex:outputPanel rendered="{!!item.isFolder}">
+                            <apex:outputLink onclick="javascript:window.open('{!if(ISBLANK(item.embedLink), SUBSTITUTE(item.alternateLink, '/edit', '/preview'), item.embedLink)}');return false;">
+                                {!item.title}
+                            </apex:outputLink>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!item.isFolder}">
+		                    <apex:commandLink value="{!item.Title}" action="{!resetGdriveListFiles}" style="align:center" status="splashStatus" reRender="opid,msgId">
+								<apex:param name="gdocsId" value="{!item.id}" />
+								<apex:param name="gdocsName" value="{!item.title}" />
+							</apex:commandLink>
+                        </apex:outputPanel>
+                    </apex:column>
+
+                    <apex:column headerValue="Owner Name" >{!item.ownerNames}</apex:column>
+
+                    <apex:column headerValue="Last Modified By" value="{!item.lastModifyingUserName}" />
+
+                </apex:pageBlockTable>
+			</apex:pageBlockSection>
+
+            <apex:pageBlockSection id="noRecords" rendered="{!(NOT(ISBLANK(recordCollectionId)) && (ISBLANK(Items) || Items.size==0))}">	<!-- rendered="{!(NOT ISBLANK(recordCollectionId) && (ISBLANK(Items) || Items.size==0))}" -->
+                No records to display
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="manualConnect" rendered="{!(!enablePoller && !ISBLANK(objectToView) && ISBLANK(recordCollectionId) && !autoConnect)}">
+                Click <strong>Manual Connect</strong> button to connect this record to Google Drive.
+            </apex:pageBlockSection>
+ 
+        </apex:pageBlock>
+        
+        </apex:outputPanel>
+
+	    <div id="divFileName" style="display:none">
+
+			<apex:inputText style="width:225px" maxlength="255" styleclass="{!IF(documentName=='Enter name here','docName placeholder','docName')}" onKeyPress="return submitOnEnter(event);"
+              		onfocus="if (this.value == '' || this.value == 'Enter name here') {this.value = '';j$(this).removeClass('placeholder');}" onblur="if (this.value == '') {this.value ='Enter name here';j$(this).addClass('placeholder');}" />	<!-- rendered="{!NOT(enablePoller) && recordConnectionStatus}" -->
+
+            &nbsp;<apex:commandButton value="Create" onclick="createDocumentJS(docType, j$('.docName').val());" styleClass="createDocument" rerender="msgId" />
+	    </div>
+
+    </apex:form>
+</apex:component>

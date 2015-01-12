@@ -1,0 +1,29 @@
+<apex:page Controller="ffr.ReportingListViewController">
+<apex:form > 
+	<apex:pageBlock title="{!$Label.ReportingGeneratePageTitle}" mode="edit">
+		<apex:PageMessages />
+		<apex:pageBlockSection title="{!$Label.ReportingGeneratePageSubTitle}" collapsible="false"/>
+		<apex:pageBlockSection > 
+			<apex:outputPanel > 
+			<table>
+				<tr> 
+					<td align="right" style="vertical-align:middle; padding:10px;">
+						<apex:outputLabel for="ReportingDefinitionName" value="{!$ObjectType.ffr__ReportingDefinition__c.fields.Name.label}"/>
+					</td>
+					<td align="left" style="vertical-align:middle">
+						<div class="requiredInput" style="width:0px">
+						<div class="requiredBlock"></div>
+							<apex:inputText id="ReportingDefinitionName" value="{!ReportingDefinitionName}"/>
+						</div>
+					</td>
+				 </tr>
+			</table>
+			</apex:outputPanel>
+		</apex:pageBlockSection>
+		<apex:pageBlockButtons >
+			<apex:commandButton action="{!save}" value="{!$Label.ReportingGeneratePageSaveButton}"/> 
+			<apex:commandButton action="{!cancel}" value="{!$Label.ReportingGeneratePageCancelButton}"/>
+		</apex:pageBlockButtons>
+	</apex:pageBlock>
+</apex:form>
+</apex:page>

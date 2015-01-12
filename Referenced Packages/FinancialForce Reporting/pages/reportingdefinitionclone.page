@@ -1,0 +1,40 @@
+<apex:page standardController="ffr__ReportingDefinition__c" extensions="ffr.ReportingDefinitionController">
+
+<!-- Demand fields to be loaded -->
+<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__Title__c}" rendered="false"/>
+<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__Description__c}" rendered="false"/>
+<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__ReportingTemplate__c}" rendered="false"/>
+<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__ExcelTemplate__c}" rendered="false"/>
+<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__StyleSheet__c}" rendered="false"/>
+<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__PrintStyleSheet__c}" rendered="false"/>
+<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__DisplayPrompts__c}" rendered="false"/>
+<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__CompanyLogo__c}" rendered="false"/>
+
+<apex:form > 
+	<apex:pageBlock title="{!$Label.ReportingDefinitionCloneTitle}" mode="edit">
+		<apex:PageMessages />
+		<apex:pageBlockSection title="{!$Label.ReportingDefinitionCloneSubTitle}" collapsible="false"/>
+		<apex:pageBlockSection > 
+			<apex:outputPanel > 
+			<table>
+				<tr>
+					<td align="right" style="vertical-align:middle; padding:10px;">
+						<apex:outputLabel for="ReportingDefinitionName" value="{!$ObjectType.ffr__ReportingDefinition__c.fields.Name.label}"/>
+					</td>
+					<td align="left" style="vertical-align:middle">
+						<div class="requiredInput" style="width:0px">
+						<div class="requiredBlock"></div>
+							<apex:inputField id="ReportingDefinitionName" value="{!ffr__ReportingDefinition__c.Name}"/>
+						</div>
+					</td>
+				 </tr>
+			</table>
+			</apex:outputPanel>
+		</apex:pageBlockSection>
+		<apex:pageBlockButtons >
+			<apex:commandButton action="{!saveClone}" value="Save"/> 
+			<apex:commandButton action="{!cancel}" value="Cancel"/>
+		</apex:pageBlockButtons>
+	</apex:pageBlock>
+</apex:form>
+</apex:page>

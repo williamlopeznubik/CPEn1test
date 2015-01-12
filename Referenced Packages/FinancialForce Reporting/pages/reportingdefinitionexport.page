@@ -1,0 +1,46 @@
+<apex:page standardController="ffr__ReportingDefinition__c" extensions="ffr.ReportingDefinitionExportController">
+
+	<!-- Demand fields to be loaded -->
+	<apex:outputText value="{!ffr__ReportingDefinition__c.Name}" rendered="false"/>
+	<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__Description__c}" rendered="false"/>
+	<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__ReportingTemplate__c}" rendered="false"/>
+	<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__ExcelTemplate__c}" rendered="false"/>
+	<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__StyleSheet__c}" rendered="false"/>
+	<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__PrintStyleSheet__c}" rendered="false"/>
+	<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__Title__c}" rendered="false"/>
+	<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__DisplayPrompts__c}" rendered="false"/>
+	<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__CompanyLogo__c}" rendered="false"/>
+	<apex:form >
+		<apex:sectionHeader title="{!$Label.ReportingDefinitionExportTitle}" help="{!URLFOR('/apex/helploader?topicid=1024')}"/>
+		<apex:pageBlock mode="edit">
+			<apex:PageMessages />
+			<apex:pageBlockSection title="{!$Label.ReportingDefinitionExportSectionTitle}" collapsible="false">
+				<apex:pageBlockSectionItem >
+					<apex:outputText id="ExportedNameLabel" value="{!$Label.ReportingDefinitionExportName}"/>
+					<apex:outputPanel >
+						<div class="requiredInput" >
+							<div class="requiredBlock"></div>
+							<apex:inputText id="ExportedName" value="{!exportView.exportedName}"/>
+						</div>
+					</apex:outputPanel>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection >
+				<apex:pageBlockSectionItem >
+					<apex:outputText id="IncludeReportingObjectLabel" value="{!$Label.ReportingDefinitionExportIncludeReportingObject}"/>
+					<apex:inputCheckbox id="IncludeReportingObject" value="{!exportView.IncludeReportingObjects}"/>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection >
+				<apex:pageBlockSectionItem >
+					<apex:outputText id="IncludeReportingFilterDefinitionLabel" value="{!$Label.ReportingDefinitionExportIncludeReportingFilterDefinitions}"/>
+					<apex:inputCheckbox id="IncludeReportingFilterDefinition" value="{!exportView.IncludeReportingFilterDefinitions}"/>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!export}" value="{!$Label.ReportingDefinitionExportSave}"/> 
+				<apex:commandButton action="{!cancel}" value="{!$Label.ReportingDefinitionExportCancel}"/>
+			</apex:pageBlockButtons>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

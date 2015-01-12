@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Adjointe au Directeur Laval</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Adjointe au Directeur Laval</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>DirecteurRgionalLaval</parentRole>
+</Role>

@@ -1,0 +1,35 @@
+<apex:page standardController="ffr__ReportingDefinition__c" extensions="ffr.ReportingDefinitionController">
+
+<!-- Demand fields to be loaded -->
+<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__ReportingTemplate__c}" rendered="false"/>
+<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__ExcelTemplate__c}" rendered="false"/>
+<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__DisplayPrompts__c}" rendered="false"/>
+<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__CompanyLogo__c}" rendered="false"/>
+
+<apex:form >  
+    <apex:pageBlock title="{!ffr__ReportingDefinition__c.Name}" mode="edit">
+        <apex:PageMessages />
+        <apex:pageBlockSection title="{!$Label.ReportingPromptSortSectionTitle}" collapsible="false">
+ 			<apex:facet name="header">
+             	<h3>{!$Label.ReportingPromptSortSectionTitle}</h3>
+            </apex:facet>
+	        <apex:outputPanel > 
+	            <apex:dataTable id="dtPromptSortOrder" value="{!reportingPromptList}" var="prompt" rowClasses="odd,even" headerClass="listheader" styleClass="list detailListnoPadding" border="0" onRowMouseOver="if (window.hiOn){hiOn(this);}" onRowMouseOut="if (window.hiOff){hiOff(this);}">
+	                <apex:column >
+	                    <apex:facet name="header">{!$Label.ReportingPromptSortPromptName}</apex:facet>                      
+	                    <apex:outputText value="{!prompt.dto.Name}" id="promptName"/> 
+	                </apex:column>
+	                <apex:column >
+	                    <apex:facet name="header">{!$Label.ReportingPromptSortSortOrder}</apex:facet>                        
+	                    <apex:inputField value="{!prompt.dto.ffr__SortOrder__c}" id="promptSortOrder"/>  
+	                </apex:column>
+	             </apex:dataTable>
+	        </apex:outputPanel>
+        </apex:pageBlockSection>
+    <apex:pageBlockButtons >  
+        <apex:commandButton action="{!saveSortOrder}" value="{!$Label.ReportingPromptSortButtonSave}"/>
+        <apex:commandButton action="{!cancel}" value="{!$Label.ReportingPromptSortButtonCancel}"/>
+    </apex:pageBlockButtons>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

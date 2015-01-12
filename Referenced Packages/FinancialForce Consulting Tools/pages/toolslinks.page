@@ -1,0 +1,54 @@
+<apex:page controller="ffct.ToolLinksController" action="{!initiateActivation}">
+    <apex:sectionHeader title="FinancialForce Consulting" subtitle="Tools" />
+    <apex:form id="form">
+        <apex:actionFunction action="{!isUserAgreed}" name="isUserAgreed" rerender="form"/>
+        <apex:pageMessages />
+        <apex:pageBlock rendered="{!ShowLinks}">
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLink value="{!MergeLayoutToolUrl}">Merge Layouts</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLink value="{!MergeProfileToolUrl}">Merge Profiles</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLink value="{!BundleToolUrl}">Bundle Tool</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLink value="{!CompareDeployUrl}">Compare and Deploy Profiles and Permission Sets</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLink value="{!BundleToolPushToOrgUrl}">{!$Label.ProvisionAndPushToOrg}</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                 <apex:pageBlockSectionItem >
+                    <apex:outputLink value="{!DateMoverToolOrgUrl}">Date Mover Tool</apex:outputLink>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock> 
+        <apex:pageBlock rendered="{!ShowLinks}">
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLink value="{!BundleToolClickLinkUrl}">Configure Bundle Tool ClickLink Features</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLink value="{!BundleToolGoogleAuthorizeUrl}">{!$Label.ConfigureGoogleDriveForBundleTool}</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLink value="{!BundleToolBankFormatLinkUrl}">{!$Label.ConfigureBundleToolBankFormatFeatures}</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLink value="{!ConfigureConnectionsUrl}">{!$Label.ConfigureConnections}</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock> 
+        <apex:pageBlock >
+            <table><tr>
+            <td><apex:inputCheckbox value="{!AgreedOnTerms}" onchange="isUserAgreed();"/></td>
+            <td>{!$Label.TermsToAccessTools}</td>
+            </tr></table>
+        </apex:pageBlock> 
+    </apex:form>    
+</apex:page>

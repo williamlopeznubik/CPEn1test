@@ -1,0 +1,5 @@
+<apex:component access="global" controller="ffr.NumberFormatterComponentController"> 
+    <apex:attribute name="value" type="object" description="Number value to be converted" access="global" assignTo="{!objectValue}"/>
+    <apex:attribute name="convertedVarName" type="String" description="Name of the variable to receive the converted value" access="global"/>
+    <apex:variable var="{!convertedVarName}" value="{!numberValue}"/>
+</apex:component>

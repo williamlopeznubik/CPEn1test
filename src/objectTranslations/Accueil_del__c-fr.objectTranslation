@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Formulaire Accueil</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Formulaire_Accueil</value>
+    </caseValues>
+    <fields>
+        <label><!-- Accès au bâtiment régional --></label>
+        <name>Acces_au_batiment__c</name>
+        <picklistValues>
+            <masterLabel>Clefs remises</masterLabel>
+            <translation><!-- Clefs remises --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Code d&apos;accès donné</masterLabel>
+            <translation><!-- Code d&apos;accès donné --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Système d&apos;alarme informé</masterLabel>
+            <translation><!-- Système d&apos;alarme informé --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Accès calendriers --></label>
+        <name>Acces_calendrier__c</name>
+    </fields>
+    <fields>
+        <help><!-- entrer toute l&apos;addresse personnelle dans le format
+adresse rue 
+Ville Province 
+Pays Code Postal --></help>
+        <label><!-- Adresse personnelle --></label>
+        <name>Adresse_personnelle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assurance sociale --></label>
+        <name>Assurance_sociale__c</name>
+    </fields>
+    <fields>
+        <help><!-- joindre fichier en pièce attachée --></help>
+        <label><!-- CV CEP En --></label>
+        <name>CV_CEP_en__c</name>
+    </fields>
+    <fields>
+        <help><!-- joindre document en pièce attachée --></help>
+        <label><!-- CV CEP fr --></label>
+        <name>CV_CEP_fr__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calendrier d&apos;accueil complété --></label>
+        <name>Calendrier_accueil_compl_t__c</name>
+    </fields>
+    <fields>
+        <label><!-- Capacité annuelle (hres) --></label>
+        <name>Capacite_annuelle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cellulaire fourni --></label>
+        <name>Cellulaire__c</name>
+        <picklistValues>
+            <masterLabel>non</masterLabel>
+            <translation><!-- non --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>oui</masterLabel>
+            <translation><!-- oui --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Cellulaire couleur --></label>
+        <name>Cellulaire_couleur__c</name>
+        <picklistValues>
+            <masterLabel>Argent</masterLabel>
+            <translation><!-- Argent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gris cosmique</masterLabel>
+            <translation><!-- Gris cosmique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Or</masterLabel>
+            <translation><!-- Or --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Code Banque 2 --></label>
+        <name>Code_Banque_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Code banque --></label>
+        <name>Code_banque__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compagnie --></label>
+        <name>Compagnie__c</name>
+        <picklistValues>
+            <masterLabel>CEP Forensic Engineering inc.</masterLabel>
+            <translation><!-- CEP Forensic Engineering inc. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Experts Conseils CEP inc.</masterLabel>
+            <translation><!-- Experts Conseils CEP inc. --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Comptes TI --></label>
+        <name>Comptes_TI__c</name>
+        <picklistValues>
+            <masterLabel>Google</masterLabel>
+            <translation><!-- Google --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Imprimantes</masterLabel>
+            <translation><!-- Imprimantes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Réseau</masterLabel>
+            <translation><!-- Réseau --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SSO</masterLabel>
+            <translation><!-- SSO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce</masterLabel>
+            <translation><!-- Salesforce --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Création contact FM --></label>
+        <name>Creation_contact_FM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date embauche --></label>
+        <name>Date_embauche__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date naissance --></label>
+        <name>Date_naissance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date naissance au calendrier --></label>
+        <name>Date_naissance_au_calendrier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Demandes spéciales --></label>
+        <name>Demandes_sp_ciales__c</name>
+    </fields>
+    <fields>
+        <help><!-- Joindre le document en pièce attachée --></help>
+        <label><!-- Description de poste --></label>
+        <name>Description_de_poste__c</name>
+    </fields>
+    <fields>
+        <help><!-- Cocher la case quand le dîner s&apos;est tenu --></help>
+        <label><!-- Dîner accueil Laval --></label>
+        <name>Diner_accueil_Laval__c</name>
+    </fields>
+    <fields>
+        <label><!-- Diplômes --></label>
+        <name>Diplomes__c</name>
+        <picklistValues>
+            <masterLabel>B.A.A.</masterLabel>
+            <translation><!-- B.A.A. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B.Eng.</masterLabel>
+            <translation><!-- B.Eng. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BAA</masterLabel>
+            <translation><!-- BAA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bsc.A</masterLabel>
+            <translation><!-- Bsc.A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M.Ing.</masterLabel>
+            <translation><!-- M.Ing. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M.Sc.</masterLabel>
+            <translation><!-- M.Sc. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M.Sc.A</masterLabel>
+            <translation><!-- M.Sc.A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Pour les ingénieurs et autres professionnels de CEP --></help>
+        <label><!-- Explications Assurance professionnelles --></label>
+        <name>EXplications_Assurance_professionnelles__c</name>
+    </fields>
+    <fields>
+        <help><!-- Télécharger le document de l&apos;entente et cocher la case --></help>
+        <label><!-- Entente confidentialité --></label>
+        <name>Entente_confidentialit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Équipement fourni --></label>
+        <name>Equipement_fourni__c</name>
+        <picklistValues>
+            <masterLabel>Caméra</masterLabel>
+            <translation><!-- Caméra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dictaphone</masterLabel>
+            <translation><!-- Dictaphone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Habits de travail</masterLabel>
+            <translation><!-- Habits de travail --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Indiquer sur des lignes séparées les prénoms et noms des experts assignés à l&apos;adjointe --></help>
+        <label><!-- Experts attitrés --></label>
+        <name>Experts_attitres__c</name>
+    </fields>
+    <fields>
+        <help><!-- Assurance Groupe --></help>
+        <label><!-- Explications Assurances --></label>
+        <name>Explications_Assurances__c</name>
+    </fields>
+    <fields>
+        <label><!-- Folio bancaire 2 --></label>
+        <name>Folio_bancaire_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fonctions --></label>
+        <name>Fonctions__c</name>
+        <picklistValues>
+            <masterLabel>Adjointe administrative</masterLabel>
+            <translation><!-- Adjointe administrative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adjointe au directeur</masterLabel>
+            <translation><!-- Adjointe au directeur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adjointes au Directeur</masterLabel>
+            <translation><!-- Adjointes au Directeur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agente administrative</masterLabel>
+            <translation><!-- Agente administrative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chef RH</masterLabel>
+            <translation><!-- Chef RH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chef TI</masterLabel>
+            <translation><!-- Chef TI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chef de groupe</masterLabel>
+            <translation><!-- Chef de groupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coordinatrice communications, ventes et marketing</masterLabel>
+            <translation><!-- Coordinatrice communications, ventes et marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Directeur régional</masterLabel>
+            <translation><!-- Directeur régional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Directrice administrative</masterLabel>
+            <translation><!-- Directrice administrative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expert Niveau 4A</masterLabel>
+            <translation><!-- Expert Niveau 4A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expert niveau 1A</masterLabel>
+            <translation><!-- Expert niveau 1A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expert niveau 1B</masterLabel>
+            <translation><!-- Expert niveau 1B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expert niveau 2A</masterLabel>
+            <translation><!-- Expert niveau 2A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expert niveau 2B</masterLabel>
+            <translation><!-- Expert niveau 2B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expert niveau 3A</masterLabel>
+            <translation><!-- Expert niveau 3A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expert niveau 3B</masterLabel>
+            <translation><!-- Expert niveau 3B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expert niveau 4B</masterLabel>
+            <translation><!-- Expert niveau 4B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Secrétaire-Réceptioniste</masterLabel>
+            <translation><!-- Secrétaire-Réceptioniste --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technicien de laboratoire</masterLabel>
+            <translation><!-- Technicien de laboratoire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tecnicien comptable</masterLabel>
+            <translation><!-- Tecnicien comptable --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Cellulaire mémoire (Gb) --></label>
+        <name>Forfait_cellulaire_choisi__c</name>
+        <picklistValues>
+            <masterLabel>16</masterLabel>
+            <translation><!-- 16 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>32</masterLabel>
+            <translation><!-- 32 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>64</masterLabel>
+            <translation><!-- 64 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- cliquer la case une fois la formation donnée et l&apos;acquisition de la compréhension valider par le (la) responsable. --></help>
+        <label><!-- Formation politiques et procédures --></label>
+        <name>Formation_Politiques_et_proc_dures__c</name>
+    </fields>
+    <fields>
+        <help><!-- cliquer la case une fois la formation donnée et l&apos;acquisition de la compétence validée par le (la) responsable --></help>
+        <label><!-- Formation  caméra  et logiciels --></label>
+        <name>Formation_camera_et_logiciels__c</name>
+    </fields>
+    <fields>
+        <help><!-- chiquer la case une fois la formation donnée et l&apos;acquisition de la compétence validée par le (la) responsable --></help>
+        <label><!-- Formation  processus gestion dossier --></label>
+        <name>Formation_gestion_dossiers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Formation informatique --></label>
+        <name>Formation_informatique__c</name>
+    </fields>
+    <fields>
+        <help><!-- https://www.youtube.com/user/AnsonA4 --></help>
+        <label><!-- Google Apps --></label>
+        <name>Google_Apps__c</name>
+    </fields>
+    <fields>
+        <label><!-- Groupe --></label>
+        <name>Groupe__c</name>
+        <picklistValues>
+            <masterLabel>Administration</masterLabel>
+            <translation><!-- Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biomécanique</masterLabel>
+            <translation><!-- Biomécanique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Civil</masterLabel>
+            <translation><!-- Civil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incendies et explosions</masterLabel>
+            <translation><!-- Incendies et explosions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Matériaux</masterLabel>
+            <translation><!-- Matériaux --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mécanique bâtiment</masterLabel>
+            <translation><!-- Mécanique bâtiment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mécanique générale</masterLabel>
+            <translation><!-- Mécanique générale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reconstruction d&apos;accidents</masterLabel>
+            <translation><!-- Reconstruction d&apos;accidents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Véhicules</masterLabel>
+            <translation><!-- Véhicules --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Électricité</masterLabel>
+            <translation><!-- Électricité --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Si initiales déjà utilisées, prendre la 2e lettre du nom de famille (ex. SLA pour Stéphane Labonté) ou bien la lettre du 2e prénom (ex. SFL pour Sébastien Frédéric Landry). --></help>
+        <label><!-- Initiales --></label>
+        <name>Initiales__c</name>
+    </fields>
+    <fields>
+        <label><!-- Institution bancaire 2 --></label>
+        <name>Institution_bancaire_2__c</name>
+        <picklistValues>
+            <masterLabel>Banque Nationale</masterLabel>
+            <translation><!-- Banque Nationale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIBC</masterLabel>
+            <translation><!-- CIBC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desjardins</masterLabel>
+            <translation><!-- Desjardins --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laurentienne</masterLabel>
+            <translation><!-- Laurentienne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manulife Bank of Canada</masterLabel>
+            <translation><!-- Manulife Bank of Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Royale</masterLabel>
+            <translation><!-- Royale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scotia</masterLabel>
+            <translation><!-- Scotia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TD</masterLabel>
+            <translation><!-- TD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Institution bancaire --></label>
+        <name>Institution_bancaire__c</name>
+        <picklistValues>
+            <masterLabel>Banque Nationale</masterLabel>
+            <translation><!-- Banque Nationale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIBC</masterLabel>
+            <translation><!-- CIBC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canada Trust</masterLabel>
+            <translation><!-- Canada Trust --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desjardins</masterLabel>
+            <translation><!-- Desjardins --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laurentienne</masterLabel>
+            <translation><!-- Laurentienne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manulife bank of Canada</masterLabel>
+            <translation><!-- Manulife bank of Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Royale</masterLabel>
+            <translation><!-- Royale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scotia</masterLabel>
+            <translation><!-- Scotia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TD</masterLabel>
+            <translation><!-- TD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Instructions spéciales régionales --></label>
+        <name>Instructions_speciales_r_gionales__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initales CEP --></label>
+        <name>Intiales_CEP__c</name>
+        <relationshipLabel><!-- Formulaire_Accueil --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Lamination permis de pratique --></label>
+        <name>Lamination_permis_de_pratique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Langue préférée --></label>
+        <name>Langue_preferee__c</name>
+        <picklistValues>
+            <masterLabel>Anglais</masterLabel>
+            <translation><!-- Anglais --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Français</masterLabel>
+            <translation><!-- Français --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Mise à jour liste téléphonique --></label>
+        <name>Mise_jour_liste_telephonique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobilier en place --></label>
+        <name>Mobilier_en_place__c</name>
+    </fields>
+    <fields>
+        <label><!-- No.Bureau --></label>
+        <name>No_Bureau__c</name>
+    </fields>
+    <fields>
+        <label><!-- No. Employé --></label>
+        <name>No_Employe__c</name>
+    </fields>
+    <fields>
+        <label><!-- No cellullaire --></label>
+        <name>No_cellullaire__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nom --></label>
+        <name>Nom__c</name>
+    </fields>
+    <fields>
+        <help><!-- 1330 pour 15 jours de vacances 
+1300 pour 20 jours de vacances 
+1280 pour 25 jours de vacances --></help>
+        <label><!-- Objectifs facturables --></label>
+        <name>Objectifs_facturables__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parrain technique --></label>
+        <name>Parrain_technique__c</name>
+        <picklistValues>
+            <masterLabel>Clément Caron</masterLabel>
+            <translation><!-- Clément Caron --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eric Chainé</masterLabel>
+            <translation><!-- Eric Chainé --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guy Voisine</masterLabel>
+            <translation><!-- Guy Voisine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Isabelle Murray</masterLabel>
+            <translation><!-- Isabelle Murray --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Joël Turcotte</masterLabel>
+            <translation><!-- Joël Turcotte --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kevin Gauthier</masterLabel>
+            <translation><!-- Kevin Gauthier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mar Pilon</masterLabel>
+            <translation><!-- Mar Pilon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Philippe Bouchard</masterLabel>
+            <translation><!-- Philippe Bouchard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stéphane Millette</masterLabel>
+            <translation><!-- Stéphane Millette --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Joindre la photo en pièce attachée --></help>
+        <label><!-- Photo officielle --></label>
+        <name>Photo_officielle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan bureau avec Photo --></label>
+        <name>Plan_bureau_avec_Photo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pochette accueil remise --></label>
+        <name>Pochette_accueil_remise__c</name>
+    </fields>
+    <fields>
+        <help><!-- 200 Laval
+300 Québec
+400 Ottawa
+500 Oshwawa --></help>
+        <label><!-- Poste téléphonique --></label>
+        <name>Poste_telephonique__c</name>
+    </fields>
+    <fields>
+        <help><!-- Choisir oui dans le cas où l&apos;employé exprime ou a des besoins spécifiques ( pension...) pour  des prélèvements pré-autorosés. 
+Référer la personne au service de comptabilité. la paie pour la suite du processus. --></help>
+        <label><!-- Prélèvement bancaire --></label>
+        <name>Prelevement_banca__c</name>
+        <picklistValues>
+            <masterLabel>Oui</masterLabel>
+            <translation><!-- Oui --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>non</masterLabel>
+            <translation><!-- non --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Deuxième prénom à utiliser  dans le cas de conflit pour les initiales --></help>
+        <label><!-- Prénom 2 --></label>
+        <name>Prenom_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prénom --></label>
+        <name>Prenom__c</name>
+    </fields>
+    <fields>
+        <help><!-- Cochez la case une fois la rencontre complétée. --></help>
+        <label><!-- Présentation mission vision valeurs --></label>
+        <name>Presentation_mission_vision_valeurs__c</name>
+    </fields>
+    <fields>
+        <help><!-- Pour les experts qui se déplacent seulement
+joindre une copie du formulaire de l&apos;assureur --></help>
+        <label><!-- Preuve assurance auto affaires --></label>
+        <name>Preuve_assurance_auto_affaires__c</name>
+    </fields>
+    <fields>
+        <label><!-- Processus complété --></label>
+        <name>Processus_complete__c</name>
+    </fields>
+    <fields>
+        <help><!-- Profil technique pour cv et site web --></help>
+        <label><!-- Profil technique --></label>
+        <name>Profil_technique__c</name>
+    </fields>
+    <fields>
+        <help><!-- Profil pour site web --></help>
+        <label><!-- Profil technique anglais --></label>
+        <name>Profil_technique_anglais__c</name>
+    </fields>
+    <fields>
+        <label><!-- Région --></label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>Laval</masterLabel>
+            <translation><!-- Laval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oshawa</masterLabel>
+            <translation><!-- Oshawa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ottawa</masterLabel>
+            <translation><!-- Ottawa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Québec</masterLabel>
+            <translation><!-- Québec --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- coodination requise entre directeur régional et chef TI --></help>
+        <label><!-- Réseau TI en place --></label>
+        <name>Reseau_TI_en_place__c</name>
+    </fields>
+    <fields>
+        <label><!-- Salaire annuel --></label>
+        <name>Salaire_annuel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Supérieur immédiat --></label>
+        <name>Sup_rieur_imm_diat__c</name>
+        <picklistValues>
+            <masterLabel>Adjointe au directeur</masterLabel>
+            <translation><!-- Adjointe au directeur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chef de groupe</masterLabel>
+            <translation><!-- Chef de groupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chef de la direction</masterLabel>
+            <translation><!-- Chef de la direction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Directeur régional</masterLabel>
+            <translation><!-- Directeur régional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Directrice finances et administration</masterLabel>
+            <translation><!-- Directrice finances et administration --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Titres Professionnels --></label>
+        <name>Titres_Professionnels__c</name>
+        <picklistValues>
+            <masterLabel>CPA</masterLabel>
+            <translation><!-- CPA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eng.</masterLabel>
+            <translation><!-- Eng. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P.Eng.</masterLabel>
+            <translation><!-- P.Eng. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ing.</masterLabel>
+            <translation><!-- ing. --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Transit succursale bancaire 2 --></label>
+        <name>Transit_succursale_bancaire_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transit succursale bancaire --></label>
+        <name>Transit_succursale_bancaire__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type ordinateurs --></label>
+        <name>Type_ordinateurs__c</name>
+        <picklistValues>
+            <masterLabel>IMac</masterLabel>
+            <translation><!-- IMac --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portable</masterLabel>
+            <translation><!-- Portable --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- inscrire ici le nombre de jours de vacances allouée pour le premier exercice --></help>
+        <label><!-- Vacances 1ere année --></label>
+        <name>Vacances_1ere_ann_e__c</name>
+    </fields>
+    <fields>
+        <label><!-- Visite du bureau régional complétée --></label>
+        <name>Visite_du_bureau_regional_complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Adjointe attitrée --></label>
+        <name>adjointe_attitree__c</name>
+    </fields>
+    <fields>
+        <label><!-- anniversaire au calendrier CEP --></label>
+        <name>anniversaire_au_calendriercep__c</name>
+    </fields>
+    <fields>
+        <label><!-- configuration téléphone --></label>
+        <name>configuration_telephone__c</name>
+    </fields>
+    <fields>
+        <help><!-- en considération de la prise de journée sans solde avec autorisation préalable pour la première année --></help>
+        <label><!-- congés spéciaux --></label>
+        <name>cong_s_sp_ciaux__c</name>
+    </fields>
+    <fields>
+        <help><!-- doit être @expcep.com --></help>
+        <label><!-- courriel CEP --></label>
+        <name>courriel_CEP__c</name>
+    </fields>
+    <fields>
+        <label><!-- courriel maison --></label>
+        <name>courriel_maison__c</name>
+    </fields>
+    <fields>
+        <help><!-- joindre le document en pièce attachée --></help>
+        <label><!-- CV entrevue --></label>
+        <name>cv_entrevue__c</name>
+    </fields>
+    <fields>
+        <label><!-- folio bancaire --></label>
+        <name>folio_bancaire__c</name>
+    </fields>
+    <fields>
+        <label><!-- formation calendrier google --></label>
+        <name>formation_calendrier_google__c</name>
+    </fields>
+    <fields>
+        <label><!-- Remettre instructions téléphone --></label>
+        <name>formation_telephone__c</name>
+    </fields>
+    <fields>
+        <label><!-- lunch accueil/welcome --></label>
+        <name>lunch_accueil__c</name>
+    </fields>
+    <fields>
+        <label><!-- Objectifs admin --></label>
+        <name>objectifs_admin__c</name>
+    </fields>
+    <fields>
+        <label><!-- Permis de pratique --></label>
+        <name>permis_de_pratique__c</name>
+    </fields>
+    <fields>
+        <label><!-- sceau professionnel --></label>
+        <name>sceau_professionnel__c</name>
+    </fields>
+    <fields>
+        <label><!-- signature numérisée --></label>
+        <name>signature_num_ris_e__c</name>
+    </fields>
+    <fields>
+        <label><!-- specimen chèque --></label>
+        <name>specimen_cheque__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux horaire --></label>
+        <name>taux_horaire__c</name>
+        <picklistValues>
+            <masterLabel>100</masterLabel>
+            <translation><!-- 100 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>110</masterLabel>
+            <translation><!-- 110 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>120</masterLabel>
+            <translation><!-- 120 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>130</masterLabel>
+            <translation><!-- 130 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>140</masterLabel>
+            <translation><!-- 140 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>150</masterLabel>
+            <translation><!-- 150 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>160</masterLabel>
+            <translation><!-- 160 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>170</masterLabel>
+            <translation><!-- 170 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>180</masterLabel>
+            <translation><!-- 180 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>190</masterLabel>
+            <translation><!-- 190 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>200</masterLabel>
+            <translation><!-- 200 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>210</masterLabel>
+            <translation><!-- 210 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>220</masterLabel>
+            <translation><!-- 220 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>225</masterLabel>
+            <translation><!-- 225 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>230</masterLabel>
+            <translation><!-- 230 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40</masterLabel>
+            <translation><!-- 40 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50</masterLabel>
+            <translation><!-- 50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>55</masterLabel>
+            <translation><!-- 55 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60</masterLabel>
+            <translation><!-- 60 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70</masterLabel>
+            <translation><!-- 70 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80</masterLabel>
+            <translation><!-- 80 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90</masterLabel>
+            <translation><!-- 90 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Utiliser le format
++1.514.770.9389 --></help>
+        <label><!-- Téléphone maison --></label>
+        <name>telephone_maison__c</name>
+    </fields>
+    <fields>
+        <help><!-- nombre de jours de vacances --></help>
+        <label><!-- Vacances allouées --></label>
+        <name>vacances_allouees__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Présentation Accueil</layout>
+        <sections>
+            <label><!-- Chef RH --></label>
+            <section>Chef RH</section>
+        </sections>
+        <sections>
+            <label><!-- Chef TI --></label>
+            <section>Chef TI</section>
+        </sections>
+        <sections>
+            <label><!-- Chef de la direction --></label>
+            <section>Chef de la direction</section>
+        </sections>
+        <sections>
+            <label><!-- Coordonnatrice Administrative --></label>
+            <section>Coordonnatrice Administrative</section>
+        </sections>
+        <sections>
+            <label><!-- Coordonnatrice Ventes Marketing --></label>
+            <section>Coordonnatrice Ventes Marketing</section>
+        </sections>
+        <sections>
+            <label><!-- Directeur Régional /Adjointe au Directeur --></label>
+            <section>Directeur Régional /Adjointe au Directeur</section>
+        </sections>
+        <sections>
+            <label><!-- Documents Requis --></label>
+            <section>Documents Requis</section>
+        </sections>
+        <sections>
+            <label><!-- Formation de base --></label>
+            <section>Formation de base</section>
+        </sections>
+        <sections>
+            <label><!-- Infographiste --></label>
+            <section>Infographiste</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Receptioniste --></label>
+            <section>Receptioniste</section>
+        </sections>
+        <sections>
+            <label><!-- Technicienne comptable et agente administrative --></label>
+            <section>Technicienne comptable et agente administrative</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,131 @@
+<apex:page standardController="ffct__BundleComponent__c" extensions="ffct.BundleComponentControllerExtension">
+  <apex:form id="form">
+  	<apex:pagemessages id="pgMsg"/>
+  	<apex:actionStatus id="eventStatus"  >
+         <apex:facet name="start">
+          <apex:outputPanel >
+                        <div style="width:100%;height:100%;position:absolute;top:0;left:0;">
+                            <div style="position:absolute;top:50%;left:50%">
+                                <apex:image value="/img/loading32.gif"></apex:image>
+                            </div>
+                        </div>
+           </apex:outputPanel>
+        </apex:facet>   
+    </apex:actionStatus>
+  	<apex:pageBlock title="{!$Label.BundleComponent}">
+		<apex:pageblockbuttons location="bottom" >
+			<apex:commandbutton action="{!save}" value="{!$Label.Save}" />
+			<apex:commandbutton action="{!cancel}" value="{!$Label.Cancel}" />
+		</apex:pageblockbuttons>
+        <apex:pageBlockSection columns="2">
+            <apex:inputfield required="true" value="{!BundleComponent.Name}" />
+            <apex:outputfield value="{!BundleComponent.ffct__Bundle__c}" />
+        </apex:pageBlockSection>
+        <apex:outputPanel id="bundleComponentType" >
+            <apex:actionRegion >
+               	<apex:pageBlockSection >
+					<apex:selectList label="Type" multiselect="false" size="1" value="{!BundleComponent.ffct__Type__c}" >
+                        <apex:selectOptions value="{!BundleComponentTypes}" />
+                    		<apex:actionSupport id="componentType" event="onchange" action="{!setEditVisibility}" rerender="bundleComponentType" status="eventStatus" />
+                	</apex:selectList>
+            	</apex:pageBlockSection>
+           	</apex:actionRegion>
+            <apex:pageBlockSection title="{!$Label.ApexCode}" id="apexCodeSection" rendered="{!ApexFieldVisibility}" >
+            	<apex:inputField required="true" value="{!BundleComponent.ffct__ApexCode__c}" />
+            </apex:pageBlockSection>
+             <apex:pageBlockSection title="{!$Label.InstalledPackage}" id="InstalledPackageSection" rendered="{!InstalledPackageFieldVisibility}" >
+            	<apex:inputField required="true" value="{!BundleComponent.ffct__PackageName__c}"/>
+            	<apex:inputField required="true" value="{!BundleComponent.ffct__PackageVersion__c}"/>
+            	<apex:inputSecret value="{!BundleComponent.ffct__Password__c}" maxlength="25" />
+            	 </apex:pageBlockSection>
+            	 
+            	<apex:pageBlockSection title="Records" id="recordsSection" rendered="{!RecordsFieldVisibility}" >
+            	<apex:outputText value="{!$Label.SelectPackageToBlacklist}" />
+            	<br/>
+            	<c:userMultiselectPickList DataToselect="{!NamespacePrefixToChooseList}" DataSelected="{!NamespacePrefixChosenList}" aLeftLabel="{!$Label.SelectPackageNamespacePrefix}" aRightLabel="{!$Label.SelectedPackageNamespacePrefix}" />
+            	<br/><br/>
+            	<apex:selectList label="{!$Label.ObjectForFieldBlacklist}" multiselect="false" size="1" value="{!ObjectSelected}" rendered="{!!DisplayObjectListForFields}" >
+					<apex:selectOptions value="{!ObjectsForFieldWhiteList}"/>
+					<apex:actionSupport id="objectFields" event="onchange" action="{!populateObjectFields}" rerender="bundleComponentType" status="eventStatus" />
+                </apex:selectList>
+                <apex:inputText label="{!$Label.ObjectForFieldBlacklist}" value="{!ObjectSelected}" rendered="{!DisplayObjectListForFields}">
+                	<apex:actionSupport id="fetchFields" event="onblur" action="{!populateObjectFields}" rerender="bundleComponentType,form" status="eventStatus" />
+                </apex:inputText>	
+                </apex:pageBlockSection>
+                <apex:outputPanel rendered="{!RecordsFieldVisibility}" id="selectFields">
+					<table>
+						<tr>
+							<th></th>
+        					<th class="selectTitle">{!$Label.SelectFields}</th>
+        					<th ></th>
+        					<th >{!$Label.SelectedFields}</th>
+        				</tr>
+        				
+        				<tr>
+        					<td>
+        					</td>
+        					<td>
+        						<apex:selectList title="Select Fields" label="{!$Label.SelectFields}" id="sel1" value="{!leftSelectedField}" multiselect="true" size="10">
+                					<apex:selectOptions value="{!FieldsAvailable}" />
+            					</apex:selectList>
+            				</td>
+            				<td style="vertical-align: middle">
+            					<div>
+            					<apex:commandButton action="{!selectField}" value="{!$Label.Add}"  status="eventStatus" reRender="selectFields" title="{!$Label.AddToSelectedFields}"/> 
+                    				<br/><br/>
+                    				<apex:commandButton action="{!unselectField}" value="{!$Label.Remove}" status="eventStatus" reRender="selectFields" title="{!$Label.RemoveSelectedFields}"/> 
+            					</div>
+            				</td>
+            				<td >
+            					<apex:selectList id="selField" value="{!rightSelectedField}" multiselect="true"  size="10">
+                					<apex:selectOptions value="{!FieldsSelected}" />
+            					</apex:selectList>
+            				</td>
+            			</tr>
+        			</table>
+        		</apex:outputPanel>
+            	<br/><br/>
+				<apex:pageBlockSection id="ChildRelationshipsSection" rendered="{!RecordsFieldVisibility}" >
+            		<apex:selectList label="{!$Label.ObjectForChildRelBlacklist}" multiselect="false" size="1" value="{!ObjectSelectedForChildRelationship}" rendered="{!!DisplayObjectListForFields}"  >
+						<apex:selectOptions value="{!ObjectsForChildWhiteList}"/>
+						<apex:actionSupport id="objectChilds" event="onchange" action="{!populatechildRelationships}" rerender="bundleComponentType" status="eventStatus" />
+                	</apex:selectList>
+                	<apex:inputText label="{!$Label.ObjectForChildRelBlacklist}" value="{!ObjectSelectedForChildRelationship}" rendered="{!DisplayObjectListForFields}">
+                		<apex:actionSupport id="fetchChilds" event="onblur" action="{!populatechildRelationships}" rerender="bundleComponentType,form" status="eventStatus" />
+                	</apex:inputText>
+                </apex:pageBlockSection>
+               	<apex:outputPanel rendered="{!RecordsFieldVisibility}" id="selectChilds">
+					<table>
+						<tr>
+							<th ></th>
+        					<th class="selectTitle">{!$Label.SelectChildRelationships}</th>
+        					<th ></th>
+        					<th >{!$Label.SelectedChildRelationships}</th>
+        				</tr>
+        				<tr>
+        					<td>
+        					</td>
+        					<td>  
+							<apex:selectList title="Select Childs" label="{!$Label.SelectChildRelationships}" id="selC" value="{!leftSelectedChild}" multiselect="true" size="10">
+                				<apex:selectOptions value="{!ChildsAvailable}" />
+            				</apex:selectList> 
+            				</td>
+            				<td style="vertical-align: middle" >
+            					<div>
+            						<apex:commandButton action="{!selectChildclick}" value="{!$Label.Add}"  status="eventStatus" reRender="selectChilds" title="{!$Label.AddToSelectedChilRelationship}"/> 
+                    				<br/><br/>
+                    				<apex:commandButton action="{!unselectChildclick}" value="{!$Label.Remove}"  status="eventStatus" reRender="selectChilds" title="{!$Label.RemoveSelectedChilRelationship}"/> 
+                    			</div>
+                    		</td>        						          				             
+							<td>
+            					<apex:selectList id="selChild" value="{!rightSelectedChild}" multiselect="true" size="10">
+                					<apex:selectOptions value="{!ChildsSelected}" />
+            					</apex:selectList>
+            				</td>
+            			</tr>
+            		</table>
+            	</apex:outputPanel>
+    		</apex:outputPanel>
+		</apex:pageBlock>
+  	</apex:form>
+</apex:page>

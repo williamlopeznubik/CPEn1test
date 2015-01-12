@@ -1,0 +1,3 @@
+<apex:page standardController="Account" tabStyle="Account" cache="false">
+    <c:GDrive recordType="Account" recordId="{!account.Id}"/>
+</apex:page>

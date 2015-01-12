@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChangeStatus</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CloneAsChild</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CloseCase</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>MassClose</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewCase</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>true</enableFeeds>
+    <fields>
+        <fullName>AccountId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AssetId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Avis_courriel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>indiquer ici si on ne doit pas envoyer un avis courriel de masse</description>
+        <externalId>false</externalId>
+        <inlineHelpText>coché coché cette case si on ne désire pas envoyer de courriel de masse pour la collection des factures</inlineHelpText>
+        <label>Pas d&apos;avis courriel</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BusinessHoursId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContactId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Date_de_la_facture__c</fullName>
+        <externalId>false</externalId>
+        <label>Date de la facture</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Delais_de_paiement__c</fullName>
+        <externalId>false</externalId>
+        <formula>TODAY()  -   Date_de_la_facture__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Délais de paiement</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_CEP__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier CEP</label>
+        <length>9</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_Client__c</fullName>
+        <description>Le numéro de dossier du client</description>
+        <externalId>false</externalId>
+        <label>Dossier Client</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Facture_CEP__c</fullName>
+        <description>Numéro de facrture / Invoice Number</description>
+        <externalId>false</externalId>
+        <label>Facture CEP</label>
+        <length>6</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fil_de_requete__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;ref:00D&quot;&amp;MID(Id,4,1)&amp;RIGHT($Organization.Id, 4) &amp;&quot;.&quot;&amp; LEFT(Id,4)&amp;RIGHT(Id,5) &amp;&quot;:ref&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Fil de requete</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IGD__Collection_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Collection Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Origin</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Courriel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Téléphone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Portail/Portal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Activités d&apos;assurances</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rencontre</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campagne</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Comptabilité</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ParentId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Police__c</fullName>
+        <description>Inscrire le numo de la police d&apos;assurance</description>
+        <externalId>false</externalId>
+        <label>#Police</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Priority</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>High</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>QuestionId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Reason</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Marketing</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Développement des Affaires</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Relations Publiques</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maintien</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ventes</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plainte client</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Reference_dossier__c</fullName>
+        <externalId>false</externalId>
+        <label>Référence dossier</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Solde__c</fullName>
+        <externalId>false</externalId>
+        <label>Solde</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Nouveau</fullName>
+                <closed>false</closed>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fermé</fullName>
+                <closed>true</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>En attente</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalade</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>120 +</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>150 +</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>180+</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Assignée</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ThreadId__c</fullName>
+        <externalId>false</externalId>
+        <formula>LEFT( $Organization.Id , 4)  &amp; IF (MID ( $Organization.Id, 5, 1) &lt;&gt; &quot;0&quot;, RIGHT($Organization.Id, 11), IF (MID ( $Organization.Id, 6, 1) &lt;&gt; &quot;0&quot;, RIGHT($Organization.Id, 10), IF (MID ( $Organization.Id, 7, 1) &lt;&gt; &quot;0&quot;, RIGHT($Organization.Id, 9), IF (MID ( $Organization.Id, 8, 1) &lt;&gt; &quot;0&quot;, RIGHT($Organization.Id, 8), IF (MID ( $Organization.Id, 9, 1) &lt;&gt; &quot;0&quot;, RIGHT($Organization.Id, 7), IF (MID ( $Organization.Id, 10, 1) &lt;&gt; &quot;0&quot;, RIGHT($Organization.Id, 6), IF (MID ( $Organization.Id, 11, 1) &lt;&gt; &quot;0&quot;, RIGHT($Organization.Id, 5), IF (MID ( $Organization.Id, 12, 1) &lt;&gt; &quot;0&quot;, RIGHT($Organization.Id, 4), IF (MID ( $Organization.Id, 13, 1) &lt;&gt; &quot;0&quot;, RIGHT($Organization.Id, 3), IF (MID ( $Organization.Id, 14, 1) &lt;&gt; &quot;0&quot;, RIGHT($Organization.Id, 2), &quot;&quot;) ) ) ) ) ) ) ) ) ) &amp; &quot;.&quot;  &amp; LEFT( Id, 4) &amp; IF (MID ( Id, 5, 1) &lt;&gt; &quot;0&quot;, RIGHT(Id, 11), IF (MID ( Id, 6, 1) &lt;&gt; &quot;0&quot;, RIGHT(Id, 10), IF (MID ( Id, 7, 1) &lt;&gt; &quot;0&quot;, RIGHT(Id, 9), IF (MID ( Id, 8, 1) &lt;&gt; &quot;0&quot;, RIGHT(Id, 8), IF (MID ( Id, 9, 1) &lt;&gt; &quot;0&quot;, RIGHT(Id, 7), IF (MID ( Id, 10, 1) &lt;&gt; &quot;0&quot;, RIGHT(Id, 6), IF (MID ( Id, 11, 1) &lt;&gt; &quot;0&quot;, RIGHT(Id, 5), IF (MID ( Id, 12, 1) &lt;&gt; &quot;0&quot;, RIGHT(Id, 4), IF (MID ( Id, 13, 1) &lt;&gt; &quot;0&quot;, RIGHT(Id, 3), IF (MID ( Id, 14, 1) &lt;&gt; &quot;0&quot;, RIGHT(Id, 2), &quot;&quot;) ) ) ) ) ) ) ) ) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ThreadId</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_de_la_facture__c</fullName>
+        <externalId>false</externalId>
+        <label>Total de la facture</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Nouveau Dossier</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>cirrusadv__Created_by_Cirrus_Insight__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates that this record was created by Cirrus Insight. This checkbox does not have to be included on the page layout, except with Contact Manager, Group, and Professional Edition organizations.</description>
+        <externalId>false</externalId>
+        <label>Created by Cirrus Insight</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>responsable_du_dossier__c</fullName>
+        <externalId>false</externalId>
+        <label>Responsable du dossier</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Beaucage-Gauvreau E</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bolduc LS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bouchard P</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bourbeau C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bourgeois F</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Caron C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chaine E</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Courcelles PO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fortier P</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fortin R</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fournier M</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fulcher M</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gagnon F</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gauthier K</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gibson D</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Helliker A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hobbs K</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Houde N</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Joubert JF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Joubert LE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Labonté S</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Langlois A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leblanc C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lefrançois C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Massicotte P</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Millette S</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Morrissette M</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Murray I</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pilon M</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Provencher A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Richard D</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Roberts Jim</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rousseau N</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Roy D</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rushton M</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Savard D</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Savary P</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Turcotte J</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vinet Thibault PL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Voisine G</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>specificite_de_la_requete__c</fullName>
+        <externalId>false</externalId>
+        <label>Spécificité de la requête</label>
+        <picklist>
+            <controllingField>Reason</controllingField>
+            <picklistValues>
+                <fullName>Collection 120</fullName>
+                <controllingFieldValues>Collection</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection 150</fullName>
+                <controllingFieldValues>Collection</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection 180+</fullName>
+                <controllingFieldValues>Collection</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Détails de la facture</fullName>
+                <controllingFieldValues>Collection</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <listViews>
+        <fullName>AllOpenCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.TYPE</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.REASON</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>Toutes les requêtes en cours</label>
+    </listViews>
+    <listViews>
+        <fullName>MyCases</fullName>
+        <filterScope>Mine</filterScope>
+        <label>My Cases</label>
+    </listViews>
+    <listViews>
+        <fullName>MyOpenCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.TYPE</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>Mes requêtes en cours</label>
+    </listViews>
+    <listViews>
+        <fullName>collection</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <columns>responsable_du_dossier__c</columns>
+        <columns>Solde__c</columns>
+        <columns>Delais_de_paiement__c</columns>
+        <columns>Date_de_la_facture__c</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>CONTACT.ACCOUNT</columns>
+        <columns>Dossier_CEP__c</columns>
+        <columns>Reference_dossier__c</columns>
+        <columns>Facture_CEP__c</columns>
+        <columns>Dossier_Client__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Fermé</value>
+        </filters>
+        <filters>
+            <field>specificite_de_la_requete__c</field>
+            <operation>contains</operation>
+            <value>Collection</value>
+        </filters>
+        <label>collection</label>
+        <language>fr</language>
+    </listViews>
+    <listViews>
+        <fullName>collection_120_180</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <columns>responsable_du_dossier__c</columns>
+        <columns>Solde__c</columns>
+        <columns>Delais_de_paiement__c</columns>
+        <columns>Date_de_la_facture__c</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>CONTACT.ACCOUNT</columns>
+        <columns>Dossier_CEP__c</columns>
+        <columns>Reference_dossier__c</columns>
+        <columns>Facture_CEP__c</columns>
+        <columns>Dossier_Client__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Fermé</value>
+        </filters>
+        <filters>
+            <field>Delais_de_paiement__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>120</value>
+        </filters>
+        <filters>
+            <field>Delais_de_paiement__c</field>
+            <operation>lessThan</operation>
+            <value>180</value>
+        </filters>
+        <label>collection 120-180</label>
+        <language>fr</language>
+    </listViews>
+    <listViews>
+        <fullName>collection_150</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <columns>responsable_du_dossier__c</columns>
+        <columns>Solde__c</columns>
+        <columns>Delais_de_paiement__c</columns>
+        <columns>Date_de_la_facture__c</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>CONTACT.ACCOUNT</columns>
+        <columns>Dossier_CEP__c</columns>
+        <columns>Reference_dossier__c</columns>
+        <columns>Facture_CEP__c</columns>
+        <columns>Dossier_Client__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>Delais_de_paiement__c</field>
+            <operation>greaterThan</operation>
+            <value>150</value>
+        </filters>
+        <label>collection 150</label>
+        <language>fr</language>
+    </listViews>
+    <listViews>
+        <fullName>collection_180</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <columns>responsable_du_dossier__c</columns>
+        <columns>Solde__c</columns>
+        <columns>Dossier_CEP__c</columns>
+        <columns>Delais_de_paiement__c</columns>
+        <columns>Reference_dossier__c</columns>
+        <columns>NAME</columns>
+        <columns>CONTACT.ACCOUNT</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>Facture_CEP__c</columns>
+        <columns>Dossier_Client__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Fermé</value>
+        </filters>
+        <filters>
+            <field>Delais_de_paiement__c</field>
+            <operation>greaterThan</operation>
+            <value>180</value>
+        </filters>
+        <label>collection 180+</label>
+        <language>fr</language>
+    </listViews>
+    <listViews>
+        <fullName>collection_fermee</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.CLOSED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>,Fermé,Closed</value>
+        </filters>
+        <filters>
+            <field>specificite_de_la_requete__c</field>
+            <operation>equals</operation>
+            <value>Collection</value>
+        </filters>
+        <label>collection fermée</label>
+        <language>fr</language>
+    </listViews>
+    <searchLayouts>
+        <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.REASON</customTabListAdditionalFields>
+        <customTabListAdditionalFields>specificite_de_la_requete__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.STATUS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Dossier_CEP__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Dossier_Client__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Reference_dossier__c</customTabListAdditionalFields>
+        <listViewButtons>Follow</listViewButtons>
+        <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.STATUS</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.CASE_NUMBER</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.SUBJECT</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.STATUS</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.CASE_NUMBER</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.SUBJECT</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.STATUS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsCustomButtons>Follow</searchResultsCustomButtons>
+    </searchLayouts>
+    <sharingModel>ReadWriteTransfer</sharingModel>
+    <webLinks>
+        <fullName>Follow</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Follow</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/18.0/connection.js&quot;)} 
+
+//EDIT THE FOLLOWING LINE TO ALTER THE CODE FOR OTHER OBJECTS.  USE THE PICKLISTS ABOVE TO SELECT FIELD TYPE = $ObjectType AND THE OBJECT NAME THEN REPLACE &quot;$ObjectType.Case&quot; WITH YOUR NEW OBJECT NAME
+var records = {!GETRECORDIDS( $ObjectType.Case)};
+
+function LBox() {
+             var box = new parent.SimpleDialog(&quot;steve&quot;+Math.random(), true);
+             parent.box = box;
+        
+             box.setTitle(&quot;Follow Records&quot;);
+        
+             box.createDialog();
+             box.setWidth(220);
+             
+             box.setContentInnerHTML(&quot;&lt;img src=&apos;/img/loading32.gif&apos; alt=&apos;&apos; /&gt; Running&quot;);
+
+             box.setupDefaultButtons();
+             
+             box.show();
+}
+
+function CBox(){
+     box.setContentInnerHTML(&quot;You are now following &quot;+follow_count+&quot; records&lt;br /&gt;&lt;br /&gt;&lt;a href=\&quot;#\&quot; onclick=\&quot;box.hide();\&quot;&gt;Close&lt;/a&gt;&quot;);
+}
+
+
+
+if (records[0] == null) { 
+   alert(&quot;Please select at least one record.&quot;);
+} 
+else { 
+   var follow_count = 0;
+   
+   LBox();
+
+   for (var i = 0; i &lt; records.length; i++){ 
+        var fol=new sforce.SObject(&quot;EntitySubscription&quot;);
+        fol.ParentId = records[i];
+        fol.SubscriberId = &apos;{!User.Id}&apos;;
+        
+        try{
+           sforce.connection.create([fol]); 
+           follow_count++;
+         }
+        catch(e){
+             alert(e);
+         }
+   }
+   CBox();
+
+}</url>
+    </webLinks>
+</CustomObject>

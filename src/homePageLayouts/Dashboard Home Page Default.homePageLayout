@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <narrowComponents>Logo CEP bilingue</narrowComponents>
+    <narrowComponents>ComboPack__Salesforce Chatter</narrowComponents>
+    <narrowComponents>standard-CreateNew</narrowComponents>
+    <narrowComponents>standard-RecentItems</narrowComponents>
+    <narrowComponents>standard-MessagesAndAlerts</narrowComponents>
+    <narrowComponents>ComboPack__Chatter Notifications</narrowComponents>
+    <narrowComponents>ComboPack__My Groups</narrowComponents>
+    <narrowComponents>ComboPack__Chatter Directory</narrowComponents>
+    <narrowComponents>standard-UsefulLinks</narrowComponents>
+    <narrowComponents>standard-Tags</narrowComponents>
+    <narrowComponents>ComboPack__Chatter Minifeed</narrowComponents>
+    <wideComponents>standard-Calendar</wideComponents>
+    <wideComponents>standard-Tasks</wideComponents>
+    <wideComponents>standard-Dashboard</wideComponents>
+    <wideComponents>standard-ProcessWorkitems</wideComponents>
+</HomePageLayout>

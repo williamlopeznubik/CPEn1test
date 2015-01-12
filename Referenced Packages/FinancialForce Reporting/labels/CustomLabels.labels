@@ -1,0 +1,1267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AccountingCalendarFFANotInstalled</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AccountingCalendarFFANotInstalled</shortDescription>
+        <value>FinancialForce Accounting is not installed.</value>
+    </labels>
+    <labels>
+        <fullName>AccountingCalendarInvalidCalendar</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AccountingCalendarInvalidCalendar</shortDescription>
+        <value>The FinancialForce Accounting company does not have a Financial Calendar defined. Define a valid set of Years and Periods and try again.</value>
+    </labels>
+    <labels>
+        <fullName>AccountingCalendarMultipleCurrentCompanies</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AccountingCalendarMultipleCurrentCompanies</shortDescription>
+        <value>FinancialForce Accounting is running in multi-company mode. Switch to single-company mode and try again.</value>
+    </labels>
+    <labels>
+        <fullName>AccountingCalendarNoCurrentCompany</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AccountingCalendarNoCurrentCompany</shortDescription>
+        <value>FinancialForce Accounting does not have a current company defined. Set a current company and try again.</value>
+    </labels>
+    <labels>
+        <fullName>AccountingPeriodInvalidError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AccountingPeriodInvalidError</shortDescription>
+        <value>{0} is invalid.</value>
+    </labels>
+    <labels>
+        <fullName>AggregateGridReportingDataDefaultColumnLabel</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AggregateGridReportingDataDefaultColumnLabel</shortDescription>
+        <value>Default Column</value>
+    </labels>
+    <labels>
+        <fullName>AggregateGridReportingDataDefaultRowLabel</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AggregateGridReportingDataDefaultRowLabel</shortDescription>
+        <value>Default Row</value>
+    </labels>
+    <labels>
+        <fullName>AggregateGridReportingDataUnexpectedGroupValue</fullName>
+        <categories>error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AggregateGridReportingDataUnexpectedGroupValue</shortDescription>
+        <value>Unexpected group value: {0}</value>
+    </labels>
+    <labels>
+        <fullName>AjaxProxyControllerActionNotFound</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AjaxProxyControllerActionNotFound</shortDescription>
+        <value>Action not specified or unexpected.</value>
+    </labels>
+    <labels>
+        <fullName>AjaxServiceActionNotValid</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AjaxServiceActionNotValid</shortDescription>
+        <value>Action name &apos;&apos;{0}&apos;&apos; is invalid.</value>
+    </labels>
+    <labels>
+        <fullName>AjaxServiceFactoryInternalErrorNoService</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AjaxServiceFactoryInternalErrorNoService</shortDescription>
+        <value>Internal error, service &apos;&apos;{0}&apos;&apos; already registered.</value>
+    </labels>
+    <labels>
+        <fullName>AjaxServiceFactoryNoServiceRegistered</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AjaxServiceFactoryNoServiceRegistered</shortDescription>
+        <value>No service has been registered for action &apos;&apos;{0}&apos;&apos;.</value>
+    </labels>
+    <labels>
+        <fullName>DefinitionClonedName</fullName>
+        <categories>message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DefinitionClonedName</shortDescription>
+        <value>{0} (cloned)</value>
+    </labels>
+    <labels>
+        <fullName>EmptyRequiredField</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EmptyRequiredField</shortDescription>
+        <value>You must enter a value.</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderAddFilterLogic</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderAddFilterLogic</shortDescription>
+        <value>Add Filter Logic...</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderCancelValue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderCancelValue</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderClearFilterLogic</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderClearFilterLogic</shortDescription>
+        <value>Clear Filter Logic</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderContainsOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderContainsOperator</shortDescription>
+        <value>contains</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderDoesNotContainsOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderDoesNotContainsOperator</shortDescription>
+        <value>does not contain</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderEndsWithOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderEndsWithOperator</shortDescription>
+        <value>ends with</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderErrorOccurred</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderErrorOccurred</shortDescription>
+        <value>An error has occurred:</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderExcludesOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderExcludesOperator</shortDescription>
+        <value>excludes</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderFieldDefValue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderFieldDefValue</shortDescription>
+        <value>(Field...)</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderFieldNotValid</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderFieldNotValid</shortDescription>
+        <value>Field name not specified</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderFilterLogic</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderFilterLogic</shortDescription>
+        <value>Filter Logic:</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderFilterValue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderFilterValue</shortDescription>
+        <value>Filter...</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderIncludesOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderIncludesOperator</shortDescription>
+        <value>includes</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderIsAfterOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderIsAfterOperator</shortDescription>
+        <value>is after</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderIsAfterOrEqualToOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderIsAfterOrEqualToOperator</shortDescription>
+        <value>is after or equal to</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderIsBeforeOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderIsBeforeOperator</shortDescription>
+        <value>is before</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderIsBeforeOrEqualToOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderIsBeforeOrEqualToOperator</shortDescription>
+        <value>is before or equal to</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderIsEqualToOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderIsEqualToOperator</shortDescription>
+        <value>is equal to</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderIsGreaterThanOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderIsGreaterThanOperator</shortDescription>
+        <value>is greater than</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderIsGreaterThanOrEqualToOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderIsGreaterThanOrEqualToOperator</shortDescription>
+        <value>is greater than or equal to</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderIsLessThanOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderIsLessThanOperator</shortDescription>
+        <value>is less than</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderIsLessThanOrEqualToOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderIsLessThanOrEqualToOperator</shortDescription>
+        <value>is less than or equal to</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderIsNotEqualToOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderIsNotEqualToOperator</shortDescription>
+        <value>is not equal to</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderIsNotOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderIsNotOperator</shortDescription>
+        <value>is not</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderIsOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderIsOperator</shortDescription>
+        <value>is</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderNumericValueValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderNumericValueValidation</shortDescription>
+        <value>You must enter a number.</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderObjectDefValue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderObjectDefValue</shortDescription>
+        <value>(Object...)</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderObjectNotValid</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderObjectNotValid</shortDescription>
+        <value>Object name not specified</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderOpNotSupported</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderOpNotSupported</shortDescription>
+        <value>Operator not supported:</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderOperatorDefValue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderOperatorDefValue</shortDescription>
+        <value>(Operator...)</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderPromptLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderPromptLabel</shortDescription>
+        <value>This value will be used as the Prompt Tag on a Prompt Mapping</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderRemoveCondition</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderRemoveCondition</shortDescription>
+        <value>Remove Condition</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderSetDate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderSetDate</shortDescription>
+        <value>Set Date</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderSetValue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderSetValue</shortDescription>
+        <value>Set Value</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderSetValues</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderSetValues</shortDescription>
+        <value>Set Value/s</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderSoftPeriodsValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderSoftPeriodsValidation</shortDescription>
+        <value>Invalid format: Valid format is Ynnn Pnnn.</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderStartsWithOperator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderStartsWithOperator</shortDescription>
+        <value>starts with</value>
+    </labels>
+    <labels>
+        <fullName>FilterBuilderValueDefValue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterBuilderValueDefValue</shortDescription>
+        <value>(Value...)</value>
+    </labels>
+    <labels>
+        <fullName>FilterNotCompleted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterNotCompleted</shortDescription>
+        <value>The filter is incomplete. You must complete the filter conditions before saving.</value>
+    </labels>
+    <labels>
+        <fullName>FilterUIAddCondition</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FilterUIAddCondition</shortDescription>
+        <value>Add Condition</value>
+    </labels>
+    <labels>
+        <fullName>FiltersUIFilterBuilder</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FiltersUIFilterBuilder</shortDescription>
+        <value>Filter Builder</value>
+    </labels>
+    <labels>
+        <fullName>NoFiltersAssignedToFilterMappings</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NoFiltersAssignedToFilterMappings</shortDescription>
+        <value>One or more of the related filter mappings has no filters assigned to it.</value>
+    </labels>
+    <labels>
+        <fullName>NumberFormatterInvalidDecimalFormat</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NumberFormatterInvalidDecimalFormat</shortDescription>
+        <value>Invalid decimal format string</value>
+    </labels>
+    <labels>
+        <fullName>PageTitleEdit</fullName>
+        <categories>message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PageTitleEdit</shortDescription>
+        <value>{0} Edit</value>
+    </labels>
+    <labels>
+        <fullName>PageTitleNew</fullName>
+        <categories>message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PageTitleNew</shortDescription>
+        <value>New {0}</value>
+    </labels>
+    <labels>
+        <fullName>PromptedValueInFilterNotTagged</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PromptedValueInFilterNotTagged</shortDescription>
+        <value>There is a prompted value in the reporting filter {0} that does not have a corresponding prompt tag. Prompt tags are defined in the Report Prompt Mapping object.</value>
+    </labels>
+    <labels>
+        <fullName>QueryInvalidFieldNoAPIName</fullName>
+        <categories>error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>QueryInvalidFieldNoAPIName</shortDescription>
+        <value>Invalid field: no API name</value>
+    </labels>
+    <labels>
+        <fullName>QueryInvalidFieldNoAlias</fullName>
+        <categories>error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>QueryInvalidFieldNoAlias</shortDescription>
+        <value>Invalid field: no alias</value>
+    </labels>
+    <labels>
+        <fullName>QueryMissingObjectName</fullName>
+        <categories>error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>QueryMissingObjectName</shortDescription>
+        <value>Missing object name</value>
+    </labels>
+    <labels>
+        <fullName>QueryNothingToGroupBy</fullName>
+        <categories>error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>QueryNothingToGroupBy</shortDescription>
+        <value>Nothing to group by</value>
+    </labels>
+    <labels>
+        <fullName>QueryNothingToOrderBy</fullName>
+        <categories>error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>QueryNothingToOrderBy</shortDescription>
+        <value>Nothing to order by</value>
+    </labels>
+    <labels>
+        <fullName>QueryNothingToSelect</fullName>
+        <categories>error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>QueryNothingToSelect</shortDescription>
+        <value>Nothing to select</value>
+    </labels>
+    <labels>
+        <fullName>RFDControllerErrorCheckSpelling</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RFDControllerErrorCheckSpelling</shortDescription>
+        <value>Check the spelling in your filter logic.</value>
+    </labels>
+    <labels>
+        <fullName>RFDControllerErrorConditionsNotReferenced</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RFDControllerErrorConditionsNotReferenced</shortDescription>
+        <value>Some filter conditions are defined but not referenced in your filter logic.</value>
+    </labels>
+    <labels>
+        <fullName>RFDControllerErrorParenthesesRequired</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RFDControllerErrorParenthesesRequired</shortDescription>
+        <value>Your filter must use parentheses around successive AND and OR expressions.</value>
+    </labels>
+    <labels>
+        <fullName>RFDControllerErrorUndefinedFilter</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RFDControllerErrorUndefinedFilter</shortDescription>
+        <value>The filter logic references an undefined filter: {0}</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDataRangeUniqueKeyValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDataRangeUniqueKeyValidation</shortDescription>
+        <value>A reporting data range with this key already exists for this reporting definition. The Key field must be unique within a reporting definition. Change the key and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDataRangeValidationTypeUpdate</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDataRangeValidationTypeUpdate</shortDescription>
+        <value>This option is not valid because it is not compatible with the reporting values that exist for this data range.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDataRangeValidationTypeUpdateFilter</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDataRangeValidationTypeUpdateFilter</shortDescription>
+        <value>This option is not valid because it is not compatible with the reporting filters that exist for this data range.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionCloneSubTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionCloneSubTitle</shortDescription>
+        <value>New Reporting Definition</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionCloneTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionCloneTitle</shortDescription>
+        <value>Reporting Definition Clone</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionConfirmPageButtonFinish</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionConfirmPageButtonFinish</shortDescription>
+        <value>Finish</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionConfirmPageButtonOpen</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionConfirmPageButtonOpen</shortDescription>
+        <value>Open</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionControllerNoTemplateSelected</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionControllerNoTemplateSelected</shortDescription>
+        <value>There is no template selected for this Reporting Definition.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionExportCancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionExportCancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionExportConfirm</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionExportConfirm</shortDescription>
+        <value>The export completed successfully. The portable report definition file is saved to the Document Library.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionExportIncludeReportingFilterDefinitions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionExportIncludeReportingFilterDefinitions</shortDescription>
+        <value>Include Reporting Filter Definitions</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionExportIncludeReportingObject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionExportIncludeReportingObject</shortDescription>
+        <value>Include Reporting Objects</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionExportName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionExportName</shortDescription>
+        <value>Portable Report Definition Name</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionExportRequiredValue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionExportRequiredValue</shortDescription>
+        <value>You must enter a value.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionExportSave</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionExportSave</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionExportSectionTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionExportSectionTitle</shortDescription>
+        <value>Reporting Definition</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionExportTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionExportTitle</shortDescription>
+        <value>Export Reporting Definition</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionImportAccessError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionImportAccessError</shortDescription>
+        <value>Your profile does not allow you to access {0} records. Contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionImportCancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionImportCancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionImportCreationError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionImportCreationError</shortDescription>
+        <value>Your profile does not allow you to create {0} records. Contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionImportHeaderNameColumn</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionImportHeaderNameColumn</shortDescription>
+        <value>Portable Reporting Definition Name</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionImportManyRowsSelected</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionImportManyRowsSelected</shortDescription>
+        <value>You can only import one portable report definition at a time.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionImportNoRowsSelected</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionImportNoRowsSelected</shortDescription>
+        <value>You must select a portable report definition to import.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionImportReferenceError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionImportReferenceError</shortDescription>
+        <value>The following {0} contain errors: {1}.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionImportSave</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionImportSave</shortDescription>
+        <value>Import</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionImportTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionImportTitle</shortDescription>
+        <value>Import Reporting Definition</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionOverwrite</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionOverwrite</shortDescription>
+        <value>A report with this name already exists. Click Save to overwrite the existing report or edit the name to create a new one.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionPromptPageButtonCancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionPromptPageButtonCancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionPromptPageButtonPrintPDF</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionPromptPageButtonPrintPDF</shortDescription>
+        <value>Print</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionPromptPageButtonRunReport</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionPromptPageButtonRunReport</shortDescription>
+        <value>View</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionPromptPageButtonSave</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionPromptPageButtonSave</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionPromptPageInstructions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionPromptPageInstructions</shortDescription>
+        <value>This report needs more information from you. Complete the fields below and then click View or Print to generate the report.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionPromptPageReportOptions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionPromptPageReportOptions</shortDescription>
+        <value>Report Options</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionPromptPageWithoutPrompt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionPromptPageWithoutPrompt</shortDescription>
+        <value>Click the appropriate button to continue.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionReportingDefinition</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionReportingDefinition</shortDescription>
+        <value>Reporting Definition</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionSaveConfirm</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionSaveConfirm</shortDescription>
+        <value>Your report has been saved to the selected folder.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionSaveConfirmation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionSaveConfirmation</shortDescription>
+        <value>Save Confirmation</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionSavePageButtonCancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionSavePageButtonCancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionSavePageButtonSave</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionSavePageButtonSave</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionSavePageDestinationFolder</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionSavePageDestinationFolder</shortDescription>
+        <value>Destination Folder</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionSavePageDestinationName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionSavePageDestinationName</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionSavePageFormat</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionSavePageFormat</shortDescription>
+        <value>Format</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionSavePageTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionSavePageTitle</shortDescription>
+        <value>Report Save Options</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionUniqueNameValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionUniqueNameValidation</shortDescription>
+        <value>A reporting definition with this name already exists. The Name field must be unique. Change the name and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingDefinitionValidationFilter</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingDefinitionValidationFilter</shortDescription>
+        <value>A reporting filter in the Reporting Prompt Mapping has been ignored. You must add the same filter to the Reporting Filter Mapping to fix this.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingFilterDefinitionTriggerInvalidSObject</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingFilterDefinitionTriggerInvalidSObject</shortDescription>
+        <value>The sObject referenced in the Filter definition has been modified during the Save process. Contact your administrator for further details.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingFilterDetailAndColumnNotAllowed</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingFilterDetailAndColumnNotAllowed</shortDescription>
+        <value>You cannot use column conditions with Detail data ranges.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingFilterObjectNamesValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingFilterObjectNamesValidation</shortDescription>
+        <value>Reporting Object in the Reporting Filter must be the same as in the Reporting Data Range</value>
+    </labels>
+    <labels>
+        <fullName>ReportingFilterUniqueKeyValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingFilterUniqueKeyValidation</shortDescription>
+        <value>A reporting filter with this key already exists for this reporting data range. The Key field must be unique within a reporting data range. Change the key and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingGeneratePageCancelButton</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingGeneratePageCancelButton</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>ReportingGeneratePageSaveButton</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingGeneratePageSaveButton</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>ReportingGeneratePageSubTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingGeneratePageSubTitle</shortDescription>
+        <value>New Reporting Definition</value>
+    </labels>
+    <labels>
+        <fullName>ReportingGeneratePageTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingGeneratePageTitle</shortDescription>
+        <value>Generate Definition</value>
+    </labels>
+    <labels>
+        <fullName>ReportingImportValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingImportValidation</shortDescription>
+        <value>The portable reporting definition file selected for import is empty or is not in a valid format.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingImportValidationEmptyDelete</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingImportValidationEmptyDelete</shortDescription>
+        <value>The portable reporting definition file selected for import is empty or has been deleted.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingLabelUniqueKeyValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingLabelUniqueKeyValidation</shortDescription>
+        <value>A reporting label with this key already exists for this reporting definition. The Key field must be unique within a reporting definition. Change the key and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingListViewPageAction</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingListViewPageAction</shortDescription>
+        <value>Action</value>
+    </labels>
+    <labels>
+        <fullName>ReportingListViewPageGenerationDefinition</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingListViewPageGenerationDefinition</shortDescription>
+        <value>Generate Definition</value>
+    </labels>
+    <labels>
+        <fullName>ReportingListViewPageHome</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingListViewPageHome</shortDescription>
+        <value>Home</value>
+    </labels>
+    <labels>
+        <fullName>ReportingListViewPagePage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingListViewPagePage</shortDescription>
+        <value>Page</value>
+    </labels>
+    <labels>
+        <fullName>ReportingListViewPagePageNext</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingListViewPagePageNext</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>ReportingListViewPagePageOf</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingListViewPagePageOf</shortDescription>
+        <value>of</value>
+    </labels>
+    <labels>
+        <fullName>ReportingListViewPagePrevious</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingListViewPagePrevious</shortDescription>
+        <value>Previous</value>
+    </labels>
+    <labels>
+        <fullName>ReportingListViewPageReportDefinitionDescription</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingListViewPageReportDefinitionDescription</shortDescription>
+        <value>Report Definition Description</value>
+    </labels>
+    <labels>
+        <fullName>ReportingListViewPageReportDefinitionName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingListViewPageReportDefinitionName</shortDescription>
+        <value>Report Definition Name</value>
+    </labels>
+    <labels>
+        <fullName>ReportingListViewPageRun</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingListViewPageRun</shortDescription>
+        <value>Run</value>
+    </labels>
+    <labels>
+        <fullName>ReportingListViewPageSubtitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingListViewPageSubtitle</shortDescription>
+        <value>Reporting</value>
+    </labels>
+    <labels>
+        <fullName>ReportingListViewWizardPageSubtitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingListViewWizardPageSubtitle</shortDescription>
+        <value>Reporting Generator</value>
+    </labels>
+    <labels>
+        <fullName>ReportingLogEditValidation</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingLogEditValidation</shortDescription>
+        <value>You can only edit the Name of an existing reporting log record.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingLogManuallyValidation</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingLogManuallyValidation</shortDescription>
+        <value>You cannot create a new reporting log record. A reporting log is maintained automatically.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingLogPageBack</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingLogPageBack</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>ReportingLogRelatedListValidation</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingLogRelatedListValidation</shortDescription>
+        <value>You can only view or run one reporting log record at a time. Select a single reporting log and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingLogUpdateValidation</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingLogUpdateValidation</shortDescription>
+        <value>This reporting definition has been changed since this reporting log was generated. Complete the enabled fields to run the report. The reporting log is updated with the new prompts.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingObjectSFObjectValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingObjectSFObjectValidation</shortDescription>
+        <value>The specified object does not exist in your Salesforce organization. Select a valid object and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingPromptCompanyNameValidation</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingPromptCompanyNameValidation</shortDescription>
+        <value>There is no company with this name, or it is not the current company.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingPromptDateValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingPromptDateValidation</shortDescription>
+        <value>You must enter a valid date.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingPromptNumberValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingPromptNumberValidation</shortDescription>
+        <value>You must enter a valid number.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingPromptPicklistValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingPromptPicklistValidation</shortDescription>
+        <value>You must enter a valid picklist value.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingPromptSortButtonCancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingPromptSortButtonCancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>ReportingPromptSortButtonSave</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingPromptSortButtonSave</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>ReportingPromptSortPromptName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingPromptSortPromptName</shortDescription>
+        <value>Prompt Name</value>
+    </labels>
+    <labels>
+        <fullName>ReportingPromptSortSectionTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingPromptSortSectionTitle</shortDescription>
+        <value>Sort Reporting Prompts</value>
+    </labels>
+    <labels>
+        <fullName>ReportingPromptSortSortOrder</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingPromptSortSortOrder</shortDescription>
+        <value>Sort Order</value>
+    </labels>
+    <labels>
+        <fullName>ReportingPromptUniqueKeyValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingPromptUniqueKeyValidation</shortDescription>
+        <value>A reporting prompt with this key already exists for this reporting definition. The Key field must be unique within a reporting definition. Change the key and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingPromptUniqueSortOrderValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingPromptUniqueSortOrderValidation</shortDescription>
+        <value>A reporting prompt with this sort order already exists for this reporting definition. The Sort Order field must be unique within a reporting definition. Change the sort order and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingTemplateControllerParameterError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingTemplateControllerParameterError</shortDescription>
+        <value>Error in a parameter for the Prompt with name {0} (Key: {1}) :</value>
+    </labels>
+    <labels>
+        <fullName>ReportingTemplateControllerParameterNotExist</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingTemplateControllerParameterNotExist</shortDescription>
+        <value>{0} is not defined as a prompt for this reporting definition.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingTemplateGeneralErrors</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingTemplateGeneralErrors</shortDescription>
+        <value>There was an error executing the reporting definition: {0} with the template: {1}. Return to the reporting definition and correct the following error: {2}. Once you have corrected the error, run the report again from reporting log: {3}.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingTemplateNoDataRanges</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingTemplateNoDataRanges</shortDescription>
+        <value>No data ranges.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingTemplateNoReportingValues</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingTemplateNoReportingValues</shortDescription>
+        <value>No Reporting Values.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingTemplateUnrecognisedReportingFilter</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingTemplateUnrecognisedReportingFilter</shortDescription>
+        <value>Unrecognised Reporting Filter key group: {0}.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingTemplateUnrecognisedReportingValue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingTemplateUnrecognisedReportingValue</shortDescription>
+        <value>Unrecognised Reporting Value type: {0}.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingValueFieldGroupAndSumNotAllowedWithDetailDR</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingValueFieldGroupAndSumNotAllowedWithDetailDR</shortDescription>
+        <value>You cannot use the Group and Sum functions at the same time. Select either Group or Sum.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingValueFieldNameValidValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingValueFieldNameValidValidation</shortDescription>
+        <value>The field name you specified does not exist in the object selected in the Reporting Data Range parent object. Review the specified field name and the information on related objects and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingValueFieldNotAllowedWithSummaryDR</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingValueFieldNotAllowedWithSummaryDR</shortDescription>
+        <value>You cannot use the {0} function here. The data range type must be set to “Detail”.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingValueNotGroupableFieldSummaryValidation</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingValueNotGroupableFieldSummaryValidation</shortDescription>
+        <value>This field cannot be used to group records in Summary Reporting.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingValueTriggerCountSingleKeyValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingValueTriggerCountSingleKeyValidation</shortDescription>
+        <value>A count reporting value with this key name already exists for this reporting data range. The Field Key field must be unique within a reporting data range. Change the field key and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingValueTriggerCountSingleNameValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingValueTriggerCountSingleNameValidation</shortDescription>
+        <value>A count reporting value with this field name already exists for this reporting data range. The Field Name field must be unique within a reporting data range. Change the field name and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingValueTriggerMissingRecordTypes</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingValueTriggerMissingRecordTypes</shortDescription>
+        <value>You do not have access to Reporting Value Record Types. Contact your Administrator for more information.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingValueTriggerObjectValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingValueTriggerObjectValidation</shortDescription>
+        <value>Invalid object specified in the parent Reporting Data Ranges Reporting Filter Definition.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingValueUniqueFieldKeyValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingValueUniqueFieldKeyValidation</shortDescription>
+        <value>A reporting value with this key name already exists for this reporting data range. The Field Key field must be unique within a reporting data range. Change the field key and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingValueUniqueFieldNameValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingValueUniqueFieldNameValidation</shortDescription>
+        <value>A reporting value with this field name already exists for this reporting data range. The Field Name field must be unique within a reporting data range. Change the field name and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingValueValidationTypeDetail</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingValueValidationTypeDetail</shortDescription>
+        <value>The data range type is Detail. You must select a list query method: Detail.</value>
+    </labels>
+    <labels>
+        <fullName>ReportingValueValidationTypeSummary</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReportingValueValidationTypeSummary</shortDescription>
+        <value>The data range type is Summary. You must select an aggregation query method: Group or Sum.</value>
+    </labels>
+    <labels>
+        <fullName>StaticResourceDoesNotExist</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>StaticResourceDoesNotExist</shortDescription>
+        <value>The static resource does not exist. Check the template definition and your org before trying again.</value>
+    </labels>
+    <labels>
+        <fullName>StyleSheetDoesNotExist</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>StyleSheetDoesNotExist</shortDescription>
+        <value>The style sheet does not exist within that static resource. Check the template definition and your org before trying again.</value>
+    </labels>
+</CustomLabels>

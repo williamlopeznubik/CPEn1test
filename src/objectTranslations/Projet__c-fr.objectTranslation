@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Projet</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Projets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Charte du projet --></label>
+        <name>Charte_du_projet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date fin --></label>
+        <name>Date_fin__c</name>
+    </fields>
+    <fields>
+        <label><!-- Duree --></label>
+        <name>Duree__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facteurs de succès --></label>
+        <name>Facteurs_de_succ_s__c</name>
+    </fields>
+    <fields>
+        <label><!-- Livrables --></label>
+        <name>Livrables__c</name>
+        <picklistValues>
+            <masterLabel>Présentation corporative</masterLabel>
+            <translation><!-- Présentation corporative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Présentation de services</masterLabel>
+            <translation><!-- Présentation de services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>rapport</masterLabel>
+            <translation><!-- rapport --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Objectifs du projet --></label>
+        <name>Objectifs_du_projet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Responsable du projet --></label>
+        <name>Responsable_du_projet__c</name>
+        <relationshipLabel><!-- Projets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status du projet --></label>
+        <name>Status_du_projet__c</name>
+        <picklistValues>
+            <masterLabel>Orange</masterLabel>
+            <translation><!-- Orange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rouge</masterLabel>
+            <translation><!-- Rouge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vert</masterLabel>
+            <translation><!-- Vert --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type de projet --></label>
+        <name>Type_de_projet__c</name>
+        <picklistValues>
+            <masterLabel>Nouveau service</masterLabel>
+            <translation><!-- Nouveau service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>stratégique</masterLabel>
+            <translation><!-- stratégique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>tactique</masterLabel>
+            <translation><!-- tactique --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- pourcentage complété --></label>
+        <name>pourcentage_compl_t__c</name>
+    </fields>
+    <fields>
+        <label><!-- Étapes --></label>
+        <name>tape__c</name>
+        <picklistValues>
+            <masterLabel>complété</masterLabel>
+            <translation><!-- complété --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>conception</masterLabel>
+            <translation><!-- conception --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>définition</masterLabel>
+            <translation><!-- définition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>déploiement</masterLabel>
+            <translation><!-- déploiement --></translation>
+        </picklistValues>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Présentation Projet</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Organisation du Projet --></label>
+            <section>Organisation du Projet</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

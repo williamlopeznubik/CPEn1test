@@ -1,0 +1,255 @@
+<apex:page controller="ffct.BundlePushController" action="{!startReentrantProcess}"> 
+    <apex:form id="form">
+    <apex:actionStatus id="eventStatus"  >
+         <apex:facet name="start">
+          <apex:outputPanel >
+                        <div style="width:100%;height:100%;position:absolute;top:0;left:0;">
+                            <div style="position:absolute;top:50%;left:50%">
+                                <apex:image value="/img/loading32.gif"></apex:image>
+                            </div>
+                        </div>
+           </apex:outputPanel>
+        </apex:facet>   
+         </apex:actionStatus>
+        <apex:sectionheader title="{!FeatureLabel}"/>
+        <apex:pageMessages escape="false" id="messagesDiv" rendered="{!!DeploymentCompleted}"/>
+        <apex:outputPanel id="progressDiv" layout="block" >
+            <apex:outputPanel layout="block" rendered="{!StartImport || SignupRequestTrackStatus || SaveAutorizationCode}">
+                <img src="{!URLFOR($Resource.progressGIF)}" />
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!DeploymentCompleted}">
+            <apex:pageBlock title="{!$Label.BundlePushResults}">
+        	<apex:pageMessages escape="false" id="resultMessagesDiv"/>
+            <apex:commandLink style="color:#015BA7;padding:3px 3px 3px 3px;" action="{!repushUnprocessedComponents}" value="Retry" status="eventStatus" rerender="form" rendered="{!EnableRetry}"/>
+            <apex:pageBlockSection rendered="{!ComponentResponseRecords != null && ComponentResponseRecords.size > 0}" >
+            	<apex:pageBlockTable value="{!ComponentResponseRecords}" var="record">
+            		<apex:column value="{!record.Name}" headerValue="Name" width="15%"/>
+            		<apex:column value="{!record.Type}" headerValue="Type" width="5%"/>
+            		<apex:column value="{!record.Processed}" headerValue="Processed" width="5%"/>
+            		<apex:column value="{!record.Error}" headerValue="Error" width="75%"/>
+            	</apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <!-- <apex:pageBlockSection title="Do you want to push another Bundle?"> -->
+            <br/>
+            <apex:outputlabel rendered="{!PushType=='gdrivepush'}">{!$Label.PushAnotherBundle}</apex:outputlabel>&nbsp;
+            	<apex:pageBlockButtons location="bottom">
+                	<apex:commandButton action="{!pushAnotherBundle}" value="Yes" rendered="{!PushType=='gdrivepush'}" reRender="inputPanel,form"/>
+                 	<apex:commandButton action="{!uninstallFfct}" value="No" rendered="{!PushType=='gdrivepush'}" reRender="inputPanel,form"/>
+                 	<apex:commandButton action="{!uninstallFfct}" value="{!$Label.Close}" rendered="{!PushType=='localpush'}" reRender="inputPanel,form"/>
+                </apex:pageBlockButtons>
+             <!-- </apex:pageBlockSection> -->
+            </apex:pageBlock>
+            </apex:outputPanel>
+        </apex:outputPanel>
+        
+         	<apex:outputPanel rendered="{!!StartImport && !DeploymentCompleted && !SelectPushProvisionAction}" id="SelectBundle">
+         	 <apex:pageBlock rendered="{!!StartImport && !DeploymentCompleted && !SelectPushProvisionAction}" id="SelectBundleBlock">
+         		<apex:outputLink value="/apex/setupconnection" style="float:right;">{!$Label.SetupNewConnection} <apex:param name="returningFeature" value="{!PageUrl}" /> </apex:outputLink>
+         		<table>
+         			<tr>
+         			<td>
+         			<b><apex:outputlabel value="{!$Label.SelectBundle}" rendered="{!PushType=='gdrivepush'}"></apex:outputlabel></b>
+         			<b><apex:outputlabel value="{!$Label.SelectedBundle}" rendered="{!PushType=='localpush'}"></apex:outputlabel></b>
+         			&nbsp;
+					        <apex:outputpanel id="bundleId" rendered="{!PushType=='localpush'}">
+					        		<apex:outputText value="{!BundleName}" />
+					         </apex:outputpanel>
+         					<apex:outputpanel id="gDriveFiles" rendered="{!PushType=='gdrivepush'}">
+								<apex:selectList value="{!folderId}" size="1" multiselect="false">
+			        				<apex:selectOption itemValue="" itemLabel="{!$Label.SelectBundleFile}" />
+			        				<apex:selectOptions value="{!GdriveFiles}"/>
+			        				<apex:actionSupport event="onchange" action="{!retrieveSourceBundleInfo}" status="eventStatus" rerender="messagesDiv,sourceBundleInfo,form" />
+			    				</apex:selectList>
+		        				&nbsp;<apex:commandLink action="{!listFilesFromGDrive}" value="{!$Label.LoadFiles}" status="eventStatus" rerender="gDriveFiles,form,inputPanel"/>
+							</apex:outputpanel>
+         				</td>
+         			</tr>
+         			</table>
+         			<apex:pageBlockTable id="sourceBundleInfo" value="{!ImportBundleinfoRec}" var="bundleinfo" border="1" summary="This table contains source org info"  rendered="{!DisplayBundleOrgInfo}">
+         			 	<apex:column headervalue="{!$Label.BundleDescription}" rendered="{!bundleinfo.ffct__Bundle_Description__c ==null || len(bundleinfo.ffct__Bundle_Description__c)==0}">
+         			 		<apex:outputText value="{!BLANKVALUE(bundleinfo.ffct__Bundle_Description__c,$Label.NA)}" ></apex:outputText>
+         			 	</apex:column> 
+         			 	<apex:column headervalue="{!$Label.BundleDescription}" value="{!bundleinfo.ffct__Bundle_Description__c}"  rendered ="{!bundleinfo.ffct__Bundle_Description__c !=null && len(bundleinfo.ffct__Bundle_Description__c)>0}"/>
+         			 	<apex:column headervalue="{!$Label.SourceOrganizationId}" > 
+         			 		<apex:outputText value="{!BLANKVALUE(bundleinfo.ffct__Source_Org_Id__c,$Label.NA)}" />
+         			 	</apex:column>
+         			 	<apex:column headervalue="{!$Label.BundleAuthor}"> 
+         			 		<apex:outputText value="{!BLANKVALUE(bundleinfo.ffct__Author__c,$Label.NA)}" />
+         			 	</apex:column>
+         			 	<apex:column headervalue="{!$Label.PackagesInstalledOnSourceOrganization}" > 
+         			 		<apex:outputText value="{!BLANKVALUE(bundleinfo.ffct__Packages_Installed__c,$Label.NA)}" />
+         			 	</apex:column>
+         			 	<apex:column headervalue="{!$Label.BundleExportDate}" >
+         			 		<apex:outputText value="{!bundleinfo.ffct__Export_Date__c}" rendered="{!bundleinfo.ffct__Export_Date__c !=null}" />
+         			 		<apex:outputText value="{!$Label.NA}" rendered="{!bundleinfo.ffct__Export_Date__c ==null}" />
+         			 	</apex:column>
+         			 </apex:pageBlockTable>
+         			 <apex:commandLink action="{!Openpopup}" reRender="compDetail,form"   rendered="{!DisplayBundleOrgInfo}" status="eventStatus">{!$Label.ShowDetails}</apex:commandLink>
+         			 <apex:outputPanel id="compDetail" styleClass="popupBg" layout="block" rendered="{!DisplayPopUp}">
+						<apex:outputPanel styleClass="popup" layout="block" rendered="{!DisplayPopUp}">
+							<apex:pageBlockSection title="{!$Label.BundleDetails}" columns="1" collapsible="false" >
+           						<apex:pageBlockTable value="{!BundleComponentDetailList}" var="comp">
+            						<apex:column headervalue="{!$Label.ComponentName}" value="{!comp.Name}"/>
+            						<apex:column headervalue="{!$Label.ComponentType}" value="{!comp.ComponentType}"/>
+            						<apex:column headervalue="{!$Label.ComponentDescription}" value="{!comp.ComponentDescription}"/>
+           						</apex:pageBlockTable>
+            				</apex:pageBlockSection>
+            					<apex:actionStatus id="Outerstatus" startText="{!$Label.HidingDetails}">
+            						<apex:facet name="stop">
+            							<apex:commandLink value="{!$Label.HideDetails}" action="{!closePopup}" status="Outerstatus" rerender="compDetail,form" /> 
+            						</apex:facet>
+        						</apex:actionStatus>
+   						</apex:outputPanel>
+  					</apex:outputPanel>
+					 <apex:pageBlockButtons location="bottom">
+						 <apex:commandButton action="{!enableProvisionFeature}" value="{!$Label.ProvisionAnOrg}" status="eventStatus" reRender="form" rendered="{!TSOConnected && AuthSettingsPresent}"/> 
+						  <apex:commandButton action="{!enableProvisionFeature}" value="{!$Label.ProvisionAnOrg}" status="eventStatus" reRender="form" rendered="{!!TSOConnected || !AuthSettingsPresent}" disabled="true"/>        					
+						 <apex:commandButton action="{!enablePushFeature}" value="{!$Label.PushToOrg}" status="eventStatus" reRender="form" rendered="{!AuthSettingsPresent}"/>    
+						 <apex:commandButton action="{!enablePushFeature}" value="{!$Label.PushToOrg}" status="eventStatus" reRender="form" rendered="{!!AuthSettingsPresent}" disabled="true"/>    					
+					</apex:pageBlockButtons>
+         	</apex:pageBlock>
+         </apex:outputPanel>
+         
+         <apex:outputPanel rendered="{!!StartImport && !DeploymentCompleted && SelectPushProvisionAction && DisplayProvisionDetails && !SignupRequestTrackStatus &&!ReEntrant}" id="ProvisionOrg">
+         	<apex:pageBlock rendered="{!!StartImport && !DeploymentCompleted && SelectPushProvisionAction && DisplayProvisionDetails && !SignupRequestTrackStatus &&!ReEntrant}" id="ProvisionOrgBlock">
+         		<apex:pageBlockButtons location="bottom">
+                	<apex:commandButton action="{!createSignUpRequest}" value="{!$Label.Submit}" status="eventStatus"/>
+            	</apex:pageBlockButtons>
+            	<table>
+            	<tr>
+            		<th>{!$Label.FFOrgCreationForm}</th>
+            	</tr>
+            	<tr>
+            	</tr>
+            	<tr>
+            		<td>
+            	  		<apex:outputlabel rendered="{!TSOSelectedCon==null}">{!$Label.SelectTSOConnection}</apex:outputlabel>
+            		</td>
+            		<td>
+            			<apex:selectList value="{!TSOselectedCon}" multiselect="false" size="1" rendered="{!TSOSelectedCon==null}">
+			    			<apex:selectOptions value="{!allTSOConnections}" />
+			    		</apex:selectList>
+			    	</td>
+            	</tr>
+            		<tr>
+            			<td>
+            				<b><apex:outputLabel value="{!$Label.Username}" /></b>
+            			</td>
+            		<td>	
+               	 		<apex:inputText value="{!SignupReq.Username}" Id="Username" required="true" />
+               	 	</td>
+               	</tr>
+               	<tr>
+            		<td>
+                		<b><apex:outputLabel value="{!$Label.Email}" /></b>
+                	</td>
+                	<td>
+                		<apex:inputText value="{!signupReq.SignupEmail}" Id="Email" required="true" />
+                	</td>
+                </tr>
+                 </table>
+         	</apex:pageBlock>
+         </apex:outputPanel>
+          <apex:outputPanel id="signuprequestProgress" rendered="{!!StartImport && !DeploymentCompleted && SelectPushProvisionAction && DisplayProvisionDetails && SignupRequestTrackStatus}">
+            <apex:actionPoller action="{!checkSignUpRecordCreationStatus}" interval="5" rerender="signuprequestProgress,progressDiv,messagesDiv,inputPanel,form" oncomplete="checkBundlePushInvocation();"/>              
+        </apex:outputPanel>
+        <apex:actionFunction action="{!pushSelectedBundleToTarget}" name="pushBundleToTarget_JS" rerender="inputPanel,form"/>
+        <apex:outputPanel rendered="{!!StartImport && !DeploymentCompleted && SelectPushProvisionAction && DisplayPushDetails}" id="inputPanel">
+        <apex:pageBlock >
+        <apex:outputLink value="/apex/setupconnection" style="float:right;">{!$Label.SetupNewConnection} <apex:param name="returningFeature" value="{!PageUrl}" /> </apex:outputLink>
+        	<table>
+        		<tr>
+			    	<td><b><apex:outputLabel value="{!$Label.SelectConnection}"  rendered="{!!PushAnotherBundle}"/></b>
+			    		<b><apex:outputLabel value="{!$Label.ConnectionName}"   rendered="{!PushAnotherBundle}"/></b>
+			    		</td>
+			    	<td>
+			    		<apex:selectList value="{!selectedCon}" multiselect="false" size="1" rendered="{!!PushAnotherBundle}">
+			    			<apex:selectOptions value="{!allConnections}"></apex:selectOptions>
+			    			<apex:actionSupport event="onchange" action="{!retrieveAndUpdateNewAccessTokenForOrg}" status="eventStatus" rerender="messagesDiv" />
+			    		</apex:selectList>
+			    		<apex:outputLabel value="{!con.Name}" rendered="{!PushAnotherBundle}"></apex:outputLabel>
+			    	</td>
+			    	
+        		</tr>
+        		<tr>
+	        	<td>
+		        		<b><apex:outputlabel value="{!$Label.SelectBundle}" rendered="{!PushType=='gdrivepush' && (!DisplayPushDetails || PushAnotherBundle)}"></apex:outputlabel></b>
+		        		<b><apex:outputlabel value="{!$Label.SelectedBundle}" rendered="{!PushType=='localpush' || (DisplayPushDetails && !PushAnotherBundle)}"></apex:outputlabel></b>
+		        </td>
+		        <td>
+			        <apex:outputpanel id="bundleId" rendered="{!PushType=='localpush'}">
+			        		<apex:outputText value="{!BundleName}" />
+			         </apex:outputpanel>
+			        <apex:outputpanel id="gDriveFiles" rendered="{!PushType=='gdrivepush'}">
+			        		<apex:selectList value="{!folderId}" size="1" multiselect="false" disabled="{!DisplayPushDetails && !PushAnotherBundle}">
+			        				<apex:selectOption itemValue="" itemLabel="{!$Label.SelectBundleFile}" />
+			            			<apex:selectOptions value="{!GdriveFiles}"/>
+			            	</apex:selectList>
+		        		&nbsp;<apex:commandLink action="{!listFilesFromGDrive}" value="{!$Label.LoadFiles}" status="eventStatus" rerender="gDriveFiles,form" rendered="{!!DisplayPushDetails || PushAnotherBundle}" />
+			         </apex:outputpanel>
+		         </td>
+		         </tr>
+		         <tr>
+		         	<td>
+		         		<b><apex:outputlabel rendered="{!!PushAnotherBundle}">{!$Label.InstallFfctOnTarget}</apex:outputlabel></b>
+		         	</td>
+		         	<td>
+		            	<apex:inputCheckbox value="{!InstallFfctOnTgt}" rendered="{!!PushAnotherBundle}"/>
+		            </td>
+		         </tr>
+		         <apex:pageBlockButtons location="bottom">
+		         		<apex:commandButton action="{!pushSelectedBundleToTarget}" value="{!$Label.Push}" status="eventStatus" reRender="form"/>
+		         		<apex:commandButton action="{!uninstallFfct}" value="{!$Label.Close}" status="eventStatus" reRender="form" rendered="{!PushAnotherBundle}" immediate="true" />
+	      </apex:pageBlockButtons>
+	        </table>          
+        </apex:pageBlock>
+        </apex:outputPanel>
+        <apex:outputPanel id="importPanel" rendered="{!StartImport}">
+            <apex:actionPoller action="{!checkBundleStatus}" interval="5" rerender="importPanel,progressDiv,messagesDiv,inputPanel,form"/>              
+        </apex:outputPanel>
+        <script>
+        
+		function checkBundlePushInvocation()
+		{
+			if({!InstallFfctOnTgt})
+			{
+				pushBundleToTarget_JS();
+			}
+			
+		}
+        </script>
+        <!--    CSS Style    -->
+		<style type = "text/css">
+			.popup
+  			{
+   				background-color:white;
+   				border-width: 1px;
+   				border-style: solid;
+   				z-index: 9999;
+   				left: 50%;
+   				padding:10px;
+   				width: 800px;
+   				margin-left: -300px;
+   				opacity: 1;
+    			position: absolute;
+    			overflow : scroll;
+    			height :80%;
+				top: 25px;
+  			}
+       
+  			.popupBg
+  			{
+   				background-color:rgba(0,0,0,0.5);
+   				opacity: 1;
+   				position: absolute;
+   				width: 100%;
+   				height: 100%;
+   				top: 0;
+   				left: 0;
+   				z-index: 9998;   
+  			}
+  
+		</style>
+<!--    End of CSS Style    -->
+    </apex:form>
+</apex:page>

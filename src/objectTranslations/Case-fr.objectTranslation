@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- coché coché cette case si on ne désire pas envoyer de courriel de masse pour la collection des factures --></help>
+        <label><!-- Pas d&apos;avis courriel --></label>
+        <name>Avis_courriel__c</name>
+    </fields>
+    <fields>
+        <label>Date de la facture</label>
+        <name>Date_de_la_facture__c</name>
+    </fields>
+    <fields>
+        <label>Délais de Paiement</label>
+        <name>Delais_de_paiement__c</name>
+    </fields>
+    <fields>
+        <label>Dossier CEP</label>
+        <name>Dossier_CEP__c</name>
+    </fields>
+    <fields>
+        <label>Dossier Client</label>
+        <name>Dossier_Client__c</name>
+    </fields>
+    <fields>
+        <label>Facture CEP</label>
+        <name>Facture_CEP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fil de requete --></label>
+        <name>Fil_de_requete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Collection Id --></label>
+        <name>IGD__Collection_Id__c</name>
+    </fields>
+    <fields>
+        <name>Origin</name>
+        <picklistValues>
+            <masterLabel>Activités d&apos;assurances</masterLabel>
+            <translation><!-- Activités d&apos;assurances --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campagne</masterLabel>
+            <translation><!-- Campagne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Comptabilité</masterLabel>
+            <translation><!-- Comptabilité --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Courriel</masterLabel>
+            <translation><!-- Courriel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portail/Portal</masterLabel>
+            <translation><!-- Portail/Portal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rencontre</masterLabel>
+            <translation><!-- Rencontre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Téléphone</masterLabel>
+            <translation><!-- Téléphone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- #Police --></label>
+        <name>Police__c</name>
+    </fields>
+    <fields>
+        <name>Priority</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <name>Reason</name>
+        <picklistValues>
+            <masterLabel>Collection</masterLabel>
+            <translation><!-- Collection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Développement des Affaires</masterLabel>
+            <translation><!-- Développement des Affaires --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maintien</masterLabel>
+            <translation><!-- Maintien --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plainte client</masterLabel>
+            <translation><!-- Plainte client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Relations Publiques</masterLabel>
+            <translation><!-- Relations Publiques --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ventes</masterLabel>
+            <translation><!-- Ventes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Référence du dossier</label>
+        <name>Reference_dossier__c</name>
+    </fields>
+    <fields>
+        <label>Balance</label>
+        <name>Solde__c</name>
+    </fields>
+    <fields>
+        <name>Status</name>
+        <picklistValues>
+            <masterLabel>120 +</masterLabel>
+            <translation><!-- 120 + --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>150 +</masterLabel>
+            <translation><!-- 150 + --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>180+</masterLabel>
+            <translation><!-- 180+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assignée</masterLabel>
+            <translation><!-- Assignée --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En attente</masterLabel>
+            <translation><!-- En attente --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalade</masterLabel>
+            <translation><!-- Escalade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fermé</masterLabel>
+            <translation><!-- Fermé --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nouveau</masterLabel>
+            <translation><!-- Nouveau --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ThreadId --></label>
+        <name>ThreadId__c</name>
+    </fields>
+    <fields>
+        <label>Total de la facture</label>
+        <name>Total_de_la_facture__c</name>
+    </fields>
+    <fields>
+        <name>Type</name>
+        <picklistValues>
+            <masterLabel>Nouveau Dossier</masterLabel>
+            <translation><!-- Nouveau Dossier --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Created by Cirrus Insight --></label>
+        <name>cirrusadv__Created_by_Cirrus_Insight__c</name>
+    </fields>
+    <fields>
+        <label>Responsable du dossIer</label>
+        <name>responsable_du_dossier__c</name>
+        <picklistValues>
+            <masterLabel>Beaucage-Gauvreau E</masterLabel>
+            <translation><!-- Beaucage-Gauvreau E --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bolduc LS</masterLabel>
+            <translation><!-- Bolduc LS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bouchard P</masterLabel>
+            <translation><!-- Bouchard P --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bourbeau C</masterLabel>
+            <translation><!-- Bourbeau C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bourgeois F</masterLabel>
+            <translation><!-- Bourgeois F --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Caron C</masterLabel>
+            <translation><!-- Caron C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chaine E</masterLabel>
+            <translation><!-- Chaine E --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Courcelles PO</masterLabel>
+            <translation><!-- Courcelles PO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fortier P</masterLabel>
+            <translation><!-- Fortier P --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fortin R</masterLabel>
+            <translation><!-- Fortin R --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fournier M</masterLabel>
+            <translation><!-- Fournier M --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fulcher M</masterLabel>
+            <translation><!-- Fulcher M --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gagnon F</masterLabel>
+            <translation><!-- Gagnon F --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gauthier K</masterLabel>
+            <translation><!-- Gauthier K --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gibson D</masterLabel>
+            <translation><!-- Gibson D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Helliker A</masterLabel>
+            <translation><!-- Helliker A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hobbs K</masterLabel>
+            <translation><!-- Hobbs K --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Houde N</masterLabel>
+            <translation><!-- Houde N --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Joubert JF</masterLabel>
+            <translation><!-- Joubert JF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Joubert LE</masterLabel>
+            <translation><!-- Joubert LE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Labonté S</masterLabel>
+            <translation><!-- Labonté S --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Langlois A</masterLabel>
+            <translation><!-- Langlois A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leblanc C</masterLabel>
+            <translation><!-- Leblanc C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lefrançois C</masterLabel>
+            <translation><!-- Lefrançois C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Massicotte P</masterLabel>
+            <translation><!-- Massicotte P --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Millette S</masterLabel>
+            <translation><!-- Millette S --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Morrissette M</masterLabel>
+            <translation><!-- Morrissette M --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Murray I</masterLabel>
+            <translation><!-- Murray I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pilon M</masterLabel>
+            <translation><!-- Pilon M --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Provencher A</masterLabel>
+            <translation><!-- Provencher A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Richard D</masterLabel>
+            <translation><!-- Richard D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Roberts Jim</masterLabel>
+            <translation><!-- Roberts Jim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rousseau N</masterLabel>
+            <translation><!-- Rousseau N --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Roy D</masterLabel>
+            <translation><!-- Roy D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rushton M</masterLabel>
+            <translation><!-- Rushton M --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Savard D</masterLabel>
+            <translation><!-- Savard D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Savary P</masterLabel>
+            <translation><!-- Savary P --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turcotte J</masterLabel>
+            <translation><!-- Turcotte J --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vinet Thibault PL</masterLabel>
+            <translation><!-- Vinet Thibault PL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Voisine G</masterLabel>
+            <translation><!-- Voisine G --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Spécificité de la requête</label>
+        <name>specificite_de_la_requete__c</name>
+        <picklistValues>
+            <masterLabel>Collection 120</masterLabel>
+            <translation><!-- Collection 120 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collection 150</masterLabel>
+            <translation><!-- Collection 150 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collection 180+</masterLabel>
+            <translation><!-- Collection 180+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Détails de la facture</masterLabel>
+            <translation>Invoice details</translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Case Feed Layout</layout>
+        <layoutType>CaseInteraction</layoutType>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Converti : Case Feed Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- NewChildCase --></label>
+        <name>NewChildCase</name>
+    </quickActions>
+    <webLinks>
+        <label><!-- Follow --></label>
+        <name>Follow</name>
+    </webLinks>
+</CustomObjectTranslation>

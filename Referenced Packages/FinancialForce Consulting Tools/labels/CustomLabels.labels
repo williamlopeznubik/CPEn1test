@@ -1,0 +1,2762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AccessCodeFetched</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AccessCode for is fetched</shortDescription>
+        <value>The access code for the target organization has been fetched</value>
+    </labels>
+    <labels>
+        <fullName>AccessToken</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Access Token</shortDescription>
+        <value>Access Token</value>
+    </labels>
+    <labels>
+        <fullName>ActivationKeyEmailBody</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ActivationKeyEmailBody</shortDescription>
+        <value>Here is your activation key for FinancialForce Consultant Tools:</value>
+    </labels>
+    <labels>
+        <fullName>ActivationKeyEmailBody1</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ActivationKeyEmailBody1</shortDescription>
+        <value>&lt;br/&gt;&lt;br/&gt;Terms of Use&lt;br/&gt;&lt;br/&gt;FinancialForce Consultant Tools and document must only be used by FinancialForce.com and
+FinancialForce.com partners:
+&lt;ul&gt;
+&lt;li&gt; You must take full responsibility of the use of the FinancialForce Consultant Tools on your
+Salesforce organization.&lt;/li&gt;
+&lt;li&gt; Installation requires an installation link and a password. You must not disclose the installation
+link and password to anyone outside your company.&lt;/li&gt;
+&lt;li&gt;When sharing the installation link and password within your company, do not include the
+installation link and password in the same email. Send an email with the installation link and a
+separate email with the password.&lt;/li&gt;
+&lt;li&gt;You must not disclose this activation key to anyone outside your company. In addition, you must not or share your session
+with anyone outside your company.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;For further information about activating the Consultant Tools, see the FinancialForce Consultant Tools User Guide.</value>
+    </labels>
+    <labels>
+        <fullName>ActivationKeyEmailSubject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ActivationKeyEmailSubject</shortDescription>
+        <value>Activation Key for Consultant Tools</value>
+    </labels>
+    <labels>
+        <fullName>ActivationKeyIsSent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ActivationKeyIsSent</shortDescription>
+        <value>An activation key has been sent to you. To access the Consultant Tools, enter your activation key and click Activate Consultant Tools.</value>
+    </labels>
+    <labels>
+        <fullName>Add</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add</shortDescription>
+        <value>Add</value>
+    </labels>
+    <labels>
+        <fullName>AddToSelectedChilRelationship</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AddToSelectedChilRelationship</shortDescription>
+        <value>Adds the child to the Selected Child Relationships list</value>
+    </labels>
+    <labels>
+        <fullName>AddToSelectedFields</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AddToSelectedFields</shortDescription>
+        <value>Adds the field to the Selected Fields list</value>
+    </labels>
+    <labels>
+        <fullName>AllBundleCompProcessed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AllBundleCompProcessed</shortDescription>
+        <value>All components in the bundle have been processed successfully.</value>
+    </labels>
+    <labels>
+        <fullName>ApexClasses</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ApexClasses</shortDescription>
+        <value>Apex Classes</value>
+    </labels>
+    <labels>
+        <fullName>ApexCode</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Apex Code</shortDescription>
+        <value>Apex Code</value>
+    </labels>
+    <labels>
+        <fullName>ApexCompDescription</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Apex Code</shortDescription>
+        <value>Apex Code</value>
+    </labels>
+    <labels>
+        <fullName>AttachmentOnBundleCompExists</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AttachmentOnBundleCompExists</shortDescription>
+        <value>This bundle contains components that have already been exported. Reset the bundle for export or delete the .component file in the Notes &amp; Attachments section of each component before exporting the bundle again.</value>
+    </labels>
+    <labels>
+        <fullName>Authenticate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Authenticate</shortDescription>
+        <value>Authenticate</value>
+    </labels>
+    <labels>
+        <fullName>AuthenticationError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AuthenticationError</shortDescription>
+        <value>Error authenticating - try again or contact the administrator.</value>
+    </labels>
+    <labels>
+        <fullName>Back</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Back</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>BaseDateFieldSelection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Base Date Field Selection</shortDescription>
+        <value>Base Date Field Selection</value>
+    </labels>
+    <labels>
+        <fullName>BaseDateNotChanged</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The base date has not changed</shortDescription>
+        <value>The base date has not changed. Select a new base date</value>
+    </labels>
+    <labels>
+        <fullName>BatchAlreadyRunningForImport</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BatchAlreadyRunningForImport</shortDescription>
+        <value>A bundle is currently being imported. More than one bundle cannot be imported at the same time. Try again later.</value>
+    </labels>
+    <labels>
+        <fullName>BatchAlreadyRunningForMergeLayout</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Batch for Merge Layout is already running.</shortDescription>
+        <value>A batch is already running for Merge Layout.</value>
+    </labels>
+    <labels>
+        <fullName>BatchForBundleExportAlreadyRunning</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BatchForBundleExportAlreadyRunning</shortDescription>
+        <value>A bundle is currently being exported. More than one bundle cannot be exported at the same time. Try again later.</value>
+    </labels>
+    <labels>
+        <fullName>BatchRunningForDateMover</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A Date Mover process is already in progress.</shortDescription>
+        <value>A Date Mover process is already in progress.</value>
+    </labels>
+    <labels>
+        <fullName>Browse</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Browse</shortDescription>
+        <value>Browse</value>
+    </labels>
+    <labels>
+        <fullName>BundleAuthor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Bundle Author</shortDescription>
+        <value>Bundle Author</value>
+    </labels>
+    <labels>
+        <fullName>BundleBankFormatProcessNotCompletedError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BundleBankFormatProcessNotCompletedError</shortDescription>
+        <value>Your process was not completed. The Create Bundle button is missing from the BankFormat list view and detail page. Disable the button then Enable it again.</value>
+    </labels>
+    <labels>
+        <fullName>BundleClickLinkProcessNotCompletedError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BundleClickLinkProcessNotCompletedError</shortDescription>
+        <value>Your process was not completed. The Create Bundle button is missing from the Clicklink list view and detail page. Disable the button then Enable it again.</value>
+    </labels>
+    <labels>
+        <fullName>BundleCompAlreadyProcessed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BundleCompAlreadyProcessed</shortDescription>
+        <value>Some of the bundle components have already been exported. To run the export again, reset the bundle for export..</value>
+    </labels>
+    <labels>
+        <fullName>BundleCompNotExists</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BundleCompNotExists</shortDescription>
+        <value>No bundle components exist for this bundle. Add some bundle components and try again.</value>
+    </labels>
+    <labels>
+        <fullName>BundleComponent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Bundle Component</shortDescription>
+        <value>Bundle Component</value>
+    </labels>
+    <labels>
+        <fullName>BundleDescription</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Bundle Description</shortDescription>
+        <value>Bundle Description</value>
+    </labels>
+    <labels>
+        <fullName>BundleDetails</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Bundle Details</shortDescription>
+        <value>Bundle Details</value>
+    </labels>
+    <labels>
+        <fullName>BundleExportDate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Bundle Export Date</shortDescription>
+        <value>Bundle Export Date</value>
+    </labels>
+    <labels>
+        <fullName>BundleImportNotRunBundleIdNull</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to run bundle import process since the Bundle Id is null.</shortDescription>
+        <value>Unable to run bundle import process since the Bundle Id is null.</value>
+    </labels>
+    <labels>
+        <fullName>BundleObjectReset</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BundleObjectReset</shortDescription>
+        <value>The bundle object has been reset and is now ready for export.</value>
+    </labels>
+    <labels>
+        <fullName>BundlePushResults</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BundlePushResults</shortDescription>
+        <value>Bundle Push Results</value>
+    </labels>
+    <labels>
+        <fullName>BundleRecordNotPresent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The bundle record is missing.</shortDescription>
+        <value>The bundle record is missing.</value>
+    </labels>
+    <labels>
+        <fullName>BundleSubComponent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BundleSubComponent</shortDescription>
+        <value>Bundle Sub Component</value>
+    </labels>
+    <labels>
+        <fullName>BundleSubComponentEdit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BundleSubComponentEdit</shortDescription>
+        <value>Bundler Sub Component Edit</value>
+    </labels>
+    <labels>
+        <fullName>BundleSubComponentIsFilterValueToBefieldSet</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Is Filter value must be FieldSet.</shortDescription>
+        <value>Is Filter value must be FieldSet.</value>
+    </labels>
+    <labels>
+        <fullName>BundleSubComponentIsFilterValueValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Is Filter value must be List View, Record Type, or Tags.</shortDescription>
+        <value>Is Filter value must be List View, Record Type, or Tags.</value>
+    </labels>
+    <labels>
+        <fullName>BundleSubComponentName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BundleSubComponentName</shortDescription>
+        <value>Bundle Sub Component Name</value>
+    </labels>
+    <labels>
+        <fullName>BundleSubcomponentFilterValidation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BundleSubcomponentFilterValidation</shortDescription>
+        <value>Is Filter and Filter should either both be populated or both be blank.</value>
+    </labels>
+    <labels>
+        <fullName>BundleUploadToDriveError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Bundle Upload To Drive Error</shortDescription>
+        <value>It is not possible to upload a bundle containing more than 8 components. You can save the bundle as an attachment or remove a component from the bundle and start the upload again.</value>
+    </labels>
+    <labels>
+        <fullName>Bundlebeingimported</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The bundle is being imported</shortDescription>
+        <value>The bundle is being imported</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>CannotDeleteSameOrgConnection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You cannot delete a same organization connection</shortDescription>
+        <value>You cannot delete a same organization connection.</value>
+    </labels>
+    <labels>
+        <fullName>ChooseConnection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ChooseConnection</shortDescription>
+        <value>Select a Connection</value>
+    </labels>
+    <labels>
+        <fullName>ChooseExistingConnection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select an Existing Connection</shortDescription>
+        <value>Select an Existing Connection</value>
+    </labels>
+    <labels>
+        <fullName>ClickDisableButtonToRemoveCreateBundleOnBankFormatMapping</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ClickDisableButtonToRemoveCreateBundleOnBankFormatMapping</shortDescription>
+        <value>Click Disable to remove the Bank Format Bundler from Bank Format Mappings.</value>
+    </labels>
+    <labels>
+        <fullName>ClickDisableButtonToRemoveCreateBundleOnClickLinkRules</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Click the Disable button to remove the Create Bundle feature on ClickLink Rules</shortDescription>
+        <value>Click the Disable button to remove the Create Bundle feature on ClickLink Rules.</value>
+    </labels>
+    <labels>
+        <fullName>ClickEnableButtonToAllowCreateBundleOnBankFormatMapping</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ClickEnableButtonToAllowCreateBundleOnBankFormatMapping</shortDescription>
+        <value>Click Enable to add the Bank Format Bundler to Bank Format Mappings.</value>
+    </labels>
+    <labels>
+        <fullName>ClickEnableButtonToAllowCreateBundleOnClickLinkRule</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ClickEnableButtonToAllowCreateBundleOnClickLinkRule</shortDescription>
+        <value>Click the Enable button to allow the use of the Create Bundle feature on ClickLink Rules.</value>
+    </labels>
+    <labels>
+        <fullName>ClientId</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Client Id</shortDescription>
+        <value>Client Id</value>
+    </labels>
+    <labels>
+        <fullName>ClientSecret</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Client Secret</shortDescription>
+        <value>Client Secret</value>
+    </labels>
+    <labels>
+        <fullName>Close</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Close</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>ComparePermissionSet</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Compare Permission Sets</shortDescription>
+        <value>Compare Permission Sets</value>
+    </labels>
+    <labels>
+        <fullName>CompareProfile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Compare Profiles</shortDescription>
+        <value>Compare Profiles</value>
+    </labels>
+    <labels>
+        <fullName>ComponentBlackListError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Component BlackList Error</shortDescription>
+        <value>Subcomponent types: {0} belong to blacklisted packages. Either change the subcomponent types or the package blacklist in the bundle component.</value>
+    </labels>
+    <labels>
+        <fullName>ComponentDescription</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Component Description</shortDescription>
+        <value>Component Description</value>
+    </labels>
+    <labels>
+        <fullName>ComponentName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Component Name</shortDescription>
+        <value>Component Name</value>
+    </labels>
+    <labels>
+        <fullName>ComponentType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Component Type</shortDescription>
+        <value>Component Type</value>
+    </labels>
+    <labels>
+        <fullName>ConfigureBundleToolBankFormatFeatures</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ConfigureBundleToolBankFormatFeatures</shortDescription>
+        <value>Configure the Bank Format Bundler</value>
+    </labels>
+    <labels>
+        <fullName>ConfigureConnections</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Configure Connections</shortDescription>
+        <value>Configure Connections</value>
+    </labels>
+    <labels>
+        <fullName>ConfigureGoogleDriveForBundleTool</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Configure Google Drive for the Bundle Tool</shortDescription>
+        <value>Configure Google Drive for the Bundle Tool</value>
+    </labels>
+    <labels>
+        <fullName>Confirm</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Confirm</shortDescription>
+        <value>Confirm</value>
+    </labels>
+    <labels>
+        <fullName>ConfirmExport</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are you sure you want to export?</shortDescription>
+        <value>Are you sure you want to export?</value>
+    </labels>
+    <labels>
+        <fullName>ConfirmPopulateDriveAccessSettings</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Do you wish to populate Google Drive access settings?</shortDescription>
+        <value>Do you wish to populate Google Drive access settings?</value>
+    </labels>
+    <labels>
+        <fullName>ConnectionName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ConnectionName</shortDescription>
+        <value>Connection Name</value>
+    </labels>
+    <labels>
+        <fullName>ConnectionNameAlreadyExists</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ConnectionNameAlreadyExists</shortDescription>
+        <value>A connection with that name already exists.</value>
+    </labels>
+    <labels>
+        <fullName>ConnectionType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Connection Type</shortDescription>
+        <value>Connection Type</value>
+    </labels>
+    <labels>
+        <fullName>ConnectionUnauthorized</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ConnectionUnauthorized</shortDescription>
+        <value>Please Authorize the connection again.</value>
+    </labels>
+    <labels>
+        <fullName>Connections</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Connections</shortDescription>
+        <value>Connections</value>
+    </labels>
+    <labels>
+        <fullName>Create</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create</shortDescription>
+        <value>Create</value>
+    </labels>
+    <labels>
+        <fullName>CreateBankFormatBundle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create ClickLink Bundle</shortDescription>
+        <value>Create Bank Format Bundle</value>
+    </labels>
+    <labels>
+        <fullName>CreateClickLinkBundle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create ClickLink Bundle</shortDescription>
+        <value>Create ClickLink Bundle</value>
+    </labels>
+    <labels>
+        <fullName>CurrentlyNotEnabledForBankformatMapping</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CurrentlyNotEnabledForBankformatMapping</shortDescription>
+        <value>The Bank Format Bundler is not currently enabled.</value>
+    </labels>
+    <labels>
+        <fullName>CurrentlyNotEnabledForClickLinkRules</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>This feature is currently not enabled for ClickLink Rules.</shortDescription>
+        <value>This feature is currently not enabled for ClickLink Rules.</value>
+    </labels>
+    <labels>
+        <fullName>CustomButtonAddedToTargetSection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CustomButtonAddedToTargetSection</shortDescription>
+        <value>Custom button &quot;{0}&quot; added to the target layout.&lt;br/&gt;</value>
+    </labels>
+    <labels>
+        <fullName>DateMoverEmailBody</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DateMoverEmailBody</shortDescription>
+        <value>&lt;br/&gt;&lt;br/&gt;Date Mover process is {1} for Org {0}
+&lt;ul&gt;
+&lt;li&gt; Base object date field: {2}&lt;/li&gt;
+&lt;li&gt; Number of days: {3}&lt;/li&gt;
+&lt;li&gt; Errors: {4}</value>
+    </labels>
+    <labels>
+        <fullName>DateMoverSelectProductWarning</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DateMover Select Product Warning</shortDescription>
+        <value>No product has been selected. Only dates for standard and unmanaged objects will be moved.</value>
+    </labels>
+    <labels>
+        <fullName>DateMoverTool</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Date Mover Tool</shortDescription>
+        <value>Date Mover Tool</value>
+    </labels>
+    <labels>
+        <fullName>Delete</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>DeleteSubComponentForApexAndInstalledPackage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>delete SubComponent For Apex And InstalledPackage</shortDescription>
+        <value>Delete the sub components associated with this bundle component or choose Metadata or Records as the component type.</value>
+    </labels>
+    <labels>
+        <fullName>DeployPermissionSet</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deploy the Permission Set</shortDescription>
+        <value>Deploy the Permission Set</value>
+    </labels>
+    <labels>
+        <fullName>DeployProfile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deploy the Profile</shortDescription>
+        <value>Deploy the Profile</value>
+    </labels>
+    <labels>
+        <fullName>DeploySuccessful</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The deployment was successful.</shortDescription>
+        <value>The deployment was successful.</value>
+    </labels>
+    <labels>
+        <fullName>DeployingMergedLayout</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deploying the merged layout...</shortDescription>
+        <value>Deploying the merged layout.</value>
+    </labels>
+    <labels>
+        <fullName>DeploymentStatus</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DeploymentStatus</shortDescription>
+        <value>Deployment Status</value>
+    </labels>
+    <labels>
+        <fullName>DisablingBankformatMappingBundlerButtonPagesDeleted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DisablingBankformatMappingBundlerButtonPagesDeleted</shortDescription>
+        <value>Disabling the Bank Format Bundler (the button pages have been deleted).</value>
+    </labels>
+    <labels>
+        <fullName>DisablingBankformatMappingBundlerButtonsDeleted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DisablingBankformatMappingBundlerButtonsDeleted</shortDescription>
+        <value>Disabling the Bank Format Bundler (the buttons have been deleted).</value>
+    </labels>
+    <labels>
+        <fullName>DisablingBankformatMappingBundlerDeletingButtonPages</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DisablingBankformatMappingBundlerDeletingButtonPages</shortDescription>
+        <value>Disabling the Bank Format Bundler (the button pages are being deleted).</value>
+    </labels>
+    <labels>
+        <fullName>DisablingBankformatMappingBundlerDeletingButtons</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DisablingBankformatMappingBundlerDeletingButtons</shortDescription>
+        <value>Disabling the Bank Format Bundler (the buttons are being deleted).</value>
+    </labels>
+    <labels>
+        <fullName>DisablingClickLinkBundlerButtonPagesDeleted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Disabling ClickLink Bundler (button pages deleted)</shortDescription>
+        <value>Disabling ClickLink Bundler (button pages deleted).</value>
+    </labels>
+    <labels>
+        <fullName>DisablingClickLinkBundlerButtonsDeleted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Disabling ClickLink Bundler (buttons deleted)</shortDescription>
+        <value>Disabling ClickLink Bundler (buttons deleted).</value>
+    </labels>
+    <labels>
+        <fullName>DisablingClickLinkBundlerDeletingButtonPages</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Disabling ClickLink Bundler (deleting button pages)</shortDescription>
+        <value>Disabling ClickLink Bundler (deleting button pages).</value>
+    </labels>
+    <labels>
+        <fullName>DisablingClickLinkBundlerDeletingButtons</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Disabling ClickLink Bundler (deleting buttons).</shortDescription>
+        <value>Disabling ClickLink Bundler (deleting buttons).</value>
+    </labels>
+    <labels>
+        <fullName>DriveNotConfigured</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Drive has not been configured.</shortDescription>
+        <value>Drive has not been configured.</value>
+    </labels>
+    <labels>
+        <fullName>DuplicateConnectionByUniqueName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DuplicateConnectionByUniqueName</shortDescription>
+        <value>Duplicate Connection: {0} found for the same user.</value>
+    </labels>
+    <labels>
+        <fullName>DuplicateSourceTargetPermissionSets</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>duplicate rows</shortDescription>
+        <value>Multiple rows with the same Source and Target Permission Sets have been selected. Please remove the duplicate rows.</value>
+    </labels>
+    <labels>
+        <fullName>DuplicateSourceTargetProfiles</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DuplicateSourceTargetProfiles</shortDescription>
+        <value>There are multiple rows having same Source Profile and Target Profile. Please remove duplicate rows.</value>
+    </labels>
+    <labels>
+        <fullName>Edit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>EditConnection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Connection</shortDescription>
+        <value>Edit Connection</value>
+    </labels>
+    <labels>
+        <fullName>Email</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email</shortDescription>
+        <value>Email</value>
+    </labels>
+    <labels>
+        <fullName>EnabledForBankformatMappingViaCreateBundleButtons</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Bundler tool is currently enabled for the Bank format mapping via the Create Ban</shortDescription>
+        <value>The Bank Format Bundler is currently enabled for Bank Format Mappings via the Create Bank Format Bundle button</value>
+    </labels>
+    <labels>
+        <fullName>EnabledForClickLinkRulesViaCreateBundleButtons</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EnabledForClickLinkRulesViaCreateBundleButtons</shortDescription>
+        <value>This feature is currently enabled for ClickLink Rules via the Create Bundle buttons.</value>
+    </labels>
+    <labels>
+        <fullName>EnablingBankFormatBundleButtonPagesCreated</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EnablingBankFormatBundleButtonPagesCreated</shortDescription>
+        <value>Enabling the Bank Format Bundler (the button pages have been created).</value>
+    </labels>
+    <labels>
+        <fullName>EnablingBankFormatBundleButtonsCreated</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EnablingBankFormatBundleButtonsCreated</shortDescription>
+        <value>Enabling the Bank Format Bundler (the buttons have been created).</value>
+    </labels>
+    <labels>
+        <fullName>EnablingBankFormatBundleCreatingButtonPages</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EnablingBankFormatBundleCreatingButtonPages</shortDescription>
+        <value>Enabling the Bank Format Bundler (creating the button pages).</value>
+    </labels>
+    <labels>
+        <fullName>EnablingBankFormatBundleCreatingButtons</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EnablingBankFormatBundleCreatingButtons</shortDescription>
+        <value>Enabling the Bank Format Bundler (creating the buttons).</value>
+    </labels>
+    <labels>
+        <fullName>EnablingBankFormatBundleCreatingPages</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EnablingBankFormatBundleCreatingPages</shortDescription>
+        <value>Enabling the Bank Format Bundler (creating the pages).</value>
+    </labels>
+    <labels>
+        <fullName>EnablingClickLinkBundleCreatingButtonPages</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enabling ClickLink Bundler (creating button pages)</shortDescription>
+        <value>Enabling ClickLink Bundler (creating button pages).</value>
+    </labels>
+    <labels>
+        <fullName>EnablingClickLinkBundlerButtonPagesCreated</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enabling ClickLink Bundler (button pages created)</shortDescription>
+        <value>Enabling ClickLink Bundler (button pages created).</value>
+    </labels>
+    <labels>
+        <fullName>EnablingClickLinkBundlerButtonsCreated</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enabling ClickLink Bundler (buttons created)</shortDescription>
+        <value>Enabling ClickLink Bundler (buttons created).</value>
+    </labels>
+    <labels>
+        <fullName>EnablingClickLinkBundlerCreatingButtons</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enabling ClickLink Bundler (creating buttons)</shortDescription>
+        <value>Enabling ClickLink Bundler (creating buttons).</value>
+    </labels>
+    <labels>
+        <fullName>EnterBundleSubComponentType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You must select the sub component type</shortDescription>
+        <value>You must select the sub component type</value>
+    </labels>
+    <labels>
+        <fullName>EnvironmentType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EnvironmentType</shortDescription>
+        <value>Environment Type</value>
+    </labels>
+    <labels>
+        <fullName>Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error</shortDescription>
+        <value>Error</value>
+    </labels>
+    <labels>
+        <fullName>ErrorCreatingSignupRequest</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error occurred while creating SignupRequest record</shortDescription>
+        <value>An error occurred while creating the following signupRequest record: {0}</value>
+    </labels>
+    <labels>
+        <fullName>ErrorFetchingAccessCode</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The following error occurred while fetching the access code</shortDescription>
+        <value>The following error occurred while fetching the access code: {0}</value>
+    </labels>
+    <labels>
+        <fullName>ErrorFetchingUserId</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Message</shortDescription>
+        <value>The following error occurred while fetching the UserId: {0}</value>
+    </labels>
+    <labels>
+        <fullName>ErrorMessageBundleSubComponent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The following error occurred</shortDescription>
+        <value>The following error occurred: {0}</value>
+    </labels>
+    <labels>
+        <fullName>ErrorOccouredOnMergeLayout</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>An error has occurred while merging.Check the records for error description</shortDescription>
+        <value>An error occurred while merging layouts. Check the records for the error description.</value>
+    </labels>
+    <labels>
+        <fullName>ErrorOnBundleComponents</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ErrorOnBundleComponents</shortDescription>
+        <value>An error was found in one or more bundle components. Check the bundle components for errors and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ErrorOnSomeBundleComponents</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ErrorOnSomeBundleComponents</shortDescription>
+        <value>An error occurred while exporting the bundle. Check the bundle components for errors, reset the bundle for export and then try again.</value>
+    </labels>
+    <labels>
+        <fullName>ErrorStatusSignupRequest</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The error status for record</shortDescription>
+        <value>The error status for record is: {0}</value>
+    </labels>
+    <labels>
+        <fullName>ErrorTrackingSignupRequestStatus</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Tracking SignupRequest Status</shortDescription>
+        <value>The following error occurred while tracking the signupRequest record status:</value>
+    </labels>
+    <labels>
+        <fullName>ErrorUploadingOnGdrive</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Uploading On Gdrive</shortDescription>
+        <value>An error occurred while uploading the bundle to Google Drive. {0}</value>
+    </labels>
+    <labels>
+        <fullName>ExpiresOn</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Expires</shortDescription>
+        <value>Expires</value>
+    </labels>
+    <labels>
+        <fullName>ExportFailedTaggingNotEnabled</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ExportFailedTaggingNotEnabled</shortDescription>
+        <value>Unable to export bundle using Tags because tagging is not enabled on the org.</value>
+    </labels>
+    <labels>
+        <fullName>ExportFolderNotExistOnDrive</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The export folder does not exist on Google Drive</shortDescription>
+        <value>The export folder does not exist on Google Drive. You can save the bundle as an attachment or configure Google Drive and start the export again.</value>
+    </labels>
+    <labels>
+        <fullName>ExportResult</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Bundle Export Process Results</shortDescription>
+        <value>Bundle Export Process Results</value>
+    </labels>
+    <labels>
+        <fullName>FFOrgCreationForm</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FinancialForce Organization Creation Request Form</shortDescription>
+        <value>FinancialForce Organization Creation Request Form</value>
+    </labels>
+    <labels>
+        <fullName>FetchingAccessToken</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Fetching the access token from the new org</shortDescription>
+        <value>Fetching the access token from the new organization... (This may take 3-4 minutes)</value>
+    </labels>
+    <labels>
+        <fullName>FetchingAccessTokenFail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Fetching Access Token Fail</shortDescription>
+        <value>Cannot get the access code. The following error occurred while processing the request: {0}</value>
+    </labels>
+    <labels>
+        <fullName>FfctIUninstalled</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FfctIUninstalled</shortDescription>
+        <value>The Consultant Tools have been removed.</value>
+    </labels>
+    <labels>
+        <fullName>FfctInstallError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FfctInstallError</shortDescription>
+        <value>An error occured while installing the Consultant Tools.</value>
+    </labels>
+    <labels>
+        <fullName>FfctInstallInProgress</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FfctInstallInProgress</shortDescription>
+        <value>The Consultant Tools are being installed.</value>
+    </labels>
+    <labels>
+        <fullName>FfctInstalledImportStarted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FfctInstalledImportStarted</shortDescription>
+        <value>The Consultant Tools are installed. The Bundle import has started.</value>
+    </labels>
+    <labels>
+        <fullName>FfctUninstallError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FfctUninstallError</shortDescription>
+        <value>An error occured while removing the Consultant Tools.</value>
+    </labels>
+    <labels>
+        <fullName>FfctUninstallInProgress</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FfctUninstallInProgress</shortDescription>
+        <value>The Consultant Tools are being removed.</value>
+    </labels>
+    <labels>
+        <fullName>FieldAddedToRelatedList</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FieldAddedToRelatedList</shortDescription>
+        <value>Field &quot;{0}&quot; added to the related list &quot;{1}&quot; in the target layout.&lt;br/&gt;</value>
+    </labels>
+    <labels>
+        <fullName>FieldAddedToTargetSection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FieldAddedToTargetSection</shortDescription>
+        <value>Field &quot;{0}&quot; added to the target layout section &quot;{1}&quot;.&lt;br/&gt;</value>
+    </labels>
+    <labels>
+        <fullName>FieldAlreadyExists</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FieldAlreadyExists</shortDescription>
+        <value>Field &quot;{0}&quot; exists in source layout section &quot;{1}&quot; and in target layout section &quot;{2}&quot;. The location of this field will not be changed.&lt;br/&gt;</value>
+    </labels>
+    <labels>
+        <fullName>FieldName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FieldName</shortDescription>
+        <value>Field Name</value>
+    </labels>
+    <labels>
+        <fullName>FieldPermissions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FieldPermissions</shortDescription>
+        <value>Field Permissions</value>
+    </labels>
+    <labels>
+        <fullName>FieldSetNotPresent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The field set does not exists</shortDescription>
+        <value>The field set: {0} does not exists for {1}</value>
+    </labels>
+    <labels>
+        <fullName>Filter</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Filter</shortDescription>
+        <value>Filter</value>
+    </labels>
+    <labels>
+        <fullName>FilterByNamespace</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Filter By Namespace</shortDescription>
+        <value>Filter by Namespace</value>
+    </labels>
+    <labels>
+        <fullName>FixAllDates</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Set All Dates</shortDescription>
+        <value>Set All Dates</value>
+    </labels>
+    <labels>
+        <fullName>Folder</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Folder</shortDescription>
+        <value>Folder</value>
+    </labels>
+    <labels>
+        <fullName>FolderNotExistsOnDrive</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The import folder does not exist on Google Drive</shortDescription>
+        <value>The import folder does not exist on Google Drive.</value>
+    </labels>
+    <labels>
+        <fullName>FolderSettings</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Folder Settings</shortDescription>
+        <value>Folder Settings</value>
+    </labels>
+    <labels>
+        <fullName>GoForBundling</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>GoForBundling</shortDescription>
+        <value>Creating the bundle.</value>
+    </labels>
+    <labels>
+        <fullName>GoToBundle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Go To Bundle</shortDescription>
+        <value>Go To Bundle</value>
+    </labels>
+    <labels>
+        <fullName>GoToList</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Go to List</shortDescription>
+        <value>Go to List</value>
+    </labels>
+    <labels>
+        <fullName>GoogleDriveConfiguration</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Google Drive Configuration</shortDescription>
+        <value>Google Drive Configuration</value>
+    </labels>
+    <labels>
+        <fullName>GoogleDriveFolder</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Google Drive Folder</shortDescription>
+        <value>Google Drive Folder</value>
+    </labels>
+    <labels>
+        <fullName>GoogleSettings</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Google Settings</shortDescription>
+        <value>Google Settings</value>
+    </labels>
+    <labels>
+        <fullName>HideDetails</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hide Details</shortDescription>
+        <value>Hide Details</value>
+    </labels>
+    <labels>
+        <fullName>HidingDetails</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hiding details</shortDescription>
+        <value>Hiding details ...</value>
+    </labels>
+    <labels>
+        <fullName>HostURL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Host URL</shortDescription>
+        <value>Host URL</value>
+    </labels>
+    <labels>
+        <fullName>ImportBundle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Import Bundle</shortDescription>
+        <value>Import Bundle</value>
+    </labels>
+    <labels>
+        <fullName>ImportBundleFromFolder</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Import Bundle From Folder</shortDescription>
+        <value>Import Bundle From Folder</value>
+    </labels>
+    <labels>
+        <fullName>InstallFfctOnTarget</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>InstallFfctOnTarget</shortDescription>
+        <value>Install the Consultant Tools</value>
+    </labels>
+    <labels>
+        <fullName>InstalledPackage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Installed Package</shortDescription>
+        <value>Installed Package</value>
+    </labels>
+    <labels>
+        <fullName>InstalledPackageDescription</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Package Namespace Prefix: {0} Version: {1}</shortDescription>
+        <value>Package Namespace Prefix: {0} Version: {1}</value>
+    </labels>
+    <labels>
+        <fullName>InvalidBundleID</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enter a valid Bundle Id</shortDescription>
+        <value>Enter a valid Bundle Id</value>
+    </labels>
+    <labels>
+        <fullName>InvalidConnectionNameAndType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>InvalidConnectionNameAndType</shortDescription>
+        <value>Please provide a valid connection name and environment type.</value>
+    </labels>
+    <labels>
+        <fullName>InvalidEmail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>InvalidEmail</shortDescription>
+        <value>Invalid email address.</value>
+    </labels>
+    <labels>
+        <fullName>InvalidFileSelectedForImport</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The selected file is invalid. Please use a valid forcebundle file.</shortDescription>
+        <value>The selected file is invalid. Please use a valid forcebundle file.</value>
+    </labels>
+    <labels>
+        <fullName>InvalidOAuthSettings</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>InvalidOAuthSettings</shortDescription>
+        <value>Please configure valid oAuth settings.</value>
+    </labels>
+    <labels>
+        <fullName>InvalidUsername</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Invalid Username</shortDescription>
+        <value>The username provided is not in a valid email address format</value>
+    </labels>
+    <labels>
+        <fullName>IsErrored</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>IsErrored</shortDescription>
+        <value>Is Errored</value>
+    </labels>
+    <labels>
+        <fullName>IsFilter</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>IsFilter</shortDescription>
+        <value>Is Filter</value>
+    </labels>
+    <labels>
+        <fullName>IsInvalidSObjectError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Invalid sobject name</shortDescription>
+        <value>{0} Invalid sobject name.</value>
+    </labels>
+    <labels>
+        <fullName>LayoutSectionAddedToTargetLayout</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LayoutSectionAddedToTargetLayout</shortDescription>
+        <value>Layout section &quot;{0}&quot; added to the target layout.&lt;br/&gt;</value>
+    </labels>
+    <labels>
+        <fullName>LoadFiles</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LoadFiles</shortDescription>
+        <value>Load Files</value>
+    </labels>
+    <labels>
+        <fullName>LoadPermissionSet</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Load the Permission Set</shortDescription>
+        <value>Load the Permission Set</value>
+    </labels>
+    <labels>
+        <fullName>LoadProfile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Load the Profile</shortDescription>
+        <value>Load the Profile</value>
+    </labels>
+    <labels>
+        <fullName>LocalPush</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LocalPush</shortDescription>
+        <value>Push Once</value>
+    </labels>
+    <labels>
+        <fullName>ManageBankFormatBundler</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ManageBankFormatBundler</shortDescription>
+        <value>Manage the Bank Format Bundler</value>
+    </labels>
+    <labels>
+        <fullName>ManagesBundleButtonsForBankFormatMapping</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ManagesBundleButtonsForBankFormatMapping</shortDescription>
+        <value>Manages the Create Bank Format Bundle buttons on the Bank Format Mappings object</value>
+    </labels>
+    <labels>
+        <fullName>MergeLayoutCompleted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MergeLayoutCompleted</shortDescription>
+        <value>Merge Layout process is completed.</value>
+    </labels>
+    <labels>
+        <fullName>MergeLayoutDeploymentProcessStopped</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to complete process because deployment of Merged Layout was stopped.</shortDescription>
+        <value>Unable to complete process because deployment of Merged Layout was stopped.</value>
+    </labels>
+    <labels>
+        <fullName>MergeLayoutState</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MergeLayoutState</shortDescription>
+        <value>Merge Layout State</value>
+    </labels>
+    <labels>
+        <fullName>MergeLayoutStateRecListWithStatus</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MergeLayoutStateRecListWithStatus</shortDescription>
+        <value>Here is the list of Merge Layout State records with their status.</value>
+    </labels>
+    <labels>
+        <fullName>MergePermissionAppenderForPermissionSet</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MergePermissionAppenderForPermissionSet</shortDescription>
+        <value>Merged Permission</value>
+    </labels>
+    <labels>
+        <fullName>MergeProcessStarted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MergeProcessStarted</shortDescription>
+        <value>Merge process has been started.</value>
+    </labels>
+    <labels>
+        <fullName>MergeProfileBatchClassFound</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MergeProfileBatchClassFound</shortDescription>
+        <value>Batch Class for profile merge is in found..Cannot proceed till the current job is over</value>
+    </labels>
+    <labels>
+        <fullName>MergeProfileErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MergeProfileErrorMessage</shortDescription>
+        <value>An error has occurred while merging ...Check the records for error description</value>
+    </labels>
+    <labels>
+        <fullName>MergeProfilePermissionInsertionStarted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MergeProfilePermissionInsertionStarted</shortDescription>
+        <value>New Target permission(s) insertion started.</value>
+    </labels>
+    <labels>
+        <fullName>MergeProfileStateRecordStatusAfterAttachmentCreation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MergeProfileStateRecordStatusAfterAttachmentCreation</shortDescription>
+        <value>Here is the list of Merge Profile Status records with their status after attachment creation.</value>
+    </labels>
+    <labels>
+        <fullName>MergeProfileStatusRecordsList</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Here is the list of Merge Profile Status records with their status</shortDescription>
+        <value>Here is the list of Merge Profile Status records with their status.</value>
+    </labels>
+    <labels>
+        <fullName>MergeProfileTargetPermissionInsertionInProgress</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New Target permission insertion in process</shortDescription>
+        <value>New Target permission insertion in process</value>
+    </labels>
+    <labels>
+        <fullName>MergingInProgress</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MergingInProgress</shortDescription>
+        <value>Merging layouts.</value>
+    </labels>
+    <labels>
+        <fullName>MetaCompDescription</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Metadata Types Bundled</shortDescription>
+        <value>Metadata Types Bundled:</value>
+    </labels>
+    <labels>
+        <fullName>MetadataAPINotPresent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The metadata API name: does not exist</shortDescription>
+        <value>The metadata API name: {0} does not exist for {1}</value>
+    </labels>
+    <labels>
+        <fullName>MetadataTypeNotPresent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Metadata Type does not exist on the organization</shortDescription>
+        <value>The metadata type: {0} does not exist on the organization</value>
+    </labels>
+    <labels>
+        <fullName>MetadataZipDataFound</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MetadataZipDataFound</shortDescription>
+        <value>Layout data obtained.</value>
+    </labels>
+    <labels>
+        <fullName>MetadataZipDataNotObtained</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MetadataZipDataNotObtained</shortDescription>
+        <value>Obtaining layout data.</value>
+    </labels>
+    <labels>
+        <fullName>ModifyAll</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ModifyAll</shortDescription>
+        <value>Modify All</value>
+    </labels>
+    <labels>
+        <fullName>MultipleAttachmentForBundleComp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MultipleAttachmentForBundleComp</shortDescription>
+        <value>Bundle component {0} contains more than one attachment.</value>
+    </labels>
+    <labels>
+        <fullName>NA</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NA</shortDescription>
+        <value>N/A</value>
+    </labels>
+    <labels>
+        <fullName>Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>NewBundleSubComponent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NewBundleSubComponent</shortDescription>
+        <value>New Bundle Sub Component</value>
+    </labels>
+    <labels>
+        <fullName>NewConnection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NewConnection</shortDescription>
+        <value>New Connection</value>
+    </labels>
+    <labels>
+        <fullName>Next</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Next</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>NoAttachmentForBundleComp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NoAttachmentForBundleComp</shortDescription>
+        <value>Bundle component {0} does not contain an attachment.</value>
+    </labels>
+    <labels>
+        <fullName>NoBundleCompInZipFile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NoBundleCompInZipFile</shortDescription>
+        <value>The .forcebundle file contains no bundle components. Import a .forcebundle file that contains at least one bundle component.</value>
+    </labels>
+    <labels>
+        <fullName>NoBundleCreatedFromZip</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NoBundleCreatedFromZip</shortDescription>
+        <value>The .forcebundle file contains invalid data. Import a valid .forcebundle file.</value>
+    </labels>
+    <labels>
+        <fullName>NoChildForParentMetadata</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Child existsFor ParentMetadata</shortDescription>
+        <value>No {0} exists for {1}</value>
+    </labels>
+    <labels>
+        <fullName>NoConnectionsSetup</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NoConnectionsSetup</shortDescription>
+        <value>No connections available, set one up now.</value>
+    </labels>
+    <labels>
+        <fullName>NoFieldSetExists</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>There are no field sets for the object</shortDescription>
+        <value>There are no field sets for the {0} object</value>
+    </labels>
+    <labels>
+        <fullName>NoMetadataComponent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No components exist for the metadata type</shortDescription>
+        <value>No components exist for the {0} metadata type</value>
+    </labels>
+    <labels>
+        <fullName>NoRecordsExistForBundleSubComponentType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Records Exist For BundleSubComponentType</shortDescription>
+        <value>No record exists for {0} with id  : {1}</value>
+    </labels>
+    <labels>
+        <fullName>NoRecordsExistForGivenCriteria</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NoRecordsExistForGivenCriteria</shortDescription>
+        <value>No Records were found to export for the given filter criteria in SubComponent:{0}</value>
+    </labels>
+    <labels>
+        <fullName>NoRecordsWereSelectedToGenerateBundle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NoRecordsWereSelectedToGenerateBundle</shortDescription>
+        <value>No Records were selected for inclusion in the bundle</value>
+    </labels>
+    <labels>
+        <fullName>NoResponseAccessCode</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No response received while getting the access code</shortDescription>
+        <value>No response received while getting the access code</value>
+    </labels>
+    <labels>
+        <fullName>NoResponseResetPassword</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No response received while resetting the password</shortDescription>
+        <value>No response received while resetting the password</value>
+    </labels>
+    <labels>
+        <fullName>NoResponseUserDetails</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No response received while fetching user details</shortDescription>
+        <value>No response received while fetching user details</value>
+    </labels>
+    <labels>
+        <fullName>NoRulesWereSelectedToGenerateBundle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Rules were selected to Generate Bundle.</shortDescription>
+        <value>No Rules were selected to Generate Bundle.</value>
+    </labels>
+    <labels>
+        <fullName>NoSubCompForBundleComp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NoSubCompForBundleComp</shortDescription>
+        <value>This Bundle component does not contain any bundle sub components. Create one or more bundle sub components for this bundle component and try again.</value>
+    </labels>
+    <labels>
+        <fullName>NoSubComponentName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No SubComponent Name</shortDescription>
+        <value>Enter the sub component&apos;s name</value>
+    </labels>
+    <labels>
+        <fullName>NoUnprocessedCompForBundle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NoUnprocessedCompForBundle</shortDescription>
+        <value>Cannot import the bundle. The Processed checkbox is selected in all bundle components.</value>
+    </labels>
+    <labels>
+        <fullName>NorecordsForBasedateObject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>There are no records for the selected object.</shortDescription>
+        <value>There are no records for the selected object.</value>
+    </labels>
+    <labels>
+        <fullName>NotEligibleForAuthentication</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You are not eligible to access the page.</shortDescription>
+        <value>You are not allowed to access this page.</value>
+    </labels>
+    <labels>
+        <fullName>ObjectForChildRelBlacklist</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Object whose Children You Want to Blacklist</shortDescription>
+        <value>Select the Object whose Children You Want to Blacklist.</value>
+    </labels>
+    <labels>
+        <fullName>ObjectForChildRelWhitelist</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Object whose Children You Want to Whitelist</shortDescription>
+        <value>Select the Object whose Children You Want to Whitelist.</value>
+    </labels>
+    <labels>
+        <fullName>ObjectForFieldBlacklist</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Object whose Fields You Want to Blacklist</shortDescription>
+        <value>Select the Object whose Fields You Want to Blacklist.</value>
+    </labels>
+    <labels>
+        <fullName>ObjectForFieldWhitelist</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Object whose Fields You Want to Whitelist</shortDescription>
+        <value>Select the Object whose Fields You Want to Whitelist.</value>
+    </labels>
+    <labels>
+        <fullName>ObjectName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ObjectName</shortDescription>
+        <value>Object Name</value>
+    </labels>
+    <labels>
+        <fullName>ObjectPermissions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ObjectPermissions</shortDescription>
+        <value>Object Permissions</value>
+    </labels>
+    <labels>
+        <fullName>OnePermissionSetMetadataPerComponent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>OnePermissionSetMetadataPerComponent</shortDescription>
+        <value>A MetadataPermissionSet component can have only one subcomponent.</value>
+    </labels>
+    <labels>
+        <fullName>PackageNotPresent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Package Not Present</shortDescription>
+        <value>The blacklisted packages: {0} you selected have either expired or are no longer present on your Organization. These packages will not be saved to the selected package blacklist.</value>
+    </labels>
+    <labels>
+        <fullName>PackageSelected</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Packages Selected</shortDescription>
+        <value>Packages Selected</value>
+    </labels>
+    <labels>
+        <fullName>PackagesInstalledOnSourceOrganization</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Packages Installed on Source Organization</shortDescription>
+        <value>Packages Installed on Source Organization</value>
+    </labels>
+    <labels>
+        <fullName>PackagesToSelect</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PackagesToSelect</shortDescription>
+        <value>Packages to Select</value>
+    </labels>
+    <labels>
+        <fullName>PasswordResetSuccess</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email for password reset is successfully sent</shortDescription>
+        <value>User name is blank</value>
+    </labels>
+    <labels>
+        <fullName>PermissionSetCompDescription</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Metadata Permission Set</shortDescription>
+        <value>Metadata Permission Set:</value>
+    </labels>
+    <labels>
+        <fullName>PermissionSetDeployRequestSubmit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PermissionSetDeployRequestSubmit</shortDescription>
+        <value>The deployment request for {0}  Permission Set has been submitted. Please wait ...</value>
+    </labels>
+    <labels>
+        <fullName>PermissionSetNotExist</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PermissionSetNotExist</shortDescription>
+        <value>Permission set {0} does not exist.</value>
+    </labels>
+    <labels>
+        <fullName>PermissionSetNotRetrieved</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PermissionSetNotRetrieved</shortDescription>
+        <value>Unable to retrieve the permission set.</value>
+    </labels>
+    <labels>
+        <fullName>PermissionSets</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Permission Sets</shortDescription>
+        <value>Permission Sets</value>
+    </labels>
+    <labels>
+        <fullName>PlaceCreateBundleButtonsOnBankFormatMappingListView</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Place the Create Bank Format Bundle button on the List View</shortDescription>
+        <value>Place the Create Bank Format Bundle button on the List View</value>
+    </labels>
+    <labels>
+        <fullName>PlaceCreateBundleButtonsOnClickLinkListView</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Place Create BundleButtons On ClickLinkListView</shortDescription>
+        <value>Ensure you have placed the Create Bundle buttons on the ClinkLink page and list view Layouts to access this feature.</value>
+    </labels>
+    <labels>
+        <fullName>ProcessCompleted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The Date Mover process is complete.</shortDescription>
+        <value>The Date Mover process is complete. View the results here:</value>
+    </labels>
+    <labels>
+        <fullName>ProcessCompletedWithError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Process Completed With Error</shortDescription>
+        <value>The Date Mover process is complete with errors. Check the DateMoverState record for details. View the results here:</value>
+    </labels>
+    <labels>
+        <fullName>ProcessInProgress</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The Date Mover process is in progress.</shortDescription>
+        <value>The Date Mover process is in progress.</value>
+    </labels>
+    <labels>
+        <fullName>ProcessInitiated</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The Date Mover process has started.</shortDescription>
+        <value>The Date Mover process has started.</value>
+    </labels>
+    <labels>
+        <fullName>Processed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Processed</shortDescription>
+        <value>Processed</value>
+    </labels>
+    <labels>
+        <fullName>ProcessedBundleCompCount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ProcessedBundleCompCount</shortDescription>
+        <value>{0} out of {1} bundle components processed.</value>
+    </labels>
+    <labels>
+        <fullName>ProfileDeployRequestSubmit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ProfileDeployRequestSubmit</shortDescription>
+        <value>The deployment request for {0} profile has been submitted. Please wait ...</value>
+    </labels>
+    <labels>
+        <fullName>Profiles</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Profiles</shortDescription>
+        <value>Profiles</value>
+    </labels>
+    <labels>
+        <fullName>ProfilesMergedSuccessfully</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Profiles have been merged successfully</shortDescription>
+        <value>Profiles have been merged successfully.</value>
+    </labels>
+    <labels>
+        <fullName>ProvideValidActivationKey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ProvideValidActivationKey</shortDescription>
+        <value>Enter a valid activation key.</value>
+    </labels>
+    <labels>
+        <fullName>ProvisionAnOrg</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ProvisionAnOrg</shortDescription>
+        <value>Provision an Organization</value>
+    </labels>
+    <labels>
+        <fullName>ProvisionAndPushToOrg</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ProvisionAndPushToOrg</shortDescription>
+        <value>Provisioning Organizations and Pushing Bundles</value>
+    </labels>
+    <labels>
+        <fullName>ProvisionOrgInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Provision an Organization will create a new target org</shortDescription>
+        <value>Provision an Organization will create a new target organization and then import the selected bundle into it</value>
+    </labels>
+    <labels>
+        <fullName>ProvisionPushSettings</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Provision and Push Settings</shortDescription>
+        <value>Provision and Push Settings</value>
+    </labels>
+    <labels>
+        <fullName>Push</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Push</shortDescription>
+        <value>Push</value>
+    </labels>
+    <labels>
+        <fullName>PushAnotherBundle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PushAnotherBundle</shortDescription>
+        <value>Do you want to push another Bundle?</value>
+    </labels>
+    <labels>
+        <fullName>PushImportBundleOnConn</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PushImportBundleOnConn</shortDescription>
+        <value>Push will import the Bundle to the selected Target Organization.</value>
+    </labels>
+    <labels>
+        <fullName>PushToOrg</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PushToOrg</shortDescription>
+        <value>Push to Organization</value>
+    </labels>
+    <labels>
+        <fullName>PushingLocalBundle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PushingLocalBundle</shortDescription>
+        <value>Pushing Bundle</value>
+    </labels>
+    <labels>
+        <fullName>QueryMustReturnOneRecord</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Query must return one record.</shortDescription>
+        <value>Query must return one record.</value>
+    </labels>
+    <labels>
+        <fullName>Read</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Read</shortDescription>
+        <value>Read</value>
+    </labels>
+    <labels>
+        <fullName>ReceivingMetadataZipFile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ReceivingMetadataZipFile</shortDescription>
+        <value>Loading layout data.</value>
+    </labels>
+    <labels>
+        <fullName>RecordCompDescription</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sobject Records Bundled</shortDescription>
+        <value>Sobject Records Bundled:</value>
+    </labels>
+    <labels>
+        <fullName>RefreshToken</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Refresh Token</shortDescription>
+        <value>Refresh Token</value>
+    </labels>
+    <labels>
+        <fullName>RelListAddedToTargetLayout</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RelListAddedToTargetLayout</shortDescription>
+        <value>Related list &quot;{0}&quot; added to the target layout.&lt;br/&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Remove</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Remove</shortDescription>
+        <value>Remove</value>
+    </labels>
+    <labels>
+        <fullName>RemoveFeatureCheckCreateBundleButtonsBeenRemovedFromBankFormatMapping</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RemoveFeatureCheckCreateBundleButtonsBeenRemovedFromBankFormatMapping</shortDescription>
+        <value>If you want to remove the Bank Format Bundler, check first that the Create Bank Format Bundle buttons have been removed from the Bank Format Mappings layouts.</value>
+    </labels>
+    <labels>
+        <fullName>RemoveFeatureCheckCreateBundleButtonsBeenRemovedFromClickLink</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RemoveFeatureCheckCreateBundleButtonsBeenRemovedFromClickLink</shortDescription>
+        <value>If you want to remove the feature check the Create Bundle buttons have been removed from the ClickLink Rule layouts first.</value>
+    </labels>
+    <labels>
+        <fullName>RemoveSelectedChilRelationship</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RemoveSelectedChilRelationship</shortDescription>
+        <value>Removes the child from the Selected Child Relationships list</value>
+    </labels>
+    <labels>
+        <fullName>RemoveSelectedFields</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RemoveSelectedFields</shortDescription>
+        <value>Removes the field from the Selected Fields list</value>
+    </labels>
+    <labels>
+        <fullName>ResetPasswordError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>reset the password error</shortDescription>
+        <value>The following error occurred while resetting the password: {0}</value>
+    </labels>
+    <labels>
+        <fullName>ResetPasswordFailed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>reset password failed</shortDescription>
+        <value>Cannot reset the password. The following error occurred while processing the request: {0}</value>
+    </labels>
+    <labels>
+        <fullName>RetrievingLayoutMetadata</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RetrievingLayoutMetadata</shortDescription>
+        <value>Retrieving layout metadata.</value>
+    </labels>
+    <labels>
+        <fullName>SObjectNotExists</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SObjectNotExists</shortDescription>
+        <value>SObject types ({0}) do not exist in this organization.</value>
+    </labels>
+    <labels>
+        <fullName>SameOrgError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You cannot compare or deploy the same profiles or permission set on same org</shortDescription>
+        <value>You cannot compare or deploy the same profiles or permission sets when working on one organization.</value>
+    </labels>
+    <labels>
+        <fullName>Save</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>SaveAs</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save As</shortDescription>
+        <value>Save As</value>
+    </labels>
+    <labels>
+        <fullName>SaveAsAttachment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save as Attachment</shortDescription>
+        <value>Save as Attachment</value>
+    </labels>
+    <labels>
+        <fullName>Select</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>SelectAtleastOnePermissionToDeploy</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SelectAtleastOnePermissionToDeploy</shortDescription>
+        <value>You must set at least One Permission to Deploy.</value>
+    </labels>
+    <labels>
+        <fullName>SelectBaseDateCritera</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Base Date criteria for the Product</shortDescription>
+        <value>Select the Base Date criteria for the Product</value>
+    </labels>
+    <labels>
+        <fullName>SelectBaseDateObject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Base Date Object Selection</shortDescription>
+        <value>Base Date Object Selection</value>
+    </labels>
+    <labels>
+        <fullName>SelectBundle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Bundle</shortDescription>
+        <value>Select Bundle</value>
+    </labels>
+    <labels>
+        <fullName>SelectBundleFile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SelectBundleFile</shortDescription>
+        <value>Select a Bundle</value>
+    </labels>
+    <labels>
+        <fullName>SelectChildRelationships</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Child Relationships</shortDescription>
+        <value>Select the Child Relationships</value>
+    </labels>
+    <labels>
+        <fullName>SelectConnection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SelectConnection</shortDescription>
+        <value>Select Connection</value>
+    </labels>
+    <labels>
+        <fullName>SelectFields</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Fields</shortDescription>
+        <value>Select the Fields</value>
+    </labels>
+    <labels>
+        <fullName>SelectFieldsToBlacklist</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Fields to Exclude</shortDescription>
+        <value>Select the Fields to Exclude</value>
+    </labels>
+    <labels>
+        <fullName>SelectFile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select File</shortDescription>
+        <value>Select File</value>
+    </labels>
+    <labels>
+        <fullName>SelectFileForUnBundling</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SelectFileForUnBundling</shortDescription>
+        <value>Choose a .forcebundle file to import. Importing will start when you choose the file.</value>
+    </labels>
+    <labels>
+        <fullName>SelectFileFromComputer</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select a File From Your Computer</shortDescription>
+        <value>Select a File From Your Computer</value>
+    </labels>
+    <labels>
+        <fullName>SelectFileFromGoogleDrive</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Import a Bundle From Google Drive</shortDescription>
+        <value>Import a Bundle From Google Drive</value>
+    </labels>
+    <labels>
+        <fullName>SelectObjectToExcludeFields</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Object to Exclude fields</shortDescription>
+        <value>Select the object whose fields you want to exclude</value>
+    </labels>
+    <labels>
+        <fullName>SelectOptionCompare</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Options to Compare</shortDescription>
+        <value>Select Options to Compare</value>
+    </labels>
+    <labels>
+        <fullName>SelectPackageNamespacePrefix</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Package namespace prefix.</shortDescription>
+        <value>Select the Package Namespace Prefix</value>
+    </labels>
+    <labels>
+        <fullName>SelectPackageToBlacklist</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Packages you want to blacklist.</shortDescription>
+        <value>Select the Packages You Want to blacklist.</value>
+    </labels>
+    <labels>
+        <fullName>SelectParentMetadata</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the parent that contains the child you want to bundle</shortDescription>
+        <value>Select the {0} that contains the {1} you want to bundle</value>
+    </labels>
+    <labels>
+        <fullName>SelectPermissionSets</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Permission Sets</shortDescription>
+        <value>Select Permission Sets</value>
+    </labels>
+    <labels>
+        <fullName>SelectPermissionSetstoCompare</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Permission Sets you want to compare.</shortDescription>
+        <value>Select the Permission Sets you want to compare.</value>
+    </labels>
+    <labels>
+        <fullName>SelectProduct</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Product</shortDescription>
+        <value>Select the Product</value>
+    </labels>
+    <labels>
+        <fullName>SelectProfiles</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SelectProfiles</shortDescription>
+        <value>Select Profiles</value>
+    </labels>
+    <labels>
+        <fullName>SelectProfilesToCompare</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SelectProfilesToCompare</shortDescription>
+        <value>Please select at least one profile to compare.</value>
+    </labels>
+    <labels>
+        <fullName>SelectPushOrProvisionButton</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the bundle and click Provision an Organization or Push to Organization</shortDescription>
+        <value>Select the bundle and click Provision an Organization or Push to Organization</value>
+    </labels>
+    <labels>
+        <fullName>SelectTSOConnection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select a TSO connection</shortDescription>
+        <value>Select a TSO connection</value>
+    </labels>
+    <labels>
+        <fullName>SelectValidBundle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select a valid bundle</shortDescription>
+        <value>Select a valid bundle</value>
+    </labels>
+    <labels>
+        <fullName>SelectValidConnAndBundle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SelectValidConnAndBundle</shortDescription>
+        <value>Please select a valid Connection and Bundle to start the push process.</value>
+    </labels>
+    <labels>
+        <fullName>SelectbaseDateRecord</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Base Date Record</shortDescription>
+        <value>Select the Base Date Record</value>
+    </labels>
+    <labels>
+        <fullName>SelectedBundle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SelectedBundle</shortDescription>
+        <value>Selected Bundle</value>
+    </labels>
+    <labels>
+        <fullName>SelectedChildRelationships</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Selected Child Relationships</shortDescription>
+        <value>Selected Child Relationships</value>
+    </labels>
+    <labels>
+        <fullName>SelectedFields</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SelectedFields</shortDescription>
+        <value>Selected Fields</value>
+    </labels>
+    <labels>
+        <fullName>SelectedPackageNamespacePrefix</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Selected Package namespace prefix.</shortDescription>
+        <value>Selected Package Namespace Prefix</value>
+    </labels>
+    <labels>
+        <fullName>SetDate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SetDate</shortDescription>
+        <value>Set Date</value>
+    </labels>
+    <labels>
+        <fullName>SetFolder</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Set Folder</shortDescription>
+        <value>Set Folder</value>
+    </labels>
+    <labels>
+        <fullName>SetupConnection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SetupConnection</shortDescription>
+        <value>Setup Connection</value>
+    </labels>
+    <labels>
+        <fullName>SetupNewConnection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SetupNewConnection</shortDescription>
+        <value>Setup New Connection</value>
+    </labels>
+    <labels>
+        <fullName>SetupTSOConnection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Setup a TSO Connection</shortDescription>
+        <value>You must set up a TSO Connection for Provisioning</value>
+    </labels>
+    <labels>
+        <fullName>ShowDetails</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Show Details</shortDescription>
+        <value>Show Details</value>
+    </labels>
+    <labels>
+        <fullName>SignupRequestFail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SignupRequest record creation Fail</shortDescription>
+        <value>Creating the signupRequest record failed. The following error occurred while processing the request: {0}</value>
+    </labels>
+    <labels>
+        <fullName>SignupRequestOrConnectionNull</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SignupRequest Or Connection Null</shortDescription>
+        <value>Either the signupRequest record or the new organization connection is not present</value>
+    </labels>
+    <labels>
+        <fullName>SignupRequestRecordCreated</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The signupRequest record has been created</shortDescription>
+        <value>The signupRequest record has been created</value>
+    </labels>
+    <labels>
+        <fullName>SignupRequestStatus</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SignupRequest Status</shortDescription>
+        <value>The signupRequest record status was fetched with the following status:</value>
+    </labels>
+    <labels>
+        <fullName>Source</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Source</shortDescription>
+        <value>Source</value>
+    </labels>
+    <labels>
+        <fullName>SourceAndTargetLayoutsAreSame</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SourceAndTargetLayoutsAreSame</shortDescription>
+        <value>Cannot merge layouts. The source and target layouts are the same. Choose a different source or target layout.</value>
+    </labels>
+    <labels>
+        <fullName>SourceLayoutNotObtained</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SourceLayoutNotObtained</shortDescription>
+        <value>Unable to obtain source layout metadata. Check the page layout and try again.</value>
+    </labels>
+    <labels>
+        <fullName>SourceLayoutSectionsWithoutLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SourceLayoutSectionsWithoutLabel</shortDescription>
+        <value>Some of the source layout sections do not have a label. Please save again the labels for the source layout sections.</value>
+    </labels>
+    <labels>
+        <fullName>SourceOrganizationId</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Source Organization Id</shortDescription>
+        <value>Source Organization ID</value>
+    </labels>
+    <labels>
+        <fullName>SourcePermissionSetNotExists</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SourcePermissionSetNotExists</shortDescription>
+        <value>The Source Organization does not have any Permission Sets to compare.</value>
+    </labels>
+    <labels>
+        <fullName>SourceTargetPermissionSetNotExists</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SourceTargetPermissionSetNotExists</shortDescription>
+        <value>Neither the Source nor the Target Organization has any Permission Sets to compare.</value>
+    </labels>
+    <labels>
+        <fullName>SubComponentRestrictedForComponentType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>bundleSubComponent Record restricted for BundleComponentType</shortDescription>
+        <value>Bundle components of type {0} should not have sub component records.</value>
+    </labels>
+    <labels>
+        <fullName>SubcomponentTypeErrorForBlacklistPackage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SubcomponentType Error For BlacklistPackage</shortDescription>
+        <value>The bundle subcomponent cannot be saved as its type belongs to a blacklisted package. Either change the subcomponent type or the package blacklist in the bundle component.</value>
+    </labels>
+    <labels>
+        <fullName>Submit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Submit</shortDescription>
+        <value>Submit</value>
+    </labels>
+    <labels>
+        <fullName>SuccessMsgForMerge</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SuccessMsgForMerge</shortDescription>
+        <value>Source Layout : &lt;b&gt;{0}&lt;/b&gt; merged in Target Layout as : &lt;b&gt;{1}&lt;/b&gt;</value>
+    </labels>
+    <labels>
+        <fullName>TSOEnvironmentType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TSO EnvironmentType</shortDescription>
+        <value>Environment Type for a TSO Connection must be Developer/Production</value>
+    </labels>
+    <labels>
+        <fullName>Target</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Target</shortDescription>
+        <value>Target</value>
+    </labels>
+    <labels>
+        <fullName>TargetConnections</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TargetConnections</shortDescription>
+        <value>Target Connections</value>
+    </labels>
+    <labels>
+        <fullName>TargetLayoutName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TargetLayoutName</shortDescription>
+        <value>Target Layout Name</value>
+    </labels>
+    <labels>
+        <fullName>TargetLayoutNotObtained</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TargetLayoutNotObtained</shortDescription>
+        <value>Unable to obtain target layout metadata. Check the page layout and try again.</value>
+    </labels>
+    <labels>
+        <fullName>TargetLayoutSectionsWithoutLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TargetLayoutSectionsWithoutLabel</shortDescription>
+        <value>Some of the target layout sections do not have a label. Please save again the labels for the target layout sections.</value>
+    </labels>
+    <labels>
+        <fullName>TargetLayoutisEmpty</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TargetLayoutisEmpty</shortDescription>
+        <value>Cannot merge layouts. The Target layout is empty. Choose target layout(s) to be merged.</value>
+    </labels>
+    <labels>
+        <fullName>TargetMergedPermissionSetAlreadyExists</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TargetMergedPermissionSetAlreadyExists</shortDescription>
+        <value>Merge process could not be completed because a merged permission set already exist for the selected target profile(s).</value>
+    </labels>
+    <labels>
+        <fullName>TargetPermissionSetLoadMessage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting the Permission Sets from the Target organization. Please wait ...</shortDescription>
+        <value>Getting the Permission Sets from the Target organization. Please wait ...</value>
+    </labels>
+    <labels>
+        <fullName>TargetPermissionSetNotExist</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TargetPermissionSetNotExist</shortDescription>
+        <value>The Target Organization does not have any Permission Sets to compare.</value>
+    </labels>
+    <labels>
+        <fullName>TargetProfileLoadMessage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TargetProfileLoadMessage</shortDescription>
+        <value>Getting the profile from the target org. Please wait ...</value>
+    </labels>
+    <labels>
+        <fullName>TemplateIdBlank</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You must enter a template ID</shortDescription>
+        <value>You must enter a template ID</value>
+    </labels>
+    <labels>
+        <fullName>TermsToAccessTools</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TermsToAccessTools</shortDescription>
+        <value>I confirm that I have read the terms of use and I agree to comply with them. I take full responsibility of the use of the FinancialForce Consultant Tools in my Salesforce organization. I confirm that I shall not disclose the installation link and password to anyone outside my company.</value>
+    </labels>
+    <labels>
+        <fullName>ThanksMessage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ThanksMessage</shortDescription>
+        <value>&lt;br/&gt;&lt;br/&gt;Thank you for using FinancialForce Consultant Tools.&lt;br/&gt;&lt;br/&gt;Created by FinancialForce.com&lt;br/&gt;&lt;a href=&quot;http://www.FinancialForce.com/&quot;&gt;http://www.FinancialForce.com&lt;/a&gt;</value>
+    </labels>
+    <labels>
+        <fullName>ToolsAccessNotAllowed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ToolsAccessNotAllowed</shortDescription>
+        <value>To access the Consultant Tools, you must first agree to the terms of use.</value>
+    </labels>
+    <labels>
+        <fullName>ToolsVersionNotPresent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ToolsVersionNotPresent</shortDescription>
+        <value>Enter which version of the Consultant Tools to use when provisioning an organization in OAuthSetting</value>
+    </labels>
+    <labels>
+        <fullName>Type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>UniqueName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unique Name</shortDescription>
+        <value>Unique Name</value>
+    </labels>
+    <labels>
+        <fullName>UpdateFolder</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Update Folder</shortDescription>
+        <value>Update Folder</value>
+    </labels>
+    <labels>
+        <fullName>UploadToDrive</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload to Drive</shortDescription>
+        <value>Upload to Drive</value>
+    </labels>
+    <labels>
+        <fullName>UploadingTheBundle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>UploadingTheBundle</shortDescription>
+        <value>Uploading the bundle.</value>
+    </labels>
+    <labels>
+        <fullName>UserIdFail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to get User Id.</shortDescription>
+        <value>Unable to get User Id. The following error occurred while processing the request: {0}</value>
+    </labels>
+    <labels>
+        <fullName>UserIdFetched</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>User Id has been successfully fetched</shortDescription>
+        <value>User Id has been successfully fetched</value>
+    </labels>
+    <labels>
+        <fullName>UserNameBlank</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>User name is blank</shortDescription>
+        <value>User name is blank</value>
+    </labels>
+    <labels>
+        <fullName>Username</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Username</shortDescription>
+        <value>User Name</value>
+    </labels>
+    <labels>
+        <fullName>ValidEmailAddressForDomain</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ValidEmailAddressForDomain</shortDescription>
+        <value>To obtain an activation key, enter a valid email address that belongs to the domain {0} then click Get Activation Key.</value>
+    </labels>
+    <labels>
+        <fullName>ValidEmailAddressNeeded</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ValidEmailAddressNeeded</shortDescription>
+        <value>To obtain an activation key, enter a valid email address then click Get Activation Key.</value>
+    </labels>
+    <labels>
+        <fullName>ViewAll</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ViewAll</shortDescription>
+        <value>View All</value>
+    </labels>
+    <labels>
+        <fullName>ViewConnection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View Connection</shortDescription>
+        <value>View Connection</value>
+    </labels>
+    <labels>
+        <fullName>Visualforce</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Visualforce</shortDescription>
+        <value>Visualforce Pages</value>
+    </labels>
+    <labels>
+        <fullName>WaitForExportOfBundles</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>WaitForExportOfBundles</shortDescription>
+        <value>Exporting bundle.</value>
+    </labels>
+    <labels>
+        <fullName>WaitForImportOfBundleComp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>WaitForImportOfBundleComp</shortDescription>
+        <value>Importing bundle.</value>
+    </labels>
+    <labels>
+        <fullName>WarningDateMover1</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Warning DateMover1</shortDescription>
+        <value>PSA and FFA triggers will be disabled while the Date Mover process is in progress.</value>
+    </labels>
+    <labels>
+        <fullName>WarningDateMover2</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Warning DateMover2</shortDescription>
+        <value>Disabling triggers may lead to some unnecessary objects being updated.</value>
+    </labels>
+    <labels>
+        <fullName>WarningDateMover3</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Warning DateMover3</shortDescription>
+        <value>Add the fields you want to exclude from the Date Mover process.</value>
+    </labels>
+    <labels>
+        <fullName>WarningDateMover4</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Warning DateMover4</shortDescription>
+        <value>Certain objects may not be updated because of validation rules or triggers.</value>
+    </labels>
+    <labels>
+        <fullName>WarningDateMover5</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>WarningDateMover5</shortDescription>
+        <value>To avoid corrupt data on the organization, check all records when the Date Mover process is complete.</value>
+    </labels>
+    <labels>
+        <fullName>bundleImportExecuteAnonymousfailed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Execute Anonymous failed</shortDescription>
+        <value>Execute Anonymous failed.</value>
+    </labels>
+    <labels>
+        <fullName>decryptionError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Data Cannot be decrypted</shortDescription>
+        <value>The data cannot be decrypted.</value>
+    </labels>
+    <labels>
+        <fullName>ffctHyperLink</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Used to display a hyper link</shortDescription>
+        <value>&lt;a href=&quot;https://login.salesforce.com/{0}&quot;&gt;{1}&lt;/a&gt;</value>
+    </labels>
+    <labels>
+        <fullName>invalidSubComponentNameForSubComponentType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Invalid SubComponentName for SubComponentType</shortDescription>
+        <value>Invalid Id : {0} for bundle sub component : {1}</value>
+    </labels>
+    <labels>
+        <fullName>isInvalidSobjectName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>is invalid sobject name</shortDescription>
+        <value>is invalid sobject name</value>
+    </labels>
+    <labels>
+        <fullName>mergeLayoutComponentMergedCount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>mergeLayoutComponentMergedCount</shortDescription>
+        <value>{0} of {1} merged.</value>
+    </labels>
+    <labels>
+        <fullName>mergeProfileComponentProcessCount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>mergeProfileComponentProcessCount</shortDescription>
+        <value>{0} ({1} of {2})</value>
+    </labels>
+    <labels>
+        <fullName>mergeProfileState</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Merge Profile State</shortDescription>
+        <value>Merge Profile State</value>
+    </labels>
+    <labels>
+        <fullName>metadataDeployErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>metadataDeployErrorMessage</shortDescription>
+        <value>{0} (Line: {1}: Column:{2}) : {3}</value>
+    </labels>
+    <labels>
+        <fullName>none</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>none</shortDescription>
+        <value>none</value>
+    </labels>
+    <labels>
+        <fullName>profileIsBeingMerged</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Profile  is being merged</shortDescription>
+        <value>Profile {0} is being merged.</value>
+    </labels>
+    <labels>
+        <fullName>selectSourceProfile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please select source profile</shortDescription>
+        <value>Please select source profile</value>
+    </labels>
+    <labels>
+        <fullName>selectTargetProfile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please select target profile(s)</shortDescription>
+        <value>Please select target profile(s)</value>
+    </labels>
+    <labels>
+        <fullName>signUpRequestRecordStatusFail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>signUpRequestRecordStatusFail</shortDescription>
+        <value>Unable to get the signupRequest record status. The following error occurred while processing the request: {0}</value>
+    </labels>
+    <labels>
+        <fullName>sourceAndTargetProfileCannotBeSame</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Source and target profiles cannot be same</shortDescription>
+        <value>Source and target profiles cannot be the same.</value>
+    </labels>
+    <labels>
+        <fullName>status</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Status</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>targetProfileName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Target Profile Name</shortDescription>
+        <value>Target Profile Name</value>
+    </labels>
+</CustomLabels>

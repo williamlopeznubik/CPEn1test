@@ -1,0 +1,19 @@
+<apex:page standardController="ffr__ReportingDefinition__c" extensions="ffr.ReportingDefinitionImportController">
+	<apex:form > 
+		<apex:sectionHeader title="{!$Label.ReportingDefinitionImportTitle}" help="{!URLFOR('/apex/helploader?topicid=1025')}"/>
+		<apex:pageBlock >
+			<apex:PageMessages escape="false"/>
+			
+			<apex:pageBlockSection title="{!$Label.ReportingDefinitionImportHeaderNameColumn}" collapsible="false">
+				<apex:selectRadio id="selectRadio" value="{!reportImport}" layout="pageDirection" style="margin-top:-3px;">
+                   	<apex:selectOptions value="{!ExportedReportsOptions}"/>
+                </apex:selectRadio>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons >
+				<apex:commandButton action="{!import}" value="{!$Label.ReportingDefinitionImportSave}"/> 
+				<apex:commandButton action="{!cancel}" value="{!$Label.ReportingDefinitionImportCancel}"/>
+			</apex:pageBlockButtons>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

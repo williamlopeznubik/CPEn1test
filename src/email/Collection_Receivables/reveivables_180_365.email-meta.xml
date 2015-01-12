@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>reveivables 180-365</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>reveivables 180-365</name>
+    <style>none</style>
+    <subject>reference: {!Case.CaseNumber} / {!Case.Reference_dossier__c} / Your file {!Case.Dossier_Client__c}</subject>
+    <type>text</type>
+</EmailTemplate>

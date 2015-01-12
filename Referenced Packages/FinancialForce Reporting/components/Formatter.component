@@ -1,0 +1,32 @@
+<apex:component access="global">
+	<apex:attribute name="value" type="Object" 
+		description="Value to be formatted" access="global"/>
+    <apex:attribute name="datePattern" type="String" 
+    	description="Dates format pattern" access="global"/>
+	<apex:attribute name="type" type="String" 
+    	description="Value data type" access="global"/>
+    <apex:attribute type="String" name="numberPattern" 
+		description="Formatting pattern for non-zero values" access="global"/>
+	<apex:attribute type="String" name="zeroPattern" 
+		description="Formatting pattern for zero values" access="global"/>
+
+    <apex:variable var="DateType" value="DATE"/>
+    <apex:variable var="DateTimeType" value="DATETIME"/>
+    <apex:variable var="DoubleType" value="DOUBLE"/>
+    <apex:variable var="IntegerType" value="INTEGER"/>
+    <apex:variable var="ZeroType" value="ZERO"/>
+
+    <apex:variable var="isNumber" value="{!type==DoubleType || type==IntegerType}"/>
+    <apex:variable var="isDate" value="{!type==DateType || type==DateTimeType}"/>
+    <apex:variable var="isZero" value="{!type==ZeroType}"/>
+    <apex:variable var="isString" value="{!!isNumber && !isDate && !isZero}"/>
+    
+    <apex:outputText value="{!numberPattern}" rendered="{!isNumber}">
+		<apex:param value="{!value}"/>
+	</apex:outputText>
+	<apex:outputText value="{!datePattern}" rendered="{!isDate}">
+		<apex:param value="{!value}"/>
+	</apex:outputText>
+	<apex:outputText value="{!zeroPattern}" rendered="{!isZero}"/>
+	<apex:outputText value="{!value}" rendered="{!isString}"/>
+</apex:component>

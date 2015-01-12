@@ -1,0 +1,115 @@
+<apex:page controller="ffct.GoogleAuthorizationController" action="{!redirect}">
+    <apex:sectionHeader title="{!$Label.GoogleDriveConfiguration}"/>
+    <apex:form id="theform">
+        <apex:pageMessages id="theMessages"/>
+        <apex:pageBlock title="{!$Label.GoogleSettings}" rendered="{!SettingsPresent && !ShowConfirmPanel}" id="settingsBlock">
+            <apex:pageBlockButtons location="top">
+            		<apex:commandButton value="{!$Label.Edit}" action="{!editGoogleDriveSettings}" rerender="theform"/>
+                    <apex:commandButton value="{!$Label.Authenticate}" action="{!login}" rerender="theMessages, settingsBlock, eSettingsBlock,folderBlock"/>
+                     <apex:commandButton value="{!$Label.SetFolder}" action="{!setFolder}" rendered="{!NOT(ISNULL(GoogleApp.ffct__AccessToken__c))}" rerender="theform" disabled="{!EditFolder}"/>
+                    
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.Name}"/>
+                    <apex:outputText value="{!GoogleApp.Name}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.ClientId}"/>
+                    <apex:outputText value="{!GoogleApp.ffct__ClientId__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.ClientSecret}"/>
+                    <apex:outputText value="{!GoogleApp.ffct__ClientSecret__c}"/>
+                </apex:pageBlockSectionItem>
+              
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.AccessToken}"/>
+                    <apex:outputText value="{!GoogleApp.ffct__AccessToken__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.ExpiresOn}"/>
+                    <apex:outputText value="{!GoogleApp.ffct__ExpiresOn__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.RefreshToken}"/>
+                    <apex:outputText value="{!GoogleApp.ffct__RefreshToken__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.Folder}"/>
+                    <apex:outputText value="{!GoogleApp.ffct__Folder__c}"/> 
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.ImportBundleFromFolder}"/>
+                    <apex:outputText value="{!GoogleApp.ffct__ImportBundleFromFolder__c}"/> 
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+                       
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="{!$Label.FolderSettings}" id="folderBlock" rendered="{!SettingsPresent && !ShowConfirmPanel}" >
+             <apex:pageBlockSection title="{!$Label.GoogleDriveFolder}" columns="3">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >{!$Label.Folder}</apex:outputLabel>
+                    <apex:selectList value="{!GoogleApp.ffct__Folder__c}" size="1" multiselect="false" disabled="{!!EditFolder}" >
+                        <apex:selectOptions value="{!Folders}"/>
+                        <apex:actionSupport event="onchange" action="{!retrieveSubFolders}"  rerender="folderBlock" />       
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem id="subFolder">
+                    <apex:outputLabel >{!$Label.ImportBundleFromFolder}</apex:outputLabel>
+                    <apex:selectList value="{!GoogleApp.ffct__ImportBundleFromFolder__c}" size="1" multiselect="false" disabled="{!!EditFolder}" >
+                        <apex:selectOptions value="{!SubFolders}"/>
+                        
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                     <apex:commandButton value="{!$Label.UpdateFolder}" action="{!upsertGoogleSettings}"  disabled="{!!EditFolder}" rerender="theMessages, settingsBlock, eSettingsBlock,folderBlock"/>
+                     
+                </apex:pageBlockSectionItem>
+          </apex:pageBlockSection> 
+          
+          <apex:actionfunction name="showSubFolders" action="listSubFolders" rerender="folderBlock" >
+            <apex:param name="selectedFolder" value="" />
+          </apex:actionfunction>
+                  
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="{!$Label.GoogleSettings}" rendered="{!NOT(SettingsPresent) && !ShowConfirmPanel}" id="eSettingsBlock">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="{!$Label.Save}" action="{!upsertGoogleSettings}"/>
+                <apex:commandButton value="{!$Label.Cancel}" action="{!cancelUpdate}" immediate="true"/>   
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.Name}"/>
+                    <apex:inputText value="{!GoogleApp.Name}" required="true"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.ClientId}"/>
+                    <apex:inputText value="{!GoogleApp.ffct__ClientId__c}"  required="true"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.ClientSecret}"/>
+                    <apex:inputText value="{!GoogleApp.ffct__ClientSecret__c}"  required="true"/>
+                </apex:pageBlockSectionItem>
+               
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+       
+        
+        <apex:outputPanel id="confirmPanel" rendered="{!ShowConfirmPanel}">
+            <apex:pageBlock title="{!$Label.ConfirmPopulateDriveAccessSettings}">
+                <apex:pageBlockbuttons location="bottom">
+                    <apex:commandbutton value="{!$Label.Confirm}" action="{!populateDriveAccessSettings}" />
+                    <apex:commandbutton value="{!$Label.Cancel}" action="{!cancelPopulateDriveAccessSettings}" />
+                </apex:pageBlockbuttons>
+            </apex:pageBlock>
+        </apex:outputPanel> 
+        
+    </apex:form>
+</apex:page>

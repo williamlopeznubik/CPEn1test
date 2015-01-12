@@ -1,0 +1,38 @@
+<apex:component controller="ffct.UserMultiselectPickListController" id="theComponent">
+ 	<apex:attribute name="DataToselect" type="String[]" required="true" assignTo="{!DataToChoose}" description="List available to select"/>
+    <apex:attribute name="DataSelected" type="String[]" required="true" assignTo="{!DataChosen}" description="List already Selected"/>
+    <apex:attribute name="aLeftLabel" description="Label on left listbox." type="String" required="true" />
+  	<apex:attribute name="aRightLabel" description="Label on right listbox." type="String" required="true" />
+    <apex:outputPanel id="selectpackage">
+		<table>
+			<tr>
+				<th></th>
+        		<th class="selectTitle">{!aLeftLabel}</th>
+        		<th ></th>
+        		<th >{!aRightLabel}</th>
+        	</tr>
+        				
+        	<tr>
+        		<td>
+        		</td>
+        		<td>
+        			<apex:selectList title="Select Package NamespacePrefix" label="Select Package NamespacePrefix" id="sel0" value="{!LeftSelectedData}" multiselect="true" size="10">
+                		<apex:selectOptions value="{!DataAvailable}" />
+            		</apex:selectList>
+            	</td>
+            	<td style="vertical-align: middle">
+            		<div>
+            			<apex:commandButton action="{!selectClick}" value="{!$Label.Add}"  status="eventStatus" reRender="selectpackage" title="{!$Label.AddToSelectedFields}"/> 
+                    	<br/><br/>
+                    	<apex:commandButton action="{!unselectclick}" value="{!$Label.Remove}" status="eventStatus" reRender="selectpackage" title="{!$Label.RemoveSelectedFields}"/> 
+            		</div>
+            	</td>
+            	<td >
+            		<apex:selectList id="selpack" value="{!RightSelectedData}" multiselect="true"  size="10">
+                		<apex:selectOptions value="{!SelectedDataSet}" />
+            		</apex:selectList>
+            	</td>
+            </tr>
+        </table>
+	</apex:outputPanel>
+</apex:component>

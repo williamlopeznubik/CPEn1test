@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Campaign Hierarchy --></label>
+        <name>Campaign_Hierarchy__c</name>
+    </fields>
+    <fields>
+        <help>Write here the follow up notes from this campaign</help>
+        <label>Follow up notes</label>
+        <name>Notes_de_suivi__c</name>
+    </fields>
+    <fields>
+        <label>Region</label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>Corporatif</masterLabel>
+            <translation>Corporate</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laval</masterLabel>
+            <translation>Laval</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ottawa</masterLabel>
+            <translation>Ottawa</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Province Ontario</masterLabel>
+            <translation>Province Ontario</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Province Québec</masterLabel>
+            <translation>Province Quebec</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Québec</masterLabel>
+            <translation>Quebec</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ROC</masterLabel>
+            <translation>ROC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toronto</masterLabel>
+            <translation>Toronto</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Choisir le ou les groupes de servives pour lesquels la campagne est génénrée --></help>
+        <label>Service focus</label>
+        <name>Service_focus__c</name>
+        <picklistValues>
+            <masterLabel>All</masterLabel>
+            <translation><!-- All --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Civil</masterLabel>
+            <translation><!-- Civil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elect.</masterLabel>
+            <translation><!-- Elect. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mat.</masterLabel>
+            <translation><!-- Mat. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mec.</masterLabel>
+            <translation><!-- Mec. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N\A</masterLabel>
+            <translation><!-- N\A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>O&amp;C</masterLabel>
+            <translation><!-- O&amp;C --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <name>Status</name>
+        <picklistValues>
+            <masterLabel>Annulé/Aborted</masterLabel>
+            <translation>Aborted</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complété/Completed</masterLabel>
+            <translation>Completed</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disponible</masterLabel>
+            <translation>Available</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En cours/In Progress</masterLabel>
+            <translation>In progress</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planification</masterLabel>
+            <translation>Planning</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Réservé</masterLabel>
+            <translation>Reserved</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <name>Type</name>
+        <picklistValues>
+            <masterLabel>Banner Ads</masterLabel>
+            <translation><!-- Banner Ads --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Développement des affaires</masterLabel>
+            <translation>Business development</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partners</masterLabel>
+            <translation><!-- Partners --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Relation publiques</masterLabel>
+            <translation>Public relations</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Seminar / Conference</masterLabel>
+            <translation><!-- Seminar / Conference --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ventes et maintien</masterLabel>
+            <translation>Sales and maintenance</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- lien groupe chatter --></label>
+        <name>lien_groupe_chatter__c</name>
+    </fields>
+    <webLinks>
+        <label><!-- ViewAllCampaignMembers --></label>
+        <name>ViewAllCampaignMembers</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ViewCampaignInfluenceReport --></label>
+        <name>ViewCampaignInfluenceReport</name>
+    </webLinks>
+</CustomObjectTranslation>

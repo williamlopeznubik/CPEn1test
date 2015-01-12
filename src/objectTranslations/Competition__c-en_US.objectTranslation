@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Competition</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Competition</value>
+    </caseValues>
+    <fields>
+        <help><!-- Noms du chef de la direction --></help>
+        <label>CEO</label>
+        <name>CEO__c</name>
+    </fields>
+    <fields>
+        <help><!-- Choisir tous les champs de pratique qui s&apos;appliquent --></help>
+        <label>Fields of practice</label>
+        <name>Champs_de_pratique__c</name>
+        <picklistValues>
+            <masterLabel>Chimie</masterLabel>
+            <translation>Chemistry</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chimie des polymères</masterLabel>
+            <translation>Polymer Chemistry</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Civil construction</masterLabel>
+            <translation>Civil construction</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Civil enveloppe du bâtiment</masterLabel>
+            <translation>Civil building enveloppe</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Civil gestion de projets</masterLabel>
+            <translation>Civil project management</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Civil stucture</masterLabel>
+            <translation>Civil Structure</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conformité de bâtiments</masterLabel>
+            <translation>Code compliance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Environnement produits pétrolier</masterLabel>
+            <translation>Environemental spills</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Environnemnt air</masterLabel>
+            <translation>Environemental air</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Environnment eau</masterLabel>
+            <translation>Environemental water</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incendies et explosions</masterLabel>
+            <translation>Fire and explosions</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Matériaux</masterLabel>
+            <translation>Material</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mécanique du bâtiment</masterLabel>
+            <translation>Mechanical Building</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mécanique industrielle</masterLabel>
+            <translation>Mechanical Industrial</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mécanique véhicule</masterLabel>
+            <translation>Mechanical transportation</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Protection Incendies explosions</masterLabel>
+            <translation>Fires and explosions protection</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reconstruction d&apos;accidents</masterLabel>
+            <translation>Accident reconstruction</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Électricitié</masterLabel>
+            <translation>Electrical</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Competitor logo</label>
+        <name>Competitor_Logo__c</name>
+    </fields>
+    <fields>
+        <help><!-- Les faiblesses stratégiques de ce concurrent --></help>
+        <label>Weaknesses</label>
+        <name>Competitor_Weaknesses__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Competition --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Experts Names</label>
+        <name>Experts_Names__c</name>
+        <picklistValues>
+            <masterLabel>Alain Thériault</masterLabel>
+            <translation><!-- Alain Thériault --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bernard Pelletier</masterLabel>
+            <translation><!-- Bernard Pelletier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bruno Boulanger</masterLabel>
+            <translation><!-- Bruno Boulanger --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carl Leblanc</masterLabel>
+            <translation><!-- Carl Leblanc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charles Poupart</masterLabel>
+            <translation><!-- Charles Poupart --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Christian Caron</masterLabel>
+            <translation><!-- Christian Caron --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claude Létourneau</masterLabel>
+            <translation><!-- Claude Létourneau --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Denis Saucier</masterLabel>
+            <translation><!-- Denis Saucier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Etienne Lemire</masterLabel>
+            <translation><!-- Etienne Lemire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fred J.  Ablenas</masterLabel>
+            <translation><!-- Fred J.  Ablenas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Frederic Charest</masterLabel>
+            <translation><!-- Frederic Charest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gaetan Beaumont</masterLabel>
+            <translation><!-- Gaetan Beaumont --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gaetan Dupuis</masterLabel>
+            <translation><!-- Gaetan Dupuis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>James Wheeler</masterLabel>
+            <translation><!-- James Wheeler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jason Montambeault</masterLabel>
+            <translation><!-- Jason Montambeault --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jean René Dumont</masterLabel>
+            <translation><!-- Jean René Dumont --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jean-Claude Bégin</masterLabel>
+            <translation><!-- Jean-Claude Bégin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laurent Arsenault</masterLabel>
+            <translation><!-- Laurent Arsenault --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Luc Germain</masterLabel>
+            <translation><!-- Luc Germain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marc-André Langevin</masterLabel>
+            <translation><!-- Marc-André Langevin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Michael Rowen</masterLabel>
+            <translation><!-- Michael Rowen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Michel Pitre</masterLabel>
+            <translation><!-- Michel Pitre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Normand Juneau</masterLabel>
+            <translation><!-- Normand Juneau --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paul André Roy</masterLabel>
+            <translation><!-- Paul André Roy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Raymond Chokelal</masterLabel>
+            <translation><!-- Raymond Chokelal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>René Chamberland</masterLabel>
+            <translation><!-- René Chamberland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Serge Jodoin</masterLabel>
+            <translation><!-- Serge Jodoin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Simon Blais</masterLabel>
+            <translation><!-- Simon Blais --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Notes</label>
+        <name>Notes_competition__c</name>
+    </fields>
+    <fields>
+        <help><!-- Les avantages que nous démontrons vis à vis ce concurrent --></help>
+        <label>Our advantages</label>
+        <name>Our_Advantages__c</name>
+    </fields>
+    <fields>
+        <label>Region</label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>Burlington</masterLabel>
+            <translation><!-- Burlington --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laval</masterLabel>
+            <translation>Laval</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maritimes</masterLabel>
+            <translation>Maritimes</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ottawa</masterLabel>
+            <translation>Ottawa</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Québec</masterLabel>
+            <translation>Quebec</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ROC</masterLabel>
+            <translation>ROC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toronto</masterLabel>
+            <translation>Toronto</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- les trucs contre ce concurrent --></help>
+        <label>Selling tips</label>
+        <name>Selling_Tips__c</name>
+    </fields>
+    <fields>
+        <label>Web Site</label>
+        <name>Site_web__c</name>
+    </fields>
+    <fields>
+        <help><!-- Stock Ticker Symbol --></help>
+        <label>Ticker symbol</label>
+        <name>Ticker_Symbol__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Year the Company was Founded --></help>
+        <label>Year founded</label>
+        <name>Year_Founded__c</name>
+    </fields>
+    <fields>
+        <label>Email</label>
+        <name>email__c</name>
+    </fields>
+    <layouts>
+        <layout>Competitor Layout</layout>
+        <sections>
+            <label><!-- Advantages and Weaknesses --></label>
+            <section>Advantages and Weaknesses</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Recent Tweets and News --></label>
+            <section>Recent Tweets and News</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

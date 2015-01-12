@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>informer le responsable de la requête qu&apos;une  nouvelle collection a été créée</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Avis nouvelle collection 120+</name>
+    <style>none</style>
+    <subject>Une nouvelle collection de 120 jours vous a été attribuée</subject>
+    <type>text</type>
+</EmailTemplate>

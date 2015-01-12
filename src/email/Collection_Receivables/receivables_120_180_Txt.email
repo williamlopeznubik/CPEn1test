@@ -1,0 +1,16 @@
+{!Case.Account}
+{!Contact.Salutation} {!Contact.FirstName}  {!Contact.LastName}
+Your File:{!Case.Dossier_Client__c}:
+Case:{!Case.Reference_dossier__c}
+Our reference: {!Case.CaseNumber} 
+Our file {!Case.Dossier_CEP__c}  
+Our invoice {!Case.Facture_CEP__c} with balance of {!Case.Solde__c}
+
+This notice is to inform you that the payment of  the captioned invoice is overdue by {!Case.Delais_de_paiement__c} days. Notwithstanding previous notices at 60 and 90 days, an outstanding amount of {!Case.Solde__c} still remains.
+
+We assume this delay is the result of some unfortunate turn of events that can be easily resolved.  We would therefore appreciate if you would communicate immediately with us  in order to remediate this abnormal situation or provide us with payment within the next 30 days.
+
+We are grateful for the attention you bring to this urgent matter.
+
+{!Case.OwnerFullName}
+{!Case.OwnerPhone}

@@ -1,0 +1,93 @@
+<apex:page standardController="ffr__ReportingDefinition__c" extensions="ffr.ReportingDefinitionController">
+
+	<!-- Demand fields to be loaded -->
+	<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__ReportingTemplate__c}" rendered="false"/>
+	<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__ExcelTemplate__c}" rendered="false"/>
+	<apex:outputText value="{!ffr__ReportingDefinition__c.ffr__DisplayPrompts__c}" rendered="false"/>
+	
+	<apex:form > 
+		<apex:pageBlock title="{!ffr__ReportingDefinition__c.Name}" mode="edit">
+			<apex:PageMessages />
+			<apex:pageBlockSection title="{!$Label.ReportingDefinitionSavePageTitle}" collapsible="false">
+				
+			</apex:pageBlockSection>
+			<apex:pageBlockSection >
+				<apex:outputPanel > 
+					<table>
+							<tr>
+								<td align="left" class="labelCol" style="vertical-align:middle; width:450px">
+									<div align="left">
+										<apex:outputLabel value="{!$Label.ReportingDefinitionSavePageFormat}"/>
+									</div>
+								</td>
+								<td align="right" style="vertical-align:middle">
+									<apex:outputPanel >
+										<div class="requiredInput" style="width:0px">
+										<div class="requiredBlock"></div>
+											<input type="checkbox" value="1" style="visibility:hidden" />
+										</div>
+									</apex:outputPanel>
+								</td>
+								<td align="right" style="vertical-align:middle">
+									<apex:outputPanel > 
+										<div class="requiredBlock"></div>			
+										<apex:selectList style="width:150px" multiselect="false" value="{!m_TypeValue}" size="1" required="true">
+											<apex:selectOptions value="{!Types}"/>
+										</apex:selectList>
+									</apex:outputPanel>
+								</td>
+							</tr>
+							<tr>
+								<td align="left" class="labelCol" style="vertical-align:middle; width:450px">
+									<div align="left">
+										<apex:outputLabel value="{!$Label.ReportingDefinitionSavePageDestinationFolder}"/>
+									</div>
+								</td>
+								<td align="right" style="vertical-align:middle">
+									<apex:outputPanel >
+										<div class="requiredInput" style="width:0px">
+										<div class="requiredBlock"></div>
+											<input type="checkbox" value="1" style="visibility:hidden" />
+										</div>
+									</apex:outputPanel>
+								</td>
+								<td align="right" style="vertical-align:middle">
+									<apex:outputPanel > 
+										<div class="requiredBlock"></div>			
+										<apex:selectList style="width:150px" multiselect="false" value="{!m_FolderValue}" size="1" required="true">
+											<apex:selectOptions value="{!Folders}"/>
+										</apex:selectList>
+									</apex:outputPanel>
+								</td>
+							</tr>
+							<tr>
+								<td align="left" class="labelCol" style="vertical-align:middle; width:450px">
+									<div align="left">
+										<apex:outputLabel value="{!$Label.ReportingDefinitionSavePageDestinationName}"/>
+									</div>
+								</td>
+								<td align="right" style="vertical-align:middle">
+									<apex:outputPanel >
+										<div class="requiredInput" style="width:0px">
+										<div class="requiredBlock"></div>
+											<input type="checkbox" value="1" style="visibility:hidden" />
+										</div>
+									</apex:outputPanel>
+								</td>
+								<td align="right" style="vertical-align:middle">
+									<apex:outputPanel > 
+										<div class="requiredBlock"></div>			
+										<apex:inputText style="width:150px" id="showText" value="{!ffr__ReportingDefinition__c.Name}" required="true"/>
+									</apex:outputPanel>
+								</td>
+							</tr> 
+					</table>
+				</apex:outputPanel>
+			</apex:pageBlockSection>
+			<apex:pageBlockButtons >  
+				<apex:commandButton action="{!saveFileAs}" value="{!$Label.ReportingDefinitionSavePageButtonSave}"/>
+				<apex:commandButton action="{!cancel}" value="{!$Label.ReportingDefinitionSavePageButtonCancel}"/>
+			</apex:pageBlockButtons> 
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

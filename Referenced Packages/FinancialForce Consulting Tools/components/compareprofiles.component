@@ -1,0 +1,941 @@
+<apex:component controller="ffct.CompareProfilesComponentController" id="theComponent">
+    <apex:attribute name="Profiles" type="ffct.SourceTargetProfiles[]" required="true" assignTo="{!sourceTargets}" description="The Custom Apex Type List for Source and Targets"/>
+    <apex:attribute name="OrgConnection" type="ffct__Connection__c" required="true" assignTo="{!connection}" description="Connection to be used for External Salesforce calls"/>
+     <apex:attribute name="compareOption" type="String" required="true" assignTo="{!compareOptionVal}" description="String containing information to Compare Profile or PermissionSet"/>
+    <style>
+        .progress-bar.animate {
+           width: 100%;
+        }
+    </style>
+    <script type="text/javascript">
+
+        function showLoading(){
+                var $modal = $('.js-loading-bar'),
+                $bar = $modal.find('.progress-bar');
+              
+                $modal.modal('show');
+                $bar.addClass('animate');
+
+                
+                setTimeout(function() {
+                    $bar.removeClass('animate');
+                    $modal.modal('hide');
+                }, 5000);
+        }
+
+        function hideLoading(){
+
+            $bar.removeClass('animate');
+            $modal.modal('hide');
+
+        }
+        
+        function toggleSelectAll(checkbox, permType, permClass){
+        
+        	var x = '.' + permClass;
+            //all checkbox is selected
+            if(checkbox.checked){
+ 
+                //set all row level checkboxes selected
+                $( x ).prop('checked', true);
+                
+            }
+            else{
+ 
+                //set all row level checkboxes de-selected
+                $( x ).prop('checked', false);
+            }
+            
+        }
+        /*
+        * set "all checkbox" based on state of row level checkboxes
+        */
+        function toggleItem(permType, permClass){
+            var x = '.' + permClass;
+            var cbs = $(x);
+            
+            //all row level checkboxes selected
+            if(cbs.filter(':not(:checked)').length==0){
+                
+                //set "all checkbox" selected
+                
+	            if (permType == 'objPerm')
+	          		$("input[id$=selectAllObjs]").prop('checked', true);
+	            else if (permType == 'fldPerm')
+	            	$("input[id$=selectAllFlds]").prop('checked', true);
+	            else if (permType == 'clsPerm')
+	            	$("input[id$=selectAllCls]").prop('checked', true);
+	            else if (permType == 'vfPerm')
+	            	$("input[id$=selectAllVfs]").prop('checked', true);
+                
+            }
+            else{
+                
+                //set "all checkboxes" de-selected
+                if (permType == 'objPerm')
+	          		$("input[id$=selectAllObjs]").prop('checked', false);
+	            else if (permType == 'fldPerm')
+	            	$("input[id$=selectAllFlds]").prop('checked', false);
+	            else if (permType == 'clsPerm')
+	            	$("input[id$=selectAllCls]").prop('checked', false);
+	            else if (permType == 'vfPerm')
+	            	$("input[id$=selectAllVfs]").prop('checked', false);
+                
+            }
+                        
+        }
+
+
+    </script>
+    
+    <apex:actionPoller action="{!checkStatus}" rendered="{!asyncId != '' && asyncId != null}" interval="5" id="checkId" rerender="msgDiv"/>
+    
+    <div class="container-fluid">
+        
+        <!-- Loading Bar DIV -->
+        <div class="modal js-loading-bar">
+             <div class="modal-dialog">
+               <div class="modal-content">
+                 <div class="modal-body">
+                   <p class="lead">"{!IF(compareOption=='Profiles',$Label.TargetProfileLoadMessage,$Label.TargetPermissionSetLoadMessage)}"</p>   
+                   <div class="progress progress-popup">
+                    <div class="progress-bar"></div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+        </div>
+        <!-- End Loading Bar DIV -->
+        
+        <!-- FULL PAGEBLOCK theCOMPBLOCK -->
+        <apex:pageBlock id="theCompBlock">
+            
+            <!-- REPEAT FOR NAV TABS -->
+            <div class="container">
+            <ul class="nav nav-tabs horizontal-slide" id="navTabUl">
+                  <apex:repeat value="{!Profiles}" var="st" rendered="{!compareOptionVal=='Profiles'}">
+                        <li class="span2" id="lid-{!st.sourceTargetId}"><a id="aid-{!st.sourceTargetId}" href="#{!st.sourceTargetId}" data-toggle="tab"><nobr>{!st.source.Name}<b>&nbsp;|&nbsp;</b>{!st.target.Name}</nobr></a></li>
+                  </apex:repeat>
+                   <apex:repeat value="{!Profiles}" var="st" rendered="{!compareOptionVal=='PermissionSets'}">
+                        <li class="span2" id="lid-{!st.sourceTargetId}"><a id="aid-{!st.sourceTargetId}" href="#{!st.sourceTargetId}" data-toggle="tab"><nobr>{!st.source.Label}<b>&nbsp;|&nbsp;</b>{!st.target.Label}</nobr></a></li>
+                  </apex:repeat>
+            </ul>
+            </div>
+            <!-- END REPEAT FOR NAV TABS -->
+        
+        <!-- OUTPUTPANEL TABPANEL -->
+        <apex:outputPanel id="tabPanel">
+        <!-- TAB CONTENT DIV -->
+        <div class="tab-content">
+            
+            <!-- REPEAT FOR ALL SELECTED PROFILES -->
+            <apex:repeat value="{!Profiles}" var="st">
+                
+                <div id="{!st.sourceTargetId}" class="tab-pane">
+                   
+                   <!-- PANEL HEADING Either LOAD PROFILE or Display PROFILE NAME -->
+                   <div class="panel-heading">
+                        <apex:commandLink value="{!IF(compareOption=='Profiles',$Label.LoadProfile,$Label.LoadPermissionSet)}" action="{!loadProfile}" onclick="showLoading();" rendered="{!NOT(st.isLoaded) && NOT(st.deployConfirmed) && NOT(st.isDeployed)}">
+                            <apex:param name="profileId" value="{!st.sourceTargetId}" assignTo="{!selprofileId}"></apex:param>
+                        </apex:commandLink>
+                        <apex:outputPanel rendered="{!(st.isLoaded || st.deployConfirmed || st.isDeployed) && compareOptionVal=='Profiles'}">
+                            <p class="lead">{!st.source.Name} - {!st.target.Name}</p>
+                        </apex:outputPanel>
+                         <apex:outputPanel rendered="{!(st.isLoaded || st.deployConfirmed || st.isDeployed) && compareOptionVal=='PermissionSets'}">
+                            <p class="lead">{!st.source.Label} - {!st.target.Label}</p>
+                        </apex:outputPanel>
+                    </div>
+                    <!-- END PANEL HEADING Either LOAD PROFILE or Display PROFILE NAME -->
+                    
+                    <!-- MSG DIV to DISPLAY DEPLOY MESSAGES -->
+                    <apex:outputPanel id="msgDiv" rendered="{!st.isDeployed && NOT(st.isLoaded)}">
+                        <apex:pageBlock >
+                            <apex:outputPanel styleClass="container">
+                                <p class="lead">{!$Label.DeploymentStatus}</p><br/>
+                                <p><apex:outputText style="font-style:italic" value="{!deployMessage}" escape="false"/></p>
+                            
+                            <apex:outputPanel styleClass="footer pull-right" rendered="{!asyncId = '' || asyncId = null}">
+                                    <apex:commandLink styleClass="btn" value="Close" action="{!cancel}"/>&nbsp;
+                                    <apex:commandLink rendered="{!!st.deploySuccessful}" styleClass="btn" value="Back to Edit" action="{!editMode}">
+                                        <apex:param name="profileId" value="{!st.sourceTargetId}" assignTo="{!selprofileId}"></apex:param>
+                                    </apex:commandLink>&nbsp;
+                                    <apex:commandLink styleClass="btn" value="{!IF(compareOption=='Profiles',$Label.CompareProfile,$Label.ComparePermissionSet)}" action="{!loadProfile}">
+                                        <apex:param name="profileId" value="{!st.sourceTargetId}" assignTo="{!selprofileId}"></apex:param>
+                                        <apex:param name="compareOnly" value="true" assignTo="{!isCompareOnly}"></apex:param>
+                                    </apex:commandLink>
+                            </apex:outputPanel>
+                            </apex:outputPanel>
+                            
+                        </apex:pageBlock>   
+                    </apex:outputPanel>
+                    <!-- END MSG DIV to DISPLAY DEPLOY MESSAGES -->
+                    
+                    <!-- SUB OUTPUTPANEL PROFDIV -->
+                    <apex:outputPanel id="profDiv" rendered="{!st.isLoaded || st.deployConfirmed}">
+                    
+                    <!-- PANEL GROUP OBJECT PERMISSIONS -->
+                    <div class="panel-group" id="accordion{!st.sourceTargetId}">
+                        <div class="panel panel-default">
+                        
+                        <!-- PANEL HEADING OBJECT PERMISSIONS -->
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion{!st.sourceTargetId}" href="#obj{!st.sourceTargetId}">
+                              {!$Label.ObjectPermissions}
+                            </a>
+                          </h4>
+                        </div>
+                        <!-- END PANEL HEADING OBJECT PERMISSIONS -->
+                        
+                        <!-- OBJECT PERMISSION PANEL BODY -->
+                        <div id="obj{!st.sourceTargetId}" class="panel-collapse collapse in">
+                          <div class="panel-body">
+                            
+                            <!-- EDIT MODE -->
+                            <apex:outputPanel rendered="{!st.isLoaded && NOT(st.deployConfirmed) && NOT(st.isDeployed)}">
+                                <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th>{!$Label.Source}</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>{!$Label.Target}</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <th><apex:inputCheckbox id="selectAllObjs" onclick="toggleSelectAll(this, 'objPerm', 'objPerm--{!st.sourceTargetId}');"/></th>
+                                        <th>{!$Label.ObjectName}</th>
+                                        <th>{!$Label.Read}</th>
+                                        <th>{!$Label.Create}</th>
+                                        <th>{!$Label.Edit}</th>
+                                        <th>{!$Label.Delete}</th>
+                                        <th>{!$Label.ViewAll}</th>
+                                        <th>{!$Label.ModifyAll}</th>
+                                        <th>{!$Label.Read}</th>
+                                        <th>{!$Label.Create}</th>
+                                        <th>{!$Label.Edit}</th>
+                                        <th>{!$Label.Delete}</th>
+                                        <th>{!$Label.ViewAll}</th>
+                                        <th>{!$Label.ModifyAll}</th>
+                                    </tr>
+                                </thead>    
+                                <tbody>
+                                <apex:repeat value="{!allObjectPermissionMap[st.sourceTargetId]}" var="sol">
+                                    <apex:repeat value="{!sol}" var="so">
+                                    <tr>
+                                        <td><apex:inputCheckbox styleClass="objPerm--{!st.sourceTargetId}" onchange="toggleItem('objPerm', 'objPerm--{!st.sourceTargetId}');" value="{!so.isSelected}" disabled="{!so.targetObjPermissions = null}"></apex:inputCheckbox></td>
+                                        <td>{!so.objName}</td>
+                                        <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.allowRead}"/></td>
+                                        <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.allowCreate}"/></td>   
+                                        <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.allowEdit}"/></td>
+                                        <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.allowDelete}"/></td>
+                                        <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.viewAllRecords}"/></td>
+                                        <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.modifyAllRecords}"/></td>
+                                            
+                                        <apex:outputPanel rendered="{!so.targetObjPermissions != null}">
+                                            <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.allowRead}"/></td>
+                                            <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.allowCreate}"/></td>   
+                                            <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.allowEdit}"/></td>
+                                            <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.allowDelete}"/></td>
+                                            <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.viewAllRecords}"/></td>
+                                            <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.modifyAllRecords}"/></td>
+                                        </apex:outputPanel>
+                                        
+                                        <apex:outputPanel rendered="{!so.targetObjPermissions = null}">
+                                            <td><label>{!$Label.NA}</label></td>
+                                            <td><label>{!$Label.NA}</label></td>
+                                            <td><label>{!$Label.NA}</label></td>
+                                            <td><label>{!$Label.NA}</label></td>
+                                            <td><label>{!$Label.NA}</label></td>
+                                            <td><label>{!$Label.NA}</label></td>
+                                        </apex:outputPanel>
+                                    </tr>   
+                                </apex:repeat>
+                                </apex:repeat>
+                                </tbody>
+                                </table>
+                            </apex:outputPanel>
+                            <!-- END EDIT MODE -->
+                            
+                            
+                            <!-- CONFIRM DEPLOY MODE -->
+                            <apex:outputPanel rendered="{!st.deployConfirmed && NOT(st.isDeployed)}">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>{!$Label.Source}</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th>{!$Label.Target}</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <th>{!$Label.ObjectName}</th>
+                                            <th>{!$Label.Read}</th>
+                                            <th>{!$Label.Create}</th>
+                                            <th>{!$Label.Edit}</th>
+                                            <th>{!$Label.Delete}</th>
+                                            <th>{!$Label.ViewAll}</th>
+                                            <th>{!$Label.ModifyAll}</th>
+                                            <th>{!$Label.Read}</th>
+                                            <th>{!$Label.Create}</th>
+                                            <th>{!$Label.Edit}</th>
+                                            <th>{!$Label.Delete}</th>
+                                            <th>{!$Label.ViewAll}</th>
+                                            <th>{!$Label.ModifyAll}</th>
+                                        </tr>
+                                    </thead>    
+                                    <tbody>
+                                    <apex:repeat value="{!allObjectPermissionMap[st.sourceTargetId]}" var="sol">
+                                        <apex:repeat value="{!sol}" var="so">
+                                        <apex:outputPanel rendered="{!so.isSelected}">
+                                        <tr>
+                                            <td>{!so.objName}</td>
+                                            <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.allowRead}"/></td>
+                                            <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.allowCreate}"/></td>   
+                                            <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.allowEdit}"/></td>
+                                            <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.allowDelete}"/></td>
+                                            <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.viewAllRecords}"/></td>
+                                            <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.modifyAllRecords}"/></td>
+                                            <apex:outputPanel rendered="{!so.targetObjPermissions != null}">
+                                                <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.allowRead}"/></td>
+                                                <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.allowCreate}"/></td>   
+                                                <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.allowEdit}"/></td>
+                                                <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.allowDelete}"/></td>
+                                                <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.viewAllRecords}"/></td>
+                                                <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.modifyAllRecords}"/></td>
+                                            </apex:outputPanel>
+                                            
+                                            <apex:outputPanel rendered="{!so.targetObjPermissions = null}">
+                                                <td><label>{!$Label.NA}</label></td>
+                                                <td><label>{!$Label.NA}</label></td>
+                                                <td><label>{!$Label.NA}</label></td>
+                                                <td><label>{!$Label.NA}</label></td>
+                                                <td><label>{!$Label.NA}</label></td>
+                                                <td><label>{!$Label.NA}</label></td>
+                                            </apex:outputPanel>
+                                        </tr>
+                                        </apex:outputPanel> 
+                                    </apex:repeat>
+                                    </apex:repeat>
+                                    </tbody>
+                                    </table>
+                            </apex:outputPanel>
+                            <!-- END CONFIRM DEPLOY MODE -->
+                            
+                            
+                            <!-- COMPARE VIEW MODE -->
+                            <apex:outputPanel rendered="{!st.isLoaded && st.isDeployed}">
+                                <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>{!$Label.ObjectName}</th>
+                                        <th>{!$Label.Read}</th>
+                                        <th>{!$Label.Create}</th>
+                                        <th>{!$Label.Edit}</th>
+                                        <th>{!$Label.Delete}</th>
+                                        <th>{!$Label.ViewAll}</th>
+                                        <th>{!$Label.ModifyAll}</th>
+                                        <th>{!$Label.Read}</th>
+                                        <th>{!$Label.Create}</th>
+                                        <th>{!$Label.Edit}</th>
+                                        <th>{!$Label.Delete}</th>
+                                        <th>{!$Label.ViewAll}</th>
+                                        <th>{!$Label.ModifyAll}</th>
+                                    </tr>
+                                </thead>    
+                                <tbody>
+                                <apex:repeat value="{!allObjectPermissionMap[st.sourceTargetId]}" var="sol">
+                                    <apex:repeat value="{!sol}" var="so">
+                                    <tr>
+                                        <td>{!so.objName}</td>
+                                        <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.allowRead}"/></td>
+                                        <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.allowCreate}"/></td>   
+                                        <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.allowEdit}"/></td>
+                                        <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.allowDelete}"/></td>
+                                        <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.viewAllRecords}"/></td>
+                                        <td><c:profilepermissionviewer OK="{!so.sourceObjPermissions.modifyAllRecords}"/></td>
+                                            
+                                        <apex:outputPanel rendered="{!so.targetObjPermissions != null}">
+                                            <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.allowRead}"/></td>
+                                            <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.allowCreate}"/></td>   
+                                            <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.allowEdit}"/></td>
+                                            <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.allowDelete}"/></td>
+                                            <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.viewAllRecords}"/></td>
+                                            <td><c:profilepermissionviewer OK="{!so.targetObjPermissions.modifyAllRecords}"/></td>
+                                        </apex:outputPanel>
+                                        
+                                        <apex:outputPanel rendered="{!so.targetObjPermissions = null}">
+                                            <td><label>{!$Label.NA}</label></td>
+                                            <td><label>{!$Label.NA}</label></td>
+                                            <td><label>{!$Label.NA}</label></td>
+                                            <td><label>{!$Label.NA}</label></td>
+                                            <td><label>{!$Label.NA}</label></td>
+                                            <td><label>{!$Label.NA}</label></td>
+                                        </apex:outputPanel>
+                                    </tr>   
+                                </apex:repeat>
+                                </apex:repeat>
+                                </tbody>
+                                </table>
+                            </apex:outputPanel>
+                            <!-- END COMPARE VIEW MODE -->
+                            
+                          </div>
+                        </div>
+                        <!-- END OBJECT PERMISSION PANEL BODY -->
+                        </div>
+                      </div>
+                      <!-- END PANEL GROUP OBJECT PERMISSIONS -->
+                      
+                      <!-- PANEL GROUP FIELD PERMISSIONS -->
+                      <div class="panel-group" id="flda{!st.sourceTargetId}">
+                        <div class="panel panel-default">
+                            
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#flda{!st.sourceTargetId}" href="#fld{!st.sourceTargetId}">
+                                  {!$Label.FieldPermissions}
+                                </a>
+                              </h4>
+                            </div>
+                            
+                            <!--  FIELD PERMISSION PANEL BODY -->
+                            <div id="fld{!st.sourceTargetId}" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                
+                                <!-- EDIT MODE -->
+                                <apex:outputPanel rendered="{!st.isLoaded && NOT(st.deployConfirmed) && NOT(st.isDeployed)}">
+                                    <table class="table table-condensed table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th>{!$Label.Source}</th>
+                                            <th></th>
+                                            <th>{!$Label.Target}</th>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <th><apex:inputCheckbox id="selectAllFlds" onclick="toggleSelectAll(this, 'fldPerm', 'fldPerm--{!st.sourceTargetId}');"/></th>
+                                            <th>{!$Label.FieldName}</th>
+                                            <th>{!$Label.Read}</th>
+                                            <th>{!$Label.Edit}</th>
+                                            <th>{!$Label.Read}</th>
+                                            <th>{!$Label.Edit}</th>
+                                        </tr>
+                                    </thead>    
+                                    <tbody>
+                                        <apex:repeat value="{!allFldPermissionMap[st.sourceTargetId]}" var="sol">
+                                        <apex:repeat value="{!sol}" var="so">
+                                            <tr>
+                                                <td><apex:inputCheckbox styleClass="fldPerm--{!st.sourceTargetId}" onchange="toggleItem('fldPerm', 'fldPerm--{!st.sourceTargetId}');" value="{!so.isSelected}" disabled="{!so.targetFldPermissions = null}"></apex:inputCheckbox></td>
+                                                <td>{!so.fieldName}</td>
+                                                <td><c:profilepermissionviewer OK="{!so.sourceFldPermissions.readable}"/></td>
+                                                <td><c:profilepermissionviewer OK="{!so.sourceFldPermissions.editable}"/></td>
+                                                <apex:outputPanel rendered="{!so.targetFldPermissions != null}">
+                                                <td><c:profilepermissionviewer OK="{!so.targetFldPermissions.readable}"/></td>
+                                                <td><c:profilepermissionviewer OK="{!so.targetFldPermissions.editable}"/></td>
+                                                </apex:outputPanel>
+                                                <apex:outputPanel rendered="{!so.targetFldPermissions = null}">
+                                                    <td><label>{!$Label.NA}</label></td>
+                                                    <td><label>{!$Label.NA}</label></td>
+                                                </apex:outputPanel>
+                                            </tr>
+                                        </apex:repeat>
+                                        </apex:repeat>
+                                    </tbody>
+                                    </table>
+                                </apex:outputPanel>
+                                
+                                <!--END EDIT MODE -->
+                                
+                                <!--DEPLOY CONFIRM MODE -->
+                                
+                                <apex:outputPanel rendered="{!st.deployConfirmed && NOT(st.isDeployed)}">
+                                    <table class="table table-condensed table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>{!$Label.Source}</th>
+                                                <th></th>
+                                                <th>{!$Label.Target}</th>
+                                                <th></th>
+                                            </tr>
+                                            <tr>
+                                                <th>{!$Label.FieldName}</th>
+                                                <th>{!$Label.Read}</th>
+                                                <th>{!$Label.Edit}</th>
+                                                <th>{!$Label.Read}</th>
+                                                <th>{!$Label.Edit}</th>
+                                            </tr>
+                
+                                        </thead>    
+                                        <tbody>
+                                            <apex:repeat value="{!allFldPermissionMap[st.sourceTargetId]}" var="sol">
+                                                <apex:repeat value="{!sol}" var="so">
+                                                <apex:outputPanel rendered="{!so.isSelected}">
+                                                <tr>
+                                                    <td>{!so.fieldName}</td>
+                                                    <td><c:profilepermissionviewer OK="{!so.sourceFldPermissions.readable}"/></td>
+                                                    <td><c:profilepermissionviewer OK="{!so.sourceFldPermissions.editable}"/></td>
+                                                    <apex:outputPanel rendered="{!so.targetFldPermissions != null}">
+                                                    <td><c:profilepermissionviewer OK="{!so.targetFldPermissions.readable}"/></td>
+                                                    <td><c:profilepermissionviewer OK="{!so.targetFldPermissions.editable}"/></td>
+                                                    </apex:outputPanel>
+                                                    <apex:outputPanel rendered="{!so.targetFldPermissions = null}">
+                                                        <td><label>{!$Label.NA}</label></td>
+                                                        <td><label>{!$Label.NA}</label></td>
+                                                    </apex:outputPanel>
+                                                </tr>
+                                                </apex:outputPanel>
+                                            </apex:repeat>
+                                            </apex:repeat>
+                                        </tbody>
+                                        </table>
+                                    </apex:outputPanel>
+                                    <!-- END DEPLOY CONFIRM MODE -->
+                                    
+                                    
+                                    <!-- COMPARE VIEW MODE -->
+                                <apex:outputPanel rendered="{!st.isLoaded && st.isDeployed}">
+                                    <table class="table table-condensed table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>{!$Label.Source}</th>
+                                            <th></th>
+                                            <th>{!$Label.Target}</th>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <th>{!$Label.FieldName}</th>
+                                            <th>{!$Label.Read}</th>
+                                            <th>{!$Label.Edit}</th>
+                                            <th>{!$Label.Read}</th>
+                                            <th>{!$Label.Edit}</th>
+                                        </tr>
+                                    </thead>    
+                                    <tbody>
+                                        <apex:repeat value="{!allFldPermissionMap[st.sourceTargetId]}" var="sol">
+                                            <apex:repeat value="{!sol}" var="so">
+                                            <tr>
+                                                <td>{!so.fieldName}</td>
+                                                <td><c:profilepermissionviewer OK="{!so.sourceFldPermissions.readable}"/></td>
+                                                <td><c:profilepermissionviewer OK="{!so.sourceFldPermissions.editable}"/></td>
+                                                <apex:outputPanel rendered="{!so.targetFldPermissions != null}">
+                                                <td><c:profilepermissionviewer OK="{!so.targetFldPermissions.readable}"/></td>
+                                                <td><c:profilepermissionviewer OK="{!so.targetFldPermissions.editable}"/></td>
+                                                </apex:outputPanel>
+                                                <apex:outputPanel rendered="{!so.targetFldPermissions = null}">
+                                                    <td><label>{!$Label.NA}</label></td>
+                                                    <td><label>{!$Label.NA}</label></td>
+                                                </apex:outputPanel>
+                                            </tr>
+                                        </apex:repeat>
+                                        </apex:repeat>
+                                    </tbody>
+                                    </table>
+                                </apex:outputPanel>
+                                
+                                <!--END EDIT MODE -->
+                                
+                                  
+                                  </div>
+                                </div>
+                                <!--  END FIELD PERMISSION PANEL BODY -->
+                             </div>
+                            </div>
+                            <!-- END PANEL GROUP FIELD PERMISSIONS -->
+                        
+                      
+                         <!-- PANEL GROUP ENTITY ACCESS PERMISSIONS -->
+                      <div class="panel-group" id="apexa{!st.sourceTargetId}">
+                        <div class="panel panel-default">
+                            
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#apexa{!st.sourceTargetId}" href="#apex{!st.sourceTargetId}">
+                                  {!$Label.ApexClasses}
+                                </a>
+                              </h4>
+                            </div>      
+                                
+                                <!--  FIELD PERMISSION PANEL BODY -->
+                            <div id="apex{!st.sourceTargetId}" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                
+                                <!-- EDIT MODE -->
+                                <apex:outputPanel rendered="{!st.isLoaded && NOT(st.deployConfirmed) && NOT(st.isDeployed)}">
+                                    <table class="table table-condensed table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th><apex:inputCheckbox id="selectAllCls" onclick="toggleSelectAll(this, 'clsPerm', 'clsPerm--{!st.sourceTargetId}');"/></th>
+                                            <th>{!$Label.Name}</th>
+                                            <th>{!$Label.Source}</th>
+                                            <th>{!$Label.Target}</th>
+                                        </tr>
+                                    </thead>    
+                                    <tbody>
+                                        <apex:repeat value="{!allEntPermissionMap[st.sourceTargetId]}" var="sol">
+                                            <apex:repeat value="{!sol}" var="so">
+                                            <apex:outputPanel rendered="{!so.entityType == 'ApexClass'  && so.entityName !=null && len(so.entityName)>0 }">
+                                            <tr>
+                                                <td><apex:inputCheckbox styleClass="clsPerm--{!st.sourceTargetId}" onchange="toggleItem('clsPerm', 'clsPerm--{!st.sourceTargetId}');" value="{!so.isSelected}" disabled="{!so.targetEntityPermissions = null}"></apex:inputCheckbox></td>
+                                                <td>{!so.entityName}</td>
+                                                <td><c:profilepermissionviewer OK="{!so.sourceEntityPermissions.enabled}"/></td>
+                                                <apex:outputPanel rendered="{!so.targetEntityPermissions != null}">
+                                                    <td><c:profilepermissionviewer OK="{!so.targetEntityPermissions.enabled}"/></td>
+                                                </apex:outputPanel>
+                                                <apex:outputPanel rendered="{!so.targetEntityPermissions = null}">
+                                                    <td><label>{!$Label.NA}</label></td>
+                                                </apex:outputPanel>
+                                            </tr>
+                                            </apex:outputPanel>
+                                        </apex:repeat>
+                                        </apex:repeat>
+                                    </tbody>
+                                    </table>
+                                </apex:outputPanel>
+                                
+                                <!--END EDIT MODE -->
+                                
+                                <!--DEPLOY CONFIRM MODE -->
+                                
+                                <apex:outputPanel rendered="{!st.deployConfirmed && NOT(st.isDeployed)}">
+                                    <table class="table table-condensed table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Entity Name</th>
+                                                <th>{!$Label.Source}</th>
+                                                <th>{!$Label.Target}</th>
+                                            </tr>
+                
+                                        </thead>    
+                                        <tbody>
+                                            <apex:repeat value="{!allEntPermissionMap[st.sourceTargetId]}" var="sol">
+                                                <apex:repeat value="{!sol}" var="so">
+                                                <apex:outputPanel rendered="{!so.isSelected && so.entityType = 'ApexClass'}">
+                                                <tr>
+                                                    <td>{!so.entityName}</td>
+                                                    <td><c:profilepermissionviewer OK="{!so.sourceEntityPermissions.enabled}"/></td>
+                                                    <apex:outputPanel rendered="{!so.targetEntityPermissions != null}">
+                                                        <td><c:profilepermissionviewer OK="{!so.targetEntityPermissions.enabled}"/></td>
+                                                    </apex:outputPanel>
+                                                    <apex:outputPanel rendered="{!so.targetEntityPermissions = null}">
+                                                        <td><label>{!$Label.NA}</label></td>
+                                                    </apex:outputPanel>
+                                                </tr>
+                                                </apex:outputPanel>
+                                            </apex:repeat>
+                                            </apex:repeat>
+                                        </tbody>
+                                    </table>
+                                </apex:outputPanel>
+                                    <!-- END DEPLOY CONFIRM MODE -->
+                                    
+                                    
+                                    <!-- COMPARE VIEW MODE -->
+                                <apex:outputPanel rendered="{!st.isLoaded && st.isDeployed}">
+                                    <table class="table table-condensed table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Entity Name</th>
+                                            <th>{!$Label.Source}</th>
+                                            <th>{!$Label.Target}</th>
+                                        </tr>
+                                    </thead>    
+                                    <tbody>
+                                            <apex:repeat value="{!allEntPermissionMap[st.sourceTargetId]}" var="sol">
+                                                <apex:repeat value="{!sol}" var="so">
+                                                <apex:outputPanel rendered="{!so.entityType == 'ApexClass'  && so.entityName !=null && len(so.entityName)>0 }">
+                                                <tr>
+                                                    <td>{!so.entityName}</td>
+                                                    <td><c:profilepermissionviewer OK="{!so.sourceEntityPermissions.enabled}"/></td>
+                                                    <apex:outputPanel rendered="{!so.targetEntityPermissions != null}">
+                                                        <td><c:profilepermissionviewer OK="{!so.targetEntityPermissions.enabled}"/></td>
+                                                    </apex:outputPanel>
+                                                    <apex:outputPanel rendered="{!so.targetEntityPermissions = null}">
+                                                        <td><label>{!$Label.NA}</label></td>
+                                                    </apex:outputPanel>
+                                                </tr>
+                                                </apex:outputPanel>
+                                            </apex:repeat>
+                                            </apex:repeat>
+                                        </tbody>
+                                    </table>
+                                </apex:outputPanel>
+                                
+                                <!--END COMPARE VIEW MODE -->
+                                
+                                  
+                                  </div>
+                                </div>
+                                <!--  END SETUP ENTITY ACCESS PERMISSION PANEL BODY -->
+                                
+                             </div>
+                            </div>
+                            <!-- END PANEL GROUP SETUP ENTITY ACCESS PERMISSIONS -->
+                            
+                            
+                            
+                            
+                            
+                            <div class="panel-group" id="vfa{!st.sourceTargetId}">
+                        <div class="panel panel-default">
+                            
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#vfaa{!st.sourceTargetId}" href="#vf{!st.sourceTargetId}">
+                                 {!$Label.Visualforce}
+                                </a>
+                              </h4>
+                            </div>      
+                                
+                                <!--  FIELD PERMISSION PANEL BODY -->
+                            <div id="vf{!st.sourceTargetId}" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                
+                                <!-- EDIT MODE -->
+                                <apex:outputPanel rendered="{!st.isLoaded && NOT(st.deployConfirmed) && NOT(st.isDeployed)}">
+                                    <table class="table table-condensed table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th><apex:inputCheckbox id="selectAllVfs" onclick="toggleSelectAll(this, 'vfPerm', 'vfPerm--{!st.sourceTargetId}');"/></th>
+                                            <th>{!$Label.Name}</th>
+                                            <th>{!$Label.Source}</th>
+                                            <th>{!$Label.Target}</th>
+                                        </tr>
+                                    </thead>    
+                                    <tbody>
+                                        <apex:repeat value="{!allEntPermissionMap[st.sourceTargetId]}" var="sol">
+                                            <apex:repeat value="{!sol}" var="so">
+                                            <apex:outputPanel rendered="{!so.entityType=='ApexPage' && so.entityName !=null && len(so.entityName)>0 }">
+                                            <tr>
+                                                <td><apex:inputCheckbox styleClass="vfPerm--{!st.sourceTargetId}" onchange="toggleItem('vfPerm', 'vfPerm--{!st.sourceTargetId}');" value="{!so.isSelected}" disabled="{!so.targetEntityPermissions = null}"></apex:inputCheckbox></td>
+                                                <td>{!so.entityName}</td>
+                                                <td><c:profilepermissionviewer OK="{!so.sourceEntityPermissions.enabled}"/></td>
+                                                <apex:outputPanel rendered="{!so.targetEntityPermissions != null}">
+                                                    <td><c:profilepermissionviewer OK="{!so.targetEntityPermissions.enabled}"/></td>
+                                                </apex:outputPanel>
+                                                <apex:outputPanel rendered="{!so.targetEntityPermissions = null}">
+                                                    <td><label>{!$Label.NA}</label></td>
+                                                </apex:outputPanel>
+                                            </tr>
+                                            </apex:outputPanel>
+                                        </apex:repeat>
+                                        </apex:repeat>
+                                    </tbody>
+                                    </table>
+                                </apex:outputPanel>
+                                
+                                <!--END EDIT MODE -->
+                                
+                                <!--DEPLOY CONFIRM MODE -->
+                                
+                                <apex:outputPanel rendered="{!st.deployConfirmed && NOT(st.isDeployed)}">
+                                    <table class="table table-condensed table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Entity Name</th>
+                                                <th>{!$Label.Source}</th>
+                                                <th>{!$Label.Target}</th>
+                                            </tr>
+                
+                                        </thead>    
+                                        <tbody>
+                                            <apex:repeat value="{!allEntPermissionMap[st.sourceTargetId]}" var="sol">
+                                                <apex:repeat value="{!sol}" var="so">
+                                                <apex:outputPanel rendered="{!so.isSelected && so.entityType = 'ApexPage'}">
+                                                <tr>
+                                                    <td>{!so.entityName}</td>
+                                                    <td><c:profilepermissionviewer OK="{!so.sourceEntityPermissions.enabled}"/></td>
+                                                    <apex:outputPanel rendered="{!so.targetEntityPermissions != null}">
+                                                        <td><c:profilepermissionviewer OK="{!so.targetEntityPermissions.enabled}"/></td>
+                                                    </apex:outputPanel>
+                                                    <apex:outputPanel rendered="{!so.targetEntityPermissions = null}">
+                                                        <td><label>{!$Label.NA}</label></td>
+                                                    </apex:outputPanel>
+                                                </tr>
+                                                </apex:outputPanel>
+                                            </apex:repeat>
+                                            </apex:repeat>
+                                        </tbody>
+                                    </table>
+                                </apex:outputPanel>
+                                    <!-- END DEPLOY CONFIRM MODE -->
+                                    
+                                    
+                                    <!-- COMPARE VIEW MODE -->
+                                <apex:outputPanel rendered="{!st.isLoaded && st.isDeployed}">
+                                    <table class="table table-condensed table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Entity Name</th>
+                                            <th>{!$Label.Source}</th>
+                                            <th>{!$Label.Target}</th>
+                                        </tr>
+                                    </thead>    
+                                    <tbody>
+                                            <apex:repeat value="{!allEntPermissionMap[st.sourceTargetId]}" var="sol">
+                                                <apex:repeat value="{!sol}" var="so">
+                                                <apex:outputPanel rendered="{!so.entityType=='ApexPage' && so.entityName !=null && len(so.entityName)>0 }">
+                                                <tr>
+                                                    <td>{!so.entityName}</td>
+                                                    <td><c:profilepermissionviewer OK="{!so.sourceEntityPermissions.enabled}"/></td>
+                                                    <apex:outputPanel rendered="{!so.targetEntityPermissions != null}">
+                                                        <td><c:profilepermissionviewer OK="{!so.targetEntityPermissions.enabled}"/></td>
+                                                    </apex:outputPanel>
+                                                    <apex:outputPanel rendered="{!so.targetEntityPermissions = null}">
+                                                        <td><label>{!$Label.NA}</label></td>
+                                                    </apex:outputPanel>
+                                                </tr>
+                                                </apex:outputPanel>
+                                            </apex:repeat>
+                                            </apex:repeat>
+                                        </tbody>
+                                    </table>
+                                </apex:outputPanel>
+                                
+                                <!--END COMPARE VIEW MODE -->
+                                
+                                  
+                                  </div>
+                                </div>
+                                <!--  END SETUP ENTITY ACCESS PERMISSION PANEL BODY -->
+                                
+                             </div>
+                            </div>
+                            <!-- END PANEL GROUP SETUP ENTITY ACCESS PERMISSIONS -->
+                            
+                            
+                            
+                            
+                            
+                        </apex:outputPanel>
+                        
+                        <div class="panel-group" id="btna{!st.sourceTargetId}">
+                            <div class="panel panel-default">
+                                <apex:outputPanel rendered="{!st.isLoaded && NOT(st.deployConfirmed) && NOT(st.isDeployed)}">
+                                        <!-- BUTTON DIV CONFIRM DEPLOY -->  
+                                        <div class="footer pull-right">
+                                            <apex:commandLink styleClass="btn" value="Cancel" action="{!cancel}"/>&nbsp;
+                                            <apex:commandLink styleClass="btn" value="Ready to Deploy" action="{!confirmDeploy}">
+                                                <apex:param name="profileId" value="{!st.sourceTargetId}" assignTo="{!selprofileId}"></apex:param>
+                                            </apex:commandLink>
+                                        </div>  
+                                        <!-- END BUTTON DIV CONFIRM DEPLOY -->  
+                                </apex:outputPanel>
+                                
+                                
+                                <apex:outputPanel rendered="{!st.deployConfirmed && NOT(st.isDeployed)}">
+                                      <!-- BUTTON DIV READY TO DEPLOY -->
+                                      <div class="footer pull-right">
+                                            <apex:commandLink styleClass="btn" value="Cancel" action="{!cancel}"/>&nbsp;
+                                            <apex:commandLink styleClass="btn" value="Back" action="{!editMode}">
+                                                <apex:param name="profileId" value="{!st.sourceTargetId}" assignTo="{!selprofileId}"></apex:param>
+                                            </apex:commandLink>&nbsp;
+                                            <apex:commandLink styleClass="btn" value="{!IF(compareOption=='Profiles',$Label.DeployProfile,$Label.DeployPermissionSet)}" action="{!deployProfilePermissions}">
+                                                <apex:param name="profileId" value="{!st.sourceTargetId}" assignTo="{!selprofileId}"></apex:param>
+                                            </apex:commandLink>
+                                        </div>
+                                          <!-- END BUTTON DIV READY TO DEPLOY -->
+                                </apex:outputPanel>
+                                
+                                <apex:outputPanel rendered="{!st.isLoaded && st.isDeployed}">
+                                        <!-- BUTTON DIV COMPARE VIEW  -->   
+                                        <div class="footer pull-right">
+                                            <apex:commandLink styleClass="btn" value="Close" action="{!cancel}"/>&nbsp;
+                                        </div>  
+                                        <!-- END DIV COMPARE VIEW -->   
+                                </apex:outputPanel>
+                                
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+            </apex:repeat>
+            <!-- END REPEAT FOR ALL SELECTED PROFILES -->
+            
+            <script type="text/javascript">
+                    
+                    // Setup
+                    
+                    $('.js-loading-bar').modal({
+                      backdrop: 'static',
+                      show: false
+                    });
+                    
+                    var hasActive = false;
+                    var hasActiveDeployed = false;
+                    var lid;
+                    var tabId;
+                            
+                    lid = 'lid-{!selprofileId}';
+                    tabId = '{!selprofileId}';
+                    
+                    if(tabId == null || tabId == ''){
+
+                        $('#navTabUl li').first().addClass('active');
+                        $('.tab-pane').first().addClass('active');
+                    
+                    }else{
+                        $('#'+lid).addClass('active');
+                        $('#'+tabId).addClass('active');
+                    
+                    }
+                    
+                    
+
+
+            </script>
+            
+            <style>
+            ul.horizontal-slide {
+    margin: 0;
+    padding: 5px;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+ul.horizontal-slide li[class*="span"] {
+    display: inline-block;
+    float: none;
+}
+
+ul.horizontal-slide li[class*="span"]:first-child {
+    margin-left: 0;
+}
+.container {
+     width: 1300px;
+   padding-left: 0px;
+   padding-right: 0px;
+       margin: 0px;
+}
+</style>
+        </div>
+        </apex:outputPanel>
+        </apex:pageBlock>
+    </div>  
+    
+</apex:component>

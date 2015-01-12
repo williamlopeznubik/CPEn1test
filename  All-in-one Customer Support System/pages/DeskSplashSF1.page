@@ -1,0 +1,18 @@
+<apex:page standardController="Deskcom__Case__c" extensions="Deskcom.DeskSF1SplashController" action="{!splash}" showHeader="false" showChat="false" sidebar="false">
+<apex:stylesheet value="{!URLFOR($Resource.Deskcom__desk_static,'css/jquery-ui-1.9.2.custom.css')}"/>
+<apex:stylesheet value="{!URLFOR($Resource.Deskcom__desk_static,'css/desk.css')}"/>
+  <div class="desk-sf1-splash">
+    <div class="desk-logo"></div>
+    <div class="desk-cloud"></div>
+    <div class="desk-content">
+        <h6>Customer Service backed by Salesforce</h6>
+        <p>
+            Desk.com creates the leading customer service application, which helps fast-growing companies deliver outstanding customer support.
+        </p>
+        
+        <p>
+            The Desk.com app enables you to create Desk.com Customer Support cases in Salesforce 1.  From a Contacts or Leads page click on the + button and choose the Desk.com icon.  The case will be opened in Desk.com and will be visible in Salesforce1.
+        </p>
+    </div>
+  </div>
+</apex:page>

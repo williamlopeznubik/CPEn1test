@@ -1,0 +1,17 @@
+<apex:page standardController="ffr__ReportingDefinition__c" extensions="ffr.ReportingDefinitionConfirmController">  
+	<apex:form >
+		<apex:sectionHeader title="{!TitleText}" help="{!URLFOR('/apex/helploader?topicid=1024')}"/>
+		<apex:pageBlock mode="edit">
+			<apex:PageMessages />
+			<apex:pageBlockSection title="{!TitleText}" collapsible="false">
+				<apex:pageBlockSectionItem >
+					<apex:outputText value="{!MessageText}"/>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!open}" value="{!$Label.ReportingDefinitionConfirmPageButtonOpen}"/>
+				<apex:commandButton action="{!cancel}" value="{!$Label.ReportingDefinitionConfirmPageButtonFinish}"/> 
+			</apex:pageBlockButtons>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

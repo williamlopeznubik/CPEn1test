@@ -1,0 +1,1898 @@
+<apex:component controller="ffr.FormulaBuilderController">
+	<apex:attribute name="formulaBuilderId" description="This is the ID for the formulaBuilder." type="String" required="true"/>
+	<apex:attribute name="formulaBuilderJSONId" description="This is the ID for the formulaBuilder JSON Textarea." type="String" required="true"/>
+		
+	<apex:stylesheet value="{!URLFOR($Resource.ffr__filterUI,'FilterUI/components/datepicker/datepicker.css')}"/>
+	<apex:stylesheet value="{!URLFOR($Resource.ffr__filterUI,'FilterUI/components/formula_builder/formula_builder.css')}"/>
+	
+	<script src="{!URLFOR($Resource.filterUI,'FilterUI/base/frameworks/json2.min.js')}" type="text/javascript"></script>
+	<script src="{!URLFOR($Resource.filterUI,'FilterUI/base/frameworks/jquery-1.4.2.min.js')}" type="text/javascript"></script>
+	<script src="{!URLFOR($Resource.filterUI,'FilterUI/base/base.min.js')}"></script>
+	<script src="{!URLFOR($Resource.filterUI,'FilterUI/components/datepicker/datepicker.min.js')}"></script>
+	<script>
+
+var $FUI = jQuery.noConflict();
+FILTERBUILDER.FormulaBuilder = {
+
+	init: function (formulaBuilderId, formulaBuilderJSONField) {
+			
+		/********************************************/
+		/*	VARIABLES								*/
+		/********************************************/
+		fbObj = this;
+		fbObj.animateSpeed = 200;
+
+		//LABELS
+		fbObj.labelObject = "{!$Label.FilterBuilderObjectDefValue}";
+		fbObj.labelField = "{!$Label.FilterBuilderFieldDefValue}";
+		fbObj.labelOperator = "{!$Label.FilterBuilderOperatorDefValue}";
+		fbObj.labelValue = "{!$Label.FilterBuilderValueDefValue}";
+
+		fbObj.conditionObjectName = "";
+		fbObj.lineNumber = 0;
+		
+		//OPERATOR HASHMAPS
+		fbObj.operators = [];
+
+		//OPERATOR HASHMAPS: STRINGS
+		fbObj.operators.id = ['{!$Label.FilterBuilderIsOperator}', '{!$Label.FilterBuilderIsNotOperator}', '{!$Label.FilterBuilderStartsWithOperator}', '{!$Label.FilterBuilderEndsWithOperator}', '{!$Label.FilterBuilderContainsOperator}', '{!$Label.FilterBuilderDoesNotContainsOperator}'];
+		fbObj.operators.string = ['{!$Label.FilterBuilderIsOperator}', '{!$Label.FilterBuilderIsNotOperator}', '{!$Label.FilterBuilderStartsWithOperator}', '{!$Label.FilterBuilderEndsWithOperator}', '{!$Label.FilterBuilderContainsOperator}', '{!$Label.FilterBuilderDoesNotContainsOperator}', '{!$Label.FilterBuilderIsLessThanOperator}', '{!$Label.FilterBuilderIsGreaterThanOperator}', '{!$Label.FilterBuilderIsLessThanOrEqualToOperator}', '{!$Label.FilterBuilderIsGreaterThanOrEqualToOperator}'];
+		fbObj.operators.textarea = ['{!$Label.FilterBuilderIsOperator}', '{!$Label.FilterBuilderIsNotOperator}', '{!$Label.FilterBuilderStartsWithOperator}', '{!$Label.FilterBuilderEndsWithOperator}', '{!$Label.FilterBuilderContainsOperator}', '{!$Label.FilterBuilderDoesNotContainsOperator}', '{!$Label.FilterBuilderIsLessThanOperator}', '{!$Label.FilterBuilderIsGreaterThanOperator}', '{!$Label.FilterBuilderIsLessThanOrEqualToOperator}', '{!$Label.FilterBuilderIsGreaterThanOrEqualToOperator}'];
+		fbObj.operators.url = ['{!$Label.FilterBuilderIsOperator}', '{!$Label.FilterBuilderIsNotOperator}', '{!$Label.FilterBuilderStartsWithOperator}', '{!$Label.FilterBuilderEndsWithOperator}', '{!$Label.FilterBuilderContainsOperator}', '{!$Label.FilterBuilderDoesNotContainsOperator}'];
+		fbObj.operators.phone = ['{!$Label.FilterBuilderIsOperator}', '{!$Label.FilterBuilderIsNotOperator}', '{!$Label.FilterBuilderStartsWithOperator}', '{!$Label.FilterBuilderEndsWithOperator}', '{!$Label.FilterBuilderContainsOperator}', '{!$Label.FilterBuilderDoesNotContainsOperator}'];
+		fbObj.operators.email = ['{!$Label.FilterBuilderIsOperator}', '{!$Label.FilterBuilderIsNotOperator}', '{!$Label.FilterBuilderStartsWithOperator}', '{!$Label.FilterBuilderEndsWithOperator}', '{!$Label.FilterBuilderContainsOperator}', '{!$Label.FilterBuilderDoesNotContainsOperator}'];
+
+		
+		//OPERATOR HASHMAPS: NUMERICS
+		fbObj.operators.double = ['{!$Label.FilterBuilderIsEqualToOperator}', '{!$Label.FilterBuilderIsNotEqualToOperator}', '{!$Label.FilterBuilderIsLessThanOperator}', '{!$Label.FilterBuilderIsGreaterThanOperator}', '{!$Label.FilterBuilderIsLessThanOrEqualToOperator}', '{!$Label.FilterBuilderIsGreaterThanOrEqualToOperator}'];
+		fbObj.operators.percent = ['{!$Label.FilterBuilderIsEqualToOperator}', '{!$Label.FilterBuilderIsNotEqualToOperator}', '{!$Label.FilterBuilderIsLessThanOperator}', '{!$Label.FilterBuilderIsGreaterThanOperator}', '{!$Label.FilterBuilderIsLessThanOrEqualToOperator}', '{!$Label.FilterBuilderIsGreaterThanOrEqualToOperator}'];
+		fbObj.operators.currency = ['{!$Label.FilterBuilderIsEqualToOperator}', '{!$Label.FilterBuilderIsNotEqualToOperator}', '{!$Label.FilterBuilderIsLessThanOperator}', '{!$Label.FilterBuilderIsGreaterThanOperator}', '{!$Label.FilterBuilderIsLessThanOrEqualToOperator}', '{!$Label.FilterBuilderIsGreaterThanOrEqualToOperator}'];
+		fbObj.operators.integer = ['{!$Label.FilterBuilderIsEqualToOperator}', '{!$Label.FilterBuilderIsNotEqualToOperator}', '{!$Label.FilterBuilderIsLessThanOperator}', '{!$Label.FilterBuilderIsGreaterThanOperator}', '{!$Label.FilterBuilderIsLessThanOrEqualToOperator}', '{!$Label.FilterBuilderIsGreaterThanOrEqualToOperator}'];
+
+		//OPERATOR HASHMAPS: SELECTORS
+		fbObj.operators.picklist = ['{!$Label.FilterBuilderIsOperator}', '{!$Label.FilterBuilderIsNotOperator}'];
+		fbObj.operators.combobox = ['{!$Label.FilterBuilderIsOperator}', '{!$Label.FilterBuilderIsNotOperator}'];
+		fbObj.operators.boolean = ['{!$Label.FilterBuilderIsOperator}', '{!$Label.FilterBuilderIsNotOperator}'];
+
+		/*Need to alter screen for this one, dual entry*/
+		fbObj.operators.multipicklist = ['{!$Label.FilterBuilderIncludesOperator}', '{!$Label.FilterBuilderExcludesOperator}'];
+
+		//OPERATOR HASHMAPS:DATES
+		fbObj.operators.date = ['{!$Label.FilterBuilderIsOperator}', '{!$Label.FilterBuilderIsNotOperator}', '{!$Label.FilterBuilderIsBeforeOperator}', '{!$Label.FilterBuilderIsAfterOperator}', '{!$Label.FilterBuilderIsBeforeOrEqualToOperator}', '{!$Label.FilterBuilderIsAfterOrEqualToOperator}'];
+		fbObj.operators.datetime = ['{!$Label.FilterBuilderIsOperator}', '{!$Label.FilterBuilderIsNotOperator}', '{!$Label.FilterBuilderIsBeforeOperator}', '{!$Label.FilterBuilderIsAfterOperator}', '{!$Label.FilterBuilderIsBeforeOrEqualToOperator}', '{!$Label.FilterBuilderIsAfterOrEqualToOperator}'];
+		fbObj.operators.time = ['{!$Label.FilterBuilderIsOperator}', '{!$Label.FilterBuilderIsNotOperator}', '{!$Label.FilterBuilderIsBeforeOperator}', '{!$Label.FilterBuilderIsAfterOperator}', '{!$Label.FilterBuilderIsBeforeOrEqualToOperator}', '{!$Label.FilterBuilderIsAfterOrEqualToOperator}'];
+
+		/********************************************/
+		/*	ELEMENTS								*/
+		/********************************************/
+
+		FormulaBuilderWrapper = $FUI('#' + formulaBuilderId);
+		FormulaBuilderConditions = FormulaBuilderWrapper.find('.conditions');
+		FormulaBuilderJSONWrapper = $FUI(fbObj.esc(formulaBuilderJSONField) + 'Wrapper');
+		FormulaBuilderJSONField = $FUI(fbObj.esc(formulaBuilderJSONField));
+		FormulaBuilderLogicField = $FUI('.FilterLogic');
+
+		/********************************************/
+		/*	BINDINGS								*/
+		/********************************************/
+		
+		var addLink = $FUI('.AddFilterLogicLink');
+		var clearLink = $FUI('.ClearFilterLogicLink');
+		var logicRegion = $FUI('.FilterLogicRegion');
+		fbObj.parseRule();
+		
+		//Display filter logic section if it is filled
+		if (FormulaBuilderLogicField.val() !== '') {
+			logicRegion.attr('style', 'display:block');
+			addLink.attr('style', 'display:none;');
+		}
+		
+		addLink.bind('click', function() {
+			addLink.attr('style', 'display:none;');
+			if (FormulaBuilderLogicField.val() === '')
+			{
+				FormulaBuilderConditions.find(".condition .item .lineNumber").each(function () {
+					FormulaBuilderLogicField.val(FormulaBuilderLogicField.val() + $FUI(this).text().substring(0, $FUI(this).text().length - 2) + ' AND ');
+				});
+				FormulaBuilderLogicField.val(FormulaBuilderLogicField.val().substring(0,FormulaBuilderLogicField.val().length - 5));
+			}
+			fbObj.generateJSON();
+			logicRegion.attr('style', 'display:block');
+		});
+		clearLink.bind('click', function() {
+			addLink.attr('style', 'display:block;width:95px');
+			logicRegion.attr('style', 'display:none;');
+			FormulaBuilderLogicField.val('');
+			fbObj.generateJSON();
+		});
+		
+		FormulaBuilderWrapper.find('.buttonAdd').bind('click', fbObj.conditionAdd);
+
+		FormulaBuilderJSONField.bind('blur', fbObj.parseRule);
+		
+		FormulaBuilderLogicField.bind('change', fbObj.generateJSON);
+		
+		$FUI(window).bind('keyup', function (e) {
+			if (e.keyCode == 27) {
+				fbObj.hideOverlay();
+			}
+		});
+	},
+	parseRule: function () {
+	
+		FormulaBuilderConditions.find(".condition").each(function () {
+			$FUI(this).remove();
+		});
+		
+		//Reset line number counter
+		fbObj.lineNumber = 0;
+		
+		var formula;
+		if (FormulaBuilderJSONField.val() === "") {
+			jsonText = JSON.stringify(new Object());
+			formula = JSON.parse(jsonText);
+		}
+		else 
+			formula = JSON.parse(FormulaBuilderJSONField.val());
+		
+		FormulaBuilderLogicField.val(formula.logic);
+		
+		if (formula.conditions !== undefined && formula.conditions.length > 0)
+		{
+			if (formula.conditions[0].condition !== undefined) {
+			
+				fbObj.conditionObjectName = formula.conditions[0].condition.obj.name; 
+				fbObj.conditionObjectLabel = formula.conditions[0].condition.obj.label; 
+
+				//Process separatedly each condition line
+				for (i = 0; i < formula.conditions.length; i++) {
+				
+					var fieldName = formula.conditions[i].condition.field.name;
+					var fieldLabel = formula.conditions[i].condition.field.label;
+					var fieldType = formula.conditions[i].condition.field.type;
+					var fieldRelationshipName = formula.conditions[i].condition.field.relationshipName;
+					var nestedConditions = new Array();
+					var referencing = formula.conditions[i].condition.field.referencing;
+					while (referencing !== undefined) {
+						nestedConditions.push(referencing.obj.name);
+						nestedConditions.push(referencing.obj.label);
+						nestedConditions.push(referencing.field.name);
+						nestedConditions.push(referencing.field.label);
+						nestedConditions.push(referencing.field.type);
+						nestedConditions.push(referencing.field.relationshipName);
+						referencing = referencing.field.referencing;
+					}
+					
+					var operator = formula.conditions[i].operator; 
+					var value = formula.conditions[i].value; 
+
+					fbObj.conditionAdd('true');
+					
+					condition = FormulaBuilderConditions.find('.condition:eq(' + i + ')');
+					var conditionObject = condition.find('.object');
+					conditionObject.data('name', fbObj.conditionObjectName);
+					conditionObject.data('label', fbObj.conditionObjectLabel);
+
+					var conditionField = condition.find('.field');
+					conditionField.text(fieldLabel);
+					
+					conditionField.data('parent', fbObj.conditionObjectName);
+					conditionField.data('parentlabel', fbObj.conditionObjectLabel);
+					conditionField.data('name', fieldName);
+					conditionField.data('label', fieldLabel);
+					conditionField.data('type', fieldType);
+					conditionField.data('relationshipName', fieldRelationshipName);
+					
+					var conditionOperator = conditionField.next();
+					var conditionValue = conditionOperator.next();
+					var operatorAndValueRemoved = false;
+					
+					//1. If there are references, temporarily remove operator and value buttons
+					if (nestedConditions.length > 0) {
+						conditionOperator.remove();
+						conditionValue.remove();
+						operatorAndValueRemoved = true;
+					}
+					
+					var lastItem;
+					var lastField;
+					var prevItem = conditionField;
+					while (nestedConditions.length > 0) {
+						
+						//2. Add as many rows as needed, with couples Object-Field
+						var objName = nestedConditions.shift();
+						var objLabel = nestedConditions.shift();
+						var fieldName = nestedConditions.shift();
+						var fieldLabel = nestedConditions.shift();
+						var fieldType = nestedConditions.shift();
+						var fieldRelationshipName = nestedConditions.shift();
+						
+						var item = $FUI(document.createElement("div"));
+						item.attr("class", "item");
+						prevItem.after(item);
+						item.attr("style", "margin-left:30px");
+						
+						var itemObject = $FUI(document.createElement("span"));
+						itemObject.attr("class", "object locked");
+						if (objLabel === undefined) {
+							itemObject.text(fbObj.labelObject);
+						}
+						else {
+							itemObject.text(objLabel);
+						}
+						itemObject.data("referencesToName", objName);
+						itemObject.data("name", objName);
+						itemObject.data("label", objLabel);
+						
+						var itemField = $FUI(document.createElement("span"));
+						itemField.attr("class", "field");
+						if (fieldLabel === undefined) {
+							itemField.text(fbObj.labelField);
+						}
+						else {
+							itemField.text(fieldLabel);
+						}
+						itemField.bind("click", fbObj.showFields);
+						itemField.data('name', fieldName);
+						itemField.data("label", fieldLabel);
+						itemField.data('type', fieldType);
+						itemField.data('relationshipName', fieldRelationshipName);
+						
+						itemObject.appendTo(item);
+						itemField.appendTo(item);
+						if (itemObject.text() === fbObj.objectLabel) {
+							itemField.attr('class','disabled');
+						}
+						prevItem = itemField;
+						lastItem = item;
+						lastField = itemField;
+					}
+					
+					if (operatorAndValueRemoved) {
+						//3. Finally, append at the end operator and value buttons
+						conditionOperator = $FUI(document.createElement("span"));
+						conditionOperator.attr("class", "operator");
+						if (operator === undefined)
+							conditionOperator.text(fbObj.labelOperator);
+						else
+							conditionOperator.text(operator);
+
+						conditionOperator.bind("click", fbObj.showOperators);
+						conditionOperator.appendTo(lastItem);
+						if (conditionField.text() === fbObj.labelField)
+							conditionOperator.attr('class', 'disabled');
+
+						conditionOperator.data('parent', fieldName);
+						conditionOperator.data('parentlabel', fieldLabel);
+						conditionOperator.data('parenttype', fieldType);
+						conditionOperator.data('name', fieldName);
+						conditionOperator.data('label', operator);
+						conditionOperator.data('type', fieldType);
+						
+						var promptedValue = new Array();
+						if (value !== undefined)
+							promptedValue = value.split('{!PromptIdentifier}');
+
+						var itemValue = $FUI(document.createElement("span"));
+						itemValue.attr("class", "value");
+
+						if (promptedValue.length === 3) {
+							if (promptedValue[1].length > 0) {
+								itemValue.text(promptedValue[1]);
+								itemValue.data('isPrompted', true);
+								itemValue.data('value', promptedValue[1]);
+							} else
+								itemValue.text(fbObj.labelValue);
+
+						} else {
+							if (value !== undefined && value !== '' && value !== null) {
+								itemValue.text(value);
+								itemValue.data('value', value);
+							}
+							else
+								itemValue.text(fbObj.labelValue);
+						}
+						itemValue.bind("click", fbObj.showValues);
+						
+						itemValue.data('parent', fieldType);
+						itemValue.data('parentlabel', operator);
+						itemValue.data('parenttype', fieldType);
+
+						itemValue.appendTo(lastItem);
+						
+						if (conditionOperator.text() === fbObj.labelOperator)
+							itemValue.attr('class', 'disabled');
+					} else {
+						
+						if (fieldLabel !== undefined) {
+							conditionOperator.removeClass("disabled");
+							conditionOperator.data('parent', fieldName);
+							conditionOperator.data('parentlabel', fieldLabel);
+							conditionOperator.data('parenttype', fieldType);
+
+							//Simple condition, with no references
+							if (operator !== undefined) {
+								conditionOperator.text(operator);
+								
+								conditionOperator.data('name', fieldName);
+								conditionOperator.data('label', operator);
+								conditionOperator.data('type', fieldType);
+								
+								//The moment exists operator, value will have some attributes
+								conditionValue.removeClass("disabled");
+								conditionValue.data('parent', fieldType);
+								conditionValue.data('parentlabel', operator);
+								conditionValue.data('parenttype', fieldType);
+								
+								if (value !== undefined) {
+									var promptedValue = new Array();
+									promptedValue = value.split('{!PromptIdentifier}');
+									if (promptedValue.length === 3) {
+										if (promptedValue[1].length > 0) {
+											conditionValue.text(promptedValue[1]);
+											conditionValue.data('isPrompted', true);
+											conditionValue.data('value', promptedValue[1]);
+										} else
+											conditionValue.text(fbObj.labelValue);
+
+									} else {
+										if (value !== undefined && value !== '' && value !== null) {
+											conditionValue.text(value);
+											conditionValue.data('value', value);
+										}
+										else
+											conditionValue.text(fbObj.labelValue);
+									}
+								}
+							}
+						}
+					} 
+				}
+			}
+		}
+	},
+	conditionAdd: function (instant) {
+
+		var canAdd = true;
+		FormulaBuilderConditions.find(".condition .value").each(function () {
+			if ($FUI(this).data('value') === undefined && instant != 'true') {
+				canAdd = false;
+			}
+		});
+
+		if (canAdd) {
+			var condition = $FUI(document.createElement("div"));
+			condition.attr("class", "condition");
+			condition.css('opacity', 0);
+			condition.appendTo(FormulaBuilderConditions);
+
+			var item = $FUI(document.createElement("div"));
+			item.attr("class", "item");
+			item.appendTo(condition);
+
+			var lineNumber = $FUI(document.createElement("span"));
+			lineNumber.attr("class", "lineNumber");
+			lineNumber.text(++fbObj.lineNumber + '. ');
+			lineNumber.appendTo(item);
+			
+			if (fbObj.conditionObjectName == "") {
+				var itemObject = $FUI(document.createElement("span"));
+				itemObject.attr("class", "object");
+				itemObject.text(fbObj.labelObject);
+				itemObject.bind("click", fbObj.showObjects);
+				itemObject.appendTo(item);
+			} else {
+				var itemObject2 = $FUI(document.createElement("span"));
+				itemObject2.attr("class", "object locked");
+				itemObject2.text(fbObj.conditionObjectLabel);
+				itemObject2.data("referencesToName", fbObj.conditionObjectName);
+				itemObject2.bind("click", fbObj.showObjects);
+				itemObject2.appendTo(item);
+
+				//SET DATA
+				itemObject2.data('name', FormulaBuilderConditions.find(".condition:first-child .object").data('name'));
+				itemObject2.data('label', FormulaBuilderConditions.find(".condition:first-child .object").data('label'));
+			}
+
+			var itemField = $FUI(document.createElement("span"));
+			itemField.attr("class", "field disabled");
+			itemField.text(fbObj.labelField);
+			itemField.bind("click", fbObj.showFields);
+			itemField.appendTo(item);
+
+			if (fbObj.conditionObjectName != "") {
+				itemField.data('parent', fbObj.conditionObjectName);
+				itemField.data('parentLabel', fbObj.conditionObjectLabel);
+				itemField.removeClass("disabled");
+			}
+
+			var itemOperator = $FUI(document.createElement("span"));
+			itemOperator.attr("class", "operator disabled");
+			itemOperator.text(fbObj.labelOperator);
+			itemOperator.bind("click", fbObj.showOperators);
+			itemOperator.appendTo(item);
+
+			var itemValue = $FUI(document.createElement("span"));
+			itemValue.attr("class", "value disabled");
+			itemValue.text(fbObj.labelValue);
+			itemValue.bind("click", fbObj.showValues);
+			itemValue.appendTo(item);
+
+			var action = $FUI(document.createElement("div"));
+			action.attr("class", "action");
+			action.appendTo(condition);
+
+			var actionButton = $FUI(document.createElement("span"));
+			actionButton.attr("class", "button buttonRemove");
+			actionButton.attr("title", '{!$Label.FilterBuilderRemoveCondition}');
+			actionButton.bind("click", fbObj.conditionRemove);
+			actionButton.appendTo(action);
+
+			if (instant == 'true') {
+				condition.css('opacity', 1);
+			} else {
+				condition.data("originalHeight", condition.height());
+				condition.css('height', 0);
+
+				var animationHeight = condition.data("originalHeight");
+
+				condition.animate({
+					height: animationHeight
+				}, fbObj.animateSpeed, function () {
+					$FUI(this).animate({
+						opacity: 1
+					}, fbObj.animateSpeed, function () {
+						$FUI(this).css('height', 'auto');
+					});
+				});
+			}
+			FormulaBuilderConditions.find(".condition:first-child").addClass("first");
+			fbObj.setObjectLock();
+		}
+	},
+	renumberConditions: function () {
+		counter = 0;
+		$FUI(".lineNumber").each(function (){
+			$FUI(this).text(++counter + $FUI(this).text().substring(1));
+		});
+	},
+	conditionRemove: function () {
+		$FUI(this).parents('.condition').animate({
+			opacity: 0
+		}, fbObj.animateSpeed, function () {
+
+			$FUI(this).animate({
+				height: 0
+			}, fbObj.animateSpeed, function () {
+				$FUI(this).remove();
+				FormulaBuilderConditions.find(".condition:first-child").addClass("first");
+
+				if (FormulaBuilderConditions.find(".condition").length === 0) {
+					fbObj.conditionObjectName = "";
+				}
+				fbObj.lineNumber--;
+				fbObj.renumberConditions();
+				fbObj.setObjectLock();
+				fbObj.generateJSON();
+			});
+		});
+	},
+	setObjectLock: function () {
+
+		if (FormulaBuilderConditions.find(".condition .value").length <= 1) {
+			$FUI(".lineNumber").next().removeClass('locked');
+		} else {
+			FormulaBuilderConditions.find(".object").each(function () {
+				$FUI(this).addClass('locked');
+			});
+		}
+	},
+	
+	sortRecords: function (records) {
+		var swapper;
+		for (i = 0; i < records.length; i++) {
+			for (j = i; j < records.length; j++) {
+				if (records[i].label > records[j].label) {
+					swapper = records[i];
+					records[i] = records[j];
+					records[j] = swapper;
+				}
+			}
+		}
+		return records;
+	},		
+	showObjects: function () {
+
+		var objectsSpan = $FUI(this);
+
+		if (!objectsSpan.hasClass('locked')) {
+
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Objects");
+
+			fbObj.createListWrapper(true);
+			var listWrapperScroll = $FUI("#dialogWrapper #dialogBoxMiddle .listWrapper .listWrapperScroll");
+
+			var listItems = $FUI(document.createElement("ul"));
+			var records = new Array();
+			var result = $FUI.ajax({
+				url: '{!ajaxProxyURL}',
+				data: {action: 'FilterUI.getObjects'},
+				dataType: "html",
+				success: function (data, status, request) {
+					
+					data = $FUI(data);
+					data.find('div').each(function () {
+						values = (this.firstChild.data).split('{!Separator}');
+						records.push({
+							name: this.className,
+							label: values[0],
+							custom: values[1]
+						});
+					});
+					
+					records = fbObj.sortRecords(records);
+					
+					for (var i = 0; i < records.length; i++) {
+						var record = records[i];
+						var listItem = $FUI(document.createElement("li"));
+						listItem.attr("class", "listItem");
+						listItem.appendTo(listItems);
+
+						var listItemLabel = $FUI(document.createElement("div"));
+						listItemLabel.data('name', record.name);
+						listItemLabel.data('label', record.label);
+						listItemLabel.data('elementToUpdate', objectsSpan);
+						listItemLabel.bind("click", fbObj.setObject);
+						listItemLabel.append(record.label);
+						listItemLabel.appendTo(listItem);
+
+						var listItemCustom = $FUI(document.createElement("span"));
+						if (record.custom === '{!CustomValue}') {
+							listItemCustom.attr("class", "objType objCustom");
+							listItemCustom.append("{!CustomValue}");
+						} else {
+							listItemCustom.attr("class", "objType objNative");
+							listItemCustom.append("{!StandardValue}");
+						}
+						listItemCustom.appendTo(listItemLabel);
+
+						if (record.name.substring(0, 5) == "{!FFANamespace}") {
+							var fflogo = $FUI(document.createElement("span"));
+							fflogo.attr("class", "objFF");
+							fflogo.append('FinancialForce');
+							fflogo.appendTo(listItemLabel);
+						}
+					}
+					listWrapperScroll.html(listItems);
+
+					if ($FUI("#dialogWrapper .listFilter").length > 0) {
+						$FUI("#dialogWrapper .listFilter").css('display', 'inline');
+						$FUI("#dialogWrapper .listFilter").focus().select();
+					}
+					request = null;
+				},
+				error: function (request, status, error) {
+					listWrapperScroll.append("{!$Label.FilterBuilderErrorOccurred}" + error);
+				}
+			});
+		}
+	},
+	showFields: function () {
+	
+		var fieldSpan = $FUI(this);
+		if (fieldSpan.attr("class") === "field disabled")
+			return;
+		var objSpan = fieldSpan.prev();
+
+		var name = $FUI(this).data('parent');
+		var label = $FUI(this).data('parentlabel');
+
+		fbObj.showOverlay(450);
+		$FUI("#dialogWrapper #dialogTitle").append("Fields");
+
+		fbObj.createListWrapper(true);
+		var listWrapperScroll = $FUI("#dialogWrapper #dialogBoxMiddle .listWrapper .listWrapperScroll");
+		
+		var listItems = $FUI(document.createElement("ul"));
+		var records = new Array();
+		var result = $FUI.ajax({
+			url: '{!ajaxProxyURL}',
+			data: {
+				action: 'FilterUI.getFields',
+				objName: objSpan.data("referencesToName")
+			},
+			dataType: 'html',
+			success: function (data, status, request) {
+				
+				data = $FUI(data);
+				data.find('div').each(function () {
+					values = (this.firstChild.data).split('{!Separator}');
+					if (values.length === 3) {
+					
+						records.push({
+							name: this.className,
+							label: values[0],
+							type: values[1].toLowerCase(),
+							custom: values[2]
+						})
+					}
+					else
+						records.push({
+							name: this.className,
+							label: values[0],
+							type: values[1].toLowerCase(),
+							custom: values[2],
+							referencesToName: values[3],
+							referencesToLabel: values[4],
+							relationshipName: values[5]
+						});
+				});
+				
+				records = fbObj.sortRecords(records);
+				
+				for (var i = 0; i < records.length; i++) {
+					var record = records[i];
+					if (record.type != 'base64' && record.type != 'anyType' && record.type != 'time') {
+						var listItem = $FUI(document.createElement("li"));
+						listItem.attr("class", "listItem");
+						listItem.appendTo(listItems);
+
+						var listItemLabel = $FUI(document.createElement("div"));
+						listItemLabel.data('name', record.name);
+						listItemLabel.data('label', record.label);
+						listItemLabel.data('type', record.type);
+						listItemLabel.data('elementToUpdate', fieldSpan);
+						if (record.type === 'reference') {
+							listItemLabel.data('referencesToLabel', record.referencesToLabel);
+							listItemLabel.data('referencesToName', record.referencesToName);
+							listItemLabel.data('relationshipName', record.relationshipName);
+						}
+						
+						listItemLabel.bind("click", fbObj.setField);
+						listItemLabel.append(record.label);
+						listItemLabel.appendTo(listItem);
+
+						var listItemType = $FUI(document.createElement("span"));
+						listItemType.attr("class", "fieldType field_" + record.type);
+						listItemType.append(record.type);
+						listItemType.appendTo(listItemLabel);
+
+						var listItemCustom = $FUI(document.createElement("span"));
+						if (record.custom == '{!CustomValue}') {
+							listItemCustom.attr("class", "objType objCustom");
+							listItemCustom.append("{!CustomValue}");
+						} else {
+							listItemCustom.attr("class", "objType objNative");
+							listItemCustom.append("{!StandardValue}");
+						}
+						listItemCustom.appendTo(listItemLabel);
+					}
+				}
+				listWrapperScroll.html(listItems);
+
+				if ($FUI("#dialogWrapper .listFilter").length > 0) {
+					$FUI("#dialogWrapper .listFilter").css('display', 'inline');
+					$FUI("#dialogWrapper .listFilter").focus().select();
+				}
+			},
+			error: function (request, status, error) {
+				listWrapperScroll.append("{!$Label.FilterBuilderErrorOccurred}" + error);
+			}
+		});
+	},
+	showOperators: function () {
+
+		var operatorSpan = $FUI(this);
+		if (operatorSpan.attr("class") === "operator disabled")
+			return;
+		var name = operatorSpan.data('parent');
+		var label = operatorSpan.data('parentlabel');
+		var type = operatorSpan.data('parenttype');
+
+		fbObj.showOverlay(300);
+		$FUI("#dialogWrapper #dialogTitle").append("Operators");
+
+		fbObj.createListWrapper(false, "Options");
+
+		var dialogBox = $FUI("#dialogWrapper .dialogBox");
+		var dialogBoxMiddle = $FUI("#dialogWrapper #dialogBoxMiddle");
+		var listWrapperScroll = $FUI("#dialogWrapper #dialogBoxMiddle .listWrapper .listWrapperScroll");
+
+		listWrapperScroll.css('height', 'auto');
+		dialogBoxMiddle.css('min-height', 0);
+
+		var listItems = $FUI(document.createElement("ul"));
+
+		try {
+			var testOperator = fbObj.operators[type].length;
+		} catch (e) {
+			alert("{!$Label.FilterBuilderOpNotSupported}" + type);
+		}
+
+		for (var i = 0; i < fbObj.operators[type].length; i++) {
+			var listItem = $FUI(document.createElement("li"));
+			listItem.attr("class", "listItem");
+			listItem.appendTo(listItems);
+
+			var listItemLabel = $FUI(document.createElement("div"));
+			listItemLabel.data('name', name);
+			listItemLabel.data('label', fbObj.operators[type][i]);
+			listItemLabel.data('type', type);
+			listItemLabel.data('elementToUpdate', operatorSpan);
+			listItemLabel.bind("click", fbObj.setOperator);
+			listItemLabel.append(fbObj.operators[type][i]);
+			listItemLabel.appendTo(listItem);
+		}
+
+		listWrapperScroll.html(listItems);
+		dialogBox.css("margin-top", -(dialogBox.height() / 2));
+	},
+	showValues: function () {
+
+		var valueSpan = $FUI(this);
+		if (valueSpan.attr("class") === "value disabled")
+			return;
+		var name = $FUI(this).data('parent');
+		var label = $FUI(this).data('parentlabel');
+		var type = $FUI(this).data('parenttype');
+
+		switch (type) {
+		case 'id':
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+			fbObj.showValueString(valueSpan);
+
+			break;
+		case 'string':
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+			fbObj.showValueString(valueSpan);
+
+			break;
+		case 'textarea':
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+			fbObj.showValueString(valueSpan);
+
+			break;
+		case 'url':
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+			fbObj.showValueString(valueSpan);
+			break;
+		case 'phone':
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+			fbObj.showValueString(valueSpan);
+			break;
+		case 'email':
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+			fbObj.showValueString(valueSpan);
+			break;
+		case 'double':
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+			fbObj.showValueNumber(valueSpan);
+			break;
+		case 'percent':
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+			fbObj.showValueNumber(valueSpan);
+			break;
+		case 'currency':
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+			fbObj.showValueNumber(valueSpan);
+			break;
+		case 'integer':
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+			fbObj.showValueNumber(valueSpan);
+			break;
+		case 'picklist':
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+			fbObj.showValuePickList(valueSpan);
+			break;
+		case 'combobox':
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+			fbObj.showValuePickList(valueSpan);
+			break;
+		case 'multipicklist':
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+			fbObj.showValueMultiPickList(valueSpan);
+			break;
+		case 'boolean':
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+			fbObj.showValueBoolean(valueSpan);
+			break;
+		case 'date':
+			fbObj.showOverlay(220);
+			$FUI("#dialogWrapper #dialogTitle").append("Date");
+			fbObj.showValueDate(valueSpan);
+			break;
+		case 'datetime':
+			fbObj.showOverlay(220);
+			$FUI("#dialogWrapper #dialogTitle").append("Date");
+			fbObj.showValueDate(valueSpan);
+			break;
+		case 'time':
+			fbObj.showOverlay(220);
+			$FUI("#dialogWrapper #dialogTitle").append("Date");
+			fbObj.showValueDate(valueSpan);
+			break;
+		default:
+			fbObj.showOverlay(450);
+			$FUI("#dialogWrapper #dialogTitle").append("Value");
+		}
+	},
+	switchDate: function() {
+		if ($FUI(this).attr('checked') === true) {
+			$FUI('.textWrapper').attr("style", "display:block");
+			$FUI('.valueWrapper').attr("style", "display:none");
+			$FUI("#dialogWrapper #dialogBoxMiddle").css('min-height', '0px');
+			var dialogBox = $FUI('.dialogBox');
+			dialogBox.css('width', 450);
+			dialogBox.css("margin-left", -(dialogBox.width() / 2));
+			dialogBox.css("margin-top", -(dialogBox.height() / 2));
+			$FUI('#valueInput').val('');
+		} else {
+			$FUI('.textWrapper').attr("style", "display:none");
+			$FUI('.valueWrapper').attr("style", "display:block");
+			$FUI("#dialogWrapper #dialogBoxMiddle").css('min-height', '226px');
+			var dialogBox = $FUI('.dialogBox');
+			dialogBox.css('width', 220);
+			dialogBox.css("margin-left", -(dialogBox.width() / 2));
+			dialogBox.css("margin-top", -(dialogBox.height() / 2));
+			$FUI('#valueInput').val('');
+		}
+	},
+	switchList: function() {
+		if ($FUI(this).attr('checked') === true) {
+			$FUI('.listWrapper').attr("style", "display:none");
+			$FUI('.textWrapper').attr("style", "height:30;text-align:center;display:block");
+			var dialogBox = $FUI('.dialogBox');
+			dialogBox.css('width', 450);
+			dialogBox.css("margin-left", -(dialogBox.width() / 2));
+			dialogBox.css("margin-top", -(dialogBox.height() / 2));
+			$FUI("#dialogWrapper #dialogBoxMiddle").css('min-height', '0px');
+			$FUI('#valueInput').val('');
+		} else {
+			$FUI('.listWrapper').attr("style", "display:block");
+			$FUI('.textWrapper').attr("style", "height:30;text-align:center;display:none");
+			var dialogBox = $FUI('.dialogBox');
+			dialogBox.css('width', 450);
+			dialogBox.css("margin-left", -(dialogBox.width() / 2));
+			dialogBox.css("margin-top", -(dialogBox.height() / 2));
+			$FUI("#dialogWrapper #dialogBoxMiddle").css('min-height', '226px');
+			$FUI('#valueInput').val('');
+		}
+	},
+	showValueString: function (valueSpan, appendToObj) {
+		
+		var dialogBox = $FUI("#dialogWrapper .dialogBox");
+		var dialogBoxMiddle = $FUI("#dialogWrapper #dialogBoxMiddle");
+
+		//TEXT INPUT
+		var fieldWrapper = $FUI(document.createElement("div")).addClass('fieldWrapper').appendTo(dialogBoxMiddle);
+		var input = $FUI(document.createElement("input")).attr('id', 'valueInput').attr('type', 'text').addClass('textinput').appendTo(fieldWrapper);
+		input.bind('keyup', function (event) {
+			if (event.keyCode == 13)
+				button.click();
+		});
+		
+		//NEW OR LOAD
+		if (valueSpan.data('value') != "") {
+			input.val(valueSpan.data('value'));
+		}
+		
+		//PROMPT CHECKBOX	
+		var promptWrapper = $FUI(document.createElement("div")).addClass('promptWrapper').attr("style", "height:30").appendTo(fieldWrapper);
+		var promptLabel = $FUI(document.createElement("span")).addClass('promptLabel').append('{!$Label.FilterBuilderPromptLabel}').appendTo(promptWrapper);
+		var prompted = $FUI(document.createElement("input")).attr({
+			 id: 'isPrompted'
+			,name: 'isPrompted'
+			,type: 'checkbox'
+			,checked: valueSpan.data('isPrompted')
+			,style: 'margin-top:20px;width:15px'
+		}).appendTo(promptWrapper);;
+		
+		//BUTTONS SECTION
+		var buttonWrapper = $FUI(document.createElement("div")).addClass('buttonWrapper').appendTo(fieldWrapper);
+		
+		var button = $FUI(document.createElement("span")).addClass('button').append('{!$Label.FilterBuilderSetValue}').appendTo(buttonWrapper);
+		button.data('elementToUpdate', valueSpan);
+		button.bind('click', fbObj.setValue);
+
+		var buttonCancel = $FUI(document.createElement("span")).addClass('button').append('{!$Label.FilterBuilderCancelValue}').appendTo(buttonWrapper);
+		buttonCancel.bind('click', fbObj.hideOverlay);
+		
+		dialogBoxMiddle.css('min-height', 0);
+		dialogBox.css("margin-top", -(dialogBox.height() / 2));
+		$FUI("#dialogWrapper input:first-child").focus().select();
+	},
+	showValueNumber: function (valueSpan) {
+		
+		var dialogBox = $FUI("#dialogWrapper .dialogBox");
+		var dialogBoxMiddle = $FUI("#dialogWrapper #dialogBoxMiddle");
+		
+		//TEXT INPUT
+		var fieldWrapper = $FUI(document.createElement("div")).addClass('fieldWrapper').appendTo(dialogBoxMiddle);
+		var input = $FUI(document.createElement("input")).attr('id', 'valueInput').attr('type', 'text').addClass('textinput').appendTo(fieldWrapper);
+		input.bind('keyup', function (event) {
+			if (event.keyCode == 13)
+				button.click();
+		});
+		
+		//NEW OR LOAD
+		if (valueSpan.data('value') != "") {
+			input.val(valueSpan.data('value'));
+		}
+
+		//PROMPT CHECKBOX
+		var promptWrapper = $FUI(document.createElement("div")).addClass('promptWrapper').attr("style", "height:30").appendTo(fieldWrapper);
+		var promptLabel = $FUI(document.createElement("span")).addClass('promptLabel').append('{!$Label.FilterBuilderPromptLabel}').appendTo(promptWrapper);
+		var prompted = $FUI(document.createElement("input")).attr({
+			 id: 'isPrompted'
+			,name: 'isPrompted'
+			,type: 'checkbox'
+			,checked: valueSpan.data('isPrompted')
+			,style: 'margin-top:20px;width:15px'
+		}).appendTo(promptWrapper);
+		
+		//BUTTONS SECTION
+		var buttonWrapper = $FUI(document.createElement("div")).addClass('buttonWrapper').appendTo(fieldWrapper);
+
+		var button = $FUI(document.createElement("span")).addClass('button').append('{!$Label.FilterBuilderSetValue}').appendTo(buttonWrapper);
+		button.data('elementToUpdate', valueSpan);
+		button.bind('click', fbObj.setValue);
+
+		var buttonCancel = $FUI(document.createElement("span")).addClass('button').append('{!$Label.FilterBuilderCancelValue}').appendTo(buttonWrapper);
+		buttonCancel.bind('click', fbObj.hideOverlay);
+
+		dialogBoxMiddle.css('min-height', 0);
+		dialogBox.css("margin-top", -(dialogBox.height() / 2));
+		$FUI("#dialogWrapper input:first-child").focus().select();
+	},
+	showValueDate: function (valueSpan) {
+		var dialogBox = $FUI("#dialogWrapper .dialogBox");
+		var dialogBoxMiddle = $FUI("#dialogWrapper #dialogBoxMiddle");
+
+		//TEXT INPUT
+		var fieldWrapper = $FUI(document.createElement("div")).addClass('fieldWrapper').appendTo(dialogBoxMiddle);
+		var textWrapper = $FUI(document.createElement("div")).addClass('textWrapper').attr("style", "height:30").appendTo(fieldWrapper);
+		var input = $FUI(document.createElement("input")).attr('id', 'valueInput').attr('type', 'text').addClass('textinput').appendTo(textWrapper);
+		input.bind('keyup', function (event) {
+			if (event.keyCode == 13) {
+				button.click();
+			} else {
+				return false;
+			}
+		});
+		
+		//DATE INPUT
+		var valueWrapper = $FUI(document.createElement("div")).addClass('valueWrapper').css('margin-top', '10px').appendTo(fieldWrapper);
+		valueWrapper.DatePicker({
+			flat: true,
+			format: 'Y-m-d',
+			eventName: 'focus',
+			date: input.val(),
+			current: input.val(),
+			starts: 1,
+			onBeforeShow: function () {
+				input.DatePickerSetDate(input.val(), true);
+			},
+			onChange: function (formated, dates) {
+				input.val(formated);
+			}
+		});
+
+		//NEW OR LOAD
+		if (valueSpan.data('isPrompted') === true) {
+			input.val(valueSpan.data('value'));
+			textWrapper.attr("style", "display:block");
+			valueWrapper.attr("style", "display:none");
+			dialogBox.css('width', 450);
+		} else {
+			textWrapper.attr("style", "display:none");
+			valueWrapper.attr("style", "display:block");
+			dialogBox.css('width', 220);
+		}
+		
+		//PROMPT CHECKBOX
+		var promptWrapper = $FUI(document.createElement("div")).addClass('promptWrapper').attr("style", "height:30").appendTo(fieldWrapper);
+		var promptLabel = $FUI(document.createElement("span")).addClass('promptLabel').append('{!$Label.FilterBuilderPromptLabel}').appendTo(promptWrapper);
+		var prompted = $FUI(document.createElement("input")).attr({
+			 id: 'isPrompted'
+			,name: 'isPrompted'
+			,type: 'checkbox'
+			,checked: valueSpan.data('isPrompted')
+			,style: 'margin-top:20px;width:15px'
+		}).appendTo(promptWrapper);
+		prompted.bind("click", fbObj.switchDate);
+		prompted.bind("click", function() {
+			if ($FUI(this).attr('checked') === true)
+				$FUI('.button.set').text('{!$Label.FilterBuilderSetValue}');
+			else
+				$FUI('.button.set').text('{!$Label.FilterBuilderSetDate}');
+		});
+		
+		//BUTTONS SECTION
+		var buttonWrapper = $FUI(document.createElement("div")).addClass('buttonWrapper').appendTo(fieldWrapper);
+		
+		var button = $FUI(document.createElement("span")).addClass('button set').append('{!$Label.FilterBuilderSetDate}').appendTo(buttonWrapper);
+		button.data('elementToUpdate', valueSpan);
+		button.bind('click', fbObj.setValue);
+
+		var buttonCancel = $FUI(document.createElement("span")).addClass('button cancel').append('{!$Label.FilterBuilderCancelValue}').appendTo(buttonWrapper);
+		buttonCancel.bind('click', fbObj.hideOverlay);
+		
+		dialogBoxMiddle.css('min-height', 0);
+		dialogBox.css("margin-top", -(dialogBox.height() / 2));
+		$FUI("#dialogWrapper input:first-child").focus().select();
+	},
+	showValueBoolean: function (valueSpan) {
+
+		fbObj.createListWrapper(false, "Options");
+		var dialogBox = $FUI("#dialogWrapper .dialogBox");
+		var dialogBoxMiddle = $FUI("#dialogWrapper #dialogBoxMiddle");
+		var listWrapperScroll = $FUI("#dialogWrapper #dialogBoxMiddle .listWrapper .listWrapperScroll");
+				
+		//TEXT INPUT
+		var textWrapper = $FUI(document.createElement("div")).addClass('textWrapper').appendTo(dialogBoxMiddle);
+		var input = $FUI(document.createElement("input")).attr('id', 'valueInput').attr('type', 'text').attr('style', 'width:75%').addClass('textinput').appendTo(textWrapper);
+		
+		//TRUE-FALSE LIST
+		var listItems = $FUI(document.createElement("ul"));
+		
+		var listItemTrue = $FUI(document.createElement("li")).addClass('listItem').appendTo(listItems);
+		var listItemLabel = $FUI(document.createElement("div")).append('True');
+		listItemLabel.data('value', 'True');
+		listItemLabel.data('elementToUpdate', valueSpan);
+		listItemLabel.bind("click", fbObj.setValueList);
+		listItemLabel.appendTo(listItemTrue);
+
+		var listItemFalse = $FUI(document.createElement("li")).addClass('listItem').appendTo(listItems);
+		var listItemLabelfalse = $FUI(document.createElement("div")).append('False');
+		listItemLabelfalse.data('value', 'False');
+		listItemLabelfalse.data('elementToUpdate', valueSpan);
+		listItemLabelfalse.bind("click", fbObj.setValueList);
+		listItemLabelfalse.appendTo(listItemFalse);
+
+		listWrapperScroll.html(listItems);
+		
+		//NEW OR LOAD
+		var buttonWrapper = $FUI(document.createElement("div")).addClass('buttonWrapper');
+		
+		if (valueSpan.data('isPrompted') === true) {
+			input.val(valueSpan.data('value'));
+			textWrapper.attr("style", "height:30;text-align:center;display:block;");
+			$FUI('.listWrapper').attr("style", "display:none");
+			buttonWrapper.attr("style", "display:block");
+		} else {
+			textWrapper.attr("style", "height:30;text-align:center;display:none");
+			$FUI('.listWrapper').attr("style", "display:block");
+			buttonWrapper.attr("style", "display:none");
+		}
+		
+		//PROMPT CHECKBOX
+		var promptWrapper = $FUI(document.createElement("div")).addClass('promptWrapper').attr("style", "height:30;text-align:center").appendTo(dialogBoxMiddle);
+		var promptLabel = $FUI(document.createElement("span")).addClass('promptLabel').append('{!$Label.FilterBuilderPromptLabel}').appendTo(promptWrapper);
+		var prompted = $FUI(document.createElement("input")).attr({
+			 id: 'isPrompted'
+			,name: 'isPrompted'
+			,type: 'checkbox'
+			,checked: valueSpan.data('isPrompted')
+			,style: 'margin-top:20px;width:15px'
+		}).appendTo(promptWrapper);
+		prompted.bind("click", fbObj.switchList);
+		prompted.bind("click", function() {
+			if ($FUI(this).attr('checked') === true)
+				$FUI('.buttonWrapper').attr("style", "display:block");
+			else
+				$FUI('.buttonWrapper').attr("style", "display:none");
+		});
+
+		//BUTTONS SECTION FOR PROMPTED VALUE
+		buttonWrapper.appendTo(dialogBoxMiddle);
+
+		var button = $FUI(document.createElement("span")).addClass('button set').append('{!$Label.FilterBuilderSetValue}').appendTo(buttonWrapper);
+		button.data('elementToUpdate', valueSpan);
+		button.bind('click', fbObj.setValue);
+		
+		var buttonCancel = $FUI(document.createElement("span")).addClass('button cancel').append('{!$Label.FilterBuilderCancelValue}').appendTo(buttonWrapper);
+		buttonCancel.bind('click', fbObj.hideOverlay);
+
+		dialogBox.css("margin-top", -(dialogBox.height() / 2));
+		listWrapperScroll.css('height', 'auto');
+		dialogBoxMiddle.css('min-height', 0);
+	},
+	showValuePickList: function (valueSpan) {
+
+		fbObj.createListWrapper(true);
+		var dialogBox = $FUI("#dialogWrapper .dialogBox");
+		var dialogBoxMiddle = $FUI("#dialogWrapper #dialogBoxMiddle");
+		var listWrapperScroll = $FUI("#dialogWrapper #dialogBoxMiddle .listWrapper .listWrapperScroll");
+		
+		var textWrapper = $FUI(document.createElement("div")).addClass('textWrapper').appendTo(dialogBoxMiddle);
+
+		//TEXT INPUT
+		var input = $FUI(document.createElement("input")).attr('id', 'valueInput').attr('type', 'text').attr('style', 'width:75%').addClass('textinput').appendTo(textWrapper);
+		
+		//PICKLIST VALUES
+		var objectName = $FUI(valueSpan).prev().prev().prev().data('name');
+		var fieldName = $FUI(valueSpan).prev().prev().data('name');
+		fbObj.getPickVals(objectName, fieldName, valueSpan);
+		
+		//NEW OR LOAD
+		var buttonWrapper = $FUI(document.createElement("div")).addClass('buttonWrapper');
+		
+		if (valueSpan.data('isPrompted') === true) {
+			input.val(valueSpan.data('value'));
+			textWrapper.attr("style", "height:30;text-align:center;display:block;");
+			$FUI('.listWrapper').attr("style", "display:none");
+			buttonWrapper.attr("style", "display:block");
+		} else {
+			textWrapper.attr("style", "height:30;text-align:center;display:none");
+			$FUI('.listWrapper').attr("style", "display:block");
+			buttonWrapper.attr("style", "display:none");
+		}
+		
+		//PROMPT CHECKBOX
+		var promptWrapper = $FUI(document.createElement("div")).addClass('promptWrapper').attr("style", "height:30;text-align:center").appendTo(dialogBoxMiddle);
+		var promptLabel = $FUI(document.createElement("span")).addClass('promptLabel').append('{!$Label.FilterBuilderPromptLabel}').appendTo(promptWrapper);
+		var prompted = $FUI(document.createElement("input")).attr({
+			 id: 'isPrompted'
+			,name: 'isPrompted'
+			,type: 'checkbox'
+			,checked: valueSpan.data('isPrompted')
+			,style: 'margin-top:20px;width:15px'
+		}).appendTo(promptWrapper);
+		prompted.bind("click", fbObj.switchList);
+		prompted.bind("click", function() {
+			if ($FUI(this).attr('checked') === true)
+				$FUI('.buttonWrapper').attr("style", "display:block");
+			else
+				$FUI('.buttonWrapper').attr("style", "display:none");
+		});
+		
+		//BUTTONS FOR PROMPTED VALUE
+		buttonWrapper.appendTo(dialogBoxMiddle);
+
+		var button = $FUI(document.createElement("span")).addClass('button set').append('{!$Label.FilterBuilderSetValue}').appendTo(buttonWrapper);
+		button.data('elementToUpdate', valueSpan);
+		button.bind('click', fbObj.setValue);
+		
+		var buttonCancel = $FUI(document.createElement("span")).addClass('button cancel').append('{!$Label.FilterBuilderCancelValue}').appendTo(buttonWrapper);
+		buttonCancel.bind('click', fbObj.hideOverlay);
+	},
+	showValueMultiPickList: function (valueSpan) {
+	
+		fbObj.createListWrapper(true);
+		var dialogBox = $FUI("#dialogWrapper .dialogBox");
+		var dialogBoxMiddle = $FUI("#dialogWrapper #dialogBoxMiddle");
+		var listWrapperScroll = $FUI("#dialogWrapper #dialogBoxMiddle .listWrapper .listWrapperScroll");
+		var textWrapper = $FUI(document.createElement("div")).addClass('textWrapper').appendTo(dialogBoxMiddle);
+		
+		//TEXT INPUT
+		var input = $FUI(document.createElement("input")).attr('id', 'valueInput').attr('type', 'text').addClass('textinput').attr('style', 'width:75%').appendTo(textWrapper);
+		
+		//MULTIPICK VALUES
+		var objectName = $FUI(valueSpan).prev().prev().prev().data('name');
+		var fieldName = $FUI(valueSpan).prev().prev().data('name');
+		fbObj.getMultiPickVals(objectName, fieldName, valueSpan);
+
+		//NEW OR LOAD
+		if (valueSpan.data('value') != "" && valueSpan.data('isPrompted') === true) {
+			input.val(valueSpan.data('value'));
+			textWrapper.attr("style", "height:30;text-align:center;display:block;");
+			$FUI('.listWrapper').attr("style", "display:none");
+			dialogBoxMiddle.css('min-height', '0px');
+		} else {
+			input.val(valueSpan.data('value'));
+			textWrapper.attr("style", "height:30;text-align:center;display:none");
+			$FUI('.listWrapper').attr("style", "display:block");
+			dialogBoxMiddle.css('min-height', '226px');
+		}
+		
+		//PROMPT CHECKBOX
+		var promptWrapper = $FUI(document.createElement("div")).addClass('promptWrapper').attr("style", "height:30;text-align:center").appendTo(dialogBoxMiddle);
+		var promptLabel = $FUI(document.createElement("span")).addClass('promptLabel').append('{!$Label.FilterBuilderPromptLabel}').appendTo(promptWrapper);
+		var prompted = $FUI(document.createElement("input")).attr({
+			 id: 'isPrompted'
+			,name: 'isPrompted'
+			,type: 'checkbox'
+			,checked: valueSpan.data('isPrompted')
+			,style: 'margin-top:20px;width:15px'
+		}).appendTo(promptWrapper);
+		prompted.bind("click", fbObj.switchList);
+		prompted.bind("click", function() {
+			if ($FUI(this).attr('checked') === true)
+				$FUI('.button.set').text('{!$Label.FilterBuilderSetValue}');
+			else
+				$FUI('.button.set').text('{!$Label.FilterBuilderSetValues}');
+		});
+		
+		//BUTTONS SECTION
+		var buttonWrapper = $FUI(document.createElement("div")).addClass('buttonWrapper').css('margin-top', '10px').appendTo(dialogBoxMiddle);
+		
+		var button = $FUI(document.createElement("span")).addClass('button set').append('{!$Label.FilterBuilderSetValues}').appendTo(buttonWrapper);
+		button.data('elementToUpdate', valueSpan);
+		button.bind('click', fbObj.setValue);
+		
+		var buttonCancel = $FUI(document.createElement("span")).addClass('button cancel').append('{!$Label.FilterBuilderCancelValue}').appendTo(buttonWrapper);
+		buttonCancel.bind('click', fbObj.hideOverlay);
+	},
+	getPickVals: function (object, field, valueSpan) {
+
+		var listItems = $FUI(document.createElement("ul"));
+		var records = new Array();
+		var result = $FUI.ajax({
+			url: '{!ajaxProxyURL}',
+			data: {
+				action: 'FilterUI.getPickListValues',
+				objName: object,
+				fieldName: field
+			},
+			dataType: 'html',
+			success: function (data, status, request) {
+				data = $FUI(data);
+				data.find('div').each(function () {
+					value = this.firstChild.data;
+					records.push({
+						name: this.className,
+						value: value
+					});
+				});
+		
+				for (var i = 0; i < records.length; i++) {
+					
+					var listItem = $FUI(document.createElement("li")).addClass('listItem').appendTo(listItems);
+					var listItemLabel = $FUI(document.createElement("div")).append(records[i].name);
+					listItemLabel.data('value', records[i].value);
+					listItemLabel.data('elementToUpdate', valueSpan);
+					listItemLabel.bind("click", fbObj.setValueList);
+					listItemLabel.appendTo(listItem);
+				}
+
+				$FUI("#dialogWrapper #dialogBoxMiddle .listWrapper .listWrapperScroll").html(listItems);
+
+				if ($FUI("#dialogWrapper .listFilter").length > 0) {
+					$FUI("#dialogWrapper .listFilter").css('display', 'inline');
+				}
+			},
+			error: function (request, status, error) {
+				listWrapperScroll.append("{!$Label.FilterBuilderErrorOccurred}" + error);
+			}
+		});
+	},
+	getMultiPickVals: function (object, field, valueSpan) {
+
+		var listItems = $FUI(document.createElement("ul"));
+		var records = new Array();
+		var result = $FUI.ajax({
+			url: '{!ajaxProxyURL}',
+			data: {
+				action: 'FilterUI.getPickListValues',
+				objName: object,
+				fieldName: field
+			},
+			dataType: 'html',
+			success: function (data, status, request) {
+				data = $FUI(data);
+				data.find('div').each(function () {
+					value = this.firstChild.data;
+					records.push({
+						name: this.className,
+						value: value
+					});
+				});
+	
+				var values = $FUI("#dialogWrapper #dialogBoxMiddle .textWrapper #valueInput").val();
+				var valuesArray = values.split(";");
+				
+				for (var i = 0; i < records.length; i++) {
+						
+					var listItem = $FUI(document.createElement("li")).addClass('listItem').appendTo(listItems);
+					var listItemDiv = $FUI(document.createElement("div"));
+					listItemDiv.appendTo(listItem);
+
+					var listItemLabel = $FUI(document.createElement("label")).append(records[i].value);
+					listItemLabel.attr('for', 'multicheckbox_' + i);
+					listItemLabel.addClass('multiLabel');
+					listItemLabel.appendTo(listItemDiv);
+
+					var listItemChkBox = $FUI(document.createElement("input")).attr('type', 'checkbox').attr('id', 'multicheckbox_' + i);
+					listItemChkBox.addClass('chkbox');
+					listItemChkBox.data('value', records[i].value);
+					listItemChkBox.addClass('multiLabelCB');
+
+					listItemChkBox.bind('click', function () {
+						var checkedValues = '';
+						$FUI("#dialogWrapper #dialogBoxMiddle .chkbox:checked").each(function () {
+							checkedValues = checkedValues + $FUI(this).data('value') + ";";
+						});
+
+						$FUI("#dialogWrapper #dialogBoxMiddle .textWrapper #valueInput").val(fbObj.labelValue);
+
+						if ($FUI("#dialogWrapper #dialogBoxMiddle .chkbox:checked").length > 0) {
+							checkedValues = checkedValues.substring(0, checkedValues.length - 1);
+							$FUI("#dialogWrapper #dialogBoxMiddle .textWrapper #valueInput").val(checkedValues);
+						} else {
+							$FUI("#dialogWrapper #dialogBoxMiddle .textWrapper #valueInput").val(fbObj.labelValue);
+						}
+					});
+
+					var checked = false;
+					for (var x = 0; x < valuesArray.length; x++) {
+						if (records[i].value == valuesArray[x]) {
+							listItemChkBox.attr('checked', 'true');
+						}
+					}
+					listItemChkBox.appendTo(listItemDiv);
+				}
+
+				$FUI("#dialogWrapper #dialogBoxMiddle .listWrapper .listWrapperScroll").html(listItems);
+
+				if ($FUI("#dialogWrapper .listFilter").length > 0) {
+					$FUI("#dialogWrapper .listFilter").css('display', 'inline');
+				}
+			},
+			error: function (request, status, error) {
+				$FUI("#dialogWrapper #dialogBoxMiddle .listWrapper .listWrapperScroll").append("{!$Label.FilterBuilderErrorOccurred}" + error);
+			}
+		});
+	},
+	setObject: function () {
+
+		var name = $FUI(this).data('name');
+		var label = $FUI(this).data('label');
+		var elementToUpdate = $FUI(this).data('elementToUpdate');
+
+		//RESET FIELD
+		fbObj.resetField(elementToUpdate);
+
+		//RESET OPERATOR
+		fbObj.resetOperator(elementToUpdate);
+
+		//RESET VALUE
+		fbObj.resetValue(elementToUpdate);
+		elementToUpdate.data("referencesToName", name);
+		fbObj.conditionObjectName = name;
+		fbObj.conditionObjectLabel = label;
+
+		//SET OBJECT
+		$FUI(elementToUpdate).data('name', name);
+		$FUI(elementToUpdate).data('label', label);
+
+		$FUI('input:text .ConditionObjectId').val(name).change();
+		
+		//SET FIELD
+		$FUI(elementToUpdate).parent().find(".field").data('parent', name);
+		$FUI(elementToUpdate).parent().find(".field").data('parentlabel', label);
+		$FUI(elementToUpdate).parent().find(".field").removeClass("disabled");
+		$FUI(elementToUpdate).parent().find(".field").text(fbObj.labelField);
+
+		$FUI(elementToUpdate).text(label);
+		fbObj.hideOverlay();
+		fbObj.generateJSON();
+	},
+	resetField: function (elementToUpdate) {
+		$FUI(elementToUpdate).parent().find(".field").addClass("disabled");
+		$FUI(elementToUpdate).parent().find(".field").text(fbObj.fieldOperator);
+		$FUI(elementToUpdate).parent().find(".field").removeData('name');
+		$FUI(elementToUpdate).parent().find(".field").removeData('label');
+		$FUI(elementToUpdate).parent().find(".field").removeData('type');
+		$FUI(elementToUpdate).parent().find(".field").removeData('parent');
+		$FUI(elementToUpdate).parent().find(".field").removeData('parentLabel');
+		$FUI(elementToUpdate).parent().find(".field").removeData('elementToUpdate');
+		$FUI(elementToUpdate).parent().find(".field").removeData('referencesToLabel');
+		$FUI(elementToUpdate).parent().find(".field").removeData('referencesToName');
+		$FUI(elementToUpdate).parent().find(".field").removeData('relationshipName');
+		
+		if (elementToUpdate.next().next().attr("class") === "item") {
+			elementToUpdate.next().next().remove();
+			var itemOperator = $FUI(document.createElement("span"));
+			itemOperator.attr("class", "operator disabled");
+			itemOperator.text(fbObj.labelOperator);
+			itemOperator.bind("click", fbObj.showOperators);
+			itemOperator.appendTo(elementToUpdate.parent());
+
+			var itemValue = $FUI(document.createElement("span"));
+			itemValue.attr("class", "value disabled");
+			itemValue.text(fbObj.labelValue);
+			itemValue.bind("click", fbObj.showValues); 
+			itemValue.appendTo(elementToUpdate.parent());
+		}
+	},
+	resetOperator: function (elementToUpdate) {
+		$FUI(elementToUpdate).parent().find(".operator").addClass("disabled");
+		$FUI(elementToUpdate).parent().find(".operator").text(fbObj.labelOperator);
+		$FUI(elementToUpdate).parent().find(".operator").removeData('name');
+		$FUI(elementToUpdate).parent().find(".operator").removeData('label');
+		$FUI(elementToUpdate).parent().find(".operator").removeData('type');
+		$FUI(elementToUpdate).parent().find(".operator").removeData('parent');
+		$FUI(elementToUpdate).parent().find(".operator").removeData('parentLabel');
+		$FUI(elementToUpdate).parent().find(".operator").removeData('parentType');
+	},
+	resetValue: function (elementToUpdate) {
+		$FUI(elementToUpdate).parent().find(".value").addClass("disabled");
+		$FUI(elementToUpdate).parent().find(".value").text(fbObj.labelValue);
+		$FUI(elementToUpdate).parent().find(".value").removeData('parent');
+		$FUI(elementToUpdate).parent().find(".value").removeData('parentLabel');
+		$FUI(elementToUpdate).parent().find(".value").removeData('parentType');
+		$FUI(elementToUpdate).parent().find(".value").removeData('value');
+		$FUI(elementToUpdate).parent().find(".value").removeData('isPrompted');
+	},
+	setField: function () {
+
+		var name = $FUI(this).data('name');
+		var label = $FUI(this).data('label');
+		var type = $FUI(this).data('type');
+
+		var elementToUpdate = $FUI(this).data('elementToUpdate');
+		var referencesTo = $FUI(this).data('referencesTo');
+		var relationshipName = $FUI(this).data('relationshipName');
+
+		//RESET OPERATOR
+		fbObj.resetOperator(elementToUpdate);
+
+		//RESET VALUE
+		fbObj.resetValue(elementToUpdate);
+		
+		var nextTag = elementToUpdate.next();
+		
+		if (nextTag.attr("class") === "item") {
+			nextTag.remove();
+			var itemOperator = $FUI(document.createElement("span"));
+			itemOperator.attr("class", "operator disabled");
+			itemOperator.text(fbObj.labelOperator);
+			itemOperator.bind("click", fbObj.showOperators);
+			itemOperator.appendTo(elementToUpdate.parent());
+
+			var itemValue = $FUI(document.createElement("span"));
+			itemValue.attr("class", "value disabled");
+			itemValue.text(fbObj.labelValue);
+			itemValue.bind("click", fbObj.showValues);
+			itemValue.appendTo(elementToUpdate.parent());
+		}
+
+		if (type === 'reference') {
+
+			// Create a new couple of buttons Object - Field in a new line	
+			var item = $FUI(document.createElement("div"));
+			item.attr("class", "item");
+			elementToUpdate.after(item);
+			item.attr("style", "margin-left:30px");
+						
+			var opObj = item.next();
+			var valueObj = opObj.next();
+			
+			var itemObject = $FUI(document.createElement("span"));
+			itemObject.attr("class", "object locked");
+			itemObject.text($FUI(this).data('referencesToLabel'));
+			itemObject.data("referencesToName", $FUI(this).data('referencesToName'));
+			itemObject.data("name", $FUI(this).data('referencesToName'));
+			itemObject.data("label", $FUI(this).data('referencesToLabel'));
+			
+			var itemField = $FUI(document.createElement("span"));
+			itemField.attr("class", "field");
+			itemField.text(fbObj.labelField);
+			
+			itemObject.appendTo(item);
+			itemField.appendTo(item);
+			opObj.appendTo(item);
+			valueObj.appendTo(item);
+			
+			itemField.bind("click", fbObj.showFields);
+		} else {
+			//Just enable operator button 
+			$FUI(elementToUpdate).parent().find(".operator").removeClass("disabled");
+		}
+			
+		//SET FIELD DATA
+		$FUI(elementToUpdate).data('name', name);
+		$FUI(elementToUpdate).data('label', label);
+		$FUI(elementToUpdate).data('type', type);
+		$FUI(elementToUpdate).data('relationshipName', relationshipName);
+		
+		//SET OPERATOR DATA
+		$FUI(elementToUpdate).parent().find(".operator").data('parent', name);
+		$FUI(elementToUpdate).parent().find(".operator").data('parentlabel', label);
+		$FUI(elementToUpdate).parent().find(".operator").data('parenttype', type);
+		$FUI(elementToUpdate).parent().find(".operator").text(fbObj.labelOperator);
+		$FUI(elementToUpdate).text(label);
+		fbObj.hideOverlay();
+		fbObj.generateJSON();
+	},
+	setOperator: function () {
+		var name = $FUI(this).data('name');
+		var label = $FUI(this).data('label');
+		var type = $FUI(this).data('type');
+
+		var elementToUpdate = $FUI(this).data('elementToUpdate');
+
+		//SET DATA
+		$FUI(elementToUpdate).data('name', name);
+		$FUI(elementToUpdate).data('label', label);
+		$FUI(elementToUpdate).data('type', type);
+
+		//SET VALUE
+		$FUI(elementToUpdate).parent().find(".value").data('parent', name);
+		$FUI(elementToUpdate).parent().find(".value").data('parentlabel', label);
+		$FUI(elementToUpdate).parent().find(".value").data('parenttype', type);
+		$FUI(elementToUpdate).parent().find(".value").removeClass("disabled");
+		
+		$FUI(elementToUpdate).text(label);
+		fbObj.hideOverlay();
+		fbObj.generateJSON();
+	},
+	setValue: function () {
+		
+		//RESET ERROR MESSAGES
+		$FUI('.errorWrapper').remove();
+		
+		var value = $FUI('#valueInput').val();
+		
+		var elementToUpdate = $FUI(this).data('elementToUpdate');
+		
+		if (value === null || value === '') {
+			$FUI(elementToUpdate).data('value', '');
+			$FUI(elementToUpdate).text(fbObj.labelValue);
+		}
+		else {
+			$FUI(elementToUpdate).data('value', value);
+			$FUI(elementToUpdate).text(value);
+		}
+
+		var promptCheckbox = $FUI('#isPrompted');
+		if (promptCheckbox.attr('checked') === true)
+			$FUI(elementToUpdate).data('isPrompted', true);
+		else
+			$FUI(elementToUpdate).data('isPrompted', false);
+		
+		//JS VALIDATION: Numeric fields accept only numbers
+		fieldSpan = $FUI(elementToUpdate).prev().prev();
+		if (fieldSpan.data('type') === 'double' ||
+			fieldSpan.data('type') === 'percent' ||
+			fieldSpan.data('type') === 'currency' ||
+			fieldSpan.data('type') === 'integer') {
+			if (!fbObj.isNumber(value) && promptCheckbox.attr('checked') === false) {
+				
+				var errorWrapper = $FUI(document.createElement("div"));
+				var errorMessage = $FUI(document.createElement("span"));
+				errorMessage.text('{!$Label.FilterBuilderNumericValueValidation}');
+				errorMessage.appendTo(errorWrapper);
+				errorWrapper.attr('class', 'errorWrapper');
+				errorWrapper.attr('style', 'color:red');
+				$FUI("#valueInput").after(errorWrapper);
+				$FUI(elementToUpdate).text(fbObj.labelValue);
+			}
+			else {
+			fbObj.hideOverlay();
+			fbObj.generateJSON();
+			}
+		//JS VALIDATION: Validate Soft Periods format is only Ynnn Pnnn if both parameters appear
+		} else if (fieldSpan.data('type') === 'string' && promptCheckbox.attr('checked') === true) {
+			parameters = value.split(' ');
+			if (parameters.length > 3) {
+				var errorWrapper = $FUI(document.createElement("div"));
+				var errorMessage = $FUI(document.createElement("span"));
+				errorMessage.text('{!$Label.FilterBuilderSoftPeriodsValidation}');
+				errorMessage.appendTo(errorWrapper);
+				errorWrapper.attr('class', 'errorWrapper');
+				errorWrapper.attr('style', 'color:red');
+				$FUI("#valueInput").after(errorWrapper);
+				$FUI(elementToUpdate).text(fbObj.labelValue);
+			} else if (parameters.length === 3) {
+				if (parameters[1].substring(0, 1) !== 'Y' || parameters[2].substring(0, 1) !== 'P') {
+					var errorWrapper = $FUI(document.createElement("div"));
+					var errorMessage = $FUI(document.createElement("span"));
+					errorMessage.text('{!$Label.FilterBuilderSoftPeriodsValidation}');
+					errorMessage.appendTo(errorWrapper);
+					errorWrapper.attr('class', 'errorWrapper');
+					errorWrapper.attr('style', 'color:red');
+					$FUI("#valueInput").after(errorWrapper);
+					$FUI(elementToUpdate).text(fbObj.labelValue);
+				}
+				else {
+					fbObj.hideOverlay();
+					fbObj.generateJSON();
+				}
+			}
+			else {
+				fbObj.hideOverlay();
+				fbObj.generateJSON();
+			}
+		} else {
+			fbObj.hideOverlay();
+			fbObj.generateJSON();
+		}
+	},
+	isNumber: function (n) {
+		return !isNaN(parseFloat(n)) && isFinite(n);
+	},
+	setValueList: function () {
+
+		value = $FUI(this).data('value');
+
+		var elementToUpdate = $FUI(this).data('elementToUpdate');
+		$FUI(elementToUpdate).data('value', value);
+		$FUI(elementToUpdate).text(value);
+		
+		var promptCheckbox = $FUI('#isPrompted');
+		if (promptCheckbox.attr('checked') === true)
+			$FUI(elementToUpdate).data('isPrompted', true);
+		else
+			$FUI(elementToUpdate).data('isPrompted', false);
+			
+		fbObj.hideOverlay();
+		fbObj.generateJSON();
+	},
+	showOverlay: function (width) {
+		var dialogWrapper = $FUI(document.createElement("div"));
+		dialogWrapper.attr('id', 'dialogWrapper');
+		dialogWrapper.addClass("dialogWrapper");
+
+		if (!$FUI.browser.msie) {
+			dialogWrapper.css("opacity", "0");
+		}
+
+		dialogWrapper.appendTo($FUI("body"));
+
+		var dialogBackground = $FUI(document.createElement("div"));
+		dialogBackground.addClass("dialogBackground");
+		dialogBackground.bind('click', fbObj.hideOverlay);
+		dialogBackground.appendTo(dialogWrapper);
+
+		var dialogBox = $FUI(document.createElement("div"));
+		dialogBox.css('width', width);
+		dialogBox.addClass("dialogBox");
+		dialogBox.appendTo(dialogWrapper);
+
+		var dialogBoxTop = $FUI(document.createElement("div"));
+		dialogBoxTop.addClass("top");
+		dialogBoxTop.appendTo(dialogBox);
+
+		var dialogBoxTopLeft = $FUI(document.createElement("div"));
+		dialogBoxTopLeft.addClass("topLeft");
+		dialogBoxTopLeft.appendTo(dialogBoxTop);
+
+		var dialogBoxTitle = $FUI(document.createElement("h2"));
+		dialogBoxTitle.attr('id', 'dialogTitle');
+		dialogBoxTitle.appendTo(dialogBoxTopLeft);
+
+		var dialogBoxClose = $FUI(document.createElement("div"));
+		dialogBoxClose.addClass("close");
+		dialogBoxClose.bind('click', fbObj.hideOverlay);
+		dialogBoxClose.appendTo(dialogBoxTopLeft);
+
+		var dialogBoxMiddle = $FUI(document.createElement("div"));
+		dialogBoxMiddle.attr('id', 'dialogBoxMiddle');
+		dialogBoxMiddle.addClass("middle");
+		dialogBoxMiddle.appendTo(dialogBox);
+
+		var dialogBoxBottom = $FUI(document.createElement("div"));
+		dialogBoxBottom.addClass("bottom");
+		dialogBoxBottom.appendTo(dialogBox);
+
+		var dialogBoxBottomLeft = $FUI(document.createElement("div"));
+		dialogBoxBottomLeft.addClass("bottomLeft");
+		dialogBoxBottomLeft.appendTo(dialogBoxBottom);
+
+		dialogBox.css("margin-left", -(width / 2));
+		dialogBox.css("margin-top", -(dialogBox.height() / 2));
+
+		if (!$FUI.browser.msie) {
+			dialogWrapper.animate({
+				opacity: 1
+			}, (fbObj.animateSpeed / 1));
+		}
+	},
+	hideOverlay: function () {
+		if (!$FUI.browser.msie) {
+			$FUI('#dialogWrapper').animate({
+				opacity: 0
+			}, (fbObj.animateSpeed / 1), function () {
+				$FUI(this).remove();
+			});
+		} else {
+			$FUI('#dialogWrapper').remove();
+		}
+	},
+	createListWrapper: function (hasFilter, title) {
+
+		var listWrapper = $FUI(document.createElement("div"));
+		listWrapper.attr("class", "listWrapper");
+
+		var listHeader = $FUI(document.createElement("div"));
+		listHeader.attr("class", "listHeader");
+		listHeader.append("&nbsp;");
+		listHeader.appendTo(listWrapper);
+
+		if (hasFilter) {
+			var listFilter = $FUI(document.createElement("input"));
+			listFilter.attr("class", "listFilter");
+			listFilter.attr("type", "text");
+			listFilter.attr("value", "{!$Label.FilterBuilderFilterValue}");
+			listFilter.css('display', 'none');
+			listFilter.bind('keyup', fbObj.fiterList);
+			listFilter.bind('focus', fbObj.fiterListFocus);
+			listFilter.bind('blur', fbObj.fiterListBlur);
+			listFilter.appendTo(listHeader);
+		} else {
+			if (title != "") {
+				var listTitle = $FUI(document.createElement("span"));
+				listTitle.attr("class", "listTitle");
+				listTitle.append(title);
+				listTitle.appendTo(listHeader);
+			}
+		}
+
+		var listWrapperScroll = $FUI(document.createElement("div"));
+		listWrapperScroll.attr("class", "listWrapperScroll");
+		listWrapperScroll.appendTo(listWrapper);
+
+		var loadingIcon = $FUI(document.createElement("img"));
+		loadingIcon.attr("src", "/img/loading.gif");
+		loadingIcon.css("position", "absolute");
+		loadingIcon.css("top", "50%");
+		loadingIcon.css("left", "50%");
+		loadingIcon.css("margin-left", "-8px");
+		loadingIcon.css("margin-top", "-8px");
+		loadingIcon.appendTo(listWrapperScroll);
+
+		$FUI("#dialogWrapper #dialogBoxMiddle").append(listWrapper);
+	},
+	fiterList: function () {
+		var thisFilter = $FUI(this).val().toLowerCase();
+		$FUI(this).parents('.listWrapper').find('.listItem').each(function () {
+			var contents = $FUI(this).text().toLowerCase();
+			var contentsString = contents.toString();
+
+			if (contentsString.indexOf(thisFilter, 0) > -1) {
+				$FUI(this).css('display', 'block');
+			} else {
+				$FUI(this).css('display', 'none');
+			}
+		});
+	},
+	fiterListFocus: function () {
+		if ($FUI(this).val() == "{!$Label.FilterBuilderFilterValue}") {
+			$FUI(this).val("");
+		}
+	},
+	fiterListBlur: function () {
+		if ($FUI(this).val() == "") {
+			$FUI(this).val("{!$Label.FilterBuilderFilterValue}");
+		}
+	},
+	createConditions: function (values) {
+		var objName = values.shift();
+		var objLabel = values.shift();
+		var fieldName = values.shift();
+		var fieldLabel = values.shift();
+		var fieldType = values.shift();
+		var fieldRelationshipName = values.shift();
+		if (values.length === 0) {
+			cond = 
+			{
+				"obj":
+				{
+					"name": objName,
+					"label": objLabel
+				},
+				"field":
+				{
+					"name": fieldName,
+					"label": fieldLabel,
+					"type": fieldType,
+					"relationshipName": fieldRelationshipName
+				}
+			};
+			return cond;
+		}
+		else {
+			cond = 
+			{
+				"obj":
+				{
+					"name": objName,
+					"label": objLabel
+				},
+				"field":
+				{
+					"name": fieldName,
+					"label": fieldLabel,
+					"type": fieldType,
+					"relationshipName": fieldRelationshipName,
+					"referencing": fbObj.createConditions(values)
+				}
+			};
+			return cond;
+		}
+	},
+	generateJSON: function () {
+
+		var conditions = new Array();
+		FormulaBuilderConditions.find(".lineNumber").each(function () {
+			var objSpan = $FUI(this).next();
+			var fieldSpan = objSpan.next();
+			var nextTag = fieldSpan.next();
+			var operatorSpan = nextTag;
+			var valueSpan = nextTag.next();
+			
+			var nestedConditions = new Array();
+			nestedConditions.push(
+				objSpan.data('name'),
+				objSpan.data('label'),
+				fieldSpan.data('name'),
+				fieldSpan.data('label'),
+				fieldSpan.data('type'),
+				fieldSpan.data('relationshipName')
+				
+			);
+			while (nextTag.attr("class") === "item") {
+				objSpan = $FUI(nextTag.children()[0]);
+				fieldSpan = objSpan.next();
+				operatorSpan = nextTag.find(".operator");
+				valueSpan = nextTag.find(".value");
+				nextTag = fieldSpan.next();
+				nestedConditions.push(
+					objSpan.data('name'),
+					objSpan.data('label'),
+					fieldSpan.data('name'),
+					fieldSpan.data('label'),
+					fieldSpan.data('type'),
+					fieldSpan.data('relationshipName')
+				);
+			}
+			
+			var cond = fbObj.createConditions(nestedConditions);
+			condition = {
+				"condition": cond,
+				"operator": operatorSpan.data('label'),
+				"value": valueSpan.data('isPrompted')? '{!PromptIdentifier}' + valueSpan.data('value') + '{!PromptIdentifier}' : valueSpan.data('value')
+			};
+			conditions.push(condition);
+		});
+
+		obj = {
+			"version": '{!version}',
+			"conditions": conditions,
+			"logic": FormulaBuilderLogicField.val().toUpperCase()
+		};
+		formulaJSON = JSON.stringify(obj);	
+		FormulaBuilderJSONField.val(formulaJSON);
+	},
+	esc: function (myid) {
+		return '#' + myid.replace(/(:|\.)/g, '\\\\$1');
+	}
+};
+
+$FUI(document).ready(function () {
+	FILTERBUILDER.GO.FormulaBuilder = FILTERBUILDER.FormulaBuilder;
+	FILTERBUILDER.GO.FormulaBuilder.init('{!formulaBuilderId}', '{!formulaBuilderJSONId}');
+});
+	</script>
+	<apex:outputPanel layout="block">
+		<div class="formulaBuilder" id="{!formulaBuilderId}">
+			<div class="header">
+				<span class="button buttonAdd">{!$Label.FilterUIAddCondition}</span>
+			</div>
+			<div class="conditions" id="conditions"></div>
+		</div>
+	</apex:outputPanel>
+	<a class="AddFilterLogicLink" style="display:block;width:95px" href="#">{!$Label.FilterBuilderAddFilterLogic}</a>
+	<div class="FilterLogicRegion" style="display:none">
+		<a class="ClearFilterLogicLink" href="#">{!$Label.FilterBuilderClearFilterLogic}</a><br/>
+		{!$Label.FilterBuilderFilterLogic}<br/>
+		<apex:inputText id="filterLogicText" styleclass="FilterLogic" size="80"/><br/>
+		<img src="{!URLFOR($Resource.ffr__filterUI,'FilterUI/base/images/report_boolean_filter.gif')}"/>
+	</div>
+</apex:component>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Commentaires contacts FM --></label>
+        <name>Commentaires_contacts_FM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Twitter Username --></label>
+        <name>Deskcom__twitter_username__c</name>
+    </fields>
+    <fields>
+        <label><!-- Envois --></label>
+        <name>Envois__c</name>
+        <picklistValues>
+            <masterLabel>25 ième</masterLabel>
+            <translation><!-- 25 ième --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bulletins</masterLabel>
+            <translation><!-- Bulletins --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cartes de Noël</masterLabel>
+            <translation><!-- Cartes de Noël --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Fax personnel --></label>
+        <name>Fax_personnel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Collection Id --></label>
+        <name>IGD__Collection_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- LinkedIn Company Id --></label>
+        <name>LID__LinkedIn_Company_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- LinkedIn Member Token --></label>
+        <name>LID__LinkedIn_Member_Token__c</name>
+    </fields>
+    <fields>
+        <label><!-- Language --></label>
+        <name>Language__c</name>
+        <picklistValues>
+            <masterLabel>English</masterLabel>
+            <translation><!-- English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>French</masterLabel>
+            <translation><!-- French --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <name>LeadSource</name>
+        <picklistValues>
+            <masterLabel>Annonces</masterLabel>
+            <translation>Adds</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autre</masterLabel>
+            <translation>Other</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bouche à oreilles</masterLabel>
+            <translation><!-- Bouche à oreilles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foire commerciale</masterLabel>
+            <translation><!-- Foire commerciale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Formation CHAD</masterLabel>
+            <translation><!-- Formation CHAD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LinkedIn</masterLabel>
+            <translation><!-- LinkedIn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partenaires</masterLabel>
+            <translation><!-- Partenaires --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Relations publiques</masterLabel>
+            <translation><!-- Relations publiques --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Référence externe</masterLabel>
+            <translation><!-- Référence externe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Référence par employé</masterLabel>
+            <translation><!-- Référence par employé --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Séminaire</masterLabel>
+            <translation><!-- Séminaire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- CEP Numéro de Contact / Contact Number --></label>
+        <name>Num_ro_de_Contact_Contact_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Poste --></label>
+        <name>Poste__c</name>
+    </fields>
+    <fields>
+        <help><!-- Type d&apos;approche client selon la méthode «Tremplin» --></help>
+        <label><!-- Profil Tremplin --></label>
+        <name>Profil_Tremplin__c</name>
+        <picklistValues>
+            <masterLabel>Amiable</masterLabel>
+            <translation>Friendly</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analytique</masterLabel>
+            <translation>Analytic</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expressif</masterLabel>
+            <translation>Expressive</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indéterminé</masterLabel>
+            <translation>Undetermined</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meneur</masterLabel>
+            <translation>Leader</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Statut Contact --></label>
+        <name>Statut_contact__c</name>
+        <picklistValues>
+            <masterLabel>Actif</masterLabel>
+            <translation>Active</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactif</masterLabel>
+            <translation>Inactive</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retraité</masterLabel>
+            <translation>Retired</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Titre professionnel --></label>
+        <name>Titre_professionnel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created by Cirrus Insight --></label>
+        <name>cirrusadv__Created_by_Cirrus_Insight__c</name>
+    </fields>
+    <layouts>
+        <layout>Contact Admin</layout>
+        <sections>
+            <label><!-- Contact Map --></label>
+            <section>Contact Map</section>
+        </sections>
+        <sections>
+            <label><!-- LinkedIn --></label>
+            <section>LinkedIn</section>
+        </sections>
+        <sections>
+            <label><!-- linkedIN contact --></label>
+            <section>linkedIN contact</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- CompanyId should be a numeric value --></errorMessage>
+        <name>LID__Check_CompanyId_Value</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Follow --></label>
+        <name>Follow</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SendGmail --></label>
+        <name>SendGmail</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Synoptic_View --></label>
+        <name>Synoptic__Synoptic_View</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooMaps --></label>
+        <name>YahooMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooWeather --></label>
+        <name>YahooWeather</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Map_Contacts --></label>
+        <name>salesvisual__Map_Contacts</name>
+    </webLinks>
+</CustomObjectTranslation>

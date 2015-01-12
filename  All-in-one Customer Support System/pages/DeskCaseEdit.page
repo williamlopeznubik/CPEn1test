@@ -1,0 +1,174 @@
+<apex:page standardController="Deskcom__Case__c" extensions="Deskcom.DeskCaseNewController" action="{!deskCaseEdit}" showHeader="true" tabStyle="contact" showChat="false" sidebar="true">
+<apex:stylesheet value="{!URLFOR($Resource.Deskcom__desk_static,'css/jquery-ui-1.9.2.custom.css')}"/>
+<apex:stylesheet value="{!URLFOR($Resource.Deskcom__desk_static,'css/desk.css')}"/>
+
+<apex:includeScript value="{!URLFOR($Resource.Deskcom__desk_static,'js/jquery-1.9.0.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.Deskcom__desk_static,'js/jquery-ui-1.9.2.custom.min.js')}"/>
+    <apex:form >
+        <apex:pageBlock title="Create a new Desk.com Case">
+            <div class="create-case-form">
+            <apex:pageMessages />
+             <div class="a-modal-content">
+               <div class="a-modal-top">
+                   <h1>
+                     Create a new Desk.com Case
+                   </h1>
+                 </div>
+                    <div class="a-modal-body">
+                    <div class="a-modal-scrollable a-scroll">
+                      <div class="a-field single-row">
+                        <apex:outputLabel value="Subject" for="subject__c"></apex:outputLabel>
+                        <div class="a-text"><apex:inputField id="subject__c" value="{!deskCase.Deskcom__subject__c}"/></div>
+                      </div>
+                      <div class="a-field single-row">
+                        <apex:outputLabel value="Channel" for="channel"></apex:outputLabel>
+                        <div class="a-select">
+                            <apex:selectList id="channel" value="{!deskCase.Deskcom__channel__c}" multiselect="false" size="1">
+                              <apex:selectOptions value="{!channelOptions}"></apex:selectOptions>
+                            </apex:selectList>
+                            <div class="arrow-down"></div>
+                          </div>
+                      </div>
+                      <div id="custom-fields"></div>
+                            <div class="a-field">
+                              <apex:outputLabel value="Body" for="body"></apex:outputLabel>
+                              <div class="a-textarea">
+                                <apex:inputField id="body" value="{!deskCase.Deskcom__Body__c}"/>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="a-modal-bottom">
+                    <apex:commandButton action="{!createDeskCase}" value="Create" styleClass="a-button"/> or
+                    &nbsp;<apex:outputLink value="/{!HTMLENCODE(deskCase.Deskcom__Contact__c)}">Cancel</apex:outputLink>
+                  </div>
+                </div>
+            </div>
+            </apex:pageBlock>
+    </apex:form>
+<script>
+
+    var url = location.href;
+    var match = url.match(/inline=1/);
+    if (match != null) {
+        var newUrl = url.replace(/inline=1/, '');
+        window.top.location=newUrl;
+    }
+    
+    
+    $(document).ready(function() {
+      Desk.Salesforce.New.customFields(JSON.parse('{!JSENCODE(customFields)}'));
+      $(".datepicker").datepicker();
+      $(document).on("change", ".custom_field_boolean", function(){
+        if($(this).prop("checked")) {
+          $(this).siblings("input").val("1");
+        } else {
+          $(this).siblings("input").val("0");
+        }
+      });
+      $(document).on("click", ".a-numeric .ui-icon", function(){
+        if ($(this).hasClass("ui-icon-triangle-1-n")) {
+        $(this).parents(".a-numeric").children("input").val(function(index, value){return Number(value) + 1;});
+        } else if($(this).hasClass("ui-icon-triangle-1-s")) {
+          $(this).parents(".a-numeric").children("input").val(function(index, value){return Number(value) - 1;});
+        }
+      });
+      
+      $(document).on("change", ".numeric_field", function(){
+      if (/\D/g.test(this.value)) {
+        this.value = this.value.replace(/\D/g, '');
+      }
+    });
+    });
+    
+    Desk = window.Desk || {};
+  Desk.Salesforce = Desk.Salesforce || {};
+  Desk.Salesforce.New = {
+
+    customFields: function(custom_fields) {
+      if(typeof custom_fields === "undefined") return;
+      var html = "";
+      var field_names = [];
+        var ts;
+      for(var i=0; i<custom_fields._embedded.entries.length; i++) {
+        if((custom_fields._embedded.entries[i].type === "ticket") && (custom_fields._embedded.entries[i].active === true)) {
+            field_names.push(htmlEscape(custom_fields._embedded.entries[i].name));
+            switch(custom_fields._embedded.entries[i].data.type) { 
+                    case "string":
+                      html += textField(custom_fields._embedded.entries[i]);
+                      break;
+                    case "integer":
+                      html += intField(custom_fields._embedded.entries[i]);
+                      break;
+                    case "boolean":
+              html += boolField(custom_fields._embedded.entries[i]);
+              break;
+            case "list":
+              html += listField(custom_fields._embedded.entries[i]);
+              break;
+            case "date":
+              html += dateField(custom_fields._embedded.entries[i]);
+              break;
+            }
+          }
+      }
+      
+      if(field_names.length > 0) {
+        $(".a-modal-scrollable").append("<input type='hidden' name='custom_fields' value='"+field_names.join()+"'/>");
+      }
+      
+      $("#custom-fields").html(html);
+      $(".datepicker").datepicker("setDate", "10/12/2012");
+	  $(".datepicker").datepicker({dateFormat: $.datepicker.ISO_8601});
+      function textField(data) {
+        if(typeof data === "undefined") return;
+          return '<div class="a-field single-row"><label for="'+htmlEscape(data.name)+'">'+htmlEscape(data.label)+'</label><div class="a-text"><input type="text" id="'+htmlEscape(data.name)+'" name="case_custom_'+htmlEscape(data.name)+'"/></div></div>';
+      }
+      
+      function intField(data) {
+        if(typeof data === "undefined") return;
+        return '<div class="a-field single-row"><label for="'+htmlEscape(data.name)+'">'+htmlEscape(data.label)+'</label><div class="a-text a-numeric"><input type="text" id="'+htmlEscape(data.name)+'" name="case_custom_'+htmlEscape(data.name)+'" class="numeric_field"/><div class="ui-spinner-buttons"><div class="ui-spinner-up ui-spinner-button ui-state-default ui-corner-tr"><span class="ui-icon ui-icon-triangle-1-n">&nbsp;</span></div><div class="ui-spinner-down ui-spinner-button ui-state-default ui-corner-br"><span class="ui-icon ui-icon-triangle-1-s">&nbsp;</span></div></div></div></div>';
+      }
+      
+      function boolField(data) {
+        if(typeof data === "undefined") return;
+        return '<div class="a-field single-row"><label for="'+htmlEscape(data.name)+'">'+htmlEscape(data.label)+'</label><div class="a-checkbox"><input type="hidden" value="0" name="case_custom_'+htmlEscape(data.name)+'"/><input type="checkbox" id="'+htmlEscape(data.name)+'" class="custom_field_boolean"/></div></div>';
+      }
+      
+      function dateField(data) {
+        if(typeof data === "undefined") return;
+          return '<div class="a-field single-row"><label for="'+htmlEscape(data.name)+'">'+htmlEscape(data.label)+'</label><div class="a-text"><input type="text" id="'+htmlEscape(data.name)+'" name="case_custom_'+htmlEscape(data.name)+'" class="datepicker"/></div></div>';
+      }
+
+      function htmlEscape(str) {
+        var s =  String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/"/g, '&quot;')     /* " */
+          .replace(/'/g, '&#39;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+        return s;
+      }
+
+      function listField(data) {
+      
+        function renderOptions(options) {
+          var opt_html = '';
+          $.each(options, function(i, v) {
+            if(i === 0) {
+              opt_html += '<option value="'+htmlEscape(v)+'" selected="selected">'+htmlEscape(v)+'</option>';
+            } else {
+              opt_html += '<option value="'+htmlEscape(v)+'">'+htmlEscape(v)+'</option>';
+            }
+          });
+          return opt_html;
+        }
+        
+        if(typeof data === "undefined") return;
+          return '<div class="a-field single-row"><label value="'+htmlEscape(data.label)+'" for="'+htmlEscape(data.name)+'">'+htmlEscape(data.label)+'</label><div class="a-select"><select id="'+htmlEscape(data.name)+'" size="1" name="case_custom_'+htmlEscape(data.name)+'">'+renderOptions(data.data.choices)+'</select><div class="arrow-down"></div></div></div>';
+      }
+    }
+  
+  };
+</script>
+</apex:page>
