@@ -1,3 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Test1</fullName>
+        <categories>This is a test to delete</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test1</shortDescription>
+        <value>test 1</value>
+    </labels>
+    <labels>
+        <fullName>Test_2</fullName>
+        <categories>Test to be deleted after video.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test 2</shortDescription>
+        <value>Test</value>
+    </labels>
+</CustomLabels>
