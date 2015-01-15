@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>Accept</fullName>
+        <categories>DemandeExpertise</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Accept</shortDescription>
+        <value>Accept</value>
+    </labels>
+    <labels>
+        <fullName>Addresses</fullName>
+        <categories>DemandeExpertise</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Addresses</shortDescription>
+        <value>Addresses</value>
+    </labels>
+    <labels>
+        <fullName>All</fullName>
+        <categories>DemandeExpertise</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>Enter_a_location</fullName>
+        <categories>DemandeExpertise</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Enter a location</shortDescription>
+        <value>Enter a location</value>
+    </labels>
+    <labels>
+        <fullName>Establishments</fullName>
+        <categories>DemandeExpertise</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Establishments</shortDescription>
+        <value>Establishments</value>
+    </labels>
+    <labels>
+        <fullName>Geocodes</fullName>
+        <categories>DemandeExpertise</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Geocodes</shortDescription>
+        <value>Geocodes</value>
+    </labels>
+    <labels>
+        <fullName>Reject</fullName>
+        <categories>DemandeExpertise</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Reject</shortDescription>
+        <value>Reject</value>
+    </labels>
+    <labels>
         <fullName>Test1</fullName>
         <categories>This is a test to delete</categories>
         <language>en_US</language>
@@ -15,5 +71,21 @@
         <protected>false</protected>
         <shortDescription>Test 2</shortDescription>
         <value>Test</value>
+    </labels>
+    <labels>
+        <fullName>Validation_de_l_addresse_du_sinistre</fullName>
+        <categories>DemandeExpertise</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation de l&apos;addresse du sinistre</shortDescription>
+        <value>Validation de l&apos;addresse du sinistre</value>
+    </labels>
+    <labels>
+        <fullName>Validation_de_la_date_du_sinistre</fullName>
+        <categories>DemandeExpertise</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation de la date du sinistre</shortDescription>
+        <value>Validation de la date du sinistre</value>
     </labels>
 </CustomLabels>
