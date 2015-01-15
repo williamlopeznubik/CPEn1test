@@ -76,6 +76,10 @@
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <fields>
+        <fullName>AccountNumber</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
         <fullName>AccountSource</fullName>
         <picklist>
             <picklistValues>
@@ -132,6 +136,48 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>AnnualRevenue</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>BillingAddress</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Branch__c</fullName>
+        <externalId>false</externalId>
+        <label>Branch</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Laval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ottawa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Québec</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Toronto</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CEPXpress__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>CEPXpress</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>CEP_Numero_de_compte_Account_number__c</fullName>
         <caseSensitive>false</caseSensitive>
         <externalId>true</externalId>
@@ -151,6 +197,48 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Currency__c</fullName>
+        <externalId>false</externalId>
+        <label>Currency</label>
+        <picklist>
+            <picklistValues>
+                <fullName>CAD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Euro</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>USD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>English_Name__c</fullName>
+        <description>The english name of the Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The english name of the Account.</inlineHelpText>
+        <label>English Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>IGD__Collection_Id__c</fullName>
@@ -225,6 +313,10 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Jigsaw</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
         <fullName>LID__LinkedIn_Company_Id__c</fullName>
         <deprecated>false</deprecated>
         <description>LinkedIn Id of the company/Account</description>
@@ -246,6 +338,10 @@
         <type>Summary</type>
     </fields>
     <fields>
+        <fullName>Name</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+    </fields>
+    <fields>
         <fullName>Num_ro_de_fournisseur_Supplier_no__c</fullName>
         <caseSensitive>false</caseSensitive>
         <externalId>false</externalId>
@@ -256,6 +352,10 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
         <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>NumberOfEmployees</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
@@ -290,6 +390,18 @@
         <fullName>ParentId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Hierarchy</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Pool__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>Pool</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Potentiel_de_ventes__c</fullName>
@@ -351,6 +463,84 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Region__c</fullName>
+        <externalId>false</externalId>
+        <label>Region</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Abitibi-Témiscamingue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bas-Saint-Laurent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Capitale-Nationale</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Centre-du-Québec</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chaudière-Appalaches</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Côte-Nord</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Estrie</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gaspésie</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ile de la Madeleine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lanaudière</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Laurentides</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mauricie</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Montérégie</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Montréal et Laval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nord-du-Québec</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outaouais</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Saguenay – Lac Saint-Jean</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Regroupement__c</fullName>
         <description>Affiliations et regroupement corpotatif</description>
         <externalId>false</externalId>
@@ -360,35 +550,188 @@
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Statut_compte__c</fullName>
+        <fullName>Report_Style__c</fullName>
         <externalId>false</externalId>
-        <label>Statut Compte</label>
+        <label>Report Style</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Responsible__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Shows the person responsible for the account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Shows the person responsible for the account.</inlineHelpText>
+        <label>Responsible</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Contact employé</value>
+            </filterItems>
+            <filterItems>
+                <field>Contact.Responsible_of_the_Organization__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Accounts (Responsible)</relationshipLabel>
+        <relationshipName>Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ShippingAddress</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Sic</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>SicDesc</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Site</fullName>
+        <inlineHelpText>Copy account city here</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Site_compte__c</fullName>
+        <externalId>false</externalId>
+        <label>Site compte</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status1__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
         <picklist>
             <picklistValues>
                 <fullName>Actif</fullName>
-                <default>true</default>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fermé - Locked</fullName>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Inactif</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Dormant</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Prospect</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
-            <sorted>false</sorted>
+            <sorted>true</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Tel_sans_frais__c</fullName>
+        <fullName>Status__c</fullName>
         <externalId>false</externalId>
-        <label>Tel sans frais</label>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Actif</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fermé - Locked</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inactif</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prospect</fullName>
+                <default>true</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sub_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Assureur</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Avocat</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Courtier</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Employé-client</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Évaluateur</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Expert-conseils</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Expert-sinistres</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Industrie</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Institutionnel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Particulier</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Restaurateur après sinistre</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Utilité publique</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TickerSymbol</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Toll_Free_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Toll-Free Phone</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Phone</type>
@@ -398,18 +741,6 @@
         <picklist>
             <picklistValues>
                 <fullName>Client</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Client Perdu</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Concurrence</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Interne</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -418,7 +749,7 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Prospect</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Fournisseur</fullName>
@@ -428,6 +759,18 @@
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Vehicle__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Vehicle</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Website</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>c2g__CODAAccountTradingCurrency__c</fullName>
@@ -1833,7 +2176,7 @@ c2g__CODAValidatedShippingCountry__c == ShippingCountry</formula>
     <fields>
         <fullName>langue_compte__c</fullName>
         <externalId>false</externalId>
-        <label>langue compte</label>
+        <label>Preferred Language</label>
         <picklist>
             <picklistValues>
                 <fullName>Français</fullName>
@@ -1859,6 +2202,21 @@ c2g__CODAValidatedShippingCountry__c == ShippingCountry</formula>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>of_Old_Projects__c</fullName>
+        <description>Shows the number of projects created two or more years ago that are related to the Organization.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Shows the number of projects created two or more years ago that are related to the Organization.</inlineHelpText>
+        <label># of Old Projects</label>
+        <summaryFilterItems>
+            <field>Projet__c.X2_Years_Old__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Projet__c.Related_Account__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>of_days_since_last_visit__c</fullName>
@@ -2059,7 +2417,7 @@ c2g__CODAValidatedShippingCountry__c == ShippingCountry</formula>
             <value>Assureur</value>
         </filters>
         <filters>
-            <field>Statut_compte__c</field>
+            <field>Status__c</field>
             <operation>equals</operation>
             <value>Actif,Prospect</value>
         </filters>
@@ -2204,7 +2562,7 @@ c2g__CODAValidatedShippingCountry__c == ShippingCountry</formula>
         <lookupPhoneDialogsAdditionalFields>00N3000000BlQmy</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>00N30000007t1DY</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Statut_compte__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.SITE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CEP_Numero_de_compte_Account_number__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Last_visit_date__c</searchResultsAdditionalFields>

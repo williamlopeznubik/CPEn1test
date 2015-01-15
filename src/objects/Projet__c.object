@@ -47,9 +47,12 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>Charte_du_projet__c</fullName>
         <externalId>false</externalId>
@@ -123,6 +126,33 @@
         <visibleLines>25</visibleLines>
     </fields>
     <fields>
+        <fullName>Pourcentage_Total_des_Mandants__c</fullName>
+        <description>Roll-up sum of percentages of all clients (mandants) associated to this project.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Roll-up sum of percentages of all clients (mandants) associated to this project.</inlineHelpText>
+        <label>Pourcentage Total des Mandants</label>
+        <summarizedField>Mandant__c.Pourcentage_de_participation__c</summarizedField>
+        <summaryForeignKey>Mandant__c.Projet__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Related_Account__c</fullName>
+        <description>Shows the Account the project is related to.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Shows the Account the project is related to.</inlineHelpText>
+        <label>Related Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Projets</relationshipLabel>
+        <relationshipName>Projets</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
         <fullName>Responsable_du_projet__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -189,6 +219,16 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>X2_Years_Old__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This box is checked two years (730 days) after the project is created.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This box is checked two years (730 days) after the project is created.</inlineHelpText>
+        <label>2 Years Old?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>pourcentage_compl_t__c</fullName>
         <externalId>false</externalId>
         <label>pourcentage complété</label>
@@ -243,5 +283,5 @@
         <customTabListAdditionalFields>tape__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Duree__c</customTabListAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

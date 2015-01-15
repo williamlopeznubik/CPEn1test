@@ -96,9 +96,232 @@
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <fields>
+        <fullName>Ability_to_Modify_Pricing_Structure__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Ability to Modify Pricing Structure</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Access_Profile__c</fullName>
+        <externalId>false</externalId>
+        <label>Access Profile</label>
+        <picklist>
+            <picklistValues>
+                <fullName>A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>B</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>D</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>AccountId</fullName>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>(1 AND 2) OR 3</booleanFilter>
+            <filterItems>
+                <field>$Source.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Contact employé</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.Name</field>
+                <operation>equals</operation>
+                <value>Expert Conseil CEP</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Contact Organisation</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <trackFeedHistory>true</trackFeedHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Allergies__c</fullName>
+        <externalId>false</externalId>
+        <label>Allergies</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Annual_Billable_Hours_Goal__c</fullName>
+        <externalId>false</externalId>
+        <label>Annual Billable Hours Goal</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Annual_Salary__c</fullName>
+        <externalId>false</externalId>
+        <label>Annual Salary</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>AssistantName</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>AssistantPhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Assistant__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Assistant</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Contact employé</value>
+            </filterItems>
+            <filterItems>
+                <field>Contact.Assistant_box__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Contacts (Assistant)</relationshipLabel>
+        <relationshipName>Assistant</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Assistant_box__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Assistant</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Bank_Account_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Bank Account Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Bank Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Birthdate</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Blood_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Blood Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AB négatif</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AB positif</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A négatif</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A positif</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>B négatif</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>B positif</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>O négatif</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>O positif</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Branch__c</fullName>
+        <externalId>false</externalId>
+        <label>Branch</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Laval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ottawa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Québec</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Toronto</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Commentaires_contacts_FM__c</fullName>
@@ -111,6 +334,64 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Credit_Card_Provided__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Credit Card Provided</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Hire__c</fullName>
+        <externalId>false</externalId>
+        <label>Date of Hire</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Delegate_Investigator__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Delegate Investigator</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dental_Group_Insurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Dental Group Insurance</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Couple</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Famillial</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Individuel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Refusé</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Department</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
         <fullName>Deskcom__twitter_username__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
@@ -120,6 +401,21 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DoNotCall</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Employee_Number__c</fullName>
+        <displayFormat>E-{0000}</displayFormat>
+        <externalId>false</externalId>
+        <label>Employee Number</label>
+        <type>AutoNumber</type>
     </fields>
     <fields>
         <fullName>Envois__c</fullName>
@@ -149,12 +445,130 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Fax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
         <fullName>Fax_personnel__c</fullName>
         <externalId>false</externalId>
         <label>Fax personnel</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Group</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Chimie et génie chimique</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Génie civil</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Génie électrique</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Génie environnemental</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Génie matériaux/métallurgie</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Génie mécanique</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Incendie et explosion</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfEmail</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfFax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Holidays_Allowed__c</fullName>
+        <externalId>false</externalId>
+        <label>Holidays Allowed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HomePhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Hourly_Rate_CDN__c</fullName>
+        <externalId>false</externalId>
+        <label>Hourly Rate CDN</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Hourly_Rate_USD__c</fullName>
+        <externalId>false</externalId>
+        <label>Hourly Rate USD</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Hourly_Wage__c</fullName>
+        <externalId>false</externalId>
+        <label>Hourly Wage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Hours_Available_Annually__c</fullName>
+        <externalId>false</externalId>
+        <label>Hours Available Annually</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hours_Worked_Per_Week__c</fullName>
+        <externalId>false</externalId>
+        <label>Hours Worked Per Week</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>IGD__Collection_Id__c</fullName>
@@ -166,6 +580,87 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Immediate_Supervisor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Immediate Supervisor</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Contact employé</value>
+            </filterItems>
+            <filterItems>
+                <field>Contact.Superior__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Contacts</relationshipLabel>
+        <relationshipName>Contacts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Initials__c</fullName>
+        <externalId>false</externalId>
+        <label>Initials</label>
+        <length>3</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Institution_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Institution Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Interests__c</fullName>
+        <externalId>false</externalId>
+        <label>Interests</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AFAM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hockey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OSM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Théâtre</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Jigsaw</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>LID__LinkedIn_Company_Id__c</fullName>
@@ -197,17 +692,27 @@
         <label>Language</label>
         <picklist>
             <picklistValues>
-                <fullName>French</fullName>
+                <fullName>Anglais</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>English</fullName>
+                <fullName>Espagnol</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Francais</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>LastCURequestDate</fullName>
+    </fields>
+    <fields>
+        <fullName>LastCUUpdateDate</fullName>
     </fields>
     <fields>
         <fullName>LeadSource</fullName>
@@ -266,6 +771,122 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Level</label>
+        <picklist>
+            <picklistValues>
+                <fullName>1A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1B</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2B</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3B</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4B</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Infographie</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Secrétariat</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technologue de laboratoire</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MailingAddress</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Medical_Group_Insurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Medical Group Insurance</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Couple</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Famillial</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Individuel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Refusé</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Medication__c</fullName>
+        <externalId>false</externalId>
+        <label>Medication</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MobilePhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>NAS__c</fullName>
+        <externalId>false</externalId>
+        <label>NAS</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+    </fields>
+    <fields>
         <fullName>Num_ro_de_Contact_Contact_Number__c</fullName>
         <caseSensitive>false</caseSensitive>
         <externalId>true</externalId>
@@ -277,21 +898,133 @@
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>Number_of_Non_Billable_Hours__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Non-Billable Hours</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Trials_Won__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Trials Won</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Trials__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Trials</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Vacation_Days__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Vacation Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_Creator__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Organization Creator</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OtherAddress</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>OtherPhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
         <fullName>OwnerId</fullName>
         <trackFeedHistory>true</trackFeedHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Perks__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Perks</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Personal_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Personal Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>Poste__c</fullName>
         <description>Extension téléphonique</description>
         <externalId>false</externalId>
         <label>Poste</label>
-        <precision>8</precision>
+        <precision>4</precision>
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Preferred_Contact_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Contact Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cellulaire</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Courriel primaire</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Courriel secondaire</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Télécopieur</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Téléphone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>5</visibleLines>
     </fields>
     <fields>
         <fullName>Profil_Tremplin__c</fullName>
@@ -326,14 +1059,67 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Project_Lead__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Project Lead</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>ReportsToId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Responsible_of_the_Organization__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Responsible of the Organization</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Schedule_End__c</fullName>
+        <externalId>false</externalId>
+        <label>Schedule End</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Schedule_Start__c</fullName>
+        <externalId>false</externalId>
+        <label>Schedule Start</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Secondary_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Secondary Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Statut_contact__c</fullName>
         <externalId>false</externalId>
-        <label>Statut Contact</label>
+        <label>Statut</label>
         <picklist>
             <picklistValues>
                 <fullName>Actif</fullName>
@@ -343,22 +1129,82 @@
                 <fullName>Inactif</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Retraité</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Superior__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Superior</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Title</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
         <fullName>Titre_professionnel__c</fullName>
         <externalId>false</externalId>
         <label>Titre professionnel</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Autre</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ing.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>P.Eng</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Transit_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Transit Number</label>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <type>TextArea</type>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Username__c</fullName>
+        <externalId>false</externalId>
+        <label>Username</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vehicle_Provided__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Vehicle Provided</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Work_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Work Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Email</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>cirrusadv__Created_by_Cirrus_Insight__c</fullName>
@@ -369,6 +1215,16 @@
         <label>Created by Cirrus Insight</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>of_Vacation__c</fullName>
+        <externalId>false</externalId>
+        <label>% of Vacation</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Percent</type>
     </fields>
     <listViews>
         <fullName>AVIVA_contacts</fullName>
@@ -476,6 +1332,817 @@
         </filters>
         <label>New This Week</label>
     </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypes>
+        <fullName>Contact_Organisation</fullName>
+        <active>true</active>
+        <label>Contact Organisation</label>
+        <picklistValues>
+            <picklist>Access_Profile__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Blood_Type__c</picklist>
+            <values>
+                <fullName>A négatif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>A positif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AB négatif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AB positif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B négatif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B positif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>O négatif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>O positif</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Branch__c</picklist>
+            <values>
+                <fullName>Laval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ottawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Québec</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toronto</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dental_Group_Insurance__c</picklist>
+            <values>
+                <fullName>Couple</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Famillial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Individuel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refusé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Envois__c</picklist>
+            <values>
+                <fullName>25 ième</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bulletins</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cartes de Noël</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Group__c</picklist>
+            <values>
+                <fullName>Chimie et génie chimique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Génie civil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Génie environnemental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Génie matériaux%2Fmétallurgie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Génie mécanique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Génie électrique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incendie et explosion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interests__c</picklist>
+            <values>
+                <fullName>AFAM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hockey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OSM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Théâtre</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Language__c</picklist>
+            <values>
+                <fullName>Anglais</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Espagnol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Francais</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LeadSource</picklist>
+            <values>
+                <fullName>Annonces</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bouche à oreilles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foire commerciale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Formation CHAD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partenaires</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relations publiques</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Référence externe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Référence par employé</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Séminaire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Level__c</picklist>
+            <values>
+                <fullName>1A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Infographie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Secrétariat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technologue de laboratoire</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Medical_Group_Insurance__c</picklist>
+            <values>
+                <fullName>Couple</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Famillial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Individuel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refusé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Name</picklist>
+            <values>
+                <fullName>Madame</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Me%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monsieur</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Mr%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mrs%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ms%2E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method__c</picklist>
+            <values>
+                <fullName>Cellulaire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Courriel primaire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Courriel secondaire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Télécopieur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Téléphone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Profil_Tremplin__c</picklist>
+            <values>
+                <fullName>Amiable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Analytique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expressif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indéterminé</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Meneur</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Statut_contact__c</picklist>
+            <values>
+                <fullName>Actif</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Inactif</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Titre_professionnel__c</picklist>
+            <values>
+                <fullName>Autre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ing%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P%2EEng</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Contact_employe</fullName>
+        <active>true</active>
+        <label>Contact employé</label>
+        <picklistValues>
+            <picklist>Access_Profile__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Blood_Type__c</picklist>
+            <values>
+                <fullName>A négatif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>A positif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AB négatif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AB positif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B négatif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B positif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>O négatif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>O positif</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Branch__c</picklist>
+            <values>
+                <fullName>Laval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ottawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Québec</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toronto</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dental_Group_Insurance__c</picklist>
+            <values>
+                <fullName>Couple</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Famillial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Individuel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refusé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Envois__c</picklist>
+            <values>
+                <fullName>25 ième</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bulletins</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cartes de Noël</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Group__c</picklist>
+            <values>
+                <fullName>Chimie et génie chimique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Génie civil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Génie environnemental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Génie matériaux%2Fmétallurgie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Génie mécanique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Génie électrique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incendie et explosion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interests__c</picklist>
+            <values>
+                <fullName>AFAM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hockey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OSM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Théâtre</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Language__c</picklist>
+            <values>
+                <fullName>Anglais</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Espagnol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Francais</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LeadSource</picklist>
+            <values>
+                <fullName>Annonces</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bouche à oreilles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foire commerciale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Formation CHAD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partenaires</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relations publiques</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Référence externe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Référence par employé</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Séminaire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Level__c</picklist>
+            <values>
+                <fullName>1A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Infographie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Secrétariat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technologue de laboratoire</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Medical_Group_Insurance__c</picklist>
+            <values>
+                <fullName>Couple</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Famillial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Individuel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refusé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Name</picklist>
+            <values>
+                <fullName>Madame</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Me%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monsieur</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Mr%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mrs%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ms%2E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method__c</picklist>
+            <values>
+                <fullName>Cellulaire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Courriel primaire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Courriel secondaire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Télécopieur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Téléphone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Profil_Tremplin__c</picklist>
+            <values>
+                <fullName>Amiable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Analytique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expressif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indéterminé</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Meneur</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Statut_contact__c</picklist>
+            <values>
+                <fullName>Actif</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Inactif</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Titre_professionnel__c</picklist>
+            <values>
+                <fullName>Autre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ing%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P%2EEng</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>FULL_NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
@@ -515,6 +2182,13 @@
 )</errorConditionFormula>
         <errorDisplayField>LID__LinkedIn_Company_Id__c</errorDisplayField>
         <errorMessage>CompanyId should be a numeric value</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Make_sure_First_Name_if_filled_out</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISBLANK(FirstName)</errorConditionFormula>
+        <errorDisplayField>FirstName</errorDisplayField>
+        <errorMessage>Please make sure First Name is filled out.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Follow</fullName>
