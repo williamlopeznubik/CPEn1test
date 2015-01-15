@@ -17,6 +17,34 @@
         <name>Super_Follow_Button</name>
     </customApplications>
     <customLabels>
+        <label><!-- Accept --></label>
+        <name>Accept</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Addresses --></label>
+        <name>Addresses</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- All --></label>
+        <name>All</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Enter a location --></label>
+        <name>Enter_a_location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Establishments --></label>
+        <name>Establishments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Geocodes --></label>
+        <name>Geocodes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Reject --></label>
+        <name>Reject</name>
+    </customLabels>
+    <customLabels>
         <label><!-- SynopticAccountView_Title --></label>
         <name>Synoptic__SynopticAccountView_Title</name>
     </customLabels>
@@ -27,6 +55,22 @@
     <customLabels>
         <label><!-- SynopticView_Back --></label>
         <name>Synoptic__SynopticView_Back</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Test1 --></label>
+        <name>Test1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Test 2 --></label>
+        <name>Test_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Validation de l&apos;addresse du sinistre --></label>
+        <name>Validation_de_l_addresse_du_sinistre</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Validation de la date du sinistre --></label>
+        <name>Validation_de_la_date_du_sinistre</name>
     </customLabels>
     <customLabels>
         <label><!-- AOAAppNameForEmail --></label>
