@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Handling</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Handlings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Handled By --></label>
+        <name>Handled_By__c</name>
+        <relationshipLabel><!-- Handlings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Handling End Date --></label>
+        <name>Handling_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Handling Start Date --></label>
+        <name>Handling_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Handling Type --></label>
+        <name>Handling_Type__c</name>
+        <picklistValues>
+            <masterLabel>Division</masterLabel>
+            <translation><!-- Division --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Essai</masterLabel>
+            <translation><!-- Essai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Examen</masterLabel>
+            <translation><!-- Examen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Préparation</masterLabel>
+            <translation><!-- Préparation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Piece Number --></label>
+        <name>Piece_Number__c</name>
+        <relationshipLabel><!-- Handlings --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Handling Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Handling Number --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

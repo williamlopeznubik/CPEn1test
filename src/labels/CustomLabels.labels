@@ -25,6 +25,14 @@
         <value>All</value>
     </labels>
     <labels>
+        <fullName>Current_Demande_d_expertise</fullName>
+        <categories>DemandeExpertise</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Current Demande d&apos;expertise</shortDescription>
+        <value>Current Demande d&apos;expertise</value>
+    </labels>
+    <labels>
         <fullName>Enter_a_location</fullName>
         <categories>DemandeExpertise</categories>
         <language>en_US</language>
@@ -47,6 +55,38 @@
         <protected>false</protected>
         <shortDescription>Geocodes</shortDescription>
         <value>Geocodes</value>
+    </labels>
+    <labels>
+        <fullName>Has_Rate</fullName>
+        <categories>Messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Has Rate</shortDescription>
+        <value>This account&apos;s rates are active until:</value>
+    </labels>
+    <labels>
+        <fullName>Missing_Rate</fullName>
+        <categories>Messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Missing Rate</shortDescription>
+        <value>No rates are currently defined for this account.</value>
+    </labels>
+    <labels>
+        <fullName>Multiple_Rate_Conflict</fullName>
+        <categories>Messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Multiple Rate Conflict</shortDescription>
+        <value>There are rates with overlapping dates for this account.</value>
+    </labels>
+    <labels>
+        <fullName>New_Demande_d_expertise</fullName>
+        <categories>DemandeExpertise</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Demande d&apos;expertise</shortDescription>
+        <value>New Demande d&apos;expertise</value>
     </labels>
     <labels>
         <fullName>Reject</fullName>

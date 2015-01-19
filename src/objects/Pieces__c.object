@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Branch__c</fullName>
+        <externalId>false</externalId>
+        <label>Branch</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Laval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ottawa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Québec</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Toronto</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Cost__c</fullName>
+        <description>Volume (Square Feet) * 100</description>
+        <externalId>false</externalId>
+        <formula>Volume_Square_Feet__c * 100</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Volume (Square Feet) * 100</inlineHelpText>
+        <label>Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Receipt__c</fullName>
+        <externalId>false</externalId>
+        <label>Date of Receipt</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Organization</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Pieces</relationshipLabel>
+        <relationshipName>Pieces</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Projet_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Projet Number</label>
+        <referenceTo>Projet__c</referenceTo>
+        <relationshipLabel>Pieces</relationshipLabel>
+        <relationshipName>Pieces</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Recieved_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Recieved By</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Contact employé</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Pieces (Recieved By)</relationshipLabel>
+        <relationshipName>Pieces1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Renewal_Date__c</fullName>
+        <description>Takes the date of receipt and adds 4 years to it.</description>
+        <externalId>false</externalId>
+        <formula>IF(MONTH( DATEVALUE(Date_of_Receipt__c) )=2 &amp;&amp; DAY(DATEVALUE(Date_of_Receipt__c))=29,
+        DATE(YEAR(DATEVALUE(Date_of_Receipt__c))+4, 2, 29),
+        DATE(YEAR(DATEVALUE(Date_of_Receipt__c))+4, MONTH(DATEVALUE(Date_of_Receipt__c)), DAY(DATEVALUE(Date_of_Receipt__c)))   )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Takes the date of receipt and adds 4 years to it.</inlineHelpText>
+        <label>Renewal Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Sampled_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sampled By</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Contact employé</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Pieces</relationshipLabel>
+        <relationshipName>Pieces</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sampling_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Sampling Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Status_Before_Sampling__c</fullName>
+        <externalId>false</externalId>
+        <label>Status (Before Sampling)</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status_Upon_Receipt__c</fullName>
+        <externalId>false</externalId>
+        <label>Status (Upon Receipt)</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Détruite</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Entreposé</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prêté</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rangé</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transféré</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Volume_Square_Feet__c</fullName>
+        <externalId>false</externalId>
+        <label>Volume (Square Feet)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <gender>Feminine</gender>
+    <label>Pièce</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>P-{0000}</displayFormat>
+        <label>Pieces Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Pièces</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Recieved_By_Check</fullName>
+        <active>true</active>
+        <description>Checks to make sure &quot;Received By&quot; has a value when there is a &quot;Date of Receipt&quot;.</description>
+        <errorConditionFormula>ISBLANK(Recieved_By__c)
+
+&amp;&amp;
+
+NOT(ISBLANK( Date_of_Receipt__c ))</errorConditionFormula>
+        <errorDisplayField>Recieved_By__c</errorDisplayField>
+        <errorMessage>If &quot;Date of Recept&quot; has a value then &quot;Recieved By&quot; needs to have a value.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Sampled_By_Check</fullName>
+        <active>true</active>
+        <description>Checks to make sure &quot;Sampled By&quot; has a value when there is a &quot;Sampled Date&quot;.</description>
+        <errorConditionFormula>ISBLANK(Sampled_By__c)
+
+&amp;&amp;
+
+NOT(ISBLANK(Sampling_Date__c))</errorConditionFormula>
+        <errorDisplayField>Sampled_By__c</errorDisplayField>
+        <errorMessage>If &quot;Sampling Date&quot; has a value then &quot;Sampled By&quot; needs to have a value.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Sampling_Receiption_Date_Check</fullName>
+        <active>true</active>
+        <description>One of &quot;Sampling Date&quot; OR &quot;Date of Receipt&quot; have to have a value.</description>
+        <errorConditionFormula>ISBLANK(Sampling_Date__c) 
+
+&amp;&amp;
+
+ISBLANK(Date_of_Receipt__c)</errorConditionFormula>
+        <errorMessage>Please make sure either &quot;Date of Receipt&quot; OR &quot;Sampling Date&quot; has a value.</errorMessage>
+    </validationRules>
+</CustomObject>

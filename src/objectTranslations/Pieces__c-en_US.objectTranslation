@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Piece</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Pieces</value>
+    </caseValues>
+    <fields>
+        <label><!-- Branch --></label>
+        <name>Branch__c</name>
+        <picklistValues>
+            <masterLabel>Laval</masterLabel>
+            <translation><!-- Laval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ottawa</masterLabel>
+            <translation><!-- Ottawa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Québec</masterLabel>
+            <translation><!-- Québec --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toronto</masterLabel>
+            <translation><!-- Toronto --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Volume (Square Feet) * 100 --></help>
+        <label><!-- Cost --></label>
+        <name>Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Receipt --></label>
+        <name>Date_of_Receipt__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization --></label>
+        <name>Organization__c</name>
+        <relationshipLabel><!-- Pieces --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Projet Number --></label>
+        <name>Projet_Number__c</name>
+        <relationshipLabel><!-- Pieces --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Recieved By --></label>
+        <name>Recieved_By__c</name>
+        <relationshipLabel><!-- Pieces (Recieved By) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Takes the date of receipt and adds 4 years to it. --></help>
+        <label><!-- Renewal Date --></label>
+        <name>Renewal_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sampled By --></label>
+        <name>Sampled_By__c</name>
+        <relationshipLabel><!-- Pieces --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sampling Date --></label>
+        <name>Sampling_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status (Before Sampling) --></label>
+        <name>Status_Before_Sampling__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status (Upon Receipt) --></label>
+        <name>Status_Upon_Receipt__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Détruite</masterLabel>
+            <translation><!-- Détruite --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Entreposé</masterLabel>
+            <translation><!-- Entreposé --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prêté</masterLabel>
+            <translation><!-- Prêté --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rangé</masterLabel>
+            <translation><!-- Rangé --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transféré</masterLabel>
+            <translation><!-- Transféré --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Volume (Square Feet) --></label>
+        <name>Volume_Square_Feet__c</name>
+    </fields>
+    <layouts>
+        <layout>Piece Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Pieces Number --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- If &quot;Date of Recept&quot; has a value then &quot;Recieved By&quot; needs to have a value. --></errorMessage>
+        <name>Recieved_By_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If &quot;Sampling Date&quot; has a value then &quot;Sampled By&quot; needs to have a value. --></errorMessage>
+        <name>Sampled_By_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please make sure either &quot;Date of Receipt&quot; OR &quot;Sampling Date&quot; has a value. --></errorMessage>
+        <name>Sampling_Receiption_Date_Check</name>
+    </validationRules>
+</CustomObjectTranslation>

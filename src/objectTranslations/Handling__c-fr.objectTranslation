@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Manipulation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Manipulations</value>
+    </caseValues>
+    <fields>
+        <label>Commentaire</label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label>Manipulé par</label>
+        <name>Handled_By__c</name>
+        <relationshipLabel><!-- Handlings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Date de fin de manipulation</label>
+        <name>Handling_End_Date__c</name>
+    </fields>
+    <fields>
+        <label>Date de début de manipulation</label>
+        <name>Handling_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label>Type de manipulation</label>
+        <name>Handling_Type__c</name>
+        <picklistValues>
+            <masterLabel>Division</masterLabel>
+            <translation><!-- Division --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Essai</masterLabel>
+            <translation><!-- Essai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Examen</masterLabel>
+            <translation><!-- Examen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Préparation</masterLabel>
+            <translation><!-- Préparation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Numéro de pièce</label>
+        <name>Piece_Number__c</name>
+        <relationshipLabel><!-- Handlings --></relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Handling Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Numéro de manipulation</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

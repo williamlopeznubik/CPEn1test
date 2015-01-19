@@ -29,6 +29,10 @@
         <name>All</name>
     </customLabels>
     <customLabels>
+        <label><!-- Current Demande d&apos;expertise --></label>
+        <name>Current_Demande_d_expertise</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Enter a location --></label>
         <name>Enter_a_location</name>
     </customLabels>
@@ -39,6 +43,22 @@
     <customLabels>
         <label><!-- Geocodes --></label>
         <name>Geocodes</name>
+    </customLabels>
+    <customLabels>
+        <label>Les taux pour ce compte sont valides jusqu&apos;au date:</label>
+        <name>Has_Rate</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucun taux est présentement établi pour ce compte.</label>
+        <name>Missing_Rate</name>
+    </customLabels>
+    <customLabels>
+        <label>Un conflit existe concernant les dates des taux associés a ce compte.</label>
+        <name>Multiple_Rate_Conflict</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New Demande d&apos;expertise --></label>
+        <name>New_Demande_d_expertise</name>
     </customLabels>
     <customLabels>
         <label><!-- Reject --></label>
@@ -20355,6 +20375,44 @@
         <sections>
             <label><!-- Rôles du contact --></label>
             <name>Rôles du contact</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Organisations with Projets with Pièces with Handlings --></description>
+        <label><!-- Organisations with Projets with Pièces with Handlings --></label>
+        <name>Organisations_with_Projets_with_Pi_ces_with_Handlings</name>
+        <sections>
+            <label><!-- Handlings --></label>
+            <name>Handlings</name>
+        </sections>
+        <sections>
+            <label><!-- Organisations --></label>
+            <name>Organisations</name>
+        </sections>
+        <sections>
+            <label><!-- Pieces --></label>
+            <name>Pieces</name>
+        </sections>
+        <sections>
+            <label><!-- Projets --></label>
+            <name>Projets</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Organisations with Projets with Pieces --></description>
+        <label><!-- Organisations with Projets with Pieces --></label>
+        <name>Organisations_with_Projets_with_Pieces</name>
+        <sections>
+            <label><!-- Organisations --></label>
+            <name>Organisations</name>
+        </sections>
+        <sections>
+            <label><!-- Pieces --></label>
+            <name>Pieces</name>
+        </sections>
+        <sections>
+            <label><!-- Projets --></label>
+            <name>Projets</name>
         </sections>
     </reportTypes>
     <reportTypes>
