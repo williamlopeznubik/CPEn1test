@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Building_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Building Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Bâtiment agricole</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Centre d&apos;achat</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Duplex résidentiel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Édifice public</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Entrepôt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ferme</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Garage commercial</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Garage résidentiel attaché</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Garage résidentiel détaché</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Immeuble à logements</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Immeuble à vocation commerciale</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Immeuble à vocation commerciale et résidentielle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Immeuble industriel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local commercial</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maison détachée</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maison de ville</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maison jumelée</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Remise (ou cabanon)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Résidence d&apos;étudiants/logements de chambres</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Résidence pour personnes âgées</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Résidence secondaire (chalet)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Triplex résidentiel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unité de condo commercial</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unité de condo industriel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unité de condo résidentiel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Equipment_Involved__c</fullName>
+        <externalId>false</externalId>
+        <label>Equipment Involved</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Armoire de branchement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Armoire de mesurage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Auget</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Autre</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Centrale à bio-masse / co-génération</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Centrale au gaz</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Centrale hydroélectrique</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Centrale photovoltaïque</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commutateur de transfert</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Compteur</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Condensateur</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conducteur de Branchement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conduit omnibus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cosse de jonction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Démarreur</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disjoncteur</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Entraînement à Fréquence Variable</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Éolienne</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Équipement de commutation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Générateur</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interrupteur</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Isolateur</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ligne de distribution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ligne de transport</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Moteur</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Onduleur</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Panneau de contrôle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Panneau de distribution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parafoudre</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Poste de transformation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Redresseur</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Système d’alarme (vol et incendie)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transformateur aérien</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transformateur sur socle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Individual_Directive__c</fullName>
+        <description>Directive particulière sur le format des conclusions</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Directive particulière sur le format des conclusions</inlineHelpText>
+        <label>Individual Directive</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Mandate_Objectives__c</fullName>
+        <externalId>false</externalId>
+        <label>Mandate Objectives</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Manufacturer__c</fullName>
+        <externalId>false</externalId>
+        <label>Manufacturer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Model__c</fullName>
+        <externalId>false</externalId>
+        <label>Model</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Note_for_the_Investigator__c</fullName>
+        <externalId>false</externalId>
+        <label>Note for the Investigator</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Other_Implicated_Experts__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Implicated Experts</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Places_Available__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Places Available</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Purchase_Installation_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Purchase/Installation Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Related_Projet__c</fullName>
+        <externalId>false</externalId>
+        <label>Related Projet</label>
+        <referenceTo>Projet__c</referenceTo>
+        <relationshipLabel>Group Info</relationshipLabel>
+        <relationshipName>Group_Info</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Year_of_Construction__c</fullName>
+        <externalId>false</externalId>
+        <label>Year of Construction</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <gender>Feminine</gender>
+    <label>Info par groupe</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>I-{0000}</displayFormat>
+        <label>Group Info Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Info par groupe</pluralLabel>
+    <recordTypes>
+        <fullName>G_nie_civil</fullName>
+        <active>true</active>
+        <label>Génie civil</label>
+        <picklistValues>
+            <picklist>Building_Type__c</picklist>
+            <values>
+                <fullName>Bâtiment agricole</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Centre d%27achat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplex résidentiel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entrepôt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ferme</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Garage commercial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Garage résidentiel attaché</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Garage résidentiel détaché</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immeuble industriel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immeuble à logements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immeuble à vocation commerciale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immeuble à vocation commerciale et résidentielle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local commercial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maison de ville</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maison détachée</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maison jumelée</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Remise %28ou cabanon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Résidence d%27étudiants%2Flogements de chambres</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Résidence pour personnes âgées</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Résidence secondaire %28chalet%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Triplex résidentiel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unité de condo commercial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unité de condo industriel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unité de condo résidentiel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Édifice public</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Equipment_Involved__c</picklist>
+            <values>
+                <fullName>Armoire de branchement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Armoire de mesurage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auget</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Centrale au gaz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Centrale hydroélectrique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Centrale photovoltaïque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Centrale à bio-masse %2F co-génération</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commutateur de transfert</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Compteur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Condensateur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conducteur de Branchement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conduit omnibus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cosse de jonction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disjoncteur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Démarreur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entraînement à Fréquence Variable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Générateur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interrupteur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Isolateur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ligne de distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ligne de transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moteur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onduleur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Panneau de contrôle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Panneau de distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parafoudre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poste de transformation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Redresseur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Système d%E2%80%99alarme %28vol et incendie%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transformateur aérien</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transformateur sur socle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Éolienne</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Équipement de commutation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>G_nie_lectrique</fullName>
+        <active>true</active>
+        <label>Génie électrique</label>
+        <picklistValues>
+            <picklist>Building_Type__c</picklist>
+            <values>
+                <fullName>Bâtiment agricole</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Centre d%27achat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplex résidentiel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entrepôt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ferme</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Garage commercial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Garage résidentiel attaché</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Garage résidentiel détaché</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immeuble industriel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immeuble à logements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immeuble à vocation commerciale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immeuble à vocation commerciale et résidentielle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local commercial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maison de ville</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maison détachée</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maison jumelée</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Remise %28ou cabanon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Résidence d%27étudiants%2Flogements de chambres</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Résidence pour personnes âgées</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Résidence secondaire %28chalet%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Triplex résidentiel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unité de condo commercial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unité de condo industriel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unité de condo résidentiel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Édifice public</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Equipment_Involved__c</picklist>
+            <values>
+                <fullName>Armoire de branchement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Armoire de mesurage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auget</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Centrale au gaz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Centrale hydroélectrique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Centrale photovoltaïque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Centrale à bio-masse %2F co-génération</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commutateur de transfert</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Compteur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Condensateur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conducteur de Branchement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conduit omnibus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cosse de jonction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disjoncteur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Démarreur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entraînement à Fréquence Variable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Générateur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interrupteur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Isolateur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ligne de distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ligne de transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moteur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onduleur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Panneau de contrôle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Panneau de distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parafoudre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poste de transformation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Redresseur</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Système d%E2%80%99alarme %28vol et incendie%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transformateur aérien</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transformateur sur socle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Éolienne</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Équipement de commutation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>
