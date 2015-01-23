@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Info par groupe</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Info par groupe</value>
+    </caseValues>
+    <fields>
+        <label>Type de bâtiment</label>
+        <name>Building_Type__c</name>
+        <picklistValues>
+            <masterLabel>Bâtiment agricole</masterLabel>
+            <translation><!-- Bâtiment agricole --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Centre d&apos;achat</masterLabel>
+            <translation><!-- Centre d&apos;achat --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duplex résidentiel</masterLabel>
+            <translation><!-- Duplex résidentiel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Entrepôt</masterLabel>
+            <translation><!-- Entrepôt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ferme</masterLabel>
+            <translation><!-- Ferme --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Garage commercial</masterLabel>
+            <translation><!-- Garage commercial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Garage résidentiel attaché</masterLabel>
+            <translation><!-- Garage résidentiel attaché --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Garage résidentiel détaché</masterLabel>
+            <translation><!-- Garage résidentiel détaché --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immeuble industriel</masterLabel>
+            <translation><!-- Immeuble industriel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immeuble à logements</masterLabel>
+            <translation><!-- Immeuble à logements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immeuble à vocation commerciale</masterLabel>
+            <translation><!-- Immeuble à vocation commerciale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immeuble à vocation commerciale et résidentielle</masterLabel>
+            <translation><!-- Immeuble à vocation commerciale et résidentielle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local commercial</masterLabel>
+            <translation><!-- Local commercial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maison de ville</masterLabel>
+            <translation><!-- Maison de ville --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maison détachée</masterLabel>
+            <translation><!-- Maison détachée --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maison jumelée</masterLabel>
+            <translation><!-- Maison jumelée --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remise (ou cabanon)</masterLabel>
+            <translation><!-- Remise (ou cabanon) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Résidence d&apos;étudiants/logements de chambres</masterLabel>
+            <translation><!-- Résidence d&apos;étudiants/logements de chambres --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Résidence pour personnes âgées</masterLabel>
+            <translation><!-- Résidence pour personnes âgées --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Résidence secondaire (chalet)</masterLabel>
+            <translation><!-- Résidence secondaire (chalet) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Triplex résidentiel</masterLabel>
+            <translation><!-- Triplex résidentiel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unité de condo commercial</masterLabel>
+            <translation><!-- Unité de condo commercial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unité de condo industriel</masterLabel>
+            <translation><!-- Unité de condo industriel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unité de condo résidentiel</masterLabel>
+            <translation><!-- Unité de condo résidentiel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Édifice public</masterLabel>
+            <translation><!-- Édifice public --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Équipement en cause</label>
+        <name>Equipment_Involved__c</name>
+        <picklistValues>
+            <masterLabel>Armoire de branchement</masterLabel>
+            <translation><!-- Armoire de branchement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Armoire de mesurage</masterLabel>
+            <translation><!-- Armoire de mesurage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auget</masterLabel>
+            <translation><!-- Auget --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autre</masterLabel>
+            <translation><!-- Autre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Centrale au gaz</masterLabel>
+            <translation><!-- Centrale au gaz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Centrale hydroélectrique</masterLabel>
+            <translation><!-- Centrale hydroélectrique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Centrale photovoltaïque</masterLabel>
+            <translation><!-- Centrale photovoltaïque --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Centrale à bio-masse / co-génération</masterLabel>
+            <translation><!-- Centrale à bio-masse / co-génération --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commutateur de transfert</masterLabel>
+            <translation><!-- Commutateur de transfert --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compteur</masterLabel>
+            <translation><!-- Compteur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Condensateur</masterLabel>
+            <translation><!-- Condensateur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conducteur de Branchement</masterLabel>
+            <translation><!-- Conducteur de Branchement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conduit omnibus</masterLabel>
+            <translation><!-- Conduit omnibus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cosse de jonction</masterLabel>
+            <translation><!-- Cosse de jonction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disjoncteur</masterLabel>
+            <translation><!-- Disjoncteur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Démarreur</masterLabel>
+            <translation><!-- Démarreur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Entraînement à Fréquence Variable</masterLabel>
+            <translation><!-- Entraînement à Fréquence Variable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Générateur</masterLabel>
+            <translation><!-- Générateur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interrupteur</masterLabel>
+            <translation><!-- Interrupteur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Isolateur</masterLabel>
+            <translation><!-- Isolateur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ligne de distribution</masterLabel>
+            <translation><!-- Ligne de distribution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ligne de transport</masterLabel>
+            <translation><!-- Ligne de transport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moteur</masterLabel>
+            <translation><!-- Moteur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onduleur</masterLabel>
+            <translation><!-- Onduleur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Panneau de contrôle</masterLabel>
+            <translation><!-- Panneau de contrôle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Panneau de distribution</masterLabel>
+            <translation><!-- Panneau de distribution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parafoudre</masterLabel>
+            <translation><!-- Parafoudre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poste de transformation</masterLabel>
+            <translation><!-- Poste de transformation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Redresseur</masterLabel>
+            <translation><!-- Redresseur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Système d’alarme (vol et incendie)</masterLabel>
+            <translation><!-- Système d’alarme (vol et incendie) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transformateur aérien</masterLabel>
+            <translation><!-- Transformateur aérien --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transformateur sur socle</masterLabel>
+            <translation><!-- Transformateur sur socle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Éolienne</masterLabel>
+            <translation><!-- Éolienne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Équipement de commutation</masterLabel>
+            <translation><!-- Équipement de commutation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Directive particulière sur le format des conclusions --></help>
+        <label>Directive particulière</label>
+        <name>Individual_Directive__c</name>
+    </fields>
+    <fields>
+        <label>Objectifs du mandat</label>
+        <name>Mandate_Objectives__c</name>
+    </fields>
+    <fields>
+        <label>Manufacturier</label>
+        <name>Manufacturer__c</name>
+    </fields>
+    <fields>
+        <label>Modèle</label>
+        <name>Model__c</name>
+    </fields>
+    <fields>
+        <label>Note à l&apos;investigateur</label>
+        <name>Note_for_the_Investigator__c</name>
+    </fields>
+    <fields>
+        <label>Autres experts impliqués</label>
+        <name>Other_Implicated_Experts__c</name>
+    </fields>
+    <fields>
+        <label>Lieux accessibles</label>
+        <name>Places_Available__c</name>
+    </fields>
+    <fields>
+        <label>Date d&apos;achat ou installation</label>
+        <name>Purchase_Installation_Date__c</name>
+    </fields>
+    <fields>
+        <label>Projet</label>
+        <name>Related_Projet__c</name>
+        <relationshipLabel><!-- Group Info --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Année de construction</label>
+        <name>Year_of_Construction__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Group Info - Génie civil</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Group Info - Génie électrique</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Info par groupe numéro</nameFieldLabel>
+    <recordTypes>
+        <label><!-- Génie civil --></label>
+        <name>G_nie_civil</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Génie électrique --></label>
+        <name>G_nie_lectrique</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
