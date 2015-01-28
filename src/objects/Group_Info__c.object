@@ -164,6 +164,26 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Circumstances_of_the_Incident__c</fullName>
+        <externalId>false</externalId>
+        <label>Circumstances of the Incident</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Documentation_de_l_environnement__c</fullName>
+        <description>Documentation de l&apos;environnement de la pièce avant prélèvement</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Documentation de l&apos;environnement de la pièce avant prélèvement</inlineHelpText>
+        <label>Documentation of the Room (Pre-Sampling)</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
         <fullName>Equipment_Involved__c</fullName>
         <externalId>false</externalId>
         <label>Equipment Involved</label>
@@ -310,6 +330,17 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Identify_the_Parts_Taken_From_Others__c</fullName>
+        <description>Identifier les pièces prélevés par d&apos;autres</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifier les pièces prélevés par d&apos;autres</inlineHelpText>
+        <label>Identify the Parts Taken From Others</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>Individual_Directive__c</fullName>
         <description>Directive particulière sur le format des conclusions</description>
         <externalId>false</externalId>
@@ -321,9 +352,28 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Keybox_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Keybox Code</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Mandate_Objectives__c</fullName>
         <externalId>false</externalId>
         <label>Mandate Objectives</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Mandate__c</fullName>
+        <externalId>false</externalId>
+        <label>Mandate</label>
         <length>32768</length>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
@@ -340,9 +390,114 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Manufacturing__c</fullName>
+        <externalId>false</externalId>
+        <label>Manufacturing</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Measures_Taken__c</fullName>
+        <externalId>false</externalId>
+        <label>Measures Taken</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Mechanical_Engineer_Subtype__c</fullName>
+        <externalId>false</externalId>
+        <label>Mechanical Engineer Subtype</label>
+        <picklist>
+            <controllingField>Type_of_Mechanical_Engineer__c</controllingField>
+            <picklistValues>
+                <fullName>Appareil de levage</fullName>
+                <controllingFieldValues>Général</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Appareil domestique</fullName>
+                <controllingFieldValues>Bâtiments</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Blessures corporelles</fullName>
+                <controllingFieldValues>Général</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chauffage</fullName>
+                <controllingFieldValues>Bâtiments</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Climatisation</fullName>
+                <controllingFieldValues>Bâtiments</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Combustion et appareils à gaz</fullName>
+                <controllingFieldValues>Général</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Machinerie et équipement</fullName>
+                <controllingFieldValues>Général</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plomberie</fullName>
+                <controllingFieldValues>Bâtiments</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Procédés industriels</fullName>
+                <controllingFieldValues>Général</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Protection d&apos;incendie</fullName>
+                <controllingFieldValues>Bâtiments</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Réfrigération</fullName>
+                <controllingFieldValues>Bâtiments</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transport</fullName>
+                <controllingFieldValues>Général</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ventilation</fullName>
+                <controllingFieldValues>Bâtiments</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Model__c</fullName>
         <externalId>false</externalId>
         <label>Model</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nature_of_the_Incident__c</fullName>
+        <externalId>false</externalId>
+        <label>Nature of the Incident</label>
         <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -362,6 +517,24 @@
         <fullName>Other_Implicated_Experts__c</fullName>
         <externalId>false</externalId>
         <label>Other Implicated Experts</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Part_Purchased_And_Or_Installed_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Part Purchased And/Or Installed By</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Part_Sampled_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Part Sampled By</label>
         <length>32768</length>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
@@ -395,6 +568,102 @@
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Serial_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Serial Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Spill_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Spill Amount</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Spill_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Spill Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Subcontractor_Invoice_Sent__c</fullName>
+        <externalId>false</externalId>
+        <label>Subcontractor Invoice Sent</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Type_of_Materials__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Materials</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Céramique/Verre</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Métaux/Non-Métaux</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Polymère/Plastique</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Type_of_Mechanical_Engineer__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Mechanical Engineer</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Bâtiments</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Général</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Type_of_Spill__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Spill</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Year</label>
+        <length>4</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Year_of_Construction__c</fullName>
@@ -666,6 +935,87 @@
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Mechanical_Engineer_Subtype__c</picklist>
+            <values>
+                <fullName>Appareil de levage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Appareil domestique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Blessures corporelles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chauffage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Climatisation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Combustion et appareils à gaz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinerie et équipement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plomberie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Procédés industriels</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Protection d%27incendie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Réfrigération</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ventilation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Materials__c</picklist>
+            <values>
+                <fullName>Céramique%2FVerre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Métaux%2FNon-Métaux</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Polymère%2FPlastique</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Mechanical_Engineer__c</picklist>
+            <values>
+                <fullName>Bâtiments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Général</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>G_nie_lectrique</fullName>
@@ -910,6 +1260,87 @@
             </values>
             <values>
                 <fullName>Équipement de commutation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Mechanical_Engineer_Subtype__c</picklist>
+            <values>
+                <fullName>Appareil de levage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Appareil domestique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Blessures corporelles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chauffage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Climatisation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Combustion et appareils à gaz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinerie et équipement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plomberie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Procédés industriels</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Protection d%27incendie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Réfrigération</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ventilation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Materials__c</picklist>
+            <values>
+                <fullName>Céramique%2FVerre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Métaux%2FNon-Métaux</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Polymère%2FPlastique</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Mechanical_Engineer__c</picklist>
+            <values>
+                <fullName>Bâtiments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Général</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

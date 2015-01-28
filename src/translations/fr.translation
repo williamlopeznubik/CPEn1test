@@ -33,8 +33,24 @@
         <name>All</name>
     </customLabels>
     <customLabels>
+        <label>Le compte relié à ce projet est éligible à une entente particulière de type CEPXpress.</label>
+        <name>CEPExpress_Message</name>
+    </customLabels>
+    <customLabels>
         <label><!-- You can not edit the Address unless from Step 2 --></label>
         <name>CanNotEditAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Convert Status Error --></label>
+        <name>Convert_Status_Error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Convert Unexpected Error --></label>
+        <name>Convert_Unexpected_Error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Convert validations --></label>
+        <name>Convert_validations</name>
     </customLabels>
     <customLabels>
         <label><!-- Current Demande d&apos;expertise --></label>
@@ -69,6 +85,10 @@
         <name>New_Demande_d_expertise</name>
     </customLabels>
     <customLabels>
+        <label>Le compte relié à ce projet est éligible à une entente particulière de type piscine.</label>
+        <name>Pool_Message</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Reject --></label>
         <name>Reject</name>
     </customLabels>
@@ -99,6 +119,10 @@
     <customLabels>
         <label><!-- Validation de la date du sinistre --></label>
         <name>Validation_de_la_date_du_sinistre</name>
+    </customLabels>
+    <customLabels>
+        <label>Le compte relié à ce projet est éligible à une entente particulière de type véhicule.</label>
+        <name>Vehicle_Message</name>
     </customLabels>
     <customLabels>
         <label><!-- common.error.invalid-field --></label>
@@ -26444,6 +26468,10 @@
         <label><!-- GroupMaster --></label>
         <name>GroupMaster</name>
     </customTabs>
+    <customTabs>
+        <label><!-- Tax Display --></label>
+        <name>Tax_Display</name>
+    </customTabs>
     <quickActions>
         <label><!-- LogACall --></label>
         <name>LogACall</name>
@@ -26571,16 +26599,8 @@
         <label><!-- Organisations with Projets with Pièces with Handlings --></label>
         <name>Organisations_with_Projets_with_Pi_ces_with_Handlings</name>
         <sections>
-            <label><!-- Handlings --></label>
-            <name>Handlings</name>
-        </sections>
-        <sections>
             <label><!-- Organisations --></label>
             <name>Organisations</name>
-        </sections>
-        <sections>
-            <label><!-- Pieces --></label>
-            <name>Pieces</name>
         </sections>
         <sections>
             <label><!-- Projets --></label>
@@ -26596,12 +26616,42 @@
             <name>Organisations</name>
         </sections>
         <sections>
+            <label><!-- Projets --></label>
+            <name>Projets</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Projects with Mandants with Payants --></description>
+        <label><!-- Projects with Mandants with Payants --></label>
+        <name>Projects_with_Mandants_with_Payants</name>
+        <sections>
+            <label><!-- Mandants --></label>
+            <name>Mandants</name>
+        </sections>
+        <sections>
+            <label><!-- Payants --></label>
+            <name>Payants</name>
+        </sections>
+        <sections>
+            <label><!-- Projects --></label>
+            <name>Projects</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Projects with Pieces with Handlings --></description>
+        <label><!-- Projects with Pieces with Handlings --></label>
+        <name>Projects_with_Pieces_with_Handlings</name>
+        <sections>
+            <label><!-- Handlings --></label>
+            <name>Handlings</name>
+        </sections>
+        <sections>
             <label><!-- Pieces --></label>
             <name>Pieces</name>
         </sections>
         <sections>
-            <label><!-- Projets --></label>
-            <name>Projets</name>
+            <label><!-- Projects --></label>
+            <name>Projects</name>
         </sections>
     </reportTypes>
     <reportTypes>

@@ -113,6 +113,15 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Circumstances of the Incident --></label>
+        <name>Circumstances_of_the_Incident__c</name>
+    </fields>
+    <fields>
+        <help><!-- Documentation de l&apos;environnement de la pièce avant prélèvement --></help>
+        <label><!-- Documentation of the Room (Pre-Sampling) --></label>
+        <name>Documentation_de_l_environnement__c</name>
+    </fields>
+    <fields>
         <label><!-- Equipment Involved --></label>
         <name>Equipment_Involved__c</name>
         <picklistValues>
@@ -253,21 +262,102 @@
         </picklistValues>
     </fields>
     <fields>
+        <help><!-- Identifier les pièces prélevés par d&apos;autres --></help>
+        <label><!-- Identify the Parts Taken From Others --></label>
+        <name>Identify_the_Parts_Taken_From_Others__c</name>
+    </fields>
+    <fields>
         <help><!-- Directive particulière sur le format des conclusions --></help>
         <label><!-- Individual Directive --></label>
         <name>Individual_Directive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Keybox Code --></label>
+        <name>Keybox_Code__c</name>
     </fields>
     <fields>
         <label><!-- Mandate Objectives --></label>
         <name>Mandate_Objectives__c</name>
     </fields>
     <fields>
+        <label><!-- Mandate --></label>
+        <name>Mandate__c</name>
+    </fields>
+    <fields>
         <label><!-- Manufacturer --></label>
         <name>Manufacturer__c</name>
     </fields>
     <fields>
+        <label><!-- Manufacturing --></label>
+        <name>Manufacturing__c</name>
+    </fields>
+    <fields>
+        <label><!-- Measures Taken --></label>
+        <name>Measures_Taken__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mechanical Engineer Subtype --></label>
+        <name>Mechanical_Engineer_Subtype__c</name>
+        <picklistValues>
+            <masterLabel>Appareil de levage</masterLabel>
+            <translation><!-- Appareil de levage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Appareil domestique</masterLabel>
+            <translation><!-- Appareil domestique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blessures corporelles</masterLabel>
+            <translation><!-- Blessures corporelles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chauffage</masterLabel>
+            <translation><!-- Chauffage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Climatisation</masterLabel>
+            <translation><!-- Climatisation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Combustion et appareils à gaz</masterLabel>
+            <translation><!-- Combustion et appareils à gaz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Machinerie et équipement</masterLabel>
+            <translation><!-- Machinerie et équipement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plomberie</masterLabel>
+            <translation><!-- Plomberie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Procédés industriels</masterLabel>
+            <translation><!-- Procédés industriels --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Protection d&apos;incendie</masterLabel>
+            <translation><!-- Protection d&apos;incendie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Réfrigération</masterLabel>
+            <translation><!-- Réfrigération --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transport</masterLabel>
+            <translation><!-- Transport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ventilation</masterLabel>
+            <translation><!-- Ventilation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Model --></label>
         <name>Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nature of the Incident --></label>
+        <name>Nature_of_the_Incident__c</name>
     </fields>
     <fields>
         <label><!-- Note for the Investigator --></label>
@@ -276,6 +366,14 @@
     <fields>
         <label><!-- Other Implicated Experts --></label>
         <name>Other_Implicated_Experts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Part Purchased And/Or Installed By --></label>
+        <name>Part_Purchased_And_Or_Installed_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- Part Sampled By --></label>
+        <name>Part_Sampled_By__c</name>
     </fields>
     <fields>
         <label><!-- Places Available --></label>
@@ -291,11 +389,84 @@
         <relationshipLabel><!-- Group Info --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Serial Number --></label>
+        <name>Serial_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Spill Amount --></label>
+        <name>Spill_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Spill Date --></label>
+        <name>Spill_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subcontractor Invoice Sent --></label>
+        <name>Subcontractor_Invoice_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type of Materials --></label>
+        <name>Type_of_Materials__c</name>
+        <picklistValues>
+            <masterLabel>Céramique/Verre</masterLabel>
+            <translation><!-- Céramique/Verre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Métaux/Non-Métaux</masterLabel>
+            <translation><!-- Métaux/Non-Métaux --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Polymère/Plastique</masterLabel>
+            <translation><!-- Polymère/Plastique --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type of Mechanical Engineer --></label>
+        <name>Type_of_Mechanical_Engineer__c</name>
+        <picklistValues>
+            <masterLabel>Bâtiments</masterLabel>
+            <translation><!-- Bâtiments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Général</masterLabel>
+            <translation><!-- Général --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type of Spill --></label>
+        <name>Type_of_Spill__c</name>
+    </fields>
+    <fields>
+        <label><!-- Year --></label>
+        <name>Year__c</name>
+    </fields>
+    <fields>
         <label><!-- Year of Construction --></label>
         <name>Year_of_Construction__c</name>
     </fields>
     <layouts>
         <layout>Group Info - Génie civil</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Group Info - Génie environmental</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Group Info - Génie matériaux</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Group Info - Génie mécanique</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
